@@ -75,8 +75,7 @@ img {
   position: relative;
   overflow: hidden;
 
-  background-image:
-    url("./tnau-campus.jpg");
+  background-image:none;
 
   background-size: cover;
   background-position: center;
@@ -340,8 +339,7 @@ img {
   position: relative;
   overflow: hidden;
 
-  background-image:
-    url("./vvnr-campus.jpg");
+  background-image:none;
 
   background-size: cover;
   background-position: center;
@@ -3328,7 +3326,7 @@ footer{background:var(--gf-dark);border-top:4px solid var(--gf-gold)}
  .history-stats span{font-size:8px}
 }
 
-/* GreenFarm repository integration: use self-contained institutional surfaces. */
+/* GreenFarm repository integration: self-contained institutional surfaces. */
 .tnau-header{background-image:none!important;background-color:#f4f8f5}
 .hero{background-image:none!important;background-color:#164b2d}
 .tnau-logo{display:grid;place-items:center;border-radius:50%;background:#fff;border:2px solid rgba(7,85,47,.2);box-shadow:0 5px 15px rgba(0,0,0,.12)}

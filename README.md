@@ -21,7 +21,7 @@ GreenFarm is a responsive digital agriculture platform designed to organize crop
 - 📅 Farm activities and task tracking
 - 💰 Income and expense records
 - 📊 Farm analytics dashboard
-- 📄 Printable reports
+- 🌦️ Weather observations and soil test records\n- 💧 Irrigation planning and IPM scouting\n- 🌾 Harvest tracking, farm finance and inventory\n- 👨‍🌾 Farmer and farm profile\n- 💾 JSON backup and restore; print / Save as PDF reports
 - 💾 Local browser data storage — no Supabase or backend required
 - 📤 Data export/backup-ready architecture
 - 📱 Responsive mobile and desktop interface
@@ -38,7 +38,7 @@ GreenFarm is a responsive digital agriculture platform designed to organize crop
 | Livestock | Animal groups and health records |
 | Activities | Daily farm operations and tasks |
 | Analytics | Yield, revenue and farm performance |
-| Reports | Farm summaries and print-ready reports |
+| Farm tools | Weather, soil, irrigation, IPM, harvest, finance, inventory and profile records |\n| Reports | Farm summaries and print-ready reports |\n| Backup | Export and restore JSON backups on this device |
 | Admin | Project settings and management |
 
 ## 🛠️ Technology
@@ -74,7 +74,7 @@ GreenFarm/
 
 GreenFarm stores application records locally in the browser using LocalStorage. This keeps the GitHub Pages deployment simple and allows the project to work without a server.
 
-For real multi-user deployment, a backend can be added later without redesigning the frontend modules.
+The Weather module records manual local observations and makes no external API calls. All editable Farm tools data stays in this browser; export a JSON backup to move it to another device.
 
 ## 🚀 GitHub Pages
 

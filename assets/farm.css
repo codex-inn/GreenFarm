@@ -4,3 +4,38 @@
 @media(max-width:650px){.farm-shell{padding:20px 4% 50px}.farm-hero{display:block;padding:25px 22px}.hero-actions{margin-top:17px}.summary-grid{grid-template-columns:repeat(2,1fr)}.module-menu{grid-template-columns:repeat(2,1fr)}.module-section{padding:17px}.form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-heading{align-items:flex-start;flex-direction:column}.report-header{display:block}.report-header>div+div{margin-top:12px}}
 @media print{body{background:#fff;color:#000;font-size:10pt}.gf-header,.gf-nav,.gf-footer,.farm-hero,.summary-grid,.module-menu,.record-form,.section-heading .button,#backup,.toast{display:none!important}.farm-shell{max-width:none;padding:0}.workspace-layout{display:block}.module-section{border:0;box-shadow:none;padding:0;margin:0 0 16px;break-inside:avoid}.module-section:not(#reports){display:none!important}#reports{display:block!important}.report-output{border:0;padding:0}.report-section{break-inside:avoid}table{font-size:9pt}th,td{padding:5px 6px}.report-header{padding-top:8px}}
 
+
+
+/* Workspace safeguards for narrow screens and wide record tables */
+.farm-shell,.workspace-layout,.workspace-content,.module-section{min-width:0}
+.table-wrap{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.table-wrap table{min-width:680px}
+.data-form,.report-output{min-width:0}
+.form-grid label{min-width:0;overflow-wrap:anywhere}
+.form-grid input,.form-grid select{min-height:42px}
+.button{min-height:42px}
+@media(max-width:650px){
+  .farm-shell{padding:18px 4% 44px}
+  .farm-hero{padding:23px 19px}
+  .hero-actions{display:grid;grid-template-columns:1fr}
+  .hero-actions>*{width:100%}
+  .summary-card{padding:13px}
+  .summary-card strong{font-size:clamp(17px,5vw,21px)}
+  .module-menu{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;padding:12px}
+  .module-menu a{min-width:0;font-size:12px;overflow-wrap:anywhere}
+  .module-section{padding:16px}
+  .section-heading{gap:10px}
+  .section-heading h2{font-size:22px}
+  .form-grid{grid-template-columns:minmax(0,1fr)}
+  .form-actions{flex-wrap:wrap}
+  .form-actions .button{flex:1 1 140px}
+  .backup-panel>*:not(p):not(small){flex:1 1 100%;width:100%}
+  .report-header h3{font-size:20px}
+  .toast{left:12px;right:12px;bottom:12px;text-align:center}
+}
+@media(max-width:380px){
+  .summary-grid{gap:8px}
+  .summary-card{padding:11px}
+  .module-menu{grid-template-columns:minmax(0,1fr)}
+  .module-menu strong{grid-column:auto}
+}

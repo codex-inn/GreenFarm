@@ -56,3 +56,46 @@ button,input,select,textarea{font:inherit}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* AgriVision inspired visual treatment for GreenFarm's existing pages */
+:root{--gf-green:#07552f;--gf-deep:#033b20;--gf-leaf:#197447;--gf-gold:#c59a22;--gf-gold-light:#e1c65d;--gf-paper:#f4f6f4;--gf-line:#dfe6e1}
+body{background:var(--gf-paper);color:#17231a}
+.gf-header{background:linear-gradient(110deg,#fff 0%,#f3f8f4 72%,#eaf3ed 100%);border-bottom:4px solid var(--gf-gold)}
+.gf-logo{border-color:#c8dccd;box-shadow:0 6px 18px rgba(3,59,32,.12)}
+.gf-name{color:var(--gf-deep)}
+.gf-sub,.institution{color:#725700}
+.gf-badge{border-color:#d4e2d7;border-top:3px solid var(--gf-gold);box-shadow:0 10px 26px rgba(3,59,32,.08)}
+.gf-nav{background:var(--gf-deep);box-shadow:0 4px 15px rgba(0,0,0,.16)}
+.gf-nav a{border-bottom-width:3px}
+.gf-nav a:hover,.gf-nav a.active{color:#fff;background:rgba(255,255,255,.08);border-bottom-color:var(--gf-gold-light)}
+.gf-hero{background-color:var(--gf-deep)}
+.gf-hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(3,59,32,.24),transparent 70%)}
+.gf-hero>*{position:relative;z-index:1}
+.gf-btn,.btn2,.button{background:var(--gf-green);border-radius:9px;box-shadow:0 4px 12px rgba(3,59,32,.12);transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.gf-btn:hover,.btn2:hover,.button:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(3,59,32,.18)}
+.gf-btn.gold{background:var(--gf-gold)}
+.gf-btn.gold:hover{background:#a98118}
+.module,.panel,.benefits div{border-color:var(--gf-line);border-radius:16px;box-shadow:0 8px 24px rgba(0,55,30,.06)}
+.module:hover{border-color:#b7d2c2;box-shadow:0 16px 34px rgba(0,55,30,.12)}
+.module>span,.panel .icon{display:inline-grid;place-items:center}
+.section-title small,.green-band small,.academic-band small,.page-hero small{color:var(--gf-gold)!important}
+.section-title h2,.panel h3,.page-hero h1{color:var(--gf-deep)}
+.green-band{background:linear-gradient(120deg,var(--gf-deep),var(--gf-green));border-top:4px solid var(--gf-gold)}
+.academic-band{border-top:1px solid var(--gf-line);border-bottom:1px solid var(--gf-line)}
+.submitter{border-left-color:var(--gf-gold);border-radius:12px}
+.page-hero{background:linear-gradient(125deg,var(--gf-deep),var(--gf-green))!important;border-top:4px solid var(--gf-gold);border-radius:16px!important;box-shadow:0 14px 30px rgba(3,59,32,.14)}
+.page-hero h1{color:#fff!important}
+.panel{background:#fff!important;border-color:var(--gf-line)!important;border-radius:15px!important}
+.btn2{background:var(--gf-green)!important}
+.btn2.alt{background:#edf5ef!important;color:var(--gf-green)!important;box-shadow:none}
+.bar{background:#e5eee7;border-radius:999px}
+.bar i{background:linear-gradient(90deg,var(--gf-green),var(--gf-leaf))}
+.auth-card{border-top:4px solid var(--gf-gold)}
+.gf-footer{border-top:4px solid var(--gf-gold)}
+@media(max-width:640px){
+ .module,.panel,.benefits div{border-radius:13px}
+ .gf-hero:after{background:linear-gradient(90deg,rgba(3,59,32,.48),rgba(3,59,32,.12))}
+ .gf-btn,.btn2,.button{min-height:42px}
+}
+@media(prefers-reduced-motion:reduce){.module:hover,.gf-btn:hover,.btn2:hover,.button:hover{transform:none}}

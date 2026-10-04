@@ -1,83 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="GreenFarm - Smart Digital Farm Management System">
-  <meta name="theme-color" content="#167a4b">
-  <title>GreenFarm | Smart Digital Farm Management</title>
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="GreenFarm - Smart Digital Farm Management System">
+<title>GreenFarm | Smart Digital Farm Management</title>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#"><span class="brand-mark">🌱</span><span>Green<span>Farm</span></span></a>
-    <nav>
-      <a href="#dashboard">Dashboard</a><a href="#crops">Crops</a><a href="#livestock">Livestock</a><a href="#tasks">Tasks</a><a href="#analytics">Analytics</a>
-    </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">SMART DIGITAL FARM MANAGEMENT</p>
-        <h1>Grow smarter.<br><span>Farm better.</span></h1>
-        <p class="hero-text">GreenFarm brings crops, livestock, activities, expenses and farm insights into one simple digital workspace.</p>
-        <div class="hero-actions"><a class="btn primary" href="#dashboard">Open Dashboard</a><a class="btn secondary" href="#features">Explore Features</a></div>
-      </div>
-      <div class="hero-card">
-        <div class="weather"><span>☀️</span><div><strong>28°C</strong><small>Good farming weather</small></div></div>
-        <div class="farm-score"><div><span>Farm Health</span><strong>86%</strong></div><div class="progress"><i style="width:86%"></i></div></div>
-        <div class="mini-grid"><div><b>12</b><small>Active Crops</small></div><div><b>24</b><small>Tasks</small></div><div><b>18</b><small>Livestock</small></div></div>
-      </div>
-    </section>
-
-    <section id="dashboard" class="section">
-      <div class="section-head"><div><p class="eyebrow">OVERVIEW</p><h2>Farm Dashboard</h2></div><button class="btn primary" id="addTaskBtn">＋ Add Task</button></div>
-      <div class="stats">
-        <article class="stat"><span>🌾</span><div><small>Active Crops</small><strong>12</strong><em>+2 this season</em></div></article>
-        <article class="stat"><span>💧</span><div><small>Soil Moisture</small><strong>68%</strong><em>Optimal range</em></div></article>
-        <article class="stat"><span>🐄</span><div><small>Livestock</small><strong>18</strong><em>All healthy</em></div></article>
-        <article class="stat"><span>💰</span><div><small>Monthly Revenue</small><strong>₹48,600</strong><em>+12.4%</em></div></article>
-      </div>
-    </section>
-
-    <section id="crops" class="section alt">
-      <div class="section-head"><div><p class="eyebrow">CROP MANAGEMENT</p><h2>Growing Crops</h2></div><button class="filter" id="cropFilter">All Crops ▾</button></div>
-      <div class="cards" id="cropCards">
-        <article class="crop-card"><div class="crop-icon">🍅</div><div class="crop-info"><h3>Tomato</h3><p>Field A · 46 days</p><div class="progress"><i style="width:78%"></i></div><small>78% growth</small></div><b class="status good">Healthy</b></article>
-        <article class="crop-card"><div class="crop-icon">🥬</div><div class="crop-info"><h3>Cabbage</h3><p>Field B · 31 days</p><div class="progress"><i style="width:64%"></i></div><small>64% growth</small></div><b class="status good">Healthy</b></article>
-        <article class="crop-card"><div class="crop-icon">🥕</div><div class="crop-info"><h3>Carrot</h3><p>Field C · 52 days</p><div class="progress"><i style="width:91%"></i></div><small>91% growth</small></div><b class="status warn">Harvest Soon</b></article>
-      </div>
-    </section>
-
-    <section id="livestock" class="section">
-      <div class="section-head"><div><p class="eyebrow">LIVESTOCK</p><h2>Animal Overview</h2></div><span class="live">● All records updated</span></div>
-      <div class="livestock-grid"><article><span>🐄</span><h3>Cattle</h3><strong>10</strong><small>Healthy: 10</small></article><article><span>🐐</span><h3>Goats</h3><strong>6</strong><small>Healthy: 5 · Check: 1</small></article><article><span>🐔</span><h3>Poultry</h3><strong>2</strong><small>Healthy: 2</small></article></div>
-    </section>
-
-    <section id="tasks" class="section alt">
-      <div class="section-head"><div><p class="eyebrow">FARM ACTIVITIES</p><h2>Today's Tasks</h2></div></div>
-      <div class="task-list" id="taskList">
-        <label class="task"><input type="checkbox"><span><b>Irrigate Field A</b><small>06:30 AM · Tomato field</small></span><em>Water</em></label>
-        <label class="task"><input type="checkbox"><span><b>Apply organic fertilizer</b><small>09:00 AM · Cabbage field</small></span><em>Fertilizer</em></label>
-        <label class="task"><input type="checkbox"><span><b>Check livestock health</b><small>05:00 PM · Cattle shed</small></span><em>Livestock</em></label>
-      </div>
-    </section>
-
-    <section id="analytics" class="section">
-      <div class="section-head"><div><p class="eyebrow">INSIGHTS</p><h2>Farm Analytics</h2></div></div>
-      <div class="analytics">
-        <article class="chart-card"><h3>Monthly Yield</h3><div class="bars"><i style="height:38%"><span>Jun</span></i><i style="height:52%"><span>Jul</span></i><i style="height:61%"><span>Aug</span></i><i style="height:74%"><span>Sep</span></i><i style="height:88%"><span>Oct</span></i></div></article>
-        <article class="insight-card"><span>🤖</span><h3>GreenFarm Insight</h3><p>Soil moisture is in a good range. Based on your current crop stage, the next irrigation window is tomorrow morning.</p><button class="btn secondary" id="insightBtn">View Recommendation</button></article>
-      </div>
-    </section>
-
-    <section id="features" class="section feature-section"><div class="section-head"><div><p class="eyebrow">PLATFORM</p><h2>Everything your farm needs</h2></div></div><div class="features"><div>🌱<b>Crop Management</b><span>Track growth, fields and harvest stages.</span></div><div>🐄<b>Livestock</b><span>Maintain animal health and activity records.</span></div><div>📅<b>Farm Calendar</b><span>Organize irrigation, fertilizer and harvest tasks.</span></div><div>📊<b>Analytics</b><span>Turn farm records into useful insights.</span></div><div>💰<b>Expenses</b><span>Track costs, revenue and profitability.</span></div><div>🌦️<b>Weather Ready</b><span>Connect weather data for better decisions.</span></div></div></section>
-  </main>
-
-  <footer><div class="brand"><span class="brand-mark">🌱</span><span>Green<span>Farm</span></span></div><p>Smart farming. Better decisions. Sustainable future.</p><small>© 2026 GreenFarm Project</small></footer>
-  <div class="toast" id="toast"></div>
-  <script src="assets/app.js"></script>
-</body>
-</html>
+<header class="gf-header">
+  <div class="gf-brand">
+    <div class="gf-logo">🌱</div>
+    <div><div class="gf-name">GreenFarm</div><div class="gf-sub">SMART DIGITAL FARM MANAGEMENT SYSTEM</div></div>
+    <div class="gf-badge"><small>PROJECT</small><strong>GREEN<br>FARM</strong></div>
+  </div>
+</header>
+<nav class="gf-nav">
+  <a class="active" href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="crops.html">Crops</a><a href="livestock.html">Livestock</a><a href="activities.html">Activities</a><a href="analytics.html">Analytics</a><a href="reports.html">Reports</a><a href="admin.html">Admin</a>
+</nav>
+<main>
+<section class="gf-hero">
+  <div class="hero-slide one"></div><div class="hero-slide two"></div><div class="hero-slide three"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-kicker">🌾 DIGITAL AGRICULTURE • SMART FARMING</p>
+    <h1>Smarter Farming.<br><span>Better Decisions.</span></h1>
+    <p>GreenFarm connects crops, livestock, farm activities, finances and analytics in one modern platform built for farmers and agricultural teams.</p>
+    <div class="hero-actions"><a class="gf-btn gold" href="dashboard.html">Open Farm Dashboard</a><a class="gf-btn ghost" href="#modules">Explore GreenFarm</a></div>
+  </div>
+</section>
+<section class="gf-strip"><div><b>🌱 12</b><span>Active Crops</span></div><div><b>🐄 18</b><span>Livestock</span></div><div><b>💧 68%</b><span>Soil Moisture</span></div><div><b>₹48.6K</b><span>Monthly Revenue</span></div></section>
+<section class="gf-section" id="modules">
+  <div class="section-title"><small>GREENFARM PLATFORM</small><h2>Everything your farm needs</h2><p>One place to record operations, monitor farm health and turn agricultural data into useful decisions.</p></div>
+  <div class="module-grid">
+    <a href="crops.html" class="module"><span>🌱</span><h3>Crop Management</h3><p>Track fields, crops, growth stages, irrigation and harvest planning.</p><b>Manage crops →</b></a>
+    <a href="livestock.html" class="module"><span>🐄</span><h3>Livestock</h3><p>Maintain animal groups, health checks, feeding and farm records.</p><b>Open livestock →</b></a>
+    <a href="activities.html" class="module"><span>📅</span><h3>Farm Activities</h3><p>Plan irrigation, fertilizer, spraying, harvesting and daily tasks.</p><b>View activities →</b></a>
+    <a href="analytics.html" class="module"><span>📊</span><h3>Analytics</h3><p>Understand yield, revenue, expenses and farm performance.</p><b>View analytics →</b></a>
+    <a href="reports.html" class="module"><span>📄</span><h3>Reports</h3><p>Prepare clean farm summaries for printing, sharing and records.</p><b>Generate reports →</b></a>
+    <a href="admin.html" class="module"><span>⚙️</span><h3>Administration</h3><p>Manage users, farm settings, data and platform configuration.</p><b>Admin panel →</b></a>
+  </div>
+</section>
+<section class="gf-section green-band"><div><small>SMART FARMING WORKFLOW</small><h2>Record → Monitor → Analyse → Improve</h2><p>GreenFarm is designed to grow from a simple farm record system into a complete digital agriculture platform.</p></div><a class="gf-btn light" href="dashboard.html">Start managing your farm</a></section>
+<section class="gf-section">
+  <div class="section-title"><small>WHY GREENFARM</small><h2>Built around real farm work</h2></div>
+  <div class="benefits"><div><b>01</b><h3>Simple records</h3><p>Keep daily farm information organized and easy to find.</p></div><div><b>02</b><h3>Actionable insights</h3><p>Turn farm records into clear trends and recommendations.</p></div><div><b>03</b><h3>Ready to scale</h3><p>Designed for future database, weather, AI and mobile integrations.</p></div></div>
+</section>
+</main>
+<footer class="gf-footer"><div><strong>🌱 GreenFarm</strong><p>Smart Digital Farm Management System</p></div><div><a href="dashboard.html">Dashboard</a><a href="reports.html">Reports</a><a href="admin.html">Admin</a></div><small>© 2026 GreenFarm Project</small></footer>
+<script src="assets/app.js"></script>
+</body></html>

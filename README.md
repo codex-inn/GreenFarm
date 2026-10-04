@@ -2,32 +2,61 @@
 
 **GreenFarm – Smart Digital Farm Management System**
 
-> Smarter farming. Better decisions. Sustainable future.
+> Smarter Farming. Better Decisions. Sustainable Future.
 
-GreenFarm is a responsive digital farm-management platform for crop management, livestock records, farm activities, analytics, reports and future smart-farming services. The visual identity uses an agricultural green-and-gold institutional style inspired by the project's TNAU context while keeping GreenFarm's own branding.
+## 🎓 Academic Project
 
-## 🚀 Current Version
-**v0.2 – Complete Frontend Foundation**
+**Tamil Nadu Agricultural University (TNAU)**  
+**Programme:** B.Sc. (Hons.) Agriculture  
+**Campus:** Agricultural College & Research Institute, Vazhavachanur  
+**Project Submitter:** **Kowshik S**
 
-### Included
-- Professional GreenFarm landing page
-- RAWE-inspired green/gold visual system
-- Responsive sticky navigation and hero section
-- Dashboard
-- Crop Management
-- Livestock Management
-- Farm Activities
-- Analytics
-- Reports
-- Administration
-- Print-ready module pages
-- Mobile-responsive layouts
-- GitHub Pages-ready static architecture
+GreenFarm is a responsive digital agriculture platform designed to organize crop management, livestock records, farm activities, finances, analytics and reports in one place.
 
-## 📁 Project Structure
+## ✨ Key Features
+
+- 🏛️ TNAU institutional project identity
+- 🌱 Crop management and growth tracking
+- 🐄 Livestock management
+- 📅 Farm activities and task tracking
+- 💰 Income and expense records
+- 📊 Farm analytics dashboard
+- 📄 Printable reports
+- 💾 Local browser data storage — no Supabase or backend required
+- 📤 Data export/backup-ready architecture
+- 📱 Responsive mobile and desktop interface
+- 🌐 GitHub Pages deployment
+- 🔌 Offline-first frontend architecture
+
+## 🧩 Project Modules
+
+| Module | Purpose |
+|---|---|
+| Home | Project introduction and navigation |
+| Dashboard | Farm health and operational overview |
+| Crops | Crop, field, growth and harvest records |
+| Livestock | Animal groups and health records |
+| Activities | Daily farm operations and tasks |
+| Analytics | Yield, revenue and farm performance |
+| Reports | Farm summaries and print-ready reports |
+| Admin | Project settings and management |
+
+## 🛠️ Technology
+
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Browser LocalStorage
+- GitHub Pages
+
+No Supabase, database server or paid backend is required for the current version.
+
+## 📁 Structure
+
 ```text
 GreenFarm/
 ├── index.html
+├── auth.html
 ├── dashboard.html
 ├── crops.html
 ├── livestock.html
@@ -41,36 +70,42 @@ GreenFarm/
 └── README.md
 ```
 
-## 🛠️ Technology
-**Current:** HTML5, CSS3, Vanilla JavaScript, GitHub Pages
+## 💾 Data Model
 
-**Next backend phase:** Supabase/PostgreSQL, authentication, database CRUD, weather API, notifications, AI services and PWA.
+GreenFarm stores application records locally in the browser using LocalStorage. This keeps the GitHub Pages deployment simple and allows the project to work without a server.
 
-## 🌐 GitHub Pages
-Open repository **Settings → Pages**, select **Deploy from a branch**, choose `main` and `/ (root)`, then save. GitHub Pages is suitable for the current static frontend; backend services will be connected separately.
+For real multi-user deployment, a backend can be added later without redesigning the frontend modules.
+
+## 🚀 GitHub Pages
+
+Repository → **Settings → Pages → Deploy from a branch → main → /(root)**.
 
 ## 🗺️ Roadmap
-- [x] Project foundation
-- [x] RAWE-inspired GreenFarm index design
-- [x] Responsive shared visual system
-- [x] Dashboard, crop, livestock and activity modules
-- [x] Analytics, reports and admin modules
-- [ ] Authentication and user roles
-- [ ] Supabase database
-- [ ] Real crop/livestock CRUD
-- [ ] Farm calendar and recurring tasks
-- [ ] Expense and revenue database
-- [ ] Weather integration
-- [ ] Notifications
-- [ ] AI farming assistant
-- [ ] PDF report generation
-- [ ] PWA/mobile app
 
-## 👨‍🌾 Project Goal
-GreenFarm aims to make farm records easier to maintain and turn everyday agricultural data into practical decisions for farmers, students, farm managers and agricultural organizations.
+- [x] GreenFarm branding
+- [x] TNAU academic identity
+- [x] RAWE-inspired green/gold visual system
+- [x] Responsive index page
+- [x] Dashboard and farm modules
+- [x] Local data architecture
+- [x] Print-ready pages
+- [ ] Full LocalStorage CRUD forms across every module
+- [ ] JSON backup and restore UI
+- [ ] CSV export
+- [ ] Advanced offline/PWA support
+- [ ] Optional future backend
+
+## 👨‍🌾 Submission
+
+**Project Title:** GreenFarm – Smart Digital Farm Management System  
+**Submitted by:** Kowshik S  
+**Programme:** B.Sc. (Hons.) Agriculture  
+**Institution:** Tamil Nadu Agricultural University (TNAU)  
+**Campus:** Agricultural College & Research Institute, Vazhavachanur
 
 ## 📄 License
-This project is currently intended as an educational and development project. A formal open-source license can be added before public distribution.
+
+Academic/development project. Add an open-source license before public redistribution if required.
 
 ---
 **GreenFarm** 🌱  

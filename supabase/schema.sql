@@ -1,0 +1,20 @@
+-- GreenFarm database schema
+create extension if not exists pgcrypto;
+create table if not exists public.profiles (id uuid primary key references auth.users(id) on delete cascade, full_name text not null default '', role text not null default 'farmer' check(role in ('farmer','manager','admin')), farm_name text not null default 'My Farm', created_at timestamptz not null default now(), updated_at timestamptz not null default now());
+create table if not exists public.crops (id uuid primary key default gen_random_uuid(), user_id uuid not null references auth.users(id) on delete cascade, name text not null, field_name text not null default '', variety text default '', planted_date date, expected_harvest date, growth_percent int not null default 0 check(growth_percent between 0 and 100), status text not null default 'healthy' check(status in ('healthy','attention','harvest_soon','completed')), notes text default '', created_at timestamptz not null default now(), updated_at timestamptz not null default now());
+create table if not exists public.livestock (id uuid primary key default gen_random_uuid(), user_id uuid not null references auth.users(id) on delete cascade, category text not null, name text default '', count int not null default 1, health_status text not null default 'healthy', last_check date, notes text default '', created_at timestamptz not null default now(), updated_at timestamptz not null default now());
+create table if not exists public.activities (id uuid primary key default gen_random_uuid(), user_id uuid not null references auth.users(id) on delete cascade, title text not null, activity_type text not null default 'farm', scheduled_at timestamptz, status text not null default 'pending', notes text default '', created_at timestamptz not null default now(), updated_at timestamptz not null default now());
+create table if not exists public.finances (id uuid primary key default gen_random_uuid(), user_id uuid not null references auth.users(id) on delete cascade, entry_type text not null check(entry_type in ('income','expense')), category text not null, amount numeric(12,2) not null, entry_date date not null default current_date, description text default '', created_at timestamptz not null default now());
+create table if not exists public.farm_settings (user_id uuid primary key references auth.users(id) on delete cascade, farm_name text not null default 'My Farm', location text default '', farm_size_acres numeric(10,2), timezone text not null default 'Asia/Kolkata', updated_at timestamptz not null default now());
+alter table public.profiles enable row level security;
+alter table public.crops enable row level security;
+alter table public.livestock enable row level security;
+alter table public.activities enable row level security;
+alter table public.finances enable row level security;
+alter table public.farm_settings enable row level security;
+create policy profiles_owner on public.profiles for all to authenticated using ((select auth.uid())=id) with check ((select auth.uid())=id);
+create policy crops_owner on public.crops for all to authenticated using ((select auth.uid())=user_id) with check ((select auth.uid())=user_id);
+create policy livestock_owner on public.livestock for all to authenticated using ((select auth.uid())=user_id) with check ((select auth.uid())=user_id);
+create policy activities_owner on public.activities for all to authenticated using ((select auth.uid())=user_id) with check ((select auth.uid())=user_id);
+create policy finances_owner on public.finances for all to authenticated using ((select auth.uid())=user_id) with check ((select auth.uid())=user_id);
+create policy settings_owner on public.farm_settings for all to authenticated using ((select auth.uid())=user_id) with check ((select auth.uid())=user_id);

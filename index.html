@@ -181,7 +181,21 @@ button{font:inherit}
 @media(max-width:800px){.hero-photo{background-size:cover;background-position:center}.hero:before{background:linear-gradient(90deg,rgba(2,48,27,.82),rgba(2,55,31,.42))}.hero-dots{bottom:14px}}
 @media(prefers-reduced-motion:reduce){.hero-photo{transition:none}.hero-dots{display:none}}
 </style>
-</head>
+
+<style id="single-row-navigation">
+/* One-row navigation: desktop fits all items; mobile/tablet scrolls horizontally without wrapping */
+.nav{height:82px;overflow:hidden}
+.nav-inner{width:100%;max-width:none;padding:0 14px;display:flex;align-items:center;gap:8px;overflow:hidden}
+.brand{margin-right:10px;flex:0 0 auto}.brand-icon{font-size:25px}.brand-name{font-size:23px}
+.menu{flex:1 1 auto;min-width:0;display:flex;align-items:stretch;height:82px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;scrollbar-width:none}
+.menu::-webkit-scrollbar{display:none}.menu a{height:82px;flex:0 0 auto;padding:0 8px;font-size:11px;white-space:nowrap}
+.nav-actions{flex:0 0 auto;margin-left:4px;display:flex;align-items:center;white-space:nowrap}
+.scan{padding:11px 12px;font-size:11px}
+.lang{flex:0 0 auto}
+@media(max-width:1250px){.nav{height:72px}.nav-inner{padding:0 9px;gap:4px}.brand{margin-right:4px}.brand-name{font-size:20px}.brand-icon{font-size:22px}.menu{height:72px}.menu a{height:72px;padding:0 6px;font-size:10px}.nav-actions{margin-left:2px}.lang button{padding:5px 7px;font-size:9px}.scan{padding:9px 9px;font-size:9px}}
+@media(max-width:800px){.nav{height:58px}.nav-inner{padding:0 8px;overflow:hidden}.brand{height:58px;margin-right:8px}.brand-name{font-size:18px}.brand-icon{font-size:20px}.menu{height:58px;flex:1 1 auto;overflow-x:auto}.menu a{height:58px;padding:0 7px;font-size:9.5px}.nav-actions{height:58px}.lang{display:none}.scan{padding:8px 9px;font-size:9px}}
+@media(max-width:560px){.nav{height:54px}.nav-inner{padding:0 7px}.brand{height:54px;margin-right:5px}.brand-name{font-size:17px}.brand-icon{font-size:18px}.menu{height:54px}.menu a{height:54px;padding:0 6px;font-size:9px}.scan{display:none}}
+</style></head>
 <body>
 
 <header class="inst-header">

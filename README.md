@@ -95,13 +95,7 @@ Repository → **Settings → Pages → Deploy from a branch → main → /(root
 - [ ] Advanced offline/PWA support
 - [ ] Optional future backend
 
-## 👨‍🌾 Submission
 
-**Project Title:** GreenFarm – Smart Digital Farm Management System  
-**Submitted by:** Kowshik S  
-**Programme:** B.Sc. (Hons.) Agriculture  
-**Institution:** Tamil Nadu Agricultural University tnau
-**Campus:** Agricultural College & Research Institute, Vazhavachanur
 
 ## 📄 License
 

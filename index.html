@@ -3,857 +3,302 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="GreenFarm - Smart Digital Farm Management System">
-<title>GreenFarm | Tamil Nadu Agricultural University</title>
+<meta name="description" content="GreenFarm — a professional smart digital agriculture platform by Tamil Nadu Agricultural University, Agricultural College & Research Institute, Vazhavachanur.">
+<meta name="theme-color" content="#07512f">
+<title>GreenFarm | Smart Digital Agriculture</title>
 <style>
-/* ==========================================================
-   GREENFARM — HOMEPAGE REBUILT FROM SCRATCH
-   Reference: TNAU / AgriVision-style institutional header
-   ========================================================== */
 :root{
-  --green:#08763c;
-  --green-dark:#07512f;
-  --green-deep:#043b24;
-  --gold:#b99122;
-  --ink:#173326;
-  --muted:#68766e;
-  --line:#dfe7e1;
-  --white:#fff;
+ --g:#08783f;--gd:#07512f;--deep:#043a24;--mint:#eaf6ef;--gold:#c79b24;
+ --ink:#172f24;--muted:#64736b;--line:#dfe9e2;--bg:#f5f8f6;--card:#fff;
+ --shadow:0 14px 38px rgba(4,59,36,.08);--radius:18px
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#f6f8f6;color:var(--ink);font-family:"Segoe UI",Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif}
 a{text-decoration:none;color:inherit}
 button{font:inherit}
+.container{width:min(1180px,92%);margin:auto}
 
-/* ---------- TNAU INSTITUTION HEADER ---------- */
-.gf-header{
-  position:relative;
-  width:100%;
-  min-height:165px;
-  border-top:5px solid #40313e;
-  border-bottom:1px solid #d9e1db;
-  overflow:hidden;
-  background:
-    linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.90) 55%,rgba(255,255,255,.73) 100%),
-    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=85") center/cover;
+/* INSTITUTION HEADER */
+.inst-header{
+ border-top:5px solid #40313e;border-bottom:1px solid #dbe5de;
+ background:linear-gradient(90deg,rgba(255,255,255,.97),rgba(255,255,255,.88)),
+ url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=80") center/cover;
 }
-.gf-header-inner{
-  width:100%;
-  min-height:160px;
-  padding:10px 4.8%;
-  display:grid;
-  grid-template-columns:minmax(0,72%) minmax(300px,28%);
-  align-items:center;
-}
-.gf-university{
-  min-width:0;
-  display:flex;
-  align-items:center;
-}
-.gf-logo{
-  width:116px;
-  height:94px;
-  flex:0 0 116px;
-  object-fit:contain;
-}
-.gf-university-text{
-  min-width:0;
-  margin-left:21px;
-}
-.gf-university-title{
-  color:#06452d;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(27px,2.45vw,40px);
-  font-weight:800;
-  line-height:1.02;
-  white-space:nowrap;
-}
-.gf-university-tamil{
-  margin-top:7px;
-  color:#267247;
-  font-family:"Noto Sans Tamil","Latha","Segoe UI",sans-serif;
-  font-size:clamp(17px,1.65vw,26px);
-  font-weight:800;
-  line-height:1.1;
-  white-space:nowrap;
-}
-.gf-address{
-  margin-top:5px;
-  color:#4f5d55;
-  font-size:12px;
-  font-weight:700;
-}
-.gf-college{
-  min-width:0;
-  min-height:118px;
-  padding-left:35px;
-  border-left:1px solid rgba(65,93,76,.28);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-}
-.gf-college-name{
-  color:#07542f;
-  font-size:18px;
-  line-height:1.15;
-  font-weight:850;
-  white-space:nowrap;
-}
-.gf-college-place{
-  margin-top:4px;
-  color:#188247;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:27px;
-  line-height:1.05;
-  font-weight:900;
-  letter-spacing:.2px;
-}
-.gf-college-sub{
-  margin-top:7px;
-  color:#69766f;
-  font-size:12px;
-}
-.gf-college-badge{
-  margin-top:8px;
-  padding:5px 14px;
-  border-radius:20px;
-  background:#e7f2e9;
-  color:#176b40;
-  font-size:10px;
-  font-weight:900;
-}
+.inst-inner{min-height:160px;width:min(1500px,94%);margin:auto;display:grid;grid-template-columns:minmax(0,70%) minmax(330px,30%);align-items:center}
+.inst-left{display:flex;align-items:center;min-width:0}
+.inst-logo{width:105px;height:88px;flex:0 0 105px;object-fit:contain}
+.inst-copy{min-width:0;margin-left:20px;padding-right:25px}
+.inst-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(27px,2.45vw,39px);font-weight:800;line-height:1.02;color:#06452d;white-space:nowrap;overflow:hidden}
+.inst-tamil{margin-top:6px;font-family:"Noto Sans Tamil","Latha","Segoe UI",sans-serif;font-size:clamp(17px,1.6vw,25px);font-weight:800;line-height:1.1;color:#247247;white-space:nowrap;overflow:hidden}
+.inst-address{margin-top:5px;font-size:12px;font-weight:700;color:#526159}
+.inst-right{min-height:116px;border-left:1px solid rgba(65,93,76,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-left:24px;overflow:hidden}
+.inst-college{font-size:17px;font-weight:850;color:#07542f;white-space:nowrap}
+.inst-place{margin-top:4px;font:900 27px/1 Georgia,"Times New Roman",serif;color:#188247;white-space:nowrap}
+.inst-sub{margin-top:7px;font-size:12px;color:#68756e}
+.inst-badge{margin-top:7px;padding:4px 13px;border-radius:20px;background:#e7f2e9;color:#176b40;font-size:10px;font-weight:900}
 
-/* ---------- REFERENCE NAVIGATION ---------- */
-.gf-nav{
-  height:78px;
-  width:100%;
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  box-shadow:0 2px 9px rgba(0,0,0,.045);
-  position:sticky;
-  top:0;
-  z-index:20;
-}
-.gf-nav-inner{
-  height:100%;
-  width:100%;
-  padding:0 4.8%;
-  display:flex;
-  align-items:center;
-}
-.gf-brand{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  flex:0 0 auto;
-  margin-right:105px;
-}
-.gf-brand-icon{font-size:31px;line-height:1}
-.gf-brand-name{
-  color:#07542f;
-  font-size:28px;
-  font-weight:900;
-  letter-spacing:-.5px;
-}
-.gf-menu{
-  height:100%;
-  display:flex;
-  align-items:center;
-  gap:5px;
-  overflow:hidden;
-}
-.gf-menu a{
-  height:100%;
-  display:flex;
-  align-items:center;
-  gap:6px;
-  padding:0 13px;
-  color:#294335;
-  font-size:14px;
-  font-weight:800;
-  white-space:nowrap;
-  border-bottom:3px solid transparent;
-}
-.gf-menu a:hover,.gf-menu a.active{
-  color:var(--green);
-  background:#fbfdfb;
-  border-bottom-color:var(--green);
-}
-.gf-nav-spacer{flex:1;min-width:10px}
-.gf-language{
-  display:flex;
-  align-items:center;
-  flex:0 0 auto;
-  padding:3px;
-  margin-right:27px;
-  border:1px solid #d5e1d9;
-  border-radius:22px;
-  background:#f4f8f5;
-}
-.gf-language button{
-  border:0;
-  padding:7px 12px;
-  border-radius:18px;
-  background:transparent;
-  color:#31503e;
-  font-size:12px;
-  font-weight:850;
-}
-.gf-language .active{
-  color:#fff;
-  background:#168b47;
-}
-.gf-scan{
-  flex:0 0 auto;
-  display:flex;
-  align-items:center;
-  gap:7px;
-  padding:13px 23px;
-  border-radius:8px;
-  color:#fff;
-  background:#138843;
-  font-size:14px;
-  font-weight:900;
-}
-.gf-scan:hover{background:#0e7137}
+/* NAV */
+.nav{height:76px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 3px 12px rgba(0,0,0,.04);position:sticky;top:0;z-index:100}
+.nav-inner{height:100%;display:flex;align-items:center;gap:0}
+.brand{display:flex;align-items:center;gap:8px;flex:0 0 auto;margin-right:38px}
+.brand-icon{font-size:29px}.brand-name{font-size:26px;font-weight:900;color:var(--gd);letter-spacing:-.4px}
+.menu{display:flex;align-items:stretch;height:100%;flex:1;min-width:0;overflow:auto;scrollbar-width:none}
+.menu::-webkit-scrollbar{display:none}
+.menu a{display:flex;align-items:center;justify-content:center;gap:5px;padding:0 10px;font-size:12px;font-weight:800;color:#294335;white-space:nowrap;border-bottom:3px solid transparent}
+.menu a:hover,.menu a.active{color:var(--g);background:#fbfdfb;border-bottom-color:var(--g)}
+.nav-actions{display:flex;align-items:center;gap:9px;flex:0 0 auto;margin-left:10px}
+.lang{display:flex;padding:3px;border:1px solid #d5e1d9;border-radius:22px;background:#f4f8f5}
+.lang button{border:0;background:transparent;color:#31503e;padding:6px 9px;border-radius:18px;font-size:11px;font-weight:850}
+.lang .active{background:#168b47;color:#fff}
+.scan{padding:11px 15px;border-radius:8px;background:#138843;color:#fff;font-size:12px;font-weight:900;white-space:nowrap}
 
-/* ---------- GREENFARM CONTENT ---------- */
-.gf-hero{
-  min-height:465px;
-  display:flex;
-  align-items:center;
-  background:
-    linear-gradient(90deg,rgba(3,59,32,.89),rgba(3,59,32,.53),rgba(3,59,32,.12)),
-    url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=2200&q=85") center/cover;
-}
-.gf-hero-inner{
-  width:100%;
-  padding:70px 8%;
-  color:#fff;
-}
-.gf-eyebrow{
-  color:#e1c65d;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:1.8px;
-}
-.gf-hero h1{
-  margin:14px 0 17px;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(45px,5.4vw,72px);
-  line-height:1;
-  letter-spacing:-1.5px;
-}
-.gf-hero h1 span{color:#e1c65d}
-.gf-hero p{
-  max-width:650px;
-  margin:0;
-  color:#e8f1eb;
-  font-size:16px;
-  line-height:1.65;
-}
-.gf-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:25px}
-.gf-actions a{
-  padding:12px 18px;
-  border-radius:8px;
-  font-size:13px;
-  font-weight:900;
-}
-.gf-primary{background:var(--gold);color:#fff}
-.gf-secondary{border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);color:#fff}
+/* HERO */
+.hero{position:relative;overflow:hidden;background:linear-gradient(115deg,#063f28 0%,#087341 55%,#0a8c4c 100%);color:#fff}
+.hero:after{content:"";position:absolute;width:540px;height:540px;border-radius:50%;right:-170px;top:-240px;background:rgba(255,255,255,.07)}
+.hero-grid{min-height:520px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:50px}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;color:#e6c95d;font-size:11px;font-weight:900;letter-spacing:1.7px}
+.hero h1{font:800 clamp(44px,5vw,70px)/.98 Georgia,"Times New Roman",serif;margin:15px 0 19px;letter-spacing:-1.5px}
+.hero h1 span{color:#e6c95d}
+.hero p{max-width:620px;color:#dcece3;font-size:16px;line-height:1.7;margin:0}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:9px;font-size:13px;font-weight:900}
+.btn-gold{background:var(--gold);color:#fff}.btn-light{border:1px solid rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.07)}
+.hero-panel{padding:24px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.09);backdrop-filter:blur(10px);border-radius:22px;box-shadow:0 20px 50px rgba(0,0,0,.14)}
+.panel-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.panel-title{font-weight:900}.live{font-size:10px;font-weight:900;color:#bfe9ce;background:rgba(70,190,112,.16);padding:6px 9px;border-radius:20px}
+.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.metric{padding:14px;background:rgba(0,0,0,.13);border-radius:13px}
+.metric small{display:block;color:#b8d7c5;font-size:10px}.metric strong{display:block;margin-top:4px;font-size:23px}.metric span{font-size:10px;color:#a9d0ba}
+.progress{height:7px;border-radius:10px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:15px}.progress i{display:block;width:76%;height:100%;background:#e2c252;border-radius:inherit}
 
-/* ---------- STATS ---------- */
-.gf-stats{
-  position:relative;
-  z-index:3;
-  max-width:1060px;
-  margin:-32px auto 0;
-  padding:0 20px;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-}
-.gf-stat{
-  padding:18px 10px;
-  text-align:center;
-  background:#fff;
-  border:1px solid var(--line);
-  border-right:0;
-}
-.gf-stat:first-child{border-radius:13px 0 0 13px}
-.gf-stat:last-child{border-right:1px solid var(--line);border-radius:0 13px 13px 0}
-.gf-stat strong{display:block;color:var(--green-dark);font-size:22px}
-.gf-stat span{color:#718078;font-size:11px;font-weight:750}
+/* SNAPSHOT */
+.snapshot{margin-top:-34px;position:relative;z-index:5}
+.snapshot-grid{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.snap{padding:20px;text-align:center;border-right:1px solid var(--line)}.snap:last-child{border:0}
+.snap strong{display:block;color:var(--gd);font-size:23px}.snap span{display:block;margin-top:3px;color:var(--muted);font-size:11px;font-weight:750}
 
-/* ---------- MODULES ---------- */
-.gf-section{
-  max-width:1200px;
-  margin:auto;
-  padding:68px 5%;
-}
-.gf-section-head{
-  max-width:720px;
-  margin:0 auto 32px;
-  text-align:center;
-}
-.gf-section-head small{
-  color:#a37a0b;
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:1.6px;
-}
-.gf-section-head h2{
-  margin:6px 0 9px;
-  color:var(--green-dark);
-  font-size:clamp(28px,3vw,38px);
-  line-height:1.1;
-}
-.gf-section-head p{margin:0;color:var(--muted);font-size:14px}
-.gf-modules{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:17px;
-}
-.gf-module{
-  padding:22px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:#fff;
-  box-shadow:0 7px 20px rgba(0,60,30,.045);
-  transition:transform .18s,box-shadow .18s;
-}
-.gf-module:hover{transform:translateY(-3px);box-shadow:0 13px 28px rgba(0,60,30,.1)}
-.gf-module-icon{font-size:29px}
-.gf-module h3{margin:10px 0 5px;color:var(--green-dark);font-size:18px}
-.gf-module p{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.5}
-.gf-module a{color:var(--green);font-size:11px;font-weight:900}
+/* SECTIONS */
+.section{padding:78px 0}.section-head{max-width:720px;margin:0 auto 36px;text-align:center}
+.kicker{font-size:10px;letter-spacing:1.7px;color:#a37a0b;font-weight:900}
+.section-head h2{margin:8px 0 10px;color:var(--gd);font:800 clamp(29px,3vw,40px)/1.1 Georgia,"Times New Roman",serif}
+.section-head p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
 
-/* ---------- FOOTER ---------- */
-.gf-footer{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:34px 5%;
-  color:#d5e8dc;
-  background:var(--green-deep);
-  border-top:4px solid var(--gold);
-}
-.gf-footer strong{color:#fff;font-size:20px}
-.gf-footer p{margin:3px 0;color:#90b6a0;font-size:11px}
-.gf-footer nav{display:flex;gap:17px;font-size:11px;font-weight:800}
+/* MODULE CARDS */
+.modules{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:23px;box-shadow:0 7px 22px rgba(0,60,30,.045);transition:.18s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:var(--mint);font-size:23px}
+.card h3{margin:15px 0 7px;color:var(--gd);font-size:18px}.card p{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.55}.card-link{color:var(--g);font-size:11px;font-weight:900}
 
-/* ---------- RESPONSIVE ---------- */
-@media(max-width:1300px){
-  .gf-brand{margin-right:45px}
-  .gf-menu a{padding:0 9px;font-size:13px}
-  .gf-university-title{font-size:31px}
-  .gf-university-tamil{font-size:19px}
-  .gf-logo{width:94px;height:80px;flex-basis:94px}
-  .gf-university-text{margin-left:15px}
-  .gf-college-name{font-size:15px}
-  .gf-college-place{font-size:23px}
+/* WORKFLOW */
+.workflow{background:#edf6f0}
+.workflow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.step-no{color:#fff;background:var(--g);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900}
+.step h3{margin:14px 0 6px;font-size:17px;color:var(--gd)}.step p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+
+/* ANALYTICS */
+.analytics{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:stretch}
+.analytics-copy{padding:15px 0}.analytics-copy h2{margin:8px 0 13px;color:var(--gd);font:800 38px/1.1 Georgia,"Times New Roman",serif}.analytics-copy p{color:var(--muted);font-size:14px;line-height:1.7}
+.checks{display:grid;gap:9px;margin-top:18px}.check{font-size:13px;font-weight:750;color:#355044}.check b{color:var(--g);margin-right:7px}
+.chart{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow)}
+.chart-head{display:flex;justify-content:space-between;align-items:center}.chart-head strong{font-size:15px}.chart-head span{font-size:10px;color:var(--muted)}
+.bars{height:205px;display:flex;align-items:end;gap:12px;margin-top:24px;padding:0 7px;border-bottom:1px solid var(--line)}
+.bar{flex:1;border-radius:7px 7px 0 0;background:linear-gradient(#24a65e,#08783f);min-height:35px;position:relative}.bar span{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--muted)}
+.chart-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:32px}.chart-stat{background:#f4f8f5;padding:12px;border-radius:11px}.chart-stat small{font-size:9px;color:var(--muted)}.chart-stat strong{display:block;color:var(--gd);font-size:16px;margin-top:3px}
+
+/* FEATURES */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{padding:20px;border:1px solid var(--line);border-radius:16px;background:#fff}.feature strong{color:var(--gd);font-size:14px}.feature p{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
+
+/* CTA */
+.cta{padding:58px 0}.cta-box{border-radius:24px;padding:42px;display:flex;justify-content:space-between;align-items:center;gap:30px;background:linear-gradient(115deg,#063b24,#08783f);color:#fff}.cta-box h2{margin:0 0 8px;font:800 34px/1.1 Georgia,"Times New Roman",serif}.cta-box p{margin:0;color:#cfe6d8;font-size:13px}.cta-box .btn{background:#e0bd45;color:#143b27;white-space:nowrap}
+
+/* FOOTER */
+.footer{background:#052f1d;color:#c9dfd2;padding:38px 0}.footer-grid{display:grid;grid-template-columns:1.4fr .7fr .7fr .8fr;gap:30px}.footer-brand{font-size:21px;font-weight:900;color:#fff}.footer p{font-size:11px;line-height:1.6;color:#8fb29f;max-width:330px}.footer h4{margin:0 0 12px;color:#fff;font-size:12px}.footer a{display:block;font-size:11px;margin:7px 0;color:#9fc0ae}.footer-bottom{margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;font-size:10px;color:#789b89}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+ .inst-inner{grid-template-columns:minmax(0,67%) minmax(0,33%)}
+ .inst-title{font-size:28px}.inst-tamil{font-size:17px}.inst-logo{width:88px;height:76px;flex-basis:88px}.inst-copy{margin-left:14px}.inst-college{font-size:13px}.inst-place{font-size:21px}
+ .brand{margin-right:18px}.menu a{padding:0 7px;font-size:11px}.nav-actions{margin-left:5px}.scan{padding:10px 12px;font-size:11px}
+ .hero-grid{gap:25px}.hero h1{font-size:53px}
 }
-@media(max-width:1000px){
-  .gf-header{min-height:145px}
-  .gf-header-inner{min-height:140px;padding:0 3%;grid-template-columns:minmax(0,67%) minmax(0,33%)}
-  .gf-university-title{font-size:26px}
-  .gf-university-tamil{font-size:16px}
-  .gf-address{font-size:10px}
-  .gf-college{padding-left:20px}
-  .gf-college-name{font-size:12px}
-  .gf-college-place{font-size:20px}
-  .gf-nav-inner{padding:0 3%}
-  .gf-brand{margin-right:20px}
-  .gf-menu a{padding:0 7px;font-size:11px}
-  .gf-language{margin-right:12px}
-  .gf-scan{padding:10px 14px;font-size:12px}
-}
-@media(max-width:760px){
-  .gf-header{min-height:0;overflow:visible}
-  .gf-header-inner{
-    min-height:0;
-    display:flex;
-    flex-direction:column;
-    align-items:stretch;
-    padding:9px 4%;
-  }
-  .gf-university{height:auto;min-height:58px}
-  .gf-logo{width:62px;height:56px;flex:0 0 62px}
-  .gf-university-text{margin-left:10px;padding:0}
-  .gf-university-title{font-size:20px;line-height:1.04;white-space:normal}
-  .gf-university-tamil{font-size:13px;line-height:1.1;white-space:normal;margin-top:4px}
-  .gf-address{font-size:9px}
-  .gf-college{
-    width:100%;
-    min-height:0;
-    margin-top:8px;
-    padding:7px 4px 2px;
-    border-left:0;
-    border-top:1px solid rgba(65,93,76,.28);
-  }
-  .gf-college-name{font-size:11px;white-space:nowrap}
-  .gf-college-place{font-size:19px;margin-top:2px}
-  .gf-college-sub{font-size:9px;margin-top:3px}
-  .gf-college-badge{font-size:8px;padding:3px 9px;margin-top:3px}
-  .gf-nav{height:60px}
-  .gf-nav-inner{padding:0 3%;overflow:hidden}
-  .gf-brand{margin-right:14px}
-  .gf-brand-name{font-size:23px}
-  .gf-menu{flex:1;overflow-x:auto;scrollbar-width:none}
-  .gf-menu::-webkit-scrollbar{display:none}
-  .gf-menu a{font-size:11px;padding:0 8px}
-  .gf-nav-spacer{display:none}
-  .gf-language{margin:0 7px}
-  .gf-language button{padding:5px 8px;font-size:10px}
-  .gf-scan{padding:9px 11px;font-size:10px}
-  .gf-hero{min-height:420px}
-  .gf-hero-inner{padding:55px 6%}
-  .gf-hero h1{font-size:clamp(40px,8vw,56px)}
-  .gf-modules{grid-template-columns:repeat(2,1fr)}
+@media(max-width:800px){
+ .inst-inner{display:flex;flex-direction:column;align-items:stretch;padding:9px 4%}
+ .inst-left{min-height:58px}.inst-logo{width:62px;height:55px;flex-basis:62px}.inst-copy{margin-left:10px;padding:0}.inst-title{font-size:20px;white-space:normal}.inst-tamil{font-size:13px;white-space:normal;margin-top:4px}.inst-address{font-size:9px}
+ .inst-right{margin-top:8px;min-height:0;padding:7px 4px 2px;border-left:0;border-top:1px solid rgba(65,93,76,.28)}.inst-college{font-size:11px}.inst-place{font-size:19px}.inst-sub{font-size:9px}.inst-badge{font-size:8px;padding:3px 9px;margin-top:3px}
+ .nav{height:58px}.nav-inner{padding:0 4%;overflow:hidden}.brand{margin-right:12px}.brand-name{font-size:22px}.menu{overflow-x:auto}.menu a{font-size:10px;padding:0 8px}.nav-actions{margin-left:7px}.scan{font-size:10px;padding:9px 10px}
+ .hero-grid{grid-template-columns:1fr;min-height:auto;padding:58px 0 70px}.hero-panel{max-width:600px}
+ .snapshot-grid{grid-template-columns:1fr 1fr}.snap{border-right:1px solid var(--line)}.snap:nth-child(2){border-right:0}.snap:nth-child(-n+2){border-bottom:1px solid var(--line)}
+ .modules{grid-template-columns:repeat(2,1fr)}.workflow-grid{grid-template-columns:repeat(2,1fr)}
+ .analytics{grid-template-columns:1fr}.feature-grid{grid-template-columns:repeat(2,1fr)}
+ .footer-grid{grid-template-columns:1.4fr 1fr 1fr}
 }
 @media(max-width:560px){
-  .gf-header-inner{padding:8px 11px}
-  .gf-logo{width:50px;height:49px;flex-basis:50px}
-  .gf-university-text{margin-left:8px}
-  .gf-university-title{font-size:15.5px}
-  .gf-university-tamil{font-size:10.5px}
-  .gf-address{font-size:7.5px}
-  .gf-college{margin-top:7px}
-  .gf-college-name{font-size:10px}
-  .gf-college-place{font-size:17px}
-  .gf-college-sub{font-size:8px}
-  .gf-nav{height:55px}
-  .gf-nav-inner{padding:0 10px}
-  .gf-brand{gap:6px;margin-right:9px}
-  .gf-brand-icon{font-size:23px}
-  .gf-brand-name{font-size:20px}
-  .gf-menu a{font-size:10px;padding:0 7px}
-  .gf-language{margin-left:5px;margin-right:5px}
-  .gf-language button{padding:5px 7px;font-size:9px}
-  .gf-scan{font-size:9px;padding:8px 9px}
-  .gf-hero{min-height:390px}
-  .gf-hero-inner{padding:45px 5%}
-  .gf-eyebrow{font-size:9px}
-  .gf-hero h1{font-size:37px;margin:10px 0 13px}
-  .gf-hero p{font-size:13px}
-  .gf-actions{flex-direction:column}
-  .gf-actions a{text-align:center;font-size:12px}
-  .gf-stats{grid-template-columns:1fr 1fr;margin-top:-20px;padding:0 10px}
-  .gf-stat{padding:13px 7px;border-right:1px solid var(--line)}
-  .gf-stat:first-child{border-radius:12px 0 0 0}
-  .gf-stat:nth-child(2){border-radius:0 12px 0 0}
-  .gf-stat:nth-child(3){border-radius:0 0 0 12px}
-  .gf-stat:last-child{border-radius:0 0 12px 0}
-  .gf-stat strong{font-size:17px}
-  .gf-stat span{font-size:9px}
-  .gf-section{padding:45px 5%}
-  .gf-modules{grid-template-columns:1fr}
-  .gf-footer{display:block;padding:28px 5%}
-  .gf-footer nav{margin-top:14px;flex-wrap:wrap}
+ .container{width:91%}.inst-inner{padding:8px 11px}.inst-logo{width:50px;height:48px;flex-basis:50px}.inst-copy{margin-left:8px}.inst-title{font-size:15.5px}.inst-tamil{font-size:10.5px}.inst-address{font-size:7.5px}
+ .inst-college{font-size:10px}.inst-place{font-size:17px}.inst-sub{font-size:8px}.inst-badge{font-size:7.5px}
+ .nav{height:55px}.nav-inner{padding:0 10px}.brand{gap:5px;margin-right:8px}.brand-icon{font-size:22px}.brand-name{font-size:19px}.menu a{font-size:9.5px;padding:0 7px}.lang{margin:0 4px}.lang button{font-size:9px;padding:5px 7px}.scan{font-size:9px;padding:8px 9px}
+ .hero-grid{padding:45px 0 60px}.eyebrow{font-size:9px}.hero h1{font-size:38px;letter-spacing:-.7px}.hero p{font-size:13px}.hero-actions{flex-direction:column}.btn{font-size:12px}
+ .hero-panel{padding:18px}.metric strong{font-size:19px}
+ .snapshot{margin-top:-20px}.snapshot-grid{border-radius:14px}.snap{padding:14px 7px}.snap strong{font-size:17px}.snap span{font-size:9px}
+ .section{padding:52px 0}.modules,.workflow-grid,.feature-grid{grid-template-columns:1fr}.card{padding:19px}.analytics-copy h2{font-size:29px}.chart{padding:18px}.bars{height:170px;gap:7px}.cta{padding:40px 0}.cta-box{display:block;padding:30px 24px}.cta-box h2{font-size:27px}.cta-box .btn{margin-top:18px}
+ .footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:5px}
 }
-@media(max-width:380px){
-  .gf-university-title{font-size:14px}
-  .gf-university-tamil{font-size:9.5px}
-  .gf-address{font-size:7px}
-  .gf-college-name{font-size:9px}
-  .gf-college-place{font-size:15px}
-  .gf-brand-name{font-size:18px}
-  .gf-scan{display:none}
-}
-</style>
-<style>
-/* Desktop header final alignment */
-@media (min-width:761px){
-  .gf-header{
-    height:165px;
-    min-height:165px;
-  }
-  .gf-header-inner{
-    height:160px;
-    min-height:160px;
-    padding:0 4.7%;
-    grid-template-columns:minmax(0,70%) minmax(390px,30%);
-  }
-  .gf-university{
-    height:100%;
-    min-width:0;
-    display:flex;
-    align-items:center;
-  }
-  .gf-logo{
-    width:112px;
-    height:90px;
-    flex:0 0 112px;
-  }
-  .gf-university-text{
-    min-width:0;
-    width:calc(100% - 112px);
-    margin-left:20px;
-    padding-right:24px;
-  }
-  .gf-university-title{
-    width:100%;
-    font-size:clamp(29px,2.28vw,40px);
-    line-height:1.02;
-    white-space:nowrap;
-    letter-spacing:0;
-  }
-  .gf-university-tamil{
-    width:100%;
-    margin-top:7px;
-    font-size:clamp(18px,1.58vw,26px);
-    line-height:1.1;
-    white-space:nowrap;
-  }
-  .gf-address{
-    margin-top:5px;
-    font-size:12px;
-    line-height:1.2;
-  }
-  .gf-college{
-    width:100%;
-    height:118px;
-    min-height:118px;
-    padding:0 0 0 32px;
-    border-left:1px solid rgba(65,93,76,.30);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .gf-college-name{
-    font-size:18px;
-    line-height:1.15;
-    white-space:nowrap;
-  }
-  .gf-college-place{
-    margin-top:5px;
-    font-size:27px;
-    line-height:1.05;
-    white-space:nowrap;
-  }
-  .gf-college-sub{
-    margin-top:7px;
-    font-size:12px;
-  }
-  .gf-college-badge{
-    margin-top:8px;
-    font-size:10px;
-  }
-}
-@media (min-width:1500px){
-  .gf-header-inner{
-    grid-template-columns:minmax(0,71%) minmax(430px,29%);
-  }
-  .gf-university-title{font-size:40px}
-  .gf-university-tamil{font-size:26px}
-  .gf-college-name{font-size:18px}
-  .gf-college-place{font-size:28px}
-}
-</style>
-<style>
-/* Final reference geometry — desktop header */
-@media (min-width:761px){
-  .gf-header{
-    height:165px!important;
-    min-height:165px!important;
-  }
-  .gf-header-inner{
-    height:160px!important;
-    min-height:160px!important;
-    padding:0 4.6%!important;
-    grid-template-columns:minmax(0,75%) minmax(0,25%)!important;
-  }
-  .gf-university{
-    width:100%!important;
-    min-width:0!important;
-    height:100%!important;
-  }
-  .gf-logo{
-    width:112px!important;
-    height:92px!important;
-    flex:0 0 112px!important;
-  }
-  .gf-university-text{
-    width:calc(100% - 112px)!important;
-    min-width:0!important;
-    margin-left:21px!important;
-    padding-right:25px!important;
-  }
-  .gf-university-title{
-    width:100%!important;
-    font-size:40px!important;
-    line-height:1!important;
-    white-space:nowrap!important;
-  }
-  .gf-university-tamil{
-    width:100%!important;
-    margin-top:7px!important;
-    font-size:26px!important;
-    line-height:1.08!important;
-    white-space:nowrap!important;
-  }
-  .gf-address{
-    margin-top:5px!important;
-    font-size:12px!important;
-  }
-  .gf-college{
-    width:100%!important;
-    height:120px!important;
-    min-height:120px!important;
-    padding:0 8px 0 28px!important;
-    border-left:1px solid rgba(65,93,76,.30)!important;
-  }
-  .gf-college-name{
-    font-size:18px!important;
-    line-height:1.12!important;
-    white-space:nowrap!important;
-  }
-  .gf-college-place{
-    margin-top:5px!important;
-    font-size:28px!important;
-    line-height:1.03!important;
-    white-space:nowrap!important;
-  }
-  .gf-college-sub{
-    margin-top:7px!important;
-    font-size:12px!important;
-  }
-  .gf-college-badge{
-    margin-top:8px!important;
-    padding:5px 14px!important;
-    font-size:10px!important;
-  }
-}
-@media (min-width:1500px){
-  .gf-university-title{font-size:40px!important}
-  .gf-university-tamil{font-size:26px!important}
-}
-</style>
-<style>
-/* FINAL DESKTOP VIEW — reference screenshot fit */
-@media (min-width:761px){
-  .gf-header{
-    height:165px!important;
-    min-height:165px!important;
-  }
-  .gf-header-inner{
-    width:100%!important;
-    height:160px!important;
-    min-height:160px!important;
-    padding:0 4.9%!important;
-    grid-template-columns:minmax(0,69%) minmax(0,31%)!important;
-    column-gap:0!important;
-  }
-  .gf-university{
-    width:100%!important;
-    min-width:0!important;
-    height:100%!important;
-  }
-  .gf-logo{
-    width:104px!important;
-    height:86px!important;
-    flex:0 0 104px!important;
-  }
-  .gf-university-text{
-    width:calc(100% - 104px)!important;
-    min-width:0!important;
-    margin-left:18px!important;
-    padding-right:22px!important;
-  }
-  .gf-university-title{
-    width:100%!important;
-    max-width:100%!important;
-    font-family:"Times New Roman",Georgia,serif!important;
-    font-size:34px!important;
-    font-weight:700!important;
-    line-height:1.02!important;
-    letter-spacing:0!important;
-    white-space:nowrap!important;
-    overflow:hidden!important;
-  }
-  .gf-university-tamil{
-    width:100%!important;
-    max-width:100%!important;
-    margin-top:7px!important;
-    font-size:22px!important;
-    line-height:1.1!important;
-    white-space:nowrap!important;
-    overflow:hidden!important;
-  }
-  .gf-address{
-    margin-top:5px!important;
-    font-size:11px!important;
-  }
-  .gf-college{
-    width:100%!important;
-    height:120px!important;
-    min-height:120px!important;
-    padding:0 8px 0 24px!important;
-    border-left:1px solid rgba(65,93,76,.30)!important;
-    overflow:hidden!important;
-  }
-  .gf-college-name{
-    width:100%!important;
-    font-size:16px!important;
-    line-height:1.12!important;
-    white-space:nowrap!important;
-    overflow:hidden!important;
-  }
-  .gf-college-place{
-    margin-top:5px!important;
-    font-size:25px!important;
-    line-height:1.03!important;
-    white-space:nowrap!important;
-  }
-  .gf-college-sub{
-    margin-top:6px!important;
-    font-size:11px!important;
-  }
-  .gf-college-badge{
-    margin-top:7px!important;
-    padding:4px 13px!important;
-    font-size:9px!important;
-  }
-
-  /* Navigation fits the complete desktop viewport */
-  .gf-nav{
-    height:78px!important;
-  }
-  .gf-nav-inner{
-    padding:0 4.9%!important;
-    gap:0!important;
-  }
-  .gf-brand{
-    margin-right:30px!important;
-    gap:8px!important;
-  }
-  .gf-brand-icon{font-size:28px!important}
-  .gf-brand-name{
-    font-size:27px!important;
-    white-space:nowrap!important;
-  }
-  .gf-menu{
-    flex:1 1 auto!important;
-    min-width:0!important;
-    gap:0!important;
-  }
-  .gf-menu a{
-    flex:1 1 auto!important;
-    justify-content:center!important;
-    padding:0 8px!important;
-    gap:5px!important;
-    font-size:12px!important;
-    min-width:0!important;
-  }
-  .gf-nav-spacer{
-    display:none!important;
-  }
-  .gf-language{
-    margin-left:10px!important;
-    margin-right:12px!important;
-  }
-  .gf-language button{
-    padding:7px 10px!important;
-    font-size:11px!important;
-  }
-  .gf-scan{
-    padding:12px 16px!important;
-    font-size:12px!important;
-    white-space:nowrap!important;
-  }
-}
-@media (min-width:1500px){
-  .gf-university-title{font-size:35px!important}
-  .gf-university-tamil{font-size:23px!important}
-  .gf-brand-name{font-size:27px!important}
-  .gf-menu a{font-size:13px!important;padding-left:7px!important;padding-right:7px!important}
-}
+@media(max-width:380px){.scan{display:none}.inst-title{font-size:14px}.inst-tamil{font-size:9.5px}.inst-address{font-size:7px}.inst-college{font-size:9px}.inst-place{font-size:15px}}
 </style>
 </head>
 <body>
 
-<header class="gf-header">
-  <div class="gf-header-inner">
-    <div class="gf-university">
-      <img class="gf-logo" src="https://agritech.tnau.ac.in/ta/pdf/images/TNAU.jpg" alt="TNAU logo">
-      <div class="gf-university-text">
-        <div class="gf-university-title">TAMIL NADU AGRICULTURAL UNIVERSITY</div>
-        <div class="gf-university-tamil">தமிழ்நாடு வேளாண்மைப் பல்கலைக்கழகம்</div>
-        <div class="gf-address">Coimbatore – 641 003, Tamil Nadu, India</div>
-      </div>
-    </div>
-    <div class="gf-college">
-      <div class="gf-college-name">🏫 Agricultural College &amp; Research Institute</div>
-      <div class="gf-college-place">VAZHAVACHANUR</div>
-      <div class="gf-college-sub">Tamil Nadu Agricultural University</div>
-      <div class="gf-college-badge">AC&amp;RI • VVNR</div>
-    </div>
+<header class="inst-header">
+ <div class="inst-inner">
+  <div class="inst-left">
+   <img class="inst-logo" src="https://agritech.tnau.ac.in/ta/pdf/images/TNAU.jpg" alt="Tamil Nadu Agricultural University">
+   <div class="inst-copy">
+    <div class="inst-title">TAMIL NADU AGRICULTURAL UNIVERSITY</div>
+    <div class="inst-tamil">தமிழ்நாடு வேளாண்மைப் பல்கலைக்கழகம்</div>
+    <div class="inst-address">Coimbatore – 641 003, Tamil Nadu, India</div>
+   </div>
   </div>
+  <div class="inst-right">
+   <div class="inst-college">🏫 Agricultural College &amp; Research Institute</div>
+   <div class="inst-place">VAZHAVACHANUR</div>
+   <div class="inst-sub">Tamil Nadu Agricultural University</div>
+   <div class="inst-badge">AC&amp;RI • VVNR</div>
+  </div>
+ </div>
 </header>
 
-<nav class="gf-nav">
-  <div class="gf-nav-inner">
-    <a class="gf-brand" href="index.html">
-      <span class="gf-brand-icon">🌱</span>
-      <span class="gf-brand-name">GreenFarm</span>
-    </a>
-    <div class="gf-menu">
-      <a class="active" href="index.html">🏠 Home</a>
-      <a href="dashboard.html">🤖 AI Scanner</a>
-      <a href="crops.html">✨ AI Features</a>
-      <a href="crops.html">🌾 Crops</a>
-      <a href="activities.html">🕘 History</a>
-      <a href="admin.html">🎓 Project</a>
-    </div>
-    <div class="gf-nav-spacer"></div>
-    <div class="gf-language"><button class="active" type="button">EN</button><button type="button">தமிழ்</button></div>
-    <a class="gf-scan" href="dashboard.html">📷 Scan Plant</a>
+<nav class="nav">
+ <div class="nav-inner container">
+  <a class="brand" href="index.html"><span class="brand-icon">🌱</span><span class="brand-name">GreenFarm</span></a>
+  <div class="menu">
+   <a class="active" href="index.html">🏠 Home</a>
+   <a href="dashboard.html">📊 Dashboard</a>
+   <a href="crops.html">🌾 Crops</a>
+   <a href="livestock.html">🐄 Livestock</a>
+   <a href="activities.html">📅 Activities</a>
+   <a href="analytics.html">📈 Analytics</a>
+   <a href="reports.html">📄 Reports</a>
+   <a href="farm.html">🌿 Farm Tools</a>
+   <a href="admin.html">⚙️ Admin</a>
   </div>
+  <div class="nav-actions">
+   <div class="lang"><button class="active">EN</button><button>தமிழ்</button></div>
+   <a class="scan" href="dashboard.html">📷 Open Dashboard</a>
+  </div>
+ </div>
 </nav>
 
 <main>
-  <section class="gf-hero">
-    <div class="gf-hero-inner">
-      <div class="gf-eyebrow">🌾 SMART FARMING • DIGITAL AGRICULTURE</div>
-      <h1>Smarter Farming.<br><span>Better Decisions.</span></h1>
-      <p>GreenFarm brings crops, livestock, daily activities, farm records and analytics together in one simple digital platform for modern agriculture.</p>
-      <div class="gf-actions">
-        <a class="gf-primary" href="dashboard.html">Open Farm Dashboard →</a>
-        <a class="gf-secondary" href="#modules">Explore GreenFarm</a>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+ <div class="hero-grid container">
+  <div>
+   <div class="eyebrow">🌾 SMART FARMING • DIGITAL AGRICULTURE</div>
+   <h1>Smarter Farming.<br><span>Better Decisions.</span></h1>
+   <p>GreenFarm connects crop management, livestock, farm activities, analytics and reports in one professional digital agriculture workspace.</p>
+   <div class="hero-actions">
+    <a class="btn btn-gold" href="dashboard.html">Open Farm Dashboard →</a>
+    <a class="btn btn-light" href="#modules">Explore Platform</a>
+   </div>
+  </div>
+  <div class="hero-panel">
+   <div class="panel-top"><strong>🌱 Farm Command Center</strong><span class="live">● LIVE OVERVIEW</span></div>
+   <div class="panel-grid">
+    <div class="metric"><small>Active Crops</small><strong>12</strong><span>+2 this season</span></div>
+    <div class="metric"><small>Livestock</small><strong>18</strong><span>Healthy records</span></div>
+    <div class="metric"><small>Soil Moisture</small><strong>68%</strong><span>Good range</span></div>
+    <div class="metric"><small>Monthly Revenue</small><strong>₹48.6K</strong><span>+12.4%</span></div>
+   </div>
+   <div class="progress"><i></i></div>
+  </div>
+ </div>
+</section>
 
-  <section class="gf-stats" aria-label="Farm overview">
-    <div class="gf-stat"><strong>🌱 12</strong><span>Active Crops</span></div>
-    <div class="gf-stat"><strong>🐄 18</strong><span>Livestock</span></div>
-    <div class="gf-stat"><strong>💧 68%</strong><span>Soil Moisture</span></div>
-    <div class="gf-stat"><strong>₹48.6K</strong><span>Monthly Revenue</span></div>
-  </section>
+<section class="snapshot">
+ <div class="snapshot-grid container">
+  <div class="snap"><strong>12</strong><span>Active Crops</span></div>
+  <div class="snap"><strong>18</strong><span>Livestock Records</span></div>
+  <div class="snap"><strong>24</strong><span>Planned Activities</span></div>
+  <div class="snap"><strong>98%</strong><span>Farm Data Health</span></div>
+ </div>
+</section>
 
-  <section class="gf-section" id="modules">
-    <div class="gf-section-head">
-      <small>GREENFARM PLATFORM</small>
-      <h2>Everything your farm needs</h2>
-      <p>One clean workspace for recording, monitoring and understanding farm operations.</p>
-    </div>
-    <div class="gf-modules">
-      <article class="gf-module"><div class="gf-module-icon">🌱</div><h3>Crop Management</h3><p>Track fields, crops, growth stages, irrigation and harvest planning.</p><a href="crops.html">Manage crops →</a></article>
-      <article class="gf-module"><div class="gf-module-icon">🐄</div><h3>Livestock</h3><p>Maintain animal groups, feeding, health checks and farm records.</p><a href="livestock.html">Open livestock →</a></article>
-      <article class="gf-module"><div class="gf-module-icon">📅</div><h3>Farm Activities</h3><p>Plan irrigation, fertilizer, spraying, harvesting and daily tasks.</p><a href="activities.html">View activities →</a></article>
-      <article class="gf-module"><div class="gf-module-icon">📊</div><h3>Analytics</h3><p>Understand yield, revenue, expenses and farm performance.</p><a href="analytics.html">View analytics →</a></article>
-      <article class="gf-module"><div class="gf-module-icon">📄</div><h3>Reports</h3><p>Prepare clear farm summaries for records, printing and sharing.</p><a href="reports.html">Generate reports →</a></article>
-      <article class="gf-module"><div class="gf-module-icon">🌿</div><h3>Farm Tools</h3><p>Record weather, soil, irrigation, pest scouting, harvest and finance.</p><a href="farm.html">Open farm tools →</a></article>
-    </div>
-  </section>
+<section class="section" id="modules">
+ <div class="section-head"><div class="kicker">GREENFARM PLATFORM</div><h2>Everything your farm needs</h2><p>A connected workspace built to make everyday farm management simpler, faster and more organized.</p></div>
+ <div class="modules">
+  <article class="card"><div class="icon">🌱</div><h3>Crop Management</h3><p>Manage fields, crop stages, irrigation, inputs and harvest planning from one place.</p><a class="card-link" href="crops.html">Manage crops →</a></article>
+  <article class="card"><div class="icon">🐄</div><h3>Livestock Management</h3><p>Keep animal groups, feeding, health checks and livestock records organized.</p><a class="card-link" href="livestock.html">Open livestock →</a></article>
+  <article class="card"><div class="icon">📅</div><h3>Farm Activities</h3><p>Plan and record irrigation, fertilizer, spraying, harvesting and daily operations.</p><a class="card-link" href="activities.html">View activities →</a></article>
+  <article class="card"><div class="icon">📈</div><h3>Analytics</h3><p>Turn farm records into useful insights for yield, revenue, expenses and performance.</p><a class="card-link" href="analytics.html">View analytics →</a></article>
+  <article class="card"><div class="icon">📄</div><h3>Reports</h3><p>Create clear summaries for farm records, reviews, printing and sharing.</p><a class="card-link" href="reports.html">Generate reports →</a></article>
+  <article class="card"><div class="icon">🧰</div><h3>Farm Tools</h3><p>Access practical tools for weather, soil, irrigation, scouting, harvest and finance.</p><a class="card-link" href="farm.html">Open farm tools →</a></article>
+ </div>
+</section>
+
+<section class="section workflow">
+ <div class="section-head"><div class="kicker">SIMPLE WORKFLOW</div><h2>From field activity to farm insight</h2><p>GreenFarm keeps the complete farm workflow connected.</p></div>
+ <div class="workflow-grid">
+  <article class="step"><div class="step-no">01</div><h3>Record</h3><p>Add crops, livestock, activities, inputs and daily farm observations.</p></article>
+  <article class="step"><div class="step-no">02</div><h3>Monitor</h3><p>Keep track of schedules, crop progress, farm conditions and operational status.</p></article>
+  <article class="step"><div class="step-no">03</div><h3>Analyze</h3><p>Review trends, performance, yield, revenue and farm-level indicators.</p></article>
+  <article class="step"><div class="step-no">04</div><h3>Decide</h3><p>Use organized information to plan better actions and improve farm performance.</p></article>
+ </div>
+</section>
+
+<section class="section">
+ <div class="analytics">
+  <div class="analytics-copy">
+   <div class="kicker">FARM INTELLIGENCE</div>
+   <h2>See the farm beyond the field.</h2>
+   <p>Bring operational data into one view. GreenFarm helps you understand what is happening today and what needs attention next.</p>
+   <div class="checks">
+    <div class="check"><b>✓</b> Centralized farm records</div>
+    <div class="check"><b>✓</b> Crop and livestock tracking</div>
+    <div class="check"><b>✓</b> Activity and performance monitoring</div>
+    <div class="check"><b>✓</b> Printable reports and summaries</div>
+   </div>
+  </div>
+  <div class="chart">
+   <div class="chart-head"><strong>Farm Performance</strong><span>Current season</span></div>
+   <div class="bars">
+    <div class="bar" style="height:48%"><span>Jan</span></div><div class="bar" style="height:62%"><span>Feb</span></div><div class="bar" style="height:55%"><span>Mar</span></div><div class="bar" style="height:74%"><span>Apr</span></div><div class="bar" style="height:68%"><span>May</span></div><div class="bar" style="height:86%"><span>Jun</span></div><div class="bar" style="height:78%"><span>Jul</span></div>
+   </div>
+   <div class="chart-stats"><div class="chart-stat"><small>Yield</small><strong>+18.6%</strong></div><div class="chart-stat"><small>Revenue</small><strong>₹48.6K</strong></div><div class="chart-stat"><small>Efficiency</small><strong>92%</strong></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" style="padding-top:10px">
+ <div class="section-head"><div class="kicker">SMART AGRICULTURE</div><h2>Designed for modern farm operations</h2><p>Professional tools and a simple interface for students, farmers, field teams and agricultural projects.</p></div>
+ <div class="feature-grid">
+  <div class="feature"><strong>📱 Mobile Ready</strong><p>Use the same platform comfortably on phones, tablets, laptops and desktop screens.</p></div>
+  <div class="feature"><strong>⚡ Fast Navigation</strong><p>Important farm modules are always close and easy to reach.</p></div>
+  <div class="feature"><strong>📊 Data Driven</strong><p>Convert everyday farm records into meaningful summaries and indicators.</p></div>
+  <div class="feature"><strong>🔒 Organized Records</strong><p>Keep activities, crop records, livestock information and reports structured.</p></div>
+  <div class="feature"><strong>🖨️ Report Ready</strong><p>Prepare professional summaries for review, printing and documentation.</p></div>
+  <div class="feature"><strong>🌾 Agriculture Focused</strong><p>Built around real agricultural workflows instead of generic business dashboards.</p></div>
+ </div>
+</section>
+
+<section class="cta">
+ <div class="container cta-box">
+  <div><h2>Ready to manage your farm smarter?</h2><p>Open GreenFarm and explore your complete digital farm workspace.</p></div>
+  <a class="btn" href="dashboard.html">Open GreenFarm Dashboard →</a>
+ </div>
+</section>
 </main>
 
-<footer class="gf-footer">
-  <div><strong>🌱 GreenFarm</strong><p>Smart Digital Farm Management System • 2026</p></div>
-  <nav><a href="dashboard.html">Dashboard</a><a href="reports.html">Reports</a><a href="farm.html">Farm Tools</a><a href="admin.html">Admin</a></nav>
+<footer class="footer">
+ <div class="container">
+  <div class="footer-grid">
+   <div><div class="footer-brand">🌱 GreenFarm</div><p>Smart Digital Agriculture platform for connected crop, livestock, activity, analytics and reporting workflows.</p></div>
+   <div><h4>Platform</h4><a href="dashboard.html">Dashboard</a><a href="crops.html">Crops</a><a href="livestock.html">Livestock</a><a href="activities.html">Activities</a></div>
+   <div><h4>Insights</h4><a href="analytics.html">Analytics</a><a href="reports.html">Reports</a><a href="farm.html">Farm Tools</a></div>
+   <div><h4>Project</h4><a href="admin.html">Admin</a><a href="auth.html">Sign in</a><a href="#modules">Features</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 GreenFarm • Smart Digital Agriculture</span><span>TNAU • AC&amp;RI Vazhavachanur</span></div>
+ </div>
 </footer>
 </body>
 </html>

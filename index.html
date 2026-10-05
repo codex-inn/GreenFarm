@@ -7,107 +7,133 @@
 <title>GreenFarm | Smart Digital Farm Management</title>
 <link rel="stylesheet" href="assets/style.css">
 <style>
-/* GreenFarm v2 homepage */
-.gf-v2{font-family:Inter,"Segoe UI",Arial,sans-serif;background:#f5f8f4;color:#173324}
-.gf-v2 .topbar{background:#063b23;color:#dceee4;padding:8px 5%;display:flex;justify-content:space-between;gap:15px;font-size:12px;font-weight:700}
-.gf-v2 .topbar span{opacity:.9}
-.gf-v2 .brandbar{background:#fff;border-bottom:1px solid #dce8df;padding:18px 5%;display:flex;align-items:center;gap:16px}
-.gf-v2 .tnau-mark{width:68px;height:68px;border-radius:50%;border:2px solid #d8e5dc;object-fit:contain;background:#fff}
-.gf-v2 .brandcopy{min-width:0}
-.gf-v2 .brandname{font-size:clamp(30px,4vw,48px);font-weight:950;line-height:.95;color:#063b23;letter-spacing:-1.5px}
-.gf-v2 .tagline{font-size:11px;font-weight:900;letter-spacing:2px;color:#a37a0b;margin-top:7px}
-.gf-v2 .institution{display:flex;flex-direction:column;margin-top:7px;gap:2px;color:#52635a;font-size:11px;line-height:1.2}
-.gf-v2 .institution strong{font-size:clamp(10px,1.1vw,13px);color:#34473b}
-.gf-v2 .project-pill{margin-left:auto;border:1px solid #d9e6dc;border-top:3px solid #c59a22;padding:11px 17px;border-radius:12px;text-align:center;background:#f8fbf8}
-.gf-v2 .project-pill b{display:block;color:#063b23;font-size:19px}.gf-v2 .project-pill small{color:#718078;font-weight:800}
-.gf-v2 .nav2{background:#fff;border-bottom:1px solid #dce8df;display:flex;align-items:center;gap:4px;padding:0 5%;overflow:auto;white-space:nowrap;position:sticky;top:0;z-index:30}
-.gf-v2 .nav2 a{padding:14px 15px;font-size:13px;font-weight:800;color:#516158;border-bottom:3px solid transparent}
-.gf-v2 .nav2 a:hover,.gf-v2 .nav2 a.active{color:#063b23;border-bottom-color:#c59a22;background:#f6faf7}
-.gf-v2 .hero2{min-height:570px;position:relative;display:flex;align-items:center;overflow:hidden;background:#063b23}
-.gf-v2 .hero2-bg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,48,27,.9) 0%,rgba(2,48,27,.68) 43%,rgba(2,48,27,.12) 100%),url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=85") center/cover}
-.gf-v2 .hero2-content{position:relative;z-index:2;max-width:780px;padding:75px 6%;color:#fff}
-.gf-v2 .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.09);font-size:11px;font-weight:900;letter-spacing:1.4px}
-.gf-v2 .hero2 h1{font-size:clamp(48px,7vw,82px);line-height:.98;letter-spacing:-3px;margin:20px 0 20px}
-.gf-v2 .hero2 h1 span{color:#e1c65d}
-.gf-v2 .hero2 p{font-size:17px;line-height:1.7;color:#e4f0e9;max-width:650px}
-.gf-v2 .hero-actions2{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.gf-v2 .cta{display:inline-flex;align-items:center;justify-content:center;padding:13px 19px;border-radius:10px;font-weight:900}
-.gf-v2 .cta.primary{background:#c59a22;color:#fff}.gf-v2 .cta.secondary{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.45);color:#fff}
-.gf-v2 .hero-card{position:absolute;right:6%;bottom:42px;width:265px;padding:18px;border-radius:16px;background:rgba(255,255,255,.93);color:#173324;box-shadow:0 20px 50px rgba(0,0,0,.22);z-index:3}
-.gf-v2 .hero-card small{color:#718078;font-weight:900;letter-spacing:1px}.gf-v2 .hero-card strong{display:block;font-size:25px;color:#063b23;margin:4px 0}.gf-v2 .hero-card p{margin:0;font-size:12px;color:#66756d;line-height:1.5}
-.gf-v2 .metrics{display:grid;grid-template-columns:repeat(4,1fr);max-width:1120px;margin:-34px auto 0;position:relative;z-index:5;padding:0 5%}
-.gf-v2 .metric{background:#fff;border:1px solid #dce8df;padding:20px;border-right:0}.gf-v2 .metric:first-child{border-radius:15px 0 0 15px}.gf-v2 .metric:last-child{border-radius:0 15px 15px 0;border-right:1px solid #dce8df}
-.gf-v2 .metric b{display:block;font-size:25px;color:#063b23}.gf-v2 .metric span{font-size:12px;color:#718078;font-weight:800}
-.gf-v2 .section2{max-width:1120px;margin:auto;padding:80px 5%}.gf-v2 .section-head{max-width:700px;margin-bottom:35px}.gf-v2 .section-head small{color:#a37a0b;font-size:11px;font-weight:950;letter-spacing:1.7px}.gf-v2 .section-head h2{font-size:clamp(30px,4vw,44px);line-height:1.05;color:#063b23;margin:7px 0 10px;letter-spacing:-1px}.gf-v2 .section-head p{color:#6b7971;margin:0}
-.gf-v2 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.gf-v2 .card2{background:#fff;border:1px solid #dce8df;border-radius:16px;padding:23px;transition:.2s;box-shadow:0 7px 22px rgba(3,59,32,.045)}.gf-v2 .card2:hover{transform:translateY(-4px);box-shadow:0 15px 32px rgba(3,59,32,.11);border-color:#b7d2c2}.gf-v2 .icon2{width:46px;height:46px;border-radius:12px;background:#edf6ef;display:grid;place-items:center;font-size:23px}.gf-v2 .card2 h3{margin:15px 0 6px;color:#063b23}.gf-v2 .card2 p{margin:0 0 15px;color:#6b7971;font-size:13px;line-height:1.55}.gf-v2 .card2 a{font-size:12px;color:#197447;font-weight:900}
-.gf-v2 .feature{background:#063b23;color:#fff;max-width:none}.gf-v2 .feature-inner{max-width:1120px;margin:auto;padding:70px 5%;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}.gf-v2 .feature h2{font-size:clamp(32px,4vw,50px);line-height:1.05;margin:7px 0 15px}.gf-v2 .feature p{color:#cfe3d7;line-height:1.7}.gf-v2 .flow{display:grid;gap:10px}.gf-v2 .flow div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:15px;border-radius:12px;font-weight:850}.gf-v2 .flow b{color:#e1c65d;margin-right:8px}
-.gf-v2 .academic2{max-width:1120px;margin:auto;padding:70px 5%;display:flex;justify-content:space-between;align-items:center;gap:30px}.gf-v2 .academic2 h2{font-size:30px;color:#063b23;margin:5px 0}.gf-v2 .academic2 p{color:#6b7971}.gf-v2 .submit2{min-width:250px;padding:20px;background:#fff;border:1px solid #dce8df;border-left:4px solid #c59a22;border-radius:14px}.gf-v2 .submit2 small{color:#a37a0b;font-weight:900}.gf-v2 .submit2 strong,.gf-v2 .submit2 span{display:block}.gf-v2 .submit2 strong{font-size:21px;color:#063b23;margin-top:5px}.gf-v2 .submit2 span{font-size:12px;color:#718078}
-.gf-v2 footer{background:#032d1a;color:#cfe3d7;padding:38px 5%;display:flex;justify-content:space-between;align-items:center;gap:25px}.gf-v2 footer strong{font-size:21px;color:#fff}.gf-v2 footer p{margin:4px 0;font-size:12px;color:#91b5a3}.gf-v2 footer nav{display:flex;gap:18px;font-size:12px;font-weight:800}.gf-v2 footer nav a:hover{color:#e1c65d}
-@media(max-width:900px){.gf-v2 .hero-card{display:none}.gf-v2 .cards{grid-template-columns:1fr 1fr}.gf-v2 .feature-inner{grid-template-columns:1fr}.gf-v2 .metrics{grid-template-columns:1fr 1fr}.gf-v2 .metric:first-child{border-radius:15px 0 0 0}.gf-v2 .metric:nth-child(2){border-radius:0 15px 0 0;border-right:1px solid #dce8df}.gf-v2 .metric:nth-child(3){border-radius:0 0 0 15px}.gf-v2 .metric:last-child{border-radius:0 0 15px 0}}
-@media(max-width:600px){.gf-v2 .topbar{font-size:10px}.gf-v2 .topbar span:last-child{display:none}.gf-v2 .brandbar{padding:13px 4%;gap:10px}.gf-v2 .tnau-mark{width:48px;height:48px}.gf-v2 .brandname{font-size:28px}.gf-v2 .tagline{font-size:8px;letter-spacing:1px}.gf-v2 .institution{font-size:8px}.gf-v2 .institution strong{font-size:8.5px}.gf-v2 .project-pill{display:none}.gf-v2 .nav2 a{padding:12px 11px;font-size:11px}.gf-v2 .hero2{min-height:560px}.gf-v2 .hero2-bg{background:linear-gradient(90deg,rgba(2,48,27,.9),rgba(2,48,27,.52)),url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80") center/cover}.gf-v2 .hero2-content{padding:55px 5%}.gf-v2 .hero2 h1{font-size:clamp(42px,13vw,60px);letter-spacing:-2px}.gf-v2 .hero2 p{font-size:15px}.gf-v2 .metrics{padding:0 4%;margin-top:-25px}.gf-v2 .metric{padding:15px 12px}.gf-v2 .metric b{font-size:20px}.gf-v2 .cards{grid-template-columns:1fr}.gf-v2 .section2{padding:55px 5%}.gf-v2 .feature-inner{padding:55px 5%}.gf-v2 .academic2{display:block;padding:55px 5%}.gf-v2 .submit2{margin-top:22px}.gf-v2 footer{display:block;padding:30px 5%}.gf-v2 footer nav{margin-top:18px;flex-wrap:wrap}}
+/* Screenshot-matched GreenFarm institutional homepage */
+.gf-match{font-family:"Segoe UI",Arial,sans-serif;background:#fff;color:#173324;min-height:100vh}
+.gf-match *{box-sizing:border-box}
+.gf-match .tnau-header{height:165px;position:relative;overflow:hidden;background:
+ linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.88) 55%,rgba(255,255,255,.72) 100%),
+ url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=80") center/cover;
+ border-top:5px solid #40313e;border-bottom:1px solid #e2e6e2}
+.gf-match .tnau-header:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,rgba(255,255,255,.25));pointer-events:none}
+.gf-match .tnau-inner{height:100%;max-width:1720px;margin:auto;padding:15px 4.8%;display:flex;align-items:center;position:relative;z-index:2}
+.gf-match .tnau-left{display:flex;align-items:center;min-width:0}
+.gf-match .tnau-logo{width:116px;height:92px;object-fit:contain;flex:0 0 auto}
+.gf-match .tnau-copy{margin-left:23px;min-width:0}
+.gf-match .tnau-title{font-family:Georgia,"Times New Roman",serif;color:#06452d;font-weight:800;font-size:clamp(27px,3vw,43px);line-height:1.05;letter-spacing:.2px;white-space:nowrap}
+.gf-match .tnau-tamil{font-family:"Noto Sans Tamil","Latha","Segoe UI",sans-serif;color:#237044;font-weight:800;font-size:clamp(19px,2vw,28px);line-height:1.2;margin-top:7px;white-space:nowrap}
+.gf-match .tnau-address{font-size:13px;font-weight:700;color:#4c5a51;margin-top:3px}
+.gf-match .college-box{margin-left:auto;padding-left:45px;border-left:1px solid rgba(65,93,76,.3);min-width:390px;text-align:center}
+.gf-match .college-name{font-size:19px;font-weight:850;color:#07542f;line-height:1.2}
+.gf-match .college-place{font-family:Georgia,"Times New Roman",serif;font-size:27px;font-weight:900;color:#188247;margin-top:5px;letter-spacing:.3px}
+.gf-match .college-sub{font-size:13px;color:#647169;margin-top:2px}
+.gf-match .college-pill{display:inline-block;margin-top:8px;padding:5px 14px;border-radius:20px;background:#e7f2e9;color:#176b40;font-size:11px;font-weight:900}
+.gf-match .nav-wrap{height:78px;background:#fff;border-bottom:1px solid #e0e5e1;box-shadow:0 2px 10px rgba(0,0,0,.04);position:sticky;top:0;z-index:50}
+.gf-match .nav-inner{max-width:1720px;height:100%;margin:auto;padding:0 4.8%;display:flex;align-items:center}
+.gf-match .brand{display:flex;align-items:center;gap:10px;margin-right:70px;white-space:nowrap}
+.gf-match .brand-mark{font-size:31px;line-height:1}
+.gf-match .brand-name{font-size:28px;font-weight:900;color:#07542f;letter-spacing:-.5px}
+.gf-match .nav-links{height:100%;display:flex;align-items:center;gap:7px}
+.gf-match .nav-links a{height:100%;display:flex;align-items:center;gap:7px;padding:0 14px;color:#244232;font-size:15px;font-weight:800;border-bottom:3px solid transparent;transition:.18s}
+.gf-match .nav-links a:hover,.gf-match .nav-links a.active{color:#07542f;border-bottom-color:#168246;background:#fbfdfb}
+.gf-match .nav-spacer{flex:1}
+.gf-match .language{display:flex;align-items:center;border:1px solid #d6e2d9;background:#f4f8f5;border-radius:22px;padding:3px;margin-right:28px;box-shadow:0 2px 7px rgba(0,60,30,.05)}
+.gf-match .language button{border:0;background:transparent;padding:7px 12px;border-radius:18px;font-weight:850;color:#31503e;cursor:pointer}
+.gf-match .language .selected{background:#168b47;color:#fff;box-shadow:0 2px 5px rgba(0,100,50,.18)}
+.gf-match .action{background:#138843;color:#fff;padding:13px 24px;border-radius:8px;font-size:15px;font-weight:900;display:flex;align-items:center;gap:8px;box-shadow:0 3px 9px rgba(0,90,40,.16)}
+.gf-match .action:hover{background:#0e7137}
+.gf-match .hero{min-height:500px;background:linear-gradient(90deg,rgba(3,59,32,.88),rgba(3,59,32,.52),rgba(3,59,32,.16)),url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=2200&q=85") center/cover;display:flex;align-items:center}
+.gf-match .hero-content{max-width:1720px;width:100%;margin:auto;padding:75px 4.8%;color:#fff}
+.gf-match .hero-kicker{font-size:12px;font-weight:900;letter-spacing:2px;color:#e5d06c}
+.gf-match .hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(48px,6vw,76px);line-height:1.02;margin:14px 0 18px}
+.gf-match .hero h1 span{color:#e1c65d}
+.gf-match .hero p{max-width:650px;font-size:17px;line-height:1.7;color:#e8f1eb}
+.gf-match .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.gf-match .hero-buttons a{padding:13px 20px;border-radius:8px;font-weight:900}
+.gf-match .primary{background:#c59a22;color:#fff}.gf-match .secondary{border:1px solid rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.08)}
+.gf-match .quick{display:grid;grid-template-columns:repeat(4,1fr);max-width:1120px;margin:-35px auto 0;position:relative;z-index:5;padding:0 5%}
+.gf-match .quick div{background:#fff;padding:20px;text-align:center;border:1px solid #dce5de;border-right:0}
+.gf-match .quick div:first-child{border-radius:14px 0 0 14px}.gf-match .quick div:last-child{border-right:1px solid #dce5de;border-radius:0 14px 14px 0}
+.gf-match .quick b{display:block;font-size:23px;color:#07542f}.gf-match .quick span{font-size:12px;font-weight:750;color:#708078}
+.gf-match .section{max-width:1200px;margin:auto;padding:75px 5%}.gf-match .section-title{text-align:center}.gf-match .section-title small{color:#b08618;font-size:11px;font-weight:900;letter-spacing:1.7px}.gf-match .section-title h2{font-size:38px;color:#07542f;margin:5px 0 10px}.gf-match .section-title p{color:#6b7971}
+.gf-match .modules{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}.gf-match .module{padding:24px;background:#fff;border:1px solid #dce5de;border-radius:14px;box-shadow:0 7px 20px rgba(0,60,30,.05);transition:.18s}.gf-match .module:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,60,30,.11)}.gf-match .module-icon{font-size:30px}.gf-match .module h3{color:#07542f;margin:11px 0 5px}.gf-match .module p{color:#6b7971;font-size:13px;line-height:1.55;margin:0 0 12px}.gf-match .module a{font-size:12px;font-weight:900;color:#168246}
+.gf-match .footer{background:#063b23;color:#d5e8dc;padding:38px 5%;display:flex;justify-content:space-between;gap:20px;align-items:center}.gf-match .footer strong{font-size:21px;color:#fff}.gf-match .footer p{margin:3px 0;font-size:12px;color:#90b6a0}.gf-match .footer nav{display:flex;gap:18px;font-size:12px;font-weight:800}
+@media(max-width:1100px){.gf-match .college-box{min-width:300px;padding-left:25px}.gf-match .brand{margin-right:25px}.gf-match .nav-links a{padding:0 9px;font-size:13px}}
+@media(max-width:850px){.gf-match .tnau-header{height:auto;min-height:145px}.gf-match .tnau-inner{padding:12px 4%;align-items:flex-start}.gf-match .tnau-logo{width:80px;height:72px}.gf-match .tnau-copy{margin-left:12px}.gf-match .tnau-title{font-size:24px;white-space:normal}.gf-match .tnau-tamil{font-size:17px;white-space:normal}.gf-match .tnau-address{font-size:11px}.gf-match .college-box{display:none}.gf-match .nav-wrap{height:auto;min-height:66px}.gf-match .nav-inner{padding:0 3%;overflow-x:auto}.gf-match .brand{margin-right:18px}.gf-match .nav-links{flex:1;overflow-x:auto}.gf-match .nav-links a{white-space:nowrap}.gf-match .language{margin-left:15px;margin-right:12px;flex:0 0 auto}.gf-match .action{flex:0 0 auto;padding:11px 15px}.gf-match .quick{grid-template-columns:1fr 1fr}.gf-match .quick div{border-right:1px solid #dce5de}.gf-match .quick div:first-child{border-radius:14px 0 0 0}.gf-match .quick div:nth-child(2){border-radius:0 14px 0 0}.gf-match .quick div:nth-child(3){border-radius:0 0 0 14px}.gf-match .quick div:last-child{border-radius:0 0 14px 0}}
+@media(max-width:560px){.gf-match .tnau-header{min-height:118px}.gf-match .tnau-logo{width:58px;height:58px}.gf-match .tnau-title{font-size:18px}.gf-match .tnau-tamil{font-size:13px;margin-top:4px}.gf-match .tnau-address{font-size:9px}.gf-match .brand-name{font-size:22px}.gf-match .brand-mark{font-size:24px}.gf-match .nav-links a{font-size:11px;padding:0 8px}.gf-match .language button{padding:6px 9px;font-size:11px}.gf-match .action{font-size:11px;padding:10px 12px}.gf-match .hero{min-height:470px}.gf-match .hero-content{padding:55px 6%}.gf-match .hero h1{font-size:43px}.gf-match .hero p{font-size:14px}.gf-match .hero-buttons{flex-direction:column}.gf-match .hero-buttons a{text-align:center}.gf-match .quick{padding:0 4%;margin-top:-24px}.gf-match .quick div{padding:14px 8px}.gf-match .quick b{font-size:19px}.gf-match .section{padding:52px 5%}.gf-match .section-title h2{font-size:29px}.gf-match .modules{grid-template-columns:1fr}.gf-match .footer{display:block;padding:30px 5%}.gf-match .footer nav{margin-top:17px;flex-wrap:wrap}}
 </style>
 </head>
 <body>
-<div class="gf-v2">
-  <div class="topbar"><span>🌾 DIGITAL AGRICULTURE PLATFORM</span><span>Academic Project • 2026</span></div>
-  <header class="brandbar">
-    <img class="tnau-mark" src="https://agritech.tnau.ac.in/ta/pdf/images/TNAU.jpg" alt="TNAU logo">
-    <div class="brandcopy">
-      <div class="brandname">GreenFarm</div>
-      <div class="tagline">SMART DIGITAL FARM MANAGEMENT SYSTEM</div>
-      <div class="institution">
-        <strong>TAMIL NADU AGRICULTURAL UNIVERSITY</strong>
-        <span>தமிழ்நாடு வேளாண்மைப் பல்கலைக்கழகம்</span>
-        <span>Agricultural College and Research Institute</span>
-        <span>Vazhavachanur, Tiruvannamalai</span>
+<div class="gf-match">
+  <header class="tnau-header">
+    <div class="tnau-inner">
+      <div class="tnau-left">
+        <img class="tnau-logo" src="https://agritech.tnau.ac.in/ta/pdf/images/TNAU.jpg" alt="Tamil Nadu Agricultural University emblem">
+        <div class="tnau-copy">
+          <div class="tnau-title">TAMIL NADU AGRICULTURAL UNIVERSITY</div>
+          <div class="tnau-tamil">தமிழ்நாடு வேளாண்மைப் பல்கலைக்கழகம்</div>
+          <div class="tnau-address">Coimbatore – 641 003, Tamil Nadu, India</div>
+        </div>
+      </div>
+      <div class="college-box">
+        <div class="college-name">🏫 Agricultural College &amp; Research Institute</div>
+        <div class="college-place">VAZHAVACHANUR</div>
+        <div class="college-sub">Tamil Nadu Agricultural University</div>
+        <div class="college-pill">AC&amp;RI • VVNR</div>
       </div>
     </div>
-    <div class="project-pill"><small>PROJECT</small><b>GREEN FARM</b></div>
   </header>
-  <nav class="nav2">
-    <a class="active" href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="crops.html">Crops</a><a href="livestock.html">Livestock</a><a href="activities.html">Activities</a><a href="analytics.html">Analytics</a><a href="reports.html">Reports</a><a href="farm.html">Farm Tools</a><a href="admin.html">Admin</a>
-  </nav>
+
+  <div class="nav-wrap">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">🌱</span><span class="brand-name">GreenFarm</span></a>
+      <nav class="nav-links">
+        <a class="active" href="index.html">🏠 Home</a>
+        <a href="dashboard.html">🤖 Dashboard</a>
+        <a href="crops.html">✨ Crops</a>
+        <a href="livestock.html">🐄 Livestock</a>
+        <a href="activities.html">📅 Activities</a>
+        <a href="analytics.html">📊 Analytics</a>
+        <a href="reports.html">📄 Reports</a>
+        <a href="farm.html">🌿 Farm Tools</a>
+        <a href="admin.html">⚙️ Admin</a>
+      </nav>
+      <div class="nav-spacer"></div>
+      <div class="language"><button class="selected" type="button">EN</button><button type="button">தமிழ்</button></div>
+      <a class="action" href="dashboard.html">📊 Open Dashboard</a>
+    </div>
+  </div>
+
   <main>
-    <section class="hero2">
-      <div class="hero2-bg"></div>
-      <div class="hero2-content">
-        <div class="eyebrow">🌱 SMART FARMING • DIGITAL AGRICULTURE</div>
-        <h1>Grow smarter.<br><span>Farm better.</span></h1>
-        <p>GreenFarm brings crop records, livestock, daily activities, analytics and farm reports together in one simple digital workspace.</p>
-        <div class="hero-actions2"><a class="cta primary" href="dashboard.html">Open Farm Dashboard →</a><a class="cta secondary" href="#modules">Explore Platform</a></div>
-      </div>
-      <div class="hero-card"><small>TODAY'S FARM SNAPSHOT</small><strong>🌱 Farm Ready</strong><p>Monitor your crops, activities and farm performance from one place.</p></div>
-    </section>
-
-    <section class="metrics">
-      <div class="metric"><b>🌱 12</b><span>Active Crops</span></div><div class="metric"><b>🐄 18</b><span>Livestock</span></div><div class="metric"><b>💧 68%</b><span>Soil Moisture</span></div><div class="metric"><b>₹48.6K</b><span>Monthly Revenue</span></div>
-    </section>
-
-    <section class="section2" id="modules">
-      <div class="section-head"><small>GREENFARM WORKSPACE</small><h2>Everything in one farm dashboard.</h2><p>Move from scattered records to an organized digital farm workflow designed around real agricultural work.</p></div>
-      <div class="cards">
-        <article class="card2"><div class="icon2">🌱</div><h3>Crop Management</h3><p>Track crops, fields, growth stages, irrigation and harvest planning.</p><a href="crops.html">Manage crops →</a></article>
-        <article class="card2"><div class="icon2">🐄</div><h3>Livestock</h3><p>Maintain animal groups, feeding, health checks and farm records.</p><a href="livestock.html">Open livestock →</a></article>
-        <article class="card2"><div class="icon2">📅</div><h3>Daily Activities</h3><p>Organize irrigation, fertilizer, spraying, harvesting and daily tasks.</p><a href="activities.html">View activities →</a></article>
-        <article class="card2"><div class="icon2">📊</div><h3>Analytics</h3><p>Understand yield, expenses, revenue and overall farm performance.</p><a href="analytics.html">View analytics →</a></article>
-        <article class="card2"><div class="icon2">📄</div><h3>Farm Reports</h3><p>Create clean summaries for records, review, printing and sharing.</p><a href="reports.html">Generate reports →</a></article>
-        <article class="card2"><div class="icon2">🌿</div><h3>Farm Tools</h3><p>Record weather, soil, irrigation, pest scouting, harvest and finance.</p><a href="farm.html">Open farm tools →</a></article>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-kicker">🌾 SMART FARMING • DIGITAL AGRICULTURE</div>
+        <h1>Smarter Farming.<br><span>Better Decisions.</span></h1>
+        <p>GreenFarm brings crops, livestock, daily activities, farm records and analytics together in one simple digital platform for modern agriculture.</p>
+        <div class="hero-buttons"><a class="primary" href="dashboard.html">Open Farm Dashboard →</a><a class="secondary" href="#modules">Explore GreenFarm</a></div>
       </div>
     </section>
 
-    <section class="feature">
-      <div class="feature-inner">
-        <div><small style="color:#e1c65d;font-weight:900;letter-spacing:1.6px">SIMPLE FARM WORKFLOW</small><h2>Record. Monitor.<br>Analyse. Improve.</h2><p>GreenFarm is designed as a practical foundation for modern farm management. Start with simple records and build toward data-driven agriculture, weather services and future AI integrations.</p><a class="cta primary" href="dashboard.html">Start Managing →</a></div>
-        <div class="flow"><div><b>01</b> Record farm information</div><div><b>02</b> Monitor crops & activities</div><div><b>03</b> Analyse farm performance</div><div><b>04</b> Improve decisions & productivity</div></div>
-      </div>
+    <section class="quick">
+      <div><b>🌱 12</b><span>Active Crops</span></div>
+      <div><b>🐄 18</b><span>Livestock</span></div>
+      <div><b>💧 68%</b><span>Soil Moisture</span></div>
+      <div><b>₹48.6K</b><span>Monthly Revenue</span></div>
     </section>
 
-    <section class="academic2">
-      <div><small style="color:#a37a0b;font-weight:950;letter-spacing:1.6px">ACADEMIC PROJECT</small><h2>GreenFarm</h2><p><b>B.Sc. (Hons.) Agriculture</b><br>Smart Digital Farm Management System</p></div>
-      <div class="submit2"><small>PROJECT SUBMITTER</small><strong>Kowshik S</strong><span>B.Sc. (Hons.) Agriculture</span></div>
+    <section class="section" id="modules">
+      <div class="section-title"><small>GREENFARM PLATFORM</small><h2>Everything your farm needs</h2><p>One clean workspace for recording, monitoring and understanding farm operations.</p></div>
+      <div class="modules">
+        <article class="module"><div class="module-icon">🌱</div><h3>Crop Management</h3><p>Track fields, crops, growth stages, irrigation and harvest planning.</p><a href="crops.html">Manage crops →</a></article>
+        <article class="module"><div class="module-icon">🐄</div><h3>Livestock</h3><p>Maintain animal groups, feeding, health checks and farm records.</p><a href="livestock.html">Open livestock →</a></article>
+        <article class="module"><div class="module-icon">📅</div><h3>Farm Activities</h3><p>Plan irrigation, fertilizer, spraying, harvesting and daily tasks.</p><a href="activities.html">View activities →</a></article>
+        <article class="module"><div class="module-icon">📊</div><h3>Analytics</h3><p>Understand yield, revenue, expenses and farm performance.</p><a href="analytics.html">View analytics →</a></article>
+        <article class="module"><div class="module-icon">📄</div><h3>Reports</h3><p>Prepare clear farm summaries for records, printing and sharing.</p><a href="reports.html">Generate reports →</a></article>
+        <article class="module"><div class="module-icon">🌿</div><h3>Farm Tools</h3><p>Record weather, soil, irrigation, pest scouting, harvest and finance.</p><a href="farm.html">Open farm tools →</a></article>
+      </div>
     </section>
   </main>
-  <footer><div><strong>🌱 GreenFarm</strong><p>Smart Digital Farm Management System • 2026</p></div><nav><a href="dashboard.html">Dashboard</a><a href="reports.html">Reports</a><a href="farm.html">Farm Tools</a><a href="admin.html">Admin</a></nav></footer>
+
+  <footer class="footer"><div><strong>🌱 GreenFarm</strong><p>Smart Digital Farm Management System • 2026</p></div><nav><a href="dashboard.html">Dashboard</a><a href="reports.html">Reports</a><a href="farm.html">Farm Tools</a><a href="admin.html">Admin</a></nav></footer>
 </div>
 <script src="assets/app.js"></script>
 </body>

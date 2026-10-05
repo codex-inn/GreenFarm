@@ -4,12 +4,7 @@
 
 > Smarter Farming. Better Decisions. Sustainable Future.
 
-## 🎓 Academic Project
 
-**Tamil Nadu Agricultural University (TNAU)**  
-**Programme:** B.Sc. (Hons.) Agriculture  
-**Campus:** Agricultural College & Research Institute, Vazhavachanur  
-**Project Submitter:** **Kowshik S**
 
 GreenFarm is a responsive digital agriculture platform designed to organize crop management, livestock records, farm activities, finances, analytics and reports in one place.
 

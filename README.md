@@ -100,7 +100,7 @@ Repository → **Settings → Pages → Deploy from a branch → main → /(root
 **Project Title:** GreenFarm – Smart Digital Farm Management System  
 **Submitted by:** Kowshik S  
 **Programme:** B.Sc. (Hons.) Agriculture  
-**Institution:** Tamil Nadu Agricultural University (TNAU)  
+**Institution:** Tamil Nadu Agricultural University tnau
 **Campus:** Agricultural College & Research Institute, Vazhavachanur
 
 ## 📄 License

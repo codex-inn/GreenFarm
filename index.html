@@ -147,7 +147,23 @@ button{font:inherit}
 }
 @media(max-width:380px){.scan{display:none}.inst-title{font-size:14px}.inst-tamil{font-size:9.5px}.inst-address{font-size:7px}.inst-college{font-size:9px}.inst-place{font-size:15px}}
 </style>
-</head>
+
+<style id="screenshot-theme-fix">
+/* Desktop match to the supplied TNAU / GreenFarm reference */
+.inst-inner{grid-template-columns:minmax(0,72%) minmax(360px,28%);width:min(1540px,96%)}
+.inst-copy{padding-right:12px}
+.inst-title{font-size:clamp(25px,2.35vw,38px)}
+.inst-tamil{font-size:clamp(16px,1.5vw,24px)}
+.inst-right{padding-left:18px}
+.inst-college{font-size:16px}
+.inst-place{font-size:26px}
+.nav{height:98px}
+.menu a{font-size:13px;padding:0 11px}
+.nav-actions{margin-left:8px}
+.scan{padding:15px 18px;font-size:13px}
+@media(max-width:1100px){.inst-inner{grid-template-columns:minmax(0,70%) minmax(300px,30%)}.inst-title{font-size:29px}.inst-tamil{font-size:17px}.inst-college{font-size:13px}.inst-place{font-size:21px}.nav{height:76px}.menu a{font-size:11px;padding:0 7px}.scan{padding:11px 12px;font-size:11px}}
+@media(max-width:800px){.inst-inner{display:flex;flex-direction:column;align-items:stretch;padding:9px 4%;width:100%}.inst-title{font-size:20px}.inst-tamil{font-size:13px}.inst-right{margin-top:8px;min-height:0;padding:7px 4px 2px;border-left:0;border-top:1px solid rgba(65,93,76,.28)}.inst-college{font-size:11px}.inst-place{font-size:19px}.nav{height:58px}.menu a{font-size:10px;padding:0 8px}}
+</style></head>
 <body>
 
 <header class="inst-header">

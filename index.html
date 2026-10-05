@@ -185,6 +185,139 @@
 }
 </style>
 
+
+<style>
+/* Screenshot-accurate header geometry v3 */
+.gf-match .tnau-header{height:165px;width:100%;overflow:hidden}
+.gf-match .tnau-inner{
+  width:100%;
+  max-width:none;
+  height:100%;
+  margin:0;
+  padding:10px 4.2%;
+  display:grid;
+  grid-template-columns:68.5% 31.5%;
+  gap:0;
+  align-items:center;
+}
+.gf-match .tnau-left{
+  min-width:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+}
+.gf-match .tnau-logo{
+  width:125px;
+  height:105px;
+  flex:0 0 125px;
+  object-fit:contain;
+}
+.gf-match .tnau-copy{
+  min-width:0;
+  width:calc(100% - 125px);
+  margin-left:20px;
+  padding-right:18px;
+}
+.gf-match .tnau-title{
+  display:block;
+  width:100%;
+  max-width:100%;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(25px,2.25vw,38px);
+  font-weight:800;
+  line-height:1;
+  letter-spacing:-.2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:clip;
+  color:#06452d;
+}
+.gf-match .tnau-tamil{
+  display:block;
+  width:100%;
+  font-size:clamp(17px,1.65vw,27px);
+  font-weight:800;
+  line-height:1.12;
+  margin-top:8px;
+  white-space:nowrap;
+  overflow:hidden;
+  color:#237044;
+}
+.gf-match .tnau-address{
+  font-size:13px;
+  line-height:1.2;
+  margin-top:5px;
+}
+.gf-match .college-box{
+  min-width:0;
+  width:100%;
+  height:100%;
+  padding:0 0 0 38px;
+  border-left:1px solid rgba(65,93,76,.28);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.gf-match .college-name{
+  width:100%;
+  font-size:18px;
+  line-height:1.15;
+  font-weight:850;
+  white-space:normal;
+}
+.gf-match .college-place{
+  width:100%;
+  font-size:28px;
+  line-height:1.08;
+  margin-top:5px;
+  white-space:nowrap;
+}
+.gf-match .college-sub{font-size:13px;margin-top:7px}
+.gf-match .college-pill{font-size:10px;padding:5px 14px;margin-top:8px}
+@media(min-width:1700px){
+ .gf-match .tnau-title{font-size:38px}
+ .gf-match .tnau-tamil{font-size:27px}
+}
+@media(max-width:1200px){
+ .gf-match .tnau-inner{padding-left:3%;padding-right:3%;grid-template-columns:67% 33%}
+ .gf-match .tnau-logo{width:100px;height:88px;flex-basis:100px}
+ .gf-match .tnau-copy{width:calc(100% - 100px);margin-left:15px;padding-right:12px}
+ .gf-match .tnau-title{font-size:28px}
+ .gf-match .tnau-tamil{font-size:18px}
+ .gf-match .tnau-address{font-size:11px}
+ .gf-match .college-box{padding-left:25px}
+ .gf-match .college-name{font-size:14px}
+ .gf-match .college-place{font-size:22px}
+}
+@media(max-width:850px){
+ .gf-match .tnau-header{height:132px}
+ .gf-match .tnau-inner{grid-template-columns:65% 35%;padding:8px 2.5%}
+ .gf-match .tnau-logo{width:72px;height:65px;flex-basis:72px}
+ .gf-match .tnau-copy{width:calc(100% - 72px);margin-left:10px}
+ .gf-match .tnau-title{font-size:20px}
+ .gf-match .tnau-tamil{font-size:13px;margin-top:5px}
+ .gf-match .tnau-address{font-size:9px}
+ .gf-match .college-box{padding-left:16px}
+ .gf-match .college-name{font-size:11px}
+ .gf-match .college-place{font-size:18px}
+ .gf-match .college-sub{font-size:9px}
+}
+@media(max-width:650px){
+ .gf-match .tnau-header{height:auto;min-height:105px}
+ .gf-match .tnau-inner{display:block;padding:8px 12px}
+ .gf-match .tnau-left{height:auto}
+ .gf-match .tnau-logo{width:55px;height:52px;flex-basis:55px}
+ .gf-match .tnau-copy{width:auto;flex:1;margin-left:8px;padding-right:0}
+ .gf-match .tnau-title{font-size:16px;line-height:1.05;white-space:normal}
+ .gf-match .tnau-tamil{font-size:10.5px;line-height:1.1;white-space:normal;margin-top:3px}
+ .gf-match .tnau-address{font-size:7.5px;margin-top:3px}
+ .gf-match .college-box{display:none}
+}
+</style>
+
 </head>
 <body>
 <div class="gf-match">

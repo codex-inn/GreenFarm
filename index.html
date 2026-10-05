@@ -7,256 +7,235 @@
 <title>GreenFarm | Smart Digital Farm Management</title>
 <link rel="stylesheet" href="assets/style.css">
 <style>
-/* =========================================================
-   GREENFARM HOMEPAGE — CLEAN RESPONSIVE LAYOUT
-   One stylesheet / no conflicting responsive patches
-   ========================================================= */
-.gf-match{
-  --g:#07542f;--deep:#063b23;--leaf:#168246;--gold:#c59a22;
-  --gold-light:#e1c65d;--text:#20352a;--muted:#68776e;--line:#dce6df;
-  font-family:"Segoe UI",Arial,sans-serif;background:#f6f8f6;color:var(--text);
-}
+/* GreenFarm — reference-matched institutional header + navigation */
+.gf-match{font-family:"Segoe UI",Arial,sans-serif;background:#f6f8f6;color:#20352a;min-height:100vh}
 .gf-match *{box-sizing:border-box}
 .gf-match a{text-decoration:none;color:inherit}
 .gf-match button{font:inherit}
+
+/* ===== TNAU HEADER: matched to 1897px reference ===== */
 .gf-match .tnau-header{
-  width:100%;height:158px;overflow:hidden;position:relative;
-  border-top:5px solid #40313e;border-bottom:1px solid #dfe5e0;
+  width:100%;height:165px;overflow:hidden;position:relative;
+  border-top:5px solid #40313e;border-bottom:1px solid #dfe4df;
   background:
-    linear-gradient(90deg,rgba(255,255,255,.96),rgba(255,255,255,.88) 55%,rgba(255,255,255,.74)),
+    linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.90) 53%,rgba(255,255,255,.72) 100%),
     url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=80") center/cover;
 }
 .gf-match .tnau-inner{
-  width:100%;height:100%;padding:10px 4.2%;
-  display:grid;grid-template-columns:minmax(0,68.5%) minmax(0,31.5%);
+  width:100%;height:100%;padding:0 4.75%;
+  display:grid;grid-template-columns:minmax(0,72%) minmax(0,28%);
   align-items:center;
 }
 .gf-match .tnau-left{min-width:0;display:flex;align-items:center;height:100%}
 .gf-match .tnau-logo{
-  width:100px;height:84px;flex:0 0 100px;object-fit:contain;
+  width:116px;height:92px;flex:0 0 116px;object-fit:contain;
 }
 .gf-match .tnau-copy{
-  min-width:0;max-width:100%;margin-left:18px;padding-right:20px;
+  min-width:0;margin-left:22px;padding-right:20px;
 }
 .gf-match .tnau-title{
   margin:0;color:#06452d;font-family:Georgia,"Times New Roman",serif;
-  font-weight:800;font-size:clamp(25px,2.35vw,38px);line-height:1.02;
-  letter-spacing:0;white-space:nowrap;
+  font-size:clamp(28px,2.55vw,42px);font-weight:800;
+  line-height:1.02;letter-spacing:.1px;white-space:nowrap;
 }
 .gf-match .tnau-tamil{
-  margin-top:7px;color:#237044;font-weight:800;
+  margin-top:6px;color:#237044;
   font-family:"Noto Sans Tamil","Latha","Segoe UI",sans-serif;
-  font-size:clamp(16px,1.55vw,24px);line-height:1.12;white-space:nowrap;
+  font-size:clamp(18px,1.72vw,28px);font-weight:800;
+  line-height:1.12;white-space:nowrap;
 }
-.gf-match .tnau-address{margin-top:4px;color:#4c5a51;font-size:12px;font-weight:700}
+.gf-match .tnau-address{
+  margin-top:4px;color:#4c5a51;font-size:13px;font-weight:700;
+}
 .gf-match .college-box{
-  height:100%;min-width:0;border-left:1px solid rgba(65,93,76,.28);
-  padding-left:30px;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;text-align:center;
+  height:100%;min-width:0;border-left:1px solid rgba(65,93,76,.30);
+  padding-left:35px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
 }
-.gf-match .college-name{color:#07542f;font-size:17px;line-height:1.18;font-weight:850}
+.gf-match .college-name{
+  color:#07542f;font-size:19px;font-weight:850;line-height:1.15;
+  white-space:nowrap;
+}
 .gf-match .college-place{
   margin-top:4px;color:#188247;font-family:Georgia,"Times New Roman",serif;
-  font-size:26px;line-height:1.08;font-weight:900;letter-spacing:.2px;
+  font-size:28px;font-weight:900;line-height:1.05;letter-spacing:.2px;
 }
-.gf-match .college-sub{margin-top:5px;color:#647169;font-size:12px}
+.gf-match .college-sub{margin-top:7px;color:#647169;font-size:13px}
 .gf-match .college-pill{
-  margin-top:7px;padding:4px 13px;border-radius:20px;
+  margin-top:8px;padding:5px 14px;border-radius:20px;
   background:#e7f2e9;color:#176b40;font-size:10px;font-weight:900;
 }
 
-/* Navigation */
+/* ===== REFERENCE NAVIGATION ===== */
 .gf-match .nav-wrap{
-  height:72px;background:#fff;border-bottom:1px solid var(--line);
-  box-shadow:0 2px 10px rgba(0,0,0,.045);position:sticky;top:0;z-index:50;
+  width:100%;height:78px;background:#fff;
+  border-bottom:1px solid #e0e5e1;box-shadow:0 2px 10px rgba(0,0,0,.045);
+  position:sticky;top:0;z-index:50;
 }
 .gf-match .nav-inner{
-  width:100%;height:100%;padding:0 4.2%;display:flex;align-items:center;
+  width:100%;height:100%;padding:0 4.75%;
+  display:flex;align-items:center;
 }
-.gf-match .brand{display:flex;align-items:center;gap:8px;margin-right:40px;flex:0 0 auto}
-.gf-match .brand-mark{font-size:29px;line-height:1}
-.gf-match .brand-name{font-size:25px;font-weight:900;color:var(--g)}
+.gf-match .brand{
+  display:flex;align-items:center;gap:10px;margin-right:120px;
+  flex:0 0 auto;white-space:nowrap;
+}
+.gf-match .brand-mark{font-size:31px;line-height:1}
+.gf-match .brand-name{font-size:29px;font-weight:900;color:#07542f;letter-spacing:-.4px}
 .gf-match .nav-links{
-  height:100%;display:flex;align-items:center;gap:2px;min-width:0;overflow-x:auto;
-  scrollbar-width:none;
+  height:100%;display:flex;align-items:center;gap:8px;
+  min-width:0;overflow:hidden;
 }
-.gf-match .nav-links::-webkit-scrollbar{display:none}
 .gf-match .nav-links a{
-  height:100%;display:flex;align-items:center;gap:6px;padding:0 11px;
-  color:#294335;font-size:13px;font-weight:800;white-space:nowrap;
-  border-bottom:3px solid transparent;
+  height:100%;display:flex;align-items:center;gap:7px;
+  padding:0 15px;color:#244232;font-size:15px;font-weight:800;
+  white-space:nowrap;border-bottom:3px solid transparent;
 }
 .gf-match .nav-links a:hover,.gf-match .nav-links a.active{
-  color:var(--g);background:#fbfdfb;border-bottom-color:var(--leaf);
+  color:#07542f;border-bottom-color:#168246;background:#fbfdfb;
 }
-.gf-match .nav-spacer{flex:1;min-width:8px}
+.gf-match .nav-spacer{flex:1;min-width:10px}
 .gf-match .language{
-  display:flex;align-items:center;flex:0 0 auto;padding:3px;margin-right:18px;
-  border:1px solid #d6e2d9;background:#f4f8f5;border-radius:22px;
+  display:flex;align-items:center;flex:0 0 auto;
+  border:1px solid #d6e2d9;background:#f4f8f5;
+  border-radius:22px;padding:3px;margin-right:28px;
+  box-shadow:0 2px 7px rgba(0,60,30,.05);
 }
 .gf-match .language button{
-  border:0;background:transparent;color:#31503e;padding:6px 10px;
-  border-radius:18px;font-size:12px;font-weight:850;cursor:pointer;
+  border:0;background:transparent;padding:7px 12px;border-radius:18px;
+  color:#31503e;font-size:13px;font-weight:850;cursor:pointer;
 }
-.gf-match .language .selected{background:#168b47;color:#fff}
+.gf-match .language .selected{
+  background:#168b47;color:#fff;box-shadow:0 2px 5px rgba(0,100,50,.18);
+}
 .gf-match .action{
-  flex:0 0 auto;background:#138843;color:#fff;padding:11px 17px;
-  border-radius:8px;font-size:13px;font-weight:900;display:flex;align-items:center;gap:7px;
+  flex:0 0 auto;background:#138843;color:#fff;
+  padding:13px 24px;border-radius:8px;font-size:15px;font-weight:900;
+  display:flex;align-items:center;gap:8px;box-shadow:0 3px 9px rgba(0,90,40,.16);
 }
 .gf-match .action:hover{background:#0e7137}
 
-/* Hero */
+/* ===== EXISTING GREENFARM BODY ===== */
 .gf-match .hero{
-  min-height:470px;display:flex;align-items:center;position:relative;
-  background:
-    linear-gradient(90deg,rgba(3,59,32,.88),rgba(3,59,32,.54),rgba(3,59,32,.16)),
-    url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=2200&q=85") center/cover;
+  min-height:470px;display:flex;align-items:center;
+  background:linear-gradient(90deg,rgba(3,59,32,.88),rgba(3,59,32,.54),rgba(3,59,32,.16)),
+  url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=2200&q=85") center/cover;
 }
 .gf-match .hero-content{width:100%;padding:72px 8%;color:#fff}
-.gf-match .hero-kicker{font-size:11px;font-weight:900;letter-spacing:1.8px;color:var(--gold-light)}
-.gf-match .hero h1{
-  margin:13px 0 17px;font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(46px,5.5vw,72px);line-height:1.02;letter-spacing:-1.5px;
-}
-.gf-match .hero h1 span{color:var(--gold-light)}
-.gf-match .hero p{max-width:640px;margin:0;color:#e8f1eb;font-size:16px;line-height:1.65}
+.gf-match .hero-kicker{font-size:11px;font-weight:900;letter-spacing:1.8px;color:#e1c65d}
+.gf-match .hero h1{margin:13px 0 17px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(46px,5.5vw,72px);line-height:1.02}
+.gf-match .hero h1 span{color:#e1c65d}
+.gf-match .hero p{max-width:640px;margin:0;font-size:16px;line-height:1.65;color:#e8f1eb}
 .gf-match .hero-buttons{display:flex;gap:11px;flex-wrap:wrap;margin-top:24px}
 .gf-match .hero-buttons a{padding:12px 18px;border-radius:8px;font-size:13px;font-weight:900}
-.gf-match .primary{background:var(--gold);color:#fff}
+.gf-match .primary{background:#c59a22;color:#fff}
 .gf-match .secondary{border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);color:#fff}
-
-/* Metrics */
-.gf-match .quick{
-  max-width:1060px;margin:-32px auto 0;padding:0 20px;position:relative;z-index:5;
-  display:grid;grid-template-columns:repeat(4,1fr);
-}
-.gf-match .quick div{
-  background:#fff;padding:18px 12px;text-align:center;border:1px solid var(--line);
-  border-right:0;
-}
+.gf-match .quick{max-width:1060px;margin:-32px auto 0;padding:0 20px;position:relative;z-index:5;display:grid;grid-template-columns:repeat(4,1fr)}
+.gf-match .quick div{background:#fff;padding:18px 12px;text-align:center;border:1px solid #dce6df;border-right:0}
 .gf-match .quick div:first-child{border-radius:13px 0 0 13px}
-.gf-match .quick div:last-child{border-right:1px solid var(--line);border-radius:0 13px 13px 0}
-.gf-match .quick b{display:block;color:var(--g);font-size:22px}
+.gf-match .quick div:last-child{border-right:1px solid #dce6df;border-radius:0 13px 13px 0}
+.gf-match .quick b{display:block;color:#07542f;font-size:22px}
 .gf-match .quick span{font-size:11px;color:#708078;font-weight:750}
-
-/* Modules */
 .gf-match .section{max-width:1200px;margin:auto;padding:68px 5%}
 .gf-match .section-title{text-align:center;max-width:720px;margin:0 auto 32px}
-.gf-match .section-title small{
-  color:#a37a0b;font-size:10px;font-weight:900;letter-spacing:1.6px
-}
-.gf-match .section-title h2{margin:6px 0 9px;color:var(--g);font-size:clamp(28px,3vw,38px);line-height:1.1}
-.gf-match .section-title p{margin:0;color:var(--muted);font-size:14px}
+.gf-match .section-title small{color:#a37a0b;font-size:10px;font-weight:900;letter-spacing:1.6px}
+.gf-match .section-title h2{margin:6px 0 9px;color:#07542f;font-size:clamp(28px,3vw,38px);line-height:1.1}
+.gf-match .section-title p{margin:0;color:#68776e;font-size:14px}
 .gf-match .modules{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
-.gf-match .module{
-  padding:22px;background:#fff;border:1px solid var(--line);border-radius:14px;
-  box-shadow:0 7px 20px rgba(0,60,30,.045);transition:.18s;
-}
+.gf-match .module{padding:22px;background:#fff;border:1px solid #dce6df;border-radius:14px;box-shadow:0 7px 20px rgba(0,60,30,.045);transition:.18s}
 .gf-match .module:hover{transform:translateY(-3px);box-shadow:0 13px 28px rgba(0,60,30,.1)}
 .gf-match .module-icon{font-size:29px}
-.gf-match .module h3{margin:10px 0 5px;color:var(--g);font-size:18px}
-.gf-match .module p{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.5}
-.gf-match .module a{font-size:11px;font-weight:900;color:var(--leaf)}
-
-/* Footer */
-.gf-match .footer{
-  background:var(--deep);color:#d5e8dc;padding:34px 5%;
-  display:flex;justify-content:space-between;align-items:center;gap:20px;
-  border-top:4px solid var(--gold);
-}
+.gf-match .module h3{margin:10px 0 5px;color:#07542f;font-size:18px}
+.gf-match .module p{margin:0 0 12px;color:#68776e;font-size:13px;line-height:1.5}
+.gf-match .module a{font-size:11px;font-weight:900;color:#168246}
+.gf-match .footer{background:#063b23;color:#d5e8dc;padding:34px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:4px solid #c59a22}
 .gf-match .footer strong{font-size:20px;color:#fff}
 .gf-match .footer p{margin:3px 0;font-size:11px;color:#90b6a0}
 .gf-match .footer nav{display:flex;gap:17px;font-size:11px;font-weight:800}
 
-/* Tablet */
-@media(max-width:1100px){
-  .gf-match .tnau-inner{grid-template-columns:minmax(0,67%) minmax(0,33%);padding:9px 3%}
-  .gf-match .tnau-logo{width:82px;height:70px;flex-basis:82px}
-  .gf-match .tnau-copy{margin-left:13px;padding-right:10px}
-  .gf-match .tnau-title{font-size:27px}
-  .gf-match .tnau-tamil{font-size:17px}
+/* ===== RESPONSIVE: preserve the reference proportions ===== */
+@media(max-width:1300px){
+  .gf-match .brand{margin-right:55px}
+  .gf-match .nav-links a{padding:0 10px;font-size:13px}
+  .gf-match .tnau-title{font-size:31px}
+  .gf-match .tnau-tamil{font-size:19px}
+  .gf-match .tnau-logo{width:92px;height:78px;flex-basis:92px}
+  .gf-match .tnau-copy{margin-left:15px}
+  .gf-match .college-name{font-size:15px}
+  .gf-match .college-place{font-size:23px}
+}
+@media(max-width:1000px){
+  .gf-match .tnau-header{height:145px}
+  .gf-match .tnau-inner{padding:0 3%;grid-template-columns:67% 33%}
+  .gf-match .tnau-title{font-size:26px}
+  .gf-match .tnau-tamil{font-size:16px}
   .gf-match .tnau-address{font-size:10px}
   .gf-match .college-box{padding-left:20px}
-  .gf-match .college-name{font-size:13px}
-  .gf-match .college-place{font-size:21px}
+  .gf-match .college-name{font-size:12px}
+  .gf-match .college-place{font-size:20px}
+  .gf-match .brand{margin-right:20px}
   .gf-match .nav-inner{padding:0 3%}
-  .gf-match .brand{margin-right:18px}
   .gf-match .nav-links a{padding:0 8px;font-size:12px}
-  .gf-match .language{margin-right:10px}
-  .gf-match .action{padding:10px 13px;font-size:12px}
-  .gf-match .hero-content{padding-left:6%;padding-right:6%}
+  .gf-match .language{margin-right:12px}
+  .gf-match .action{padding:10px 15px;font-size:13px}
 }
-
-/* Small tablet / large mobile */
-@media(max-width:800px){
-  .gf-match .tnau-header{height:auto;min-height:0}
-  .gf-match .tnau-inner{
-    height:auto;display:flex;flex-direction:column;align-items:stretch;
-    padding:9px 3.5%;gap:0;
-  }
-  .gf-match .tnau-left{height:auto;min-height:58px}
+@media(max-width:760px){
+  .gf-match .tnau-header{height:auto;overflow:visible}
+  .gf-match .tnau-inner{display:flex;flex-direction:column;height:auto;padding:9px 4%;align-items:stretch}
+  .gf-match .tnau-left{height:auto;min-height:60px}
   .gf-match .tnau-logo{width:62px;height:56px;flex:0 0 62px}
-  .gf-match .tnau-copy{margin-left:10px;padding-right:0}
-  .gf-match .tnau-title{font-size:20px;white-space:normal;line-height:1.05}
-  .gf-match .tnau-tamil{font-size:13px;white-space:normal;margin-top:4px}
+  .gf-match .tnau-copy{margin-left:10px;padding:0}
+  .gf-match .tnau-title{font-size:20px;line-height:1.04;white-space:normal}
+  .gf-match .tnau-tamil{font-size:13px;line-height:1.1;white-space:normal;margin-top:4px}
   .gf-match .tnau-address{font-size:9px}
-  .gf-match .college-box{
-    width:100%;height:auto;margin-top:8px;padding:7px 4px 2px;
-    border-left:0;border-top:1px solid rgba(65,93,76,.28);
-  }
+  .gf-match .college-box{height:auto;width:100%;margin-top:8px;padding:7px 4px 2px;border-left:0;border-top:1px solid rgba(65,93,76,.28)}
   .gf-match .college-name{font-size:11px;white-space:nowrap}
   .gf-match .college-place{font-size:19px;margin-top:2px}
   .gf-match .college-sub{font-size:9px;margin-top:3px}
   .gf-match .college-pill{font-size:8px;padding:3px 9px;margin-top:3px}
-  .gf-match .nav-wrap{height:58px}
+  .gf-match .nav-wrap{height:60px}
   .gf-match .nav-inner{padding:0 3%;overflow:hidden}
-  .gf-match .brand{margin-right:12px}
-  .gf-match .brand-mark{font-size:25px}
-  .gf-match .brand-name{font-size:22px}
-  .gf-match .nav-links{flex:1;overflow-x:auto}
-  .gf-match .nav-links a{font-size:11px;padding:0 8px}
+  .gf-match .brand{margin-right:14px}
+  .gf-match .brand-name{font-size:23px}
+  .gf-match .nav-links{flex:1;overflow-x:auto;scrollbar-width:none}
+  .gf-match .nav-links::-webkit-scrollbar{display:none}
+  .gf-match .nav-links a{padding:0 8px;font-size:11px}
   .gf-match .nav-spacer{display:none}
-  .gf-match .language{margin-left:7px;margin-right:7px}
+  .gf-match .language{margin:0 7px;flex:0 0 auto}
   .gf-match .language button{padding:5px 8px;font-size:10px}
   .gf-match .action{padding:9px 11px;font-size:10px}
-  .gf-match .hero{min-height:430px}
-  .gf-match .hero-content{padding:56px 6%}
-  .gf-match .hero h1{font-size:clamp(40px,8vw,55px)}
-  .gf-match .hero p{font-size:14px}
+  .gf-match .hero{min-height:420px}
+  .gf-match .hero-content{padding:55px 6%}
+  .gf-match .hero h1{font-size:clamp(40px,8vw,56px)}
   .gf-match .modules{grid-template-columns:repeat(2,1fr)}
 }
-
-/* Phone */
 @media(max-width:560px){
   .gf-match .tnau-inner{padding:8px 11px}
   .gf-match .tnau-logo{width:50px;height:49px;flex-basis:50px}
   .gf-match .tnau-copy{margin-left:8px}
   .gf-match .tnau-title{font-size:15.5px}
-  .gf-match .tnau-tamil{font-size:10.5px;margin-top:3px}
-  .gf-match .tnau-address{font-size:7.5px;margin-top:2px}
-  .gf-match .college-box{margin-top:7px;padding-top:6px}
+  .gf-match .tnau-tamil{font-size:10.5px}
+  .gf-match .tnau-address{font-size:7.5px}
+  .gf-match .college-box{margin-top:7px}
   .gf-match .college-name{font-size:10px}
   .gf-match .college-place{font-size:17px}
   .gf-match .college-sub{font-size:8px}
-  .gf-match .college-pill{font-size:7.5px}
-  .gf-match .nav-wrap{height:54px}
-  .gf-match .nav-inner{padding:0 10px}
-  .gf-match .brand{gap:5px;margin-right:9px}
-  .gf-match .brand-mark{font-size:22px}
-  .gf-match .brand-name{font-size:19px}
+  .gf-match .nav-wrap{height:55px}
+  .gf-match .brand{gap:6px;margin-right:9px}
+  .gf-match .brand-mark{font-size:23px}
+  .gf-match .brand-name{font-size:20px}
   .gf-match .nav-links a{font-size:10px;padding:0 7px}
   .gf-match .language{margin-left:5px;margin-right:5px}
-  .gf-match .language button{padding:5px 7px;font-size:9px}
   .gf-match .action{font-size:9px;padding:8px 9px}
   .gf-match .hero{min-height:390px}
   .gf-match .hero-content{padding:45px 5%}
-  .gf-match .hero-kicker{font-size:9px;letter-spacing:1px}
-  .gf-match .hero h1{font-size:37px;letter-spacing:-.7px;margin:10px 0 13px}
-  .gf-match .hero p{font-size:13px;line-height:1.5}
+  .gf-match .hero-kicker{font-size:9px}
+  .gf-match .hero h1{font-size:37px;margin:10px 0 13px}
+  .gf-match .hero p{font-size:13px}
   .gf-match .hero-buttons{flex-direction:column}
-  .gf-match .hero-buttons a{text-align:center;font-size:12px;padding:11px 14px}
+  .gf-match .hero-buttons a{text-align:center;font-size:12px}
   .gf-match .quick{grid-template-columns:1fr 1fr;margin-top:-20px;padding:0 10px}
-  .gf-match .quick div{padding:13px 7px;border-right:1px solid var(--line)}
+  .gf-match .quick div{padding:13px 7px;border-right:1px solid #dce6df}
   .gf-match .quick div:first-child{border-radius:12px 0 0 0}
   .gf-match .quick div:nth-child(2){border-radius:0 12px 0 0}
   .gf-match .quick div:nth-child(3){border-radius:0 0 0 12px}
@@ -264,15 +243,9 @@
   .gf-match .quick b{font-size:17px}
   .gf-match .quick span{font-size:9px}
   .gf-match .section{padding:45px 5%}
-  .gf-match .section-title{margin-bottom:24px}
-  .gf-match .section-title h2{font-size:27px}
-  .gf-match .section-title p{font-size:12px}
   .gf-match .modules{grid-template-columns:1fr}
-  .gf-match .module{padding:19px}
-  .gf-match .module h3{font-size:17px}
-  .gf-match .module p{font-size:12px}
   .gf-match .footer{display:block;padding:28px 5%}
-  .gf-match .footer nav{margin-top:14px;flex-wrap:wrap;gap:10px 16px}
+  .gf-match .footer nav{margin-top:14px;flex-wrap:wrap}
 }
 @media(max-width:380px){
   .gf-match .tnau-title{font-size:14px}
@@ -282,9 +255,6 @@
   .gf-match .college-place{font-size:15px}
   .gf-match .brand-name{font-size:18px}
   .gf-match .action{display:none}
-}
-@media(prefers-reduced-motion:reduce){
-  .gf-match *{scroll-behavior:auto!important;transition:none!important}
 }
 </style>
 </head>
@@ -314,24 +284,17 @@
     <a class="brand" href="index.html"><span class="brand-mark">🌱</span><span class="brand-name">GreenFarm</span></a>
     <nav class="nav-links" aria-label="GreenFarm navigation">
       <a class="active" href="index.html">🏠 Home</a>
-      <a href="dashboard.html">📊 Dashboard</a>
-      <a href="crops.html">🌱 Crops</a>
-      <a href="livestock.html">🐄 Livestock</a>
-      <a href="activities.html">📅 Activities</a>
-      <a href="analytics.html">📈 Analytics</a>
-      <a href="reports.html">📄 Reports</a>
-      <a href="farm.html">🌿 Farm Tools</a>
-      <a href="admin.html">⚙️ Admin</a>
+      <a href="dashboard.html">🤖 Farm Scanner</a>
+      <a href="crops.html">✨ Smart Features</a>
+      <a href="crops.html">🌾 Crops</a>
+      <a href="activities.html">🕘 History</a>
+      <a href="admin.html">🎓 Project</a>
     </nav>
     <div class="nav-spacer"></div>
-    <div class="language" aria-label="Language">
-      <button class="selected" type="button">EN</button><button type="button">தமிழ்</button>
-    </div>
-    <a class="action" href="dashboard.html">📊 Open Dashboard</a>
+    <div class="language"><button class="selected" type="button">EN</button><button type="button">தமிழ்</button></div>
+    <a class="action" href="dashboard.html">📷 Scan Plant</a>
   </div>
-</div>
-
-<main>
+</div><main>
 <section class="hero">
   <div class="hero-content">
     <div class="hero-kicker">🌾 SMART FARMING • DIGITAL AGRICULTURE</div>

@@ -165,28 +165,23 @@ button{font:inherit}
 @media(max-width:800px){.inst-inner{display:flex;flex-direction:column;align-items:stretch;padding:9px 4%;width:100%}.inst-title{font-size:20px}.inst-tamil{font-size:13px}.inst-right{margin-top:8px;min-height:0;padding:7px 4px 2px;border-left:0;border-top:1px solid rgba(65,93,76,.28)}.inst-college{font-size:11px}.inst-place{font-size:19px}.nav{height:58px}.menu a{font-size:10px;padding:0 8px}}
 </style>
 <style id="hero-agri-carousel">
-/* 3-second agriculture hero carousel */
 .hero{isolation:isolate;background:#063f28}
 .hero-photos{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-photo{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;transform:scale(1.02);animation:greenFarmHero 9s infinite ease-in-out}
-.hero-photo:nth-child(1){background-image:url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=85");animation-delay:0s}
-.hero-photo:nth-child(2){background-image:url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=2200&q=85");animation-delay:3s}
-.hero-photo:nth-child(3){background-image:url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=2200&q=85");animation-delay:6s}
-@keyframes greenFarmHero{0%,28%{opacity:1;transform:scale(1)}33%,100%{opacity:0;transform:scale(1.055)}}
+.hero-photo{position:absolute;inset:0;background-position:center;background-size:100% 100%;background-repeat:no-repeat;opacity:0;visibility:hidden;transform:scale(1);transition:opacity .7s ease,visibility .7s ease}
+.hero-photo.active{opacity:1;visibility:visible}
+.hero-photo:nth-child(1){background-image:url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=85")}
+.hero-photo:nth-child(2){background-image:url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=2200&q=85")}
+.hero-photo:nth-child(3){background-image:url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=2200&q=85")}
 .hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(2,48,27,.88) 0%,rgba(2,55,31,.68) 43%,rgba(2,55,31,.25) 100%)}
 .hero:after{z-index:2}
 .hero-grid{position:relative;z-index:3}
-.hero:hover .hero-photo{animation-play-state:paused}
 .hero-dots{position:absolute;z-index:4;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:7px}
-.hero-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);display:block}
-@media(max-width:800px){.hero-photo{background-position:center}.hero:before{background:linear-gradient(90deg,rgba(2,48,27,.82),rgba(2,55,31,.42))}.hero-dots{bottom:14px}}
-@media(prefers-reduced-motion:reduce){.hero-photo{animation:none;opacity:0}.hero-photo:first-child{opacity:1}.hero-dots{display:none}}
+.hero-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);display:block;transition:.25s}
+.hero-dots i.active{background:#fff;transform:scale(1.35)}
+@media(max-width:800px){.hero-photo{background-size:cover;background-position:center}.hero:before{background:linear-gradient(90deg,rgba(2,48,27,.82),rgba(2,55,31,.42))}.hero-dots{bottom:14px}}
+@media(prefers-reduced-motion:reduce){.hero-photo{transition:none}.hero-dots{display:none}}
 </style>
-<style id="hero-zoom-out-fix">
-.hero-photo{background-size:100% 100%;transform:scale(1);}
-@keyframes greenFarmHero{0%,28%{opacity:1;transform:scale(1)}33%,100%{opacity:0;transform:scale(1.015)}}
-@media(max-width:800px){.hero-photo{background-size:cover;background-position:center center}}
-</style></head>
+</head>
 <body>
 
 <header class="inst-header">
@@ -341,5 +336,18 @@ button{font:inherit}
   <div class="footer-bottom"><span>© 2026 GreenFarm • Smart Digital Agriculture</span><span>TNAU • AC&amp;RI Vazhavachanur</span></div>
  </div>
 </footer>
-</body>
+<script>
+(function(){
+ const slides=document.querySelectorAll('.hero-photo');
+ const dots=document.querySelectorAll('.hero-dots i');
+ if(!slides.length)return;
+ let current=0;
+ function showSlide(n){
+   slides.forEach((s,i)=>s.classList.toggle('active',i===n));
+   dots.forEach((d,i)=>d.classList.toggle('active',i===n));
+ }
+ showSlide(0);
+ setInterval(function(){current=(current+1)%slides.length;showSlide(current)},3000);
+})();
+</script></body>
 </html>

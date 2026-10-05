@@ -3,6 +3,8 @@
   'use strict';
   const KEY = 'greenfarm.v2';
   const fields = {
+    crops: { label:'Crop records', icon:'🌾', fields:[['date','Start / record date','date',true],['crop','Crop name','text',true],['field','Field / location','text',true],['variety','Variety','text'],['stage','Growth stage','text'],['area','Area (acre)','number'],['notes','Notes','text']] },
+    livestock: { label:'Livestock records', icon:'🐄', fields:[['date','Record date','date',true],['group','Animal / group','text',true],['count','Count','number',true],['purpose','Purpose / type','text'],['health','Health observation','text'],['feed','Feed / care note','text'],['notes','Notes','text']] },
     weather: { label:'Weather observations', icon:'🌦️', fields:[['date','Date','date',true],['field','Field / location','text',true],['condition','Conditions','select',true,['Sunny','Cloudy','Rain','Windy','Storm']],['temperature','Temperature (°C)','number'],['rainfall','Rainfall (mm)','number'],['humidity','Humidity (%)','number'],['notes','Notes','text']] },
     soil: { label:'Soil records', icon:'🪴', fields:[['date','Sample date','date',true],['field','Field','text',true],['type','Soil type','text'],['ph','pH','number'],['nitrogen','Nitrogen (kg/ha)','number'],['phosphorus','Phosphorus (kg/ha)','number'],['potassium','Potassium (kg/ha)','number'],['notes','Notes / next action','text']] },
     irrigation: { label:'Irrigation records', icon:'💧', fields:[['date','Date','date',true],['field','Field','text',true],['method','Method','select',true,['Drip','Sprinkler','Furrow','Flood','Other']],['duration','Duration (minutes)','number'],['water','Water applied (mm)','number'],['status','Status','select',true,['Planned','Completed','Skipped']],['notes','Notes','text']] },
@@ -11,7 +13,7 @@
     finance: { label:'Finance entries', icon:'💰', fields:[['date','Date','date',true],['type','Type','select',true,['Income','Expense']],['category','Category','text',true],['amount','Amount (₹)','number',true],['description','Description','text'],['reference','Reference / related field','text']] },
     inventory: { label:'Inventory items', icon:'📦', fields:[['item','Item name','text',true],['category','Category','select',true,['Seed','Fertilizer','Crop protection','Fuel','Equipment','Feed','Other']],['quantity','On hand','number',true],['unit','Unit','text',true],['reorder','Reorder at','number'],['updated','Last updated','date'],['notes','Notes / supplier','text']] }
   };
-  const emptyData = () => ({records:{weather:[],soil:[],irrigation:[],ipm:[],harvest:[],finance:[],inventory:[]},profile:{},prediction:{}});
+  const emptyData = () => ({records:{crops:[],livestock:[],weather:[],soil:[],irrigation:[],ipm:[],harvest:[],finance:[],inventory:[]},profile:{},prediction:{}});
   let data;
   try { data = JSON.parse(localStorage.getItem(KEY) || 'null') || emptyData(); } catch { data = emptyData(); }
   if (!data.records) data = emptyData();

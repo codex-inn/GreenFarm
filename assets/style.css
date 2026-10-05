@@ -99,3 +99,9 @@ body{background:var(--gf-paper);color:#17231a}
  .gf-btn,.btn2,.button{min-height:42px}
 }
 @media(prefers-reduced-motion:reduce){.module:hover,.gf-btn:hover,.btn2:hover,.button:hover{transform:none}}
+
+/* TNAU institutional header */
+.institution{display:flex;flex-direction:column;gap:2px;margin-top:5px;line-height:1.25;color:#52635a;font-size:11px;font-weight:700}
+.institution strong{color:#4b5a50;font-size:clamp(10px,1.1vw,13px);letter-spacing:.35px}
+.institution span{display:block}
+@media(max-width:640px){.institution{font-size:8px;gap:1px;line-height:1.22}.institution strong{font-size:8.5px;letter-spacing:.15px}}

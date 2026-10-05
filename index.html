@@ -181,6 +181,11 @@ button{font:inherit}
 .hero-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);display:block}
 @media(max-width:800px){.hero-photo{background-position:center}.hero:before{background:linear-gradient(90deg,rgba(2,48,27,.82),rgba(2,55,31,.42))}.hero-dots{bottom:14px}}
 @media(prefers-reduced-motion:reduce){.hero-photo{animation:none;opacity:0}.hero-photo:first-child{opacity:1}.hero-dots{display:none}}
+</style>
+<style id="hero-zoom-out-fix">
+.hero-photo{background-size:100% 100%;transform:scale(1);}
+@keyframes greenFarmHero{0%,28%{opacity:1;transform:scale(1)}33%,100%{opacity:0;transform:scale(1.015)}}
+@media(max-width:800px){.hero-photo{background-size:cover;background-position:center center}}
 </style></head>
 <body>
 

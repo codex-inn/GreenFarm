@@ -2,593 +2,377 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="GreenFarm - Smart Digital Farm Management System">
 <title>GreenFarm | Smart Digital Farm Management</title>
 <link rel="stylesheet" href="assets/style.css">
 <style>
-/* Screenshot-matched GreenFarm institutional homepage */
-.gf-match{font-family:"Segoe UI",Arial,sans-serif;background:#fff;color:#173324;min-height:100vh}
+/* =========================================================
+   GREENFARM HOMEPAGE — CLEAN RESPONSIVE LAYOUT
+   One stylesheet / no conflicting responsive patches
+   ========================================================= */
+.gf-match{
+  --g:#07542f;--deep:#063b23;--leaf:#168246;--gold:#c59a22;
+  --gold-light:#e1c65d;--text:#20352a;--muted:#68776e;--line:#dce6df;
+  font-family:"Segoe UI",Arial,sans-serif;background:#f6f8f6;color:var(--text);
+}
 .gf-match *{box-sizing:border-box}
-.gf-match .tnau-header{height:165px;position:relative;overflow:hidden;background:
- linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.88) 55%,rgba(255,255,255,.72) 100%),
- url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=80") center/cover;
- border-top:5px solid #40313e;border-bottom:1px solid #e2e6e2}
-.gf-match .tnau-header:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,rgba(255,255,255,.25));pointer-events:none}
-.gf-match .tnau-inner{height:100%;max-width:1720px;margin:auto;padding:15px 4.8%;display:flex;align-items:center;position:relative;z-index:2}
-.gf-match .tnau-left{display:flex;align-items:center;min-width:0}
-.gf-match .tnau-logo{width:116px;height:92px;object-fit:contain;flex:0 0 auto}
-.gf-match .tnau-copy{margin-left:23px;min-width:0}
-.gf-match .tnau-title{font-family:Georgia,"Times New Roman",serif;color:#06452d;font-weight:800;font-size:clamp(27px,3vw,43px);line-height:1.05;letter-spacing:.2px;white-space:nowrap}
-.gf-match .tnau-tamil{font-family:"Noto Sans Tamil","Latha","Segoe UI",sans-serif;color:#237044;font-weight:800;font-size:clamp(19px,2vw,28px);line-height:1.2;margin-top:7px;white-space:nowrap}
-.gf-match .tnau-address{font-size:13px;font-weight:700;color:#4c5a51;margin-top:3px}
-.gf-match .college-box{margin-left:auto;padding-left:45px;border-left:1px solid rgba(65,93,76,.3);min-width:390px;text-align:center}
-.gf-match .college-name{font-size:19px;font-weight:850;color:#07542f;line-height:1.2}
-.gf-match .college-place{font-family:Georgia,"Times New Roman",serif;font-size:27px;font-weight:900;color:#188247;margin-top:5px;letter-spacing:.3px}
-.gf-match .college-sub{font-size:13px;color:#647169;margin-top:2px}
-.gf-match .college-pill{display:inline-block;margin-top:8px;padding:5px 14px;border-radius:20px;background:#e7f2e9;color:#176b40;font-size:11px;font-weight:900}
-.gf-match .nav-wrap{height:78px;background:#fff;border-bottom:1px solid #e0e5e1;box-shadow:0 2px 10px rgba(0,0,0,.04);position:sticky;top:0;z-index:50}
-.gf-match .nav-inner{max-width:1720px;height:100%;margin:auto;padding:0 4.8%;display:flex;align-items:center}
-.gf-match .brand{display:flex;align-items:center;gap:10px;margin-right:70px;white-space:nowrap}
-.gf-match .brand-mark{font-size:31px;line-height:1}
-.gf-match .brand-name{font-size:28px;font-weight:900;color:#07542f;letter-spacing:-.5px}
-.gf-match .nav-links{height:100%;display:flex;align-items:center;gap:7px}
-.gf-match .nav-links a{height:100%;display:flex;align-items:center;gap:7px;padding:0 14px;color:#244232;font-size:15px;font-weight:800;border-bottom:3px solid transparent;transition:.18s}
-.gf-match .nav-links a:hover,.gf-match .nav-links a.active{color:#07542f;border-bottom-color:#168246;background:#fbfdfb}
-.gf-match .nav-spacer{flex:1}
-.gf-match .language{display:flex;align-items:center;border:1px solid #d6e2d9;background:#f4f8f5;border-radius:22px;padding:3px;margin-right:28px;box-shadow:0 2px 7px rgba(0,60,30,.05)}
-.gf-match .language button{border:0;background:transparent;padding:7px 12px;border-radius:18px;font-weight:850;color:#31503e;cursor:pointer}
-.gf-match .language .selected{background:#168b47;color:#fff;box-shadow:0 2px 5px rgba(0,100,50,.18)}
-.gf-match .action{background:#138843;color:#fff;padding:13px 24px;border-radius:8px;font-size:15px;font-weight:900;display:flex;align-items:center;gap:8px;box-shadow:0 3px 9px rgba(0,90,40,.16)}
-.gf-match .action:hover{background:#0e7137}
-.gf-match .hero{min-height:500px;background:linear-gradient(90deg,rgba(3,59,32,.88),rgba(3,59,32,.52),rgba(3,59,32,.16)),url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=2200&q=85") center/cover;display:flex;align-items:center}
-.gf-match .hero-content{max-width:1720px;width:100%;margin:auto;padding:75px 4.8%;color:#fff}
-.gf-match .hero-kicker{font-size:12px;font-weight:900;letter-spacing:2px;color:#e5d06c}
-.gf-match .hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(48px,6vw,76px);line-height:1.02;margin:14px 0 18px}
-.gf-match .hero h1 span{color:#e1c65d}
-.gf-match .hero p{max-width:650px;font-size:17px;line-height:1.7;color:#e8f1eb}
-.gf-match .hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.gf-match .hero-buttons a{padding:13px 20px;border-radius:8px;font-weight:900}
-.gf-match .primary{background:#c59a22;color:#fff}.gf-match .secondary{border:1px solid rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.08)}
-.gf-match .quick{display:grid;grid-template-columns:repeat(4,1fr);max-width:1120px;margin:-35px auto 0;position:relative;z-index:5;padding:0 5%}
-.gf-match .quick div{background:#fff;padding:20px;text-align:center;border:1px solid #dce5de;border-right:0}
-.gf-match .quick div:first-child{border-radius:14px 0 0 14px}.gf-match .quick div:last-child{border-right:1px solid #dce5de;border-radius:0 14px 14px 0}
-.gf-match .quick b{display:block;font-size:23px;color:#07542f}.gf-match .quick span{font-size:12px;font-weight:750;color:#708078}
-.gf-match .section{max-width:1200px;margin:auto;padding:75px 5%}.gf-match .section-title{text-align:center}.gf-match .section-title small{color:#b08618;font-size:11px;font-weight:900;letter-spacing:1.7px}.gf-match .section-title h2{font-size:38px;color:#07542f;margin:5px 0 10px}.gf-match .section-title p{color:#6b7971}
-.gf-match .modules{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}.gf-match .module{padding:24px;background:#fff;border:1px solid #dce5de;border-radius:14px;box-shadow:0 7px 20px rgba(0,60,30,.05);transition:.18s}.gf-match .module:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,60,30,.11)}.gf-match .module-icon{font-size:30px}.gf-match .module h3{color:#07542f;margin:11px 0 5px}.gf-match .module p{color:#6b7971;font-size:13px;line-height:1.55;margin:0 0 12px}.gf-match .module a{font-size:12px;font-weight:900;color:#168246}
-.gf-match .footer{background:#063b23;color:#d5e8dc;padding:38px 5%;display:flex;justify-content:space-between;gap:20px;align-items:center}.gf-match .footer strong{font-size:21px;color:#fff}.gf-match .footer p{margin:3px 0;font-size:12px;color:#90b6a0}.gf-match .footer nav{display:flex;gap:18px;font-size:12px;font-weight:800}
-@media(max-width:1100px){.gf-match .college-box{min-width:300px;padding-left:25px}.gf-match .brand{margin-right:25px}.gf-match .nav-links a{padding:0 9px;font-size:13px}}
-@media(max-width:850px){.gf-match .tnau-header{height:auto;min-height:145px}.gf-match .tnau-inner{padding:12px 4%;align-items:flex-start}.gf-match .tnau-logo{width:80px;height:72px}.gf-match .tnau-copy{margin-left:12px}.gf-match .tnau-title{font-size:24px;white-space:normal}.gf-match .tnau-tamil{font-size:17px;white-space:normal}.gf-match .tnau-address{font-size:11px}.gf-match .college-box{display:none}.gf-match .nav-wrap{height:auto;min-height:66px}.gf-match .nav-inner{padding:0 3%;overflow-x:auto}.gf-match .brand{margin-right:18px}.gf-match .nav-links{flex:1;overflow-x:auto}.gf-match .nav-links a{white-space:nowrap}.gf-match .language{margin-left:15px;margin-right:12px;flex:0 0 auto}.gf-match .action{flex:0 0 auto;padding:11px 15px}.gf-match .quick{grid-template-columns:1fr 1fr}.gf-match .quick div{border-right:1px solid #dce5de}.gf-match .quick div:first-child{border-radius:14px 0 0 0}.gf-match .quick div:nth-child(2){border-radius:0 14px 0 0}.gf-match .quick div:nth-child(3){border-radius:0 0 0 14px}.gf-match .quick div:last-child{border-radius:0 0 14px 0}}
-@media(max-width:560px){.gf-match .tnau-header{min-height:118px}.gf-match .tnau-logo{width:58px;height:58px}.gf-match .tnau-title{font-size:18px}.gf-match .tnau-tamil{font-size:13px;margin-top:4px}.gf-match .tnau-address{font-size:9px}.gf-match .brand-name{font-size:22px}.gf-match .brand-mark{font-size:24px}.gf-match .nav-links a{font-size:11px;padding:0 8px}.gf-match .language button{padding:6px 9px;font-size:11px}.gf-match .action{font-size:11px;padding:10px 12px}.gf-match .hero{min-height:470px}.gf-match .hero-content{padding:55px 6%}.gf-match .hero h1{font-size:43px}.gf-match .hero p{font-size:14px}.gf-match .hero-buttons{flex-direction:column}.gf-match .hero-buttons a{text-align:center}.gf-match .quick{padding:0 4%;margin-top:-24px}.gf-match .quick div{padding:14px 8px}.gf-match .quick b{font-size:19px}.gf-match .section{padding:52px 5%}.gf-match .section-title h2{font-size:29px}.gf-match .modules{grid-template-columns:1fr}.gf-match .footer{display:block;padding:30px 5%}.gf-match .footer nav{margin-top:17px;flex-wrap:wrap}}
-</style>
-
-<style>
-/* Header size correction v2 */
-.gf-match .tnau-header{height:158px}
-.gf-match .tnau-inner{max-width:1540px;padding:14px 32px}
-.gf-match .tnau-logo{width:104px;height:84px}
-.gf-match .tnau-copy{margin-left:20px}
-.gf-match .tnau-title{font-size:clamp(28px,2.55vw,40px);line-height:1.04}
-.gf-match .tnau-tamil{font-size:clamp(18px,1.7vw,25px);line-height:1.15;margin-top:6px}
-.gf-match .tnau-address{font-size:12px;margin-top:4px}
-.gf-match .college-box{min-width:365px;padding-left:35px}
-.gf-match .college-name{font-size:18px}
-.gf-match .college-place{font-size:26px}
-.gf-match .college-sub{font-size:12px}
-.gf-match .college-pill{font-size:10px;padding:4px 13px;margin-top:7px}
-@media(max-width:1100px){
- .gf-match .tnau-header{height:138px}
- .gf-match .tnau-inner{padding:11px 24px}
- .gf-match .tnau-logo{width:86px;height:72px}
- .gf-match .tnau-copy{margin-left:15px}
- .gf-match .tnau-title{font-size:27px}
- .gf-match .tnau-tamil{font-size:17px}
- .gf-match .college-box{min-width:285px;padding-left:22px}
- .gf-match .college-name{font-size:14px}
- .gf-match .college-place{font-size:21px}
+.gf-match a{text-decoration:none;color:inherit}
+.gf-match button{font:inherit}
+.gf-match .tnau-header{
+  width:100%;height:158px;overflow:hidden;position:relative;
+  border-top:5px solid #40313e;border-bottom:1px solid #dfe5e0;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.96),rgba(255,255,255,.88) 55%,rgba(255,255,255,.74)),
+    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=80") center/cover;
 }
-@media(max-width:850px){
- .gf-match .tnau-header{height:auto;min-height:116px}
- .gf-match .tnau-inner{padding:10px 18px}
- .gf-match .tnau-logo{width:65px;height:58px}
- .gf-match .tnau-copy{margin-left:11px}
- .gf-match .tnau-title{font-size:21px;line-height:1.08}
- .gf-match .tnau-tamil{font-size:14px;line-height:1.15}
- .gf-match .tnau-address{font-size:10px}
-}
-@media(max-width:600px){
- .gf-match .tnau-header{min-height:94px}
- .gf-match .tnau-inner{padding:8px 12px}
- .gf-match .tnau-logo{width:48px;height:48px}
- .gf-match .tnau-copy{margin-left:8px}
- .gf-match .tnau-title{font-size:15.5px;letter-spacing:0}
- .gf-match .tnau-tamil{font-size:10.5px;margin-top:3px}
- .gf-match .tnau-address{font-size:7.5px;margin-top:2px}
-}
-</style>
-
-
-<style>
-/* Final TNAU header layout correction */
-.gf-match .tnau-header{height:150px}
 .gf-match .tnau-inner{
-  max-width:1540px;
-  width:100%;
-  margin:auto;
-  padding:12px 28px;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 350px;
-  gap:28px;
+  width:100%;height:100%;padding:10px 4.2%;
+  display:grid;grid-template-columns:minmax(0,68.5%) minmax(0,31.5%);
   align-items:center;
 }
-.gf-match .tnau-left{min-width:0;display:flex;align-items:center}
-.gf-match .tnau-logo{width:92px;height:78px;object-fit:contain;flex:0 0 92px}
-.gf-match .tnau-copy{min-width:0;margin-left:18px}
-.gf-match .tnau-title{
-  font-size:clamp(24px,2.35vw,37px);
-  line-height:1.02;
-  letter-spacing:0;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:clip;
-}
-.gf-match .tnau-tamil{
-  font-size:clamp(16px,1.55vw,23px);
-  line-height:1.15;
-  white-space:nowrap;
-  overflow:hidden;
-}
-.gf-match .tnau-address{font-size:11px;line-height:1.2}
-.gf-match .college-box{
-  min-width:0;
-  width:100%;
-  padding-left:24px;
-  text-align:center;
-  border-left:1px solid rgba(65,93,76,.3);
-}
-.gf-match .college-name{font-size:16px;line-height:1.2}
-.gf-match .college-place{font-size:25px;line-height:1.1}
-.gf-match .college-sub{font-size:12px}
-.gf-match .college-pill{font-size:10px;margin-top:7px}
-@media(max-width:1250px){
- .gf-match .tnau-inner{grid-template-columns:minmax(0,1fr) 310px;gap:18px;padding-left:22px;padding-right:22px}
- .gf-match .tnau-logo{width:82px;height:70px;flex-basis:82px}
- .gf-match .tnau-copy{margin-left:14px}
- .gf-match .tnau-title{font-size:27px}
- .gf-match .tnau-tamil{font-size:17px}
- .gf-match .college-name{font-size:14px}
- .gf-match .college-place{font-size:21px}
-}
-@media(max-width:900px){
- .gf-match .tnau-header{height:132px}
- .gf-match .tnau-inner{grid-template-columns:minmax(0,1fr) 245px;gap:12px;padding:10px 18px}
- .gf-match .tnau-logo{width:68px;height:60px;flex-basis:68px}
- .gf-match .tnau-copy{margin-left:10px}
- .gf-match .tnau-title{font-size:21px}
- .gf-match .tnau-tamil{font-size:14px}
- .gf-match .tnau-address{font-size:9px}
- .gf-match .college-box{padding-left:14px}
- .gf-match .college-name{font-size:12px}
- .gf-match .college-place{font-size:18px}
- .gf-match .college-sub{font-size:10px}
-}
-@media(max-width:700px){
- .gf-match .tnau-header{height:auto;min-height:104px}
- .gf-match .tnau-inner{display:block;padding:8px 14px}
- .gf-match .tnau-left{width:100%}
- .gf-match .tnau-logo{width:54px;height:52px;flex-basis:54px}
- .gf-match .tnau-copy{margin-left:8px}
- .gf-match .tnau-title{font-size:17px;white-space:normal;overflow:visible}
- .gf-match .tnau-tamil{font-size:11px;white-space:normal;overflow:visible;margin-top:2px}
- .gf-match .tnau-address{font-size:7.5px;margin-top:2px}
- .gf-match .college-box{display:none}
-}
-</style>
-
-
-<style>
-/* Screenshot-accurate header geometry v3 */
-.gf-match .tnau-header{height:165px;width:100%;overflow:hidden}
-.gf-match .tnau-inner{
-  width:100%;
-  max-width:none;
-  height:100%;
-  margin:0;
-  padding:10px 4.2%;
-  display:grid;
-  grid-template-columns:68.5% 31.5%;
-  gap:0;
-  align-items:center;
-}
-.gf-match .tnau-left{
-  min-width:0;
-  width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-}
+.gf-match .tnau-left{min-width:0;display:flex;align-items:center;height:100%}
 .gf-match .tnau-logo{
-  width:125px;
-  height:105px;
-  flex:0 0 125px;
-  object-fit:contain;
+  width:100px;height:84px;flex:0 0 100px;object-fit:contain;
 }
 .gf-match .tnau-copy{
-  min-width:0;
-  width:calc(100% - 125px);
-  margin-left:20px;
-  padding-right:18px;
+  min-width:0;max-width:100%;margin-left:18px;padding-right:20px;
 }
 .gf-match .tnau-title{
-  display:block;
-  width:100%;
-  max-width:100%;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:clamp(25px,2.25vw,38px);
-  font-weight:800;
-  line-height:1;
-  letter-spacing:-.2px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:clip;
-  color:#06452d;
+  margin:0;color:#06452d;font-family:Georgia,"Times New Roman",serif;
+  font-weight:800;font-size:clamp(25px,2.35vw,38px);line-height:1.02;
+  letter-spacing:0;white-space:nowrap;
 }
 .gf-match .tnau-tamil{
-  display:block;
-  width:100%;
-  font-size:clamp(17px,1.65vw,27px);
-  font-weight:800;
-  line-height:1.12;
-  margin-top:8px;
-  white-space:nowrap;
-  overflow:hidden;
-  color:#237044;
+  margin-top:7px;color:#237044;font-weight:800;
+  font-family:"Noto Sans Tamil","Latha","Segoe UI",sans-serif;
+  font-size:clamp(16px,1.55vw,24px);line-height:1.12;white-space:nowrap;
 }
-.gf-match .tnau-address{
-  font-size:13px;
-  line-height:1.2;
-  margin-top:5px;
-}
+.gf-match .tnau-address{margin-top:4px;color:#4c5a51;font-size:12px;font-weight:700}
 .gf-match .college-box{
-  min-width:0;
-  width:100%;
-  height:100%;
-  padding:0 0 0 38px;
-  border-left:1px solid rgba(65,93,76,.28);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+  height:100%;min-width:0;border-left:1px solid rgba(65,93,76,.28);
+  padding-left:30px;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;
 }
-.gf-match .college-name{
-  width:100%;
-  font-size:18px;
-  line-height:1.15;
-  font-weight:850;
-  white-space:normal;
-}
+.gf-match .college-name{color:#07542f;font-size:17px;line-height:1.18;font-weight:850}
 .gf-match .college-place{
-  width:100%;
-  font-size:28px;
-  line-height:1.08;
-  margin-top:5px;
-  white-space:nowrap;
+  margin-top:4px;color:#188247;font-family:Georgia,"Times New Roman",serif;
+  font-size:26px;line-height:1.08;font-weight:900;letter-spacing:.2px;
 }
-.gf-match .college-sub{font-size:13px;margin-top:7px}
-.gf-match .college-pill{font-size:10px;padding:5px 14px;margin-top:8px}
-@media(min-width:1700px){
- .gf-match .tnau-title{font-size:38px}
- .gf-match .tnau-tamil{font-size:27px}
+.gf-match .college-sub{margin-top:5px;color:#647169;font-size:12px}
+.gf-match .college-pill{
+  margin-top:7px;padding:4px 13px;border-radius:20px;
+  background:#e7f2e9;color:#176b40;font-size:10px;font-weight:900;
 }
-@media(max-width:1200px){
- .gf-match .tnau-inner{padding-left:3%;padding-right:3%;grid-template-columns:67% 33%}
- .gf-match .tnau-logo{width:100px;height:88px;flex-basis:100px}
- .gf-match .tnau-copy{width:calc(100% - 100px);margin-left:15px;padding-right:12px}
- .gf-match .tnau-title{font-size:28px}
- .gf-match .tnau-tamil{font-size:18px}
- .gf-match .tnau-address{font-size:11px}
- .gf-match .college-box{padding-left:25px}
- .gf-match .college-name{font-size:14px}
- .gf-match .college-place{font-size:22px}
+
+/* Navigation */
+.gf-match .nav-wrap{
+  height:72px;background:#fff;border-bottom:1px solid var(--line);
+  box-shadow:0 2px 10px rgba(0,0,0,.045);position:sticky;top:0;z-index:50;
 }
-@media(max-width:850px){
- .gf-match .tnau-header{height:132px}
- .gf-match .tnau-inner{grid-template-columns:65% 35%;padding:8px 2.5%}
- .gf-match .tnau-logo{width:72px;height:65px;flex-basis:72px}
- .gf-match .tnau-copy{width:calc(100% - 72px);margin-left:10px}
- .gf-match .tnau-title{font-size:20px}
- .gf-match .tnau-tamil{font-size:13px;margin-top:5px}
- .gf-match .tnau-address{font-size:9px}
- .gf-match .college-box{padding-left:16px}
- .gf-match .college-name{font-size:11px}
- .gf-match .college-place{font-size:18px}
- .gf-match .college-sub{font-size:9px}
+.gf-match .nav-inner{
+  width:100%;height:100%;padding:0 4.2%;display:flex;align-items:center;
 }
-@media(max-width:650px){
- .gf-match .tnau-header{height:auto;min-height:105px}
- .gf-match .tnau-inner{display:block;padding:8px 12px}
- .gf-match .tnau-left{height:auto}
- .gf-match .tnau-logo{width:55px;height:52px;flex-basis:55px}
- .gf-match .tnau-copy{width:auto;flex:1;margin-left:8px;padding-right:0}
- .gf-match .tnau-title{font-size:16px;line-height:1.05;white-space:normal}
- .gf-match .tnau-tamil{font-size:10.5px;line-height:1.1;white-space:normal;margin-top:3px}
- .gf-match .tnau-address{font-size:7.5px;margin-top:3px}
- .gf-match .college-box{display:none}
+.gf-match .brand{display:flex;align-items:center;gap:8px;margin-right:40px;flex:0 0 auto}
+.gf-match .brand-mark{font-size:29px;line-height:1}
+.gf-match .brand-name{font-size:25px;font-weight:900;color:var(--g)}
+.gf-match .nav-links{
+  height:100%;display:flex;align-items:center;gap:2px;min-width:0;overflow-x:auto;
+  scrollbar-width:none;
+}
+.gf-match .nav-links::-webkit-scrollbar{display:none}
+.gf-match .nav-links a{
+  height:100%;display:flex;align-items:center;gap:6px;padding:0 11px;
+  color:#294335;font-size:13px;font-weight:800;white-space:nowrap;
+  border-bottom:3px solid transparent;
+}
+.gf-match .nav-links a:hover,.gf-match .nav-links a.active{
+  color:var(--g);background:#fbfdfb;border-bottom-color:var(--leaf);
+}
+.gf-match .nav-spacer{flex:1;min-width:8px}
+.gf-match .language{
+  display:flex;align-items:center;flex:0 0 auto;padding:3px;margin-right:18px;
+  border:1px solid #d6e2d9;background:#f4f8f5;border-radius:22px;
+}
+.gf-match .language button{
+  border:0;background:transparent;color:#31503e;padding:6px 10px;
+  border-radius:18px;font-size:12px;font-weight:850;cursor:pointer;
+}
+.gf-match .language .selected{background:#168b47;color:#fff}
+.gf-match .action{
+  flex:0 0 auto;background:#138843;color:#fff;padding:11px 17px;
+  border-radius:8px;font-size:13px;font-weight:900;display:flex;align-items:center;gap:7px;
+}
+.gf-match .action:hover{background:#0e7137}
+
+/* Hero */
+.gf-match .hero{
+  min-height:470px;display:flex;align-items:center;position:relative;
+  background:
+    linear-gradient(90deg,rgba(3,59,32,.88),rgba(3,59,32,.54),rgba(3,59,32,.16)),
+    url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=2200&q=85") center/cover;
+}
+.gf-match .hero-content{width:100%;padding:72px 8%;color:#fff}
+.gf-match .hero-kicker{font-size:11px;font-weight:900;letter-spacing:1.8px;color:var(--gold-light)}
+.gf-match .hero h1{
+  margin:13px 0 17px;font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(46px,5.5vw,72px);line-height:1.02;letter-spacing:-1.5px;
+}
+.gf-match .hero h1 span{color:var(--gold-light)}
+.gf-match .hero p{max-width:640px;margin:0;color:#e8f1eb;font-size:16px;line-height:1.65}
+.gf-match .hero-buttons{display:flex;gap:11px;flex-wrap:wrap;margin-top:24px}
+.gf-match .hero-buttons a{padding:12px 18px;border-radius:8px;font-size:13px;font-weight:900}
+.gf-match .primary{background:var(--gold);color:#fff}
+.gf-match .secondary{border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);color:#fff}
+
+/* Metrics */
+.gf-match .quick{
+  max-width:1060px;margin:-32px auto 0;padding:0 20px;position:relative;z-index:5;
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.gf-match .quick div{
+  background:#fff;padding:18px 12px;text-align:center;border:1px solid var(--line);
+  border-right:0;
+}
+.gf-match .quick div:first-child{border-radius:13px 0 0 13px}
+.gf-match .quick div:last-child{border-right:1px solid var(--line);border-radius:0 13px 13px 0}
+.gf-match .quick b{display:block;color:var(--g);font-size:22px}
+.gf-match .quick span{font-size:11px;color:#708078;font-weight:750}
+
+/* Modules */
+.gf-match .section{max-width:1200px;margin:auto;padding:68px 5%}
+.gf-match .section-title{text-align:center;max-width:720px;margin:0 auto 32px}
+.gf-match .section-title small{
+  color:#a37a0b;font-size:10px;font-weight:900;letter-spacing:1.6px
+}
+.gf-match .section-title h2{margin:6px 0 9px;color:var(--g);font-size:clamp(28px,3vw,38px);line-height:1.1}
+.gf-match .section-title p{margin:0;color:var(--muted);font-size:14px}
+.gf-match .modules{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.gf-match .module{
+  padding:22px;background:#fff;border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 7px 20px rgba(0,60,30,.045);transition:.18s;
+}
+.gf-match .module:hover{transform:translateY(-3px);box-shadow:0 13px 28px rgba(0,60,30,.1)}
+.gf-match .module-icon{font-size:29px}
+.gf-match .module h3{margin:10px 0 5px;color:var(--g);font-size:18px}
+.gf-match .module p{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.5}
+.gf-match .module a{font-size:11px;font-weight:900;color:var(--leaf)}
+
+/* Footer */
+.gf-match .footer{
+  background:var(--deep);color:#d5e8dc;padding:34px 5%;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  border-top:4px solid var(--gold);
+}
+.gf-match .footer strong{font-size:20px;color:#fff}
+.gf-match .footer p{margin:3px 0;font-size:11px;color:#90b6a0}
+.gf-match .footer nav{display:flex;gap:17px;font-size:11px;font-weight:800}
+
+/* Tablet */
+@media(max-width:1100px){
+  .gf-match .tnau-inner{grid-template-columns:minmax(0,67%) minmax(0,33%);padding:9px 3%}
+  .gf-match .tnau-logo{width:82px;height:70px;flex-basis:82px}
+  .gf-match .tnau-copy{margin-left:13px;padding-right:10px}
+  .gf-match .tnau-title{font-size:27px}
+  .gf-match .tnau-tamil{font-size:17px}
+  .gf-match .tnau-address{font-size:10px}
+  .gf-match .college-box{padding-left:20px}
+  .gf-match .college-name{font-size:13px}
+  .gf-match .college-place{font-size:21px}
+  .gf-match .nav-inner{padding:0 3%}
+  .gf-match .brand{margin-right:18px}
+  .gf-match .nav-links a{padding:0 8px;font-size:12px}
+  .gf-match .language{margin-right:10px}
+  .gf-match .action{padding:10px 13px;font-size:12px}
+  .gf-match .hero-content{padding-left:6%;padding-right:6%}
+}
+
+/* Small tablet / large mobile */
+@media(max-width:800px){
+  .gf-match .tnau-header{height:auto;min-height:0}
+  .gf-match .tnau-inner{
+    height:auto;display:flex;flex-direction:column;align-items:stretch;
+    padding:9px 3.5%;gap:0;
+  }
+  .gf-match .tnau-left{height:auto;min-height:58px}
+  .gf-match .tnau-logo{width:62px;height:56px;flex:0 0 62px}
+  .gf-match .tnau-copy{margin-left:10px;padding-right:0}
+  .gf-match .tnau-title{font-size:20px;white-space:normal;line-height:1.05}
+  .gf-match .tnau-tamil{font-size:13px;white-space:normal;margin-top:4px}
+  .gf-match .tnau-address{font-size:9px}
+  .gf-match .college-box{
+    width:100%;height:auto;margin-top:8px;padding:7px 4px 2px;
+    border-left:0;border-top:1px solid rgba(65,93,76,.28);
+  }
+  .gf-match .college-name{font-size:11px;white-space:nowrap}
+  .gf-match .college-place{font-size:19px;margin-top:2px}
+  .gf-match .college-sub{font-size:9px;margin-top:3px}
+  .gf-match .college-pill{font-size:8px;padding:3px 9px;margin-top:3px}
+  .gf-match .nav-wrap{height:58px}
+  .gf-match .nav-inner{padding:0 3%;overflow:hidden}
+  .gf-match .brand{margin-right:12px}
+  .gf-match .brand-mark{font-size:25px}
+  .gf-match .brand-name{font-size:22px}
+  .gf-match .nav-links{flex:1;overflow-x:auto}
+  .gf-match .nav-links a{font-size:11px;padding:0 8px}
+  .gf-match .nav-spacer{display:none}
+  .gf-match .language{margin-left:7px;margin-right:7px}
+  .gf-match .language button{padding:5px 8px;font-size:10px}
+  .gf-match .action{padding:9px 11px;font-size:10px}
+  .gf-match .hero{min-height:430px}
+  .gf-match .hero-content{padding:56px 6%}
+  .gf-match .hero h1{font-size:clamp(40px,8vw,55px)}
+  .gf-match .hero p{font-size:14px}
+  .gf-match .modules{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Phone */
+@media(max-width:560px){
+  .gf-match .tnau-inner{padding:8px 11px}
+  .gf-match .tnau-logo{width:50px;height:49px;flex-basis:50px}
+  .gf-match .tnau-copy{margin-left:8px}
+  .gf-match .tnau-title{font-size:15.5px}
+  .gf-match .tnau-tamil{font-size:10.5px;margin-top:3px}
+  .gf-match .tnau-address{font-size:7.5px;margin-top:2px}
+  .gf-match .college-box{margin-top:7px;padding-top:6px}
+  .gf-match .college-name{font-size:10px}
+  .gf-match .college-place{font-size:17px}
+  .gf-match .college-sub{font-size:8px}
+  .gf-match .college-pill{font-size:7.5px}
+  .gf-match .nav-wrap{height:54px}
+  .gf-match .nav-inner{padding:0 10px}
+  .gf-match .brand{gap:5px;margin-right:9px}
+  .gf-match .brand-mark{font-size:22px}
+  .gf-match .brand-name{font-size:19px}
+  .gf-match .nav-links a{font-size:10px;padding:0 7px}
+  .gf-match .language{margin-left:5px;margin-right:5px}
+  .gf-match .language button{padding:5px 7px;font-size:9px}
+  .gf-match .action{font-size:9px;padding:8px 9px}
+  .gf-match .hero{min-height:390px}
+  .gf-match .hero-content{padding:45px 5%}
+  .gf-match .hero-kicker{font-size:9px;letter-spacing:1px}
+  .gf-match .hero h1{font-size:37px;letter-spacing:-.7px;margin:10px 0 13px}
+  .gf-match .hero p{font-size:13px;line-height:1.5}
+  .gf-match .hero-buttons{flex-direction:column}
+  .gf-match .hero-buttons a{text-align:center;font-size:12px;padding:11px 14px}
+  .gf-match .quick{grid-template-columns:1fr 1fr;margin-top:-20px;padding:0 10px}
+  .gf-match .quick div{padding:13px 7px;border-right:1px solid var(--line)}
+  .gf-match .quick div:first-child{border-radius:12px 0 0 0}
+  .gf-match .quick div:nth-child(2){border-radius:0 12px 0 0}
+  .gf-match .quick div:nth-child(3){border-radius:0 0 0 12px}
+  .gf-match .quick div:last-child{border-radius:0 0 12px 0}
+  .gf-match .quick b{font-size:17px}
+  .gf-match .quick span{font-size:9px}
+  .gf-match .section{padding:45px 5%}
+  .gf-match .section-title{margin-bottom:24px}
+  .gf-match .section-title h2{font-size:27px}
+  .gf-match .section-title p{font-size:12px}
+  .gf-match .modules{grid-template-columns:1fr}
+  .gf-match .module{padding:19px}
+  .gf-match .module h3{font-size:17px}
+  .gf-match .module p{font-size:12px}
+  .gf-match .footer{display:block;padding:28px 5%}
+  .gf-match .footer nav{margin-top:14px;flex-wrap:wrap;gap:10px 16px}
+}
+@media(max-width:380px){
+  .gf-match .tnau-title{font-size:14px}
+  .gf-match .tnau-tamil{font-size:9.5px}
+  .gf-match .tnau-address{font-size:7px}
+  .gf-match .college-name{font-size:9px}
+  .gf-match .college-place{font-size:15px}
+  .gf-match .brand-name{font-size:18px}
+  .gf-match .action{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .gf-match *{scroll-behavior:auto!important;transition:none!important}
 }
 </style>
-
-
-<style>
-/* Mobile header structure v4 */
-@media(max-width:650px){
- .gf-match .tnau-header{
-   height:auto!important;
-   min-height:0!important;
-   overflow:visible;
- }
- .gf-match .tnau-inner{
-   display:flex!important;
-   flex-direction:column!important;
-   width:100%;
-   height:auto!important;
-   padding:8px 12px 9px!important;
-   gap:0!important;
- }
- .gf-match .tnau-left{
-   width:100%!important;
-   height:auto!important;
-   min-height:55px;
-   display:flex!important;
-   align-items:center!important;
- }
- .gf-match .tnau-logo{
-   width:52px!important;
-   height:52px!important;
-   flex:0 0 52px!important;
- }
- .gf-match .tnau-copy{
-   width:auto!important;
-   flex:1 1 auto!important;
-   min-width:0!important;
-   margin-left:8px!important;
-   padding:0!important;
- }
- .gf-match .tnau-title{
-   font-size:15.5px!important;
-   line-height:1.05!important;
-   white-space:normal!important;
-   overflow:visible!important;
- }
- .gf-match .tnau-tamil{
-   font-size:10.5px!important;
-   line-height:1.1!important;
-   white-space:normal!important;
-   overflow:visible!important;
-   margin-top:3px!important;
- }
- .gf-match .tnau-address{
-   font-size:7.5px!important;
-   line-height:1.1!important;
-   margin-top:3px!important;
- }
- .gf-match .college-box{
-   display:flex!important;
-   width:100%!important;
-   min-width:0!important;
-   height:auto!important;
-   margin-top:8px!important;
-   padding:7px 4px 2px!important;
-   border-left:0!important;
-   border-top:1px solid rgba(65,93,76,.28)!important;
-   align-items:center!important;
-   justify-content:center!important;
-   text-align:center!important;
- }
- .gf-match .college-name{
-   width:auto!important;
-   font-size:10.5px!important;
-   line-height:1.15!important;
-   white-space:nowrap!important;
- }
- .gf-match .college-place{
-   width:auto!important;
-   font-size:18px!important;
-   line-height:1.05!important;
-   margin:2px 0 0!important;
-   white-space:nowrap!important;
- }
- .gf-match .college-sub{
-   font-size:8px!important;
-   line-height:1.1!important;
-   margin:2px 0 0!important;
- }
- .gf-match .college-pill{
-   font-size:8px!important;
-   padding:3px 9px!important;
-   margin:3px 0 0!important;
- }
- .gf-match .nav-wrap{
-   position:sticky!important;
-   top:0!important;
-   height:56px!important;
- }
-}
-@media(min-width:651px){
- .gf-match .college-box{display:flex}
-}
-@media(max-width:390px){
- .gf-match .tnau-inner{padding-left:9px!important;padding-right:9px!important}
- .gf-match .tnau-logo{width:46px!important;height:46px!important;flex-basis:46px!important}
- .gf-match .tnau-title{font-size:14px!important}
- .gf-match .tnau-tamil{font-size:9.5px!important}
- .gf-match .tnau-address{font-size:7px!important}
- .gf-match .college-name{font-size:9.5px!important}
- .gf-match .college-place{font-size:16px!important}
- .gf-match .college-sub{font-size:7.5px!important}
- .gf-match .college-pill{font-size:7.5px!important}
-}
-</style>
-
 </head>
 <body>
 <div class="gf-match">
-  <header class="tnau-header">
-    <div class="tnau-inner">
-      <div class="tnau-left">
-        <img class="tnau-logo" src="https://agritech.tnau.ac.in/ta/pdf/images/TNAU.jpg" alt="Tamil Nadu Agricultural University emblem">
-        <div class="tnau-copy">
-          <div class="tnau-title">TAMIL NADU AGRICULTURAL UNIVERSITY</div>
-          <div class="tnau-tamil">தமிழ்நாடு வேளாண்மைப் பல்கலைக்கழகம்</div>
-          <div class="tnau-address">Coimbatore – 641 003, Tamil Nadu, India</div>
-        </div>
-      </div>
-      <div class="college-box">
-        <div class="college-name">🏫 Agricultural College &amp; Research Institute</div>
-        <div class="college-place">VAZHAVACHANUR</div>
-        <div class="college-sub">Tamil Nadu Agricultural University</div>
-        <div class="college-pill">AC&amp;RI • VVNR</div>
+<header class="tnau-header">
+  <div class="tnau-inner">
+    <div class="tnau-left">
+      <img class="tnau-logo" src="https://agritech.tnau.ac.in/ta/pdf/images/TNAU.jpg" alt="Tamil Nadu Agricultural University emblem">
+      <div class="tnau-copy">
+        <div class="tnau-title">TAMIL NADU AGRICULTURAL UNIVERSITY</div>
+        <div class="tnau-tamil">தமிழ்நாடு வேளாண்மைப் பல்கலைக்கழகம்</div>
+        <div class="tnau-address">Coimbatore – 641 003, Tamil Nadu, India</div>
       </div>
     </div>
-  </header>
-
-  <div class="nav-wrap">
-    <div class="nav-inner">
-      <a class="brand" href="index.html"><span class="brand-mark">🌱</span><span class="brand-name">GreenFarm</span></a>
-      <nav class="nav-links">
-        <a class="active" href="index.html">🏠 Home</a>
-        <a href="dashboard.html">🤖 Dashboard</a>
-        <a href="crops.html">✨ Crops</a>
-        <a href="livestock.html">🐄 Livestock</a>
-        <a href="activities.html">📅 Activities</a>
-        <a href="analytics.html">📊 Analytics</a>
-        <a href="reports.html">📄 Reports</a>
-        <a href="farm.html">🌿 Farm Tools</a>
-        <a href="admin.html">⚙️ Admin</a>
-      </nav>
-      <div class="nav-spacer"></div>
-      <div class="language"><button class="selected" type="button">EN</button><button type="button">தமிழ்</button></div>
-      <a class="action" href="dashboard.html">📊 Open Dashboard</a>
+    <div class="college-box">
+      <div class="college-name">🏫 Agricultural College &amp; Research Institute</div>
+      <div class="college-place">VAZHAVACHANUR</div>
+      <div class="college-sub">Tamil Nadu Agricultural University</div>
+      <div class="college-pill">AC&amp;RI • VVNR</div>
     </div>
   </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-kicker">🌾 SMART FARMING • DIGITAL AGRICULTURE</div>
-        <h1>Smarter Farming.<br><span>Better Decisions.</span></h1>
-        <p>GreenFarm brings crops, livestock, daily activities, farm records and analytics together in one simple digital platform for modern agriculture.</p>
-        <div class="hero-buttons"><a class="primary" href="dashboard.html">Open Farm Dashboard →</a><a class="secondary" href="#modules">Explore GreenFarm</a></div>
-      </div>
-    </section>
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">🌱</span><span class="brand-name">GreenFarm</span></a>
+    <nav class="nav-links" aria-label="GreenFarm navigation">
+      <a class="active" href="index.html">🏠 Home</a>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="crops.html">🌱 Crops</a>
+      <a href="livestock.html">🐄 Livestock</a>
+      <a href="activities.html">📅 Activities</a>
+      <a href="analytics.html">📈 Analytics</a>
+      <a href="reports.html">📄 Reports</a>
+      <a href="farm.html">🌿 Farm Tools</a>
+      <a href="admin.html">⚙️ Admin</a>
+    </nav>
+    <div class="nav-spacer"></div>
+    <div class="language" aria-label="Language">
+      <button class="selected" type="button">EN</button><button type="button">தமிழ்</button>
+    </div>
+    <a class="action" href="dashboard.html">📊 Open Dashboard</a>
+  </div>
+</div>
 
-    <section class="quick">
-      <div><b>🌱 12</b><span>Active Crops</span></div>
-      <div><b>🐄 18</b><span>Livestock</span></div>
-      <div><b>💧 68%</b><span>Soil Moisture</span></div>
-      <div><b>₹48.6K</b><span>Monthly Revenue</span></div>
-    </section>
+<main>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-kicker">🌾 SMART FARMING • DIGITAL AGRICULTURE</div>
+    <h1>Smarter Farming.<br><span>Better Decisions.</span></h1>
+    <p>GreenFarm brings crops, livestock, daily activities, farm records and analytics together in one simple digital platform for modern agriculture.</p>
+    <div class="hero-buttons">
+      <a class="primary" href="dashboard.html">Open Farm Dashboard →</a>
+      <a class="secondary" href="#modules">Explore GreenFarm</a>
+    </div>
+  </div>
+</section>
 
-    <section class="section" id="modules">
-      <div class="section-title"><small>GREENFARM PLATFORM</small><h2>Everything your farm needs</h2><p>One clean workspace for recording, monitoring and understanding farm operations.</p></div>
-      <div class="modules">
-        <article class="module"><div class="module-icon">🌱</div><h3>Crop Management</h3><p>Track fields, crops, growth stages, irrigation and harvest planning.</p><a href="crops.html">Manage crops →</a></article>
-        <article class="module"><div class="module-icon">🐄</div><h3>Livestock</h3><p>Maintain animal groups, feeding, health checks and farm records.</p><a href="livestock.html">Open livestock →</a></article>
-        <article class="module"><div class="module-icon">📅</div><h3>Farm Activities</h3><p>Plan irrigation, fertilizer, spraying, harvesting and daily tasks.</p><a href="activities.html">View activities →</a></article>
-        <article class="module"><div class="module-icon">📊</div><h3>Analytics</h3><p>Understand yield, revenue, expenses and farm performance.</p><a href="analytics.html">View analytics →</a></article>
-        <article class="module"><div class="module-icon">📄</div><h3>Reports</h3><p>Prepare clear farm summaries for records, printing and sharing.</p><a href="reports.html">Generate reports →</a></article>
-        <article class="module"><div class="module-icon">🌿</div><h3>Farm Tools</h3><p>Record weather, soil, irrigation, pest scouting, harvest and finance.</p><a href="farm.html">Open farm tools →</a></article>
-      </div>
-    </section>
-  </main>
+<section class="quick" aria-label="Farm overview">
+  <div><b>🌱 12</b><span>Active Crops</span></div>
+  <div><b>🐄 18</b><span>Livestock</span></div>
+  <div><b>💧 68%</b><span>Soil Moisture</span></div>
+  <div><b>₹48.6K</b><span>Monthly Revenue</span></div>
+</section>
 
-  <footer class="footer"><div><strong>🌱 GreenFarm</strong><p>Smart Digital Farm Management System • 2026</p></div><nav><a href="dashboard.html">Dashboard</a><a href="reports.html">Reports</a><a href="farm.html">Farm Tools</a><a href="admin.html">Admin</a></nav></footer>
+<section class="section" id="modules">
+  <div class="section-title">
+    <small>GREENFARM PLATFORM</small>
+    <h2>Everything your farm needs</h2>
+    <p>One clean workspace for recording, monitoring and understanding farm operations.</p>
+  </div>
+  <div class="modules">
+    <article class="module"><div class="module-icon">🌱</div><h3>Crop Management</h3><p>Track fields, crops, growth stages, irrigation and harvest planning.</p><a href="crops.html">Manage crops →</a></article>
+    <article class="module"><div class="module-icon">🐄</div><h3>Livestock</h3><p>Maintain animal groups, feeding, health checks and farm records.</p><a href="livestock.html">Open livestock →</a></article>
+    <article class="module"><div class="module-icon">📅</div><h3>Farm Activities</h3><p>Plan irrigation, fertilizer, spraying, harvesting and daily tasks.</p><a href="activities.html">View activities →</a></article>
+    <article class="module"><div class="module-icon">📊</div><h3>Analytics</h3><p>Understand yield, revenue, expenses and farm performance.</p><a href="analytics.html">View analytics →</a></article>
+    <article class="module"><div class="module-icon">📄</div><h3>Reports</h3><p>Prepare clear farm summaries for records, printing and sharing.</p><a href="reports.html">Generate reports →</a></article>
+    <article class="module"><div class="module-icon">🌿</div><h3>Farm Tools</h3><p>Record weather, soil, irrigation, pest scouting, harvest and finance.</p><a href="farm.html">Open farm tools →</a></article>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div><strong>🌱 GreenFarm</strong><p>Smart Digital Farm Management System • 2026</p></div>
+  <nav><a href="dashboard.html">Dashboard</a><a href="reports.html">Reports</a><a href="farm.html">Farm Tools</a><a href="admin.html">Admin</a></nav>
+</footer>
 </div>
 <script src="assets/app.js"></script>
 </body>
 </html>
-/* Final responsive sizing pass */
-.gf-match .tnau-inner,.gf-match .nav-inner,.gf-match .hero-content{max-width:1500px}
-.gf-match .tnau-header{height:145px}
-.gf-match .tnau-logo{width:96px;height:78px}
-.gf-match .tnau-title{font-size:clamp(25px,2.65vw,39px)}
-.gf-match .tnau-tamil{font-size:clamp(17px,1.7vw,24px)}
-.gf-match .college-box{min-width:340px}
-.gf-match .nav-wrap{height:68px}
-.gf-match .brand{margin-right:42px}
-.gf-match .brand-name{font-size:25px}
-.gf-match .nav-links a{padding:0 11px;font-size:13px}
-.gf-match .hero{min-height:460px}
-.gf-match .quick{max-width:1050px}
-@media(min-width:1500px){
- .gf-match .tnau-inner,.gf-match .nav-inner,.gf-match .hero-content{max-width:1500px}
- .gf-match .tnau-title{font-size:39px}
- .gf-match .nav-links a{font-size:14px;padding:0 13px}
-}
-@media(max-width:1100px){
- .gf-match .tnau-header{height:130px}
- .gf-match .tnau-inner{padding:12px 3.5%}
- .gf-match .tnau-logo{width:82px;height:70px}
- .gf-match .tnau-title{font-size:26px}
- .gf-match .tnau-tamil{font-size:17px}
- .gf-match .college-box{min-width:270px;padding-left:20px}
- .gf-match .college-name{font-size:15px}
- .gf-match .college-place{font-size:22px}
- .gf-match .nav-inner{padding:0 3.5%}
- .gf-match .brand{margin-right:18px}
- .gf-match .nav-links a{padding:0 8px;font-size:12px}
- .gf-match .language{margin-right:12px}
- .gf-match .action{padding:10px 15px;font-size:13px}
-}
-@media(max-width:850px){
- .gf-match .tnau-header{height:auto;min-height:125px}
- .gf-match .tnau-inner{padding:12px 4%}
- .gf-match .tnau-logo{width:68px;height:62px}
- .gf-match .tnau-title{font-size:21px;white-space:normal}
- .gf-match .tnau-tamil{font-size:14px;white-space:normal}
- .gf-match .tnau-address{font-size:10px}
- .gf-match .college-box{display:none}
- .gf-match .nav-wrap{height:62px}
- .gf-match .nav-inner{padding:0 3%;overflow:hidden}
- .gf-match .brand{flex:0 0 auto;margin-right:12px}
- .gf-match .nav-links{min-width:0;overflow-x:auto;scrollbar-width:none}
- .gf-match .nav-links::-webkit-scrollbar{display:none}
- .gf-match .nav-links a{flex:0 0 auto;padding:0 9px;font-size:11px}
- .gf-match .nav-spacer{display:none}
- .gf-match .language{flex:0 0 auto;margin-left:8px;margin-right:8px}
- .gf-match .action{flex:0 0 auto;padding:9px 12px;font-size:11px}
- .gf-match .hero{min-height:440px}
- .gf-match .hero-content{padding:60px 5%}
- .gf-match .hero h1{font-size:clamp(40px,7vw,58px)}
-}
-@media(max-width:600px){
- .gf-match .tnau-header{min-height:105px}
- .gf-match .tnau-inner{padding:9px 4%}
- .gf-match .tnau-logo{width:52px;height:52px}
- .gf-match .tnau-copy{margin-left:9px}
- .gf-match .tnau-title{font-size:16px;line-height:1.05}
- .gf-match .tnau-tamil{font-size:11px;margin-top:3px}
- .gf-match .tnau-address{font-size:8px}
- .gf-match .nav-wrap{height:56px}
- .gf-match .nav-inner{padding:0 3%}
- .gf-match .brand{gap:6px;margin-right:9px}
- .gf-match .brand-mark{font-size:22px}
- .gf-match .brand-name{font-size:20px}
- .gf-match .nav-links a{padding:0 7px;font-size:10px}
- .gf-match .language{margin-left:5px;margin-right:6px}
- .gf-match .language button{padding:5px 7px;font-size:10px}
- .gf-match .action{font-size:10px;padding:8px 9px}
- .gf-match .hero{min-height:400px}
- .gf-match .hero-content{padding:48px 5%}
- .gf-match .hero-kicker{font-size:9px;letter-spacing:1.2px}
- .gf-match .hero h1{font-size:38px;letter-spacing:-1px;margin:11px 0 14px}
- .gf-match .hero p{font-size:13px;line-height:1.55}
- .gf-match .hero-buttons a{padding:11px 15px;font-size:12px}
- .gf-match .quick{margin-top:-20px}
- .gf-match .quick b{font-size:17px}
- .gf-match .quick span{font-size:10px}
- .gf-match .section{padding:45px 5%}
- .gf-match .section-title h2{font-size:27px}
- .gf-match .section-title p{font-size:13px}
- .gf-match .module{padding:19px}
-}

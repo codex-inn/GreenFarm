@@ -76,7 +76,7 @@ GreenFarm stores application records locally in the browser using LocalStorage. 
 
 The Weather module records manual local observations and makes no external API calls. All editable Farm tools data stays in this browser; export a JSON backup to move it to another device.
 
-## 🚀 GitHub Pages
+## 🚀GitHub Pages
 
 Repository → **Settings → Pages → Deploy from a branch → main → /(root)**.
 

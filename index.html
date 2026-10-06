@@ -331,6 +331,58 @@ button{font:inherit}
  .mobile-submitted{font-size:8px}
  .mobile-submitted span{font-size:7px}
 }
+</style><style id="mobile-college-submitter-layout">
+.mobile-credit-row{display:none}
+@media(max-width:700px){
+ .inst-right{padding:8px 0 11px!important}
+ .inst-right>.inst-college,.inst-right>.inst-place,.inst-right>.inst-sub,.inst-right>.inst-badge{display:none!important}
+ .mobile-credit-row{
+   display:grid!important;
+   grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);
+   align-items:center;
+   width:100%;
+   gap:5px;
+   margin-top:2px;
+ }
+ .mobile-college{
+   text-align:left;
+   color:#315246;
+   font-size:8px;
+   line-height:1.25;
+   font-weight:700;
+ }
+ .mobile-college strong{
+   display:block;
+   color:#08783f;
+   font-size:15px;
+   line-height:1.1;
+   margin-top:2px;
+   font-family:Georgia,"Times New Roman",serif;
+ }
+ .mobile-slash{
+   text-align:center;
+   color:#c79b24;
+   font:800 25px/1 Georgia,"Times New Roman",serif;
+ }
+ .mobile-submitted{
+   display:block!important;
+   margin:0!important;
+   text-align:right!important;
+   color:#315246;
+   font-size:8px!important;
+   line-height:1.35!important;
+ }
+ .mobile-submitted strong{color:#06462b;font-weight:900}
+ .mobile-submitted span{font-size:7px;color:#68746d}
+}
+@media(max-width:380px){
+ .mobile-credit-row{grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr)}
+ .mobile-college{font-size:7px}
+ .mobile-college strong{font-size:13px}
+ .mobile-slash{font-size:22px}
+ .mobile-submitted{font-size:7px!important}
+ .mobile-submitted span{font-size:6.5px}
+}
 </style></head>
 <body>
 
@@ -346,9 +398,14 @@ button{font:inherit}
   </div>
   <div class="inst-right">
    <div class="inst-college">🏫 Agricultural College &amp; Research Institute</div>
-   <div class="inst-place">VAZHAVACHANUR /</div><div class="mobile-submitted">Submitted by <strong>Kowshik S</strong><br><span>Final Year B.Sc. (Agri.) · TNAU</span></div>
+   <div class="inst-place">VAZHAVACHANUR</div>
    <div class="inst-sub">Tamil Nadu Agricultural University</div>
    <div class="inst-badge">AC&amp;RI • VVNR</div>
+   <div class="mobile-credit-row">
+    <div class="mobile-college">🏫 Agricultural College &amp; Research Institute<br><strong>VAZHAVACHANUR</strong></div>
+    <div class="mobile-slash">/</div>
+    <div class="mobile-submitted">Submitted by <strong>Kowshik S</strong><br><span>Final Year B.Sc. (Agri.) · TNAU</span></div>
+   </div>
   </div>
  </div>
 </header>

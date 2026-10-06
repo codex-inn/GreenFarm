@@ -60,7 +60,7 @@ GreenFarm/
 ├── reports.html
 ├── admin.html
 ├── assets/
-│   ├── style.css
+│   ├── greenfarm.css
 │   └── app.js
 └── README.md
 ```

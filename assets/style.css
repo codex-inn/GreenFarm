@@ -143,3 +143,22 @@ html{font-size:16px}body{font-size:var(--fs-body);line-height:1.55;overflow-x:hi
 .prediction-score strong{font-size:42px!important}.prediction-grid ul{font-size:12px!important}.prediction-details b{font-size:13px!important}
 @media(max-width:900px){:root{--fs-body:13px;--fs-nav:11px}.page{padding:32px 4%!important}.page-hero{padding:27px 28px!important}.module-section{padding:22px!important}.workspace-card{padding:20px!important}}
 @media(max-width:640px){:root{--fs-body:13px;--fs-h1:clamp(26px,8vw,34px);--fs-h2:clamp(22px,6.5vw,29px);--fs-h3:17px}.page{padding:22px 4%!important}.page-hero{padding:23px 20px!important}.page-hero h1{font-size:var(--fs-h1)!important}.page-hero p{font-size:13px}.workspace-card,.panel,.module,.card,.benefits div{padding:18px!important}.module-section{padding:18px!important}.section-heading h2{font-size:21px!important}.section-heading p{font-size:12px!important}.button,.btn2,.gf-btn{font-size:11px!important;padding:9px 13px!important;min-height:38px}.data-form input,.data-form select,.data-form textarea{font-size:12px!important;min-height:38px!important}.table-wrap{font-size:11px}.table-wrap th,.table-wrap td{padding:8px!important}.prediction-score strong{font-size:36px!important}}
+
+
+/* FINAL DASHBOARD / PAGE SIZE NORMALIZATION */
+.dashboard-page,.dashboard-page .page{font-size:14px}
+.dashboard-page .page{max-width:1180px;padding:34px 24px 56px}
+.dashboard-page .page-hero{padding:28px 32px!important;border-radius:14px;margin-bottom:18px}
+.dashboard-page .page-hero small{font-size:10px}
+.dashboard-page .page-hero h1{font-size:clamp(30px,3vw,42px)!important;line-height:1.1!important}
+.dashboard-page .page-hero p{font-size:13px;line-height:1.55}
+.dashboard-page .workspace-card{padding:22px!important;border-radius:14px!important}
+.dashboard-page .empty-icon{width:52px;height:52px;font-size:25px;border-radius:12px}
+.dashboard-page .workspace-card h2{font-size:22px!important;margin:14px 0 6px}
+.dashboard-page .workspace-card p{font-size:13px!important;line-height:1.55}
+.dashboard-page .actions{margin-top:18px}
+.dashboard-page .info-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.dashboard-page .info{padding:14px;border-radius:11px}
+.dashboard-page .info strong{font-size:12px}
+.dashboard-page .info span{font-size:11px}
+@media(max-width:700px){.dashboard-page .page{padding:24px 16px 42px}.dashboard-page .page-hero{padding:23px 20px!important}.dashboard-page .info-grid{grid-template-columns:1fr}.dashboard-page .workspace-card{padding:18px!important}}

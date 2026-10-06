@@ -1,10 +1,95 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#043a24"><meta name="description" content="dashboard | GreenFarm Smart Digital Agriculture"><title>dashboard | GreenFarm</title><link rel="stylesheet" href="assets/greenfarm.css"><style>
-.dashboard-green-header{background:#fff;border-top:4px solid #043a24;border-bottom:1px solid #dfe9e2;height:92px;display:flex;align-items:center}
-.dashboard-green-brand{width:min(1220px,92%);margin:auto;display:flex;align-items:center;gap:12px}
-.dashboard-green-icon{width:48px;height:48px;border-radius:12px;background:#eaf6ef;display:grid;place-items:center;font-size:28px}
-.dashboard-green-name{font:800 30px/1 Georgia,"Times New Roman",serif;color:#043a24}
-.dashboard-green-sub{font:800 10px/1.2 "Segoe UI",Arial,sans-serif;letter-spacing:.08em;color:#08783f;margin-top:5px}
-@media(max-width:600px){.dashboard-green-header{height:76px}.dashboard-green-icon{width:42px;height:42px;font-size:24px}.dashboard-green-name{font-size:25px}.dashboard-green-sub{font-size:9px}}
+/* Dashboard header — dedicated desktop/mobile sizing */
+.dashboard-green-header{
+  background:#fff;
+  border-top:4px solid #043a24;
+  border-bottom:1px solid #dfe9e2;
+}
+.dashboard-brand-wrap{
+  width:min(1440px,94%);
+  min-height:112px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+}
+.dashboard-tnau,.dashboard-green{
+  display:flex;
+  align-items:center;
+}
+.dashboard-tnau{gap:15px;min-width:0}
+.dashboard-tnau img{
+  width:76px;height:76px;object-fit:contain;flex:0 0 76px;
+}
+.dashboard-tnau-text{min-width:0}
+.dashboard-tnau-title{
+  color:#043a24;
+  font:800 clamp(19px,2vw,30px)/1.08 Georgia,"Times New Roman",serif;
+}
+.dashboard-tnau-sub{
+  color:#52645a;
+  font:700 clamp(10px,1vw,13px)/1.3 "Segoe UI",Arial,sans-serif;
+  margin-top:6px;
+}
+.dashboard-green{
+  gap:12px;
+  flex:0 0 auto;
+  padding-left:32px;
+  border-left:1px solid #d7e3db;
+}
+.dashboard-green-icon{
+  width:52px;height:52px;border-radius:13px;
+  background:#eaf6ef;
+  display:grid;place-items:center;
+  font-size:29px;
+}
+.dashboard-green-name{
+  color:#043a24;
+  font:800 clamp(30px,3vw,44px)/.95 Georgia,"Times New Roman",serif;
+  letter-spacing:-.02em;
+}
+.dashboard-green-sub{
+  color:#08783f;
+  font:900 clamp(9px,.85vw,12px)/1.2 "Segoe UI",Arial,sans-serif;
+  letter-spacing:.09em;
+  margin-top:7px;
+}
+.dashboard-page .page{width:min(1220px,92%)}
+@media(max-width:800px){
+  .dashboard-brand-wrap{
+    min-height:0;
+    padding:12px 0;
+    flex-direction:column;
+    align-items:stretch;
+    gap:11px;
+  }
+  .dashboard-tnau{gap:10px}
+  .dashboard-tnau img{
+    width:54px;height:54px;flex-basis:54px;
+  }
+  .dashboard-tnau-title{font-size:16px;line-height:1.08}
+  .dashboard-tnau-sub{font-size:9px;margin-top:4px}
+  .dashboard-green{
+    border-left:0;
+    border-top:1px solid #d7e3db;
+    padding:11px 0 0;
+    gap:9px;
+  }
+  .dashboard-green-icon{
+    width:42px;height:42px;border-radius:10px;font-size:23px;
+  }
+  .dashboard-green-name{font-size:27px}
+  .dashboard-green-sub{font-size:8px;margin-top:5px}
+}
+@media(max-width:420px){
+  .dashboard-brand-wrap{width:92%;padding:10px 0}
+  .dashboard-tnau img{width:48px;height:48px;flex-basis:48px}
+  .dashboard-tnau-title{font-size:13px}
+  .dashboard-tnau-sub{font-size:8px}
+  .dashboard-green-name{font-size:24px}
+  .dashboard-green-sub{font-size:7px;letter-spacing:.07em}
+}
 </style><style>
 /* Dashboard navigation: horizontal desktop, vertical mobile */
 .dashboard-nav-toggle{display:none}
@@ -21,7 +106,24 @@
 @media(min-width:701px){
   .dashboard-green-icon{box-shadow:0 2px 8px rgba(4,59,36,.08)}
 }
-</style></head><body><header class="dashboard-green-header"><div class="dashboard-green-brand"><span class="dashboard-green-icon">🌱</span><div><div class="dashboard-green-name">GreenFarm</div><div class="dashboard-green-sub">SMART DIGITAL AGRICULTURE</div></div></div></header><nav class="gf-nav" aria-label="Main navigation"><div class="container"><button class="dashboard-nav-toggle" id="dashboardNavToggle" aria-expanded="false" aria-controls="dashboardNav">☰ <span>Menu</span></button><div class="nav-links" id="dashboardNav"><a href="index.html">Home</a><a href="dashboard.html" class="active" aria-current="page">Dashboard</a><a href="crops.html">Crops</a><a href="livestock.html">Livestock</a><a href="activities.html">Activities</a><a href="analytics.html">Analytics</a><a href="reports.html">Reports</a><a href="farm.html">Workspace</a><a href="admin.html">Admin</a></div></div></nav><main><div class="page dashboard-page"><section class="page-hero"><div><small>FARM OVERVIEW</small><h1>Dashboard</h1><p>One clean view of your GreenFarm workspace, records and next actions.</p></div></section><section class="dashboard-stats"><div class="dashboard-stat"><div class="ds-icon">🌾</div><strong id="dashCrops">0</strong><span>Crop records</span></div><div class="dashboard-stat"><div class="ds-icon">🐄</div><strong id="dashLivestock">0</strong><span>Livestock records</span></div><div class="dashboard-stat"><div class="ds-icon">💧</div><strong id="dashIrrigation">0</strong><span>Irrigation records</span></div><div class="dashboard-stat"><div class="ds-icon">📊</div><strong id="dashTotal">0</strong><span>Total records</span></div></section><div class="dashboard-grid"><section class="dashboard-panel"><h2>Quick workspace</h2><div class="quick-grid"><a class="quick-card" href="farm.html#crops">🌾<strong>Crop</strong><span>Add and manage crop records</span></a><a class="quick-card" href="farm.html#livestock">🐄<strong>Livestock</strong><span>Track animal groups and care</span></a><a class="quick-card" href="farm.html#weather">🌦️<strong>Weather</strong><span>Record local observations</span></a><a class="quick-card" href="farm.html#soil">🌱<strong>Soil</strong><span>Store soil test information</span></a><a class="quick-card" href="farm.html#irrigation">💧<strong>Irrigation</strong><span>Plan and record water use</span></a><a class="quick-card" href="farm.html#reports">🧾<strong>Reports</strong><span>Print or save reports as PDF</span></a></div></section><aside class="dashboard-panel"><h2>Workspace status</h2><div class="status-list"><div class="status-row"><span>Storage</span><strong>Browser LocalStorage</strong></div><div class="status-row"><span>Backend</span><strong>Not required</strong></div><div class="status-row"><span>Backup</span><strong>JSON export</strong></div><div class="status-row"><span>Devices</span><strong>Mobile + Desktop</strong></div></div><div class="actions"><a class="btn2" href="farm.html">Open Workspace →</a></div></aside></div></div></main><footer class="gf-footer"><div class="container"><strong>🌱 GreenFarm</strong><p>Smart Digital Agriculture · TNAU AC&amp;RI Vazhavachanur</p></div></footer><script>(function(){try{const d=JSON.parse(localStorage.getItem("greenfarm.v2")||"null")||{records:{}};const r=d.records||{};const n=k=>Array.isArray(r[k])?r[k].length:0;const ks=["crops","livestock","weather","soil","irrigation","ipm","harvest","finance","inventory"];document.getElementById("dashCrops").textContent=n("crops");document.getElementById("dashLivestock").textContent=n("livestock");document.getElementById("dashIrrigation").textContent=n("irrigation");document.getElementById("dashTotal").textContent=ks.reduce((s,k)=>s+n(k),0)}catch(e){}})();</script><script>
+</style></head><body><header class="dashboard-green-header">
+  <div class="dashboard-brand-wrap">
+    <div class="dashboard-tnau">
+      <img src="https://agritech.tnau.ac.in/ta/pdf/images/TNAU.jpg" alt="Tamil Nadu Agricultural University logo">
+      <div class="dashboard-tnau-text">
+        <div class="dashboard-tnau-title">TAMIL NADU AGRICULTURAL UNIVERSITY</div>
+        <div class="dashboard-tnau-sub">Agricultural College &amp; Research Institute · Vazhavachanur</div>
+      </div>
+    </div>
+    <div class="dashboard-green">
+      <span class="dashboard-green-icon">🌱</span>
+      <div>
+        <div class="dashboard-green-name">GreenFarm</div>
+        <div class="dashboard-green-sub">SMART DIGITAL AGRICULTURE</div>
+      </div>
+    </div>
+  </div>
+</header><nav class="gf-nav" aria-label="Main navigation"><div class="container"><button class="dashboard-nav-toggle" id="dashboardNavToggle" aria-expanded="false" aria-controls="dashboardNav">☰ <span>Menu</span></button><div class="nav-links" id="dashboardNav"><a href="index.html">Home</a><a href="dashboard.html" class="active" aria-current="page">Dashboard</a><a href="crops.html">Crops</a><a href="livestock.html">Livestock</a><a href="activities.html">Activities</a><a href="analytics.html">Analytics</a><a href="reports.html">Reports</a><a href="farm.html">Workspace</a><a href="admin.html">Admin</a></div></div></nav><main><div class="page dashboard-page"><section class="page-hero"><div><small>FARM OVERVIEW</small><h1>Dashboard</h1><p>One clean view of your GreenFarm workspace, records and next actions.</p></div></section><section class="dashboard-stats"><div class="dashboard-stat"><div class="ds-icon">🌾</div><strong id="dashCrops">0</strong><span>Crop records</span></div><div class="dashboard-stat"><div class="ds-icon">🐄</div><strong id="dashLivestock">0</strong><span>Livestock records</span></div><div class="dashboard-stat"><div class="ds-icon">💧</div><strong id="dashIrrigation">0</strong><span>Irrigation records</span></div><div class="dashboard-stat"><div class="ds-icon">📊</div><strong id="dashTotal">0</strong><span>Total records</span></div></section><div class="dashboard-grid"><section class="dashboard-panel"><h2>Quick workspace</h2><div class="quick-grid"><a class="quick-card" href="farm.html#crops">🌾<strong>Crop</strong><span>Add and manage crop records</span></a><a class="quick-card" href="farm.html#livestock">🐄<strong>Livestock</strong><span>Track animal groups and care</span></a><a class="quick-card" href="farm.html#weather">🌦️<strong>Weather</strong><span>Record local observations</span></a><a class="quick-card" href="farm.html#soil">🌱<strong>Soil</strong><span>Store soil test information</span></a><a class="quick-card" href="farm.html#irrigation">💧<strong>Irrigation</strong><span>Plan and record water use</span></a><a class="quick-card" href="farm.html#reports">🧾<strong>Reports</strong><span>Print or save reports as PDF</span></a></div></section><aside class="dashboard-panel"><h2>Workspace status</h2><div class="status-list"><div class="status-row"><span>Storage</span><strong>Browser LocalStorage</strong></div><div class="status-row"><span>Backend</span><strong>Not required</strong></div><div class="status-row"><span>Backup</span><strong>JSON export</strong></div><div class="status-row"><span>Devices</span><strong>Mobile + Desktop</strong></div></div><div class="actions"><a class="btn2" href="farm.html">Open Workspace →</a></div></aside></div></div></main><footer class="gf-footer"><div class="container"><strong>🌱 GreenFarm</strong><p>Smart Digital Agriculture · TNAU AC&amp;RI Vazhavachanur</p></div></footer><script>(function(){try{const d=JSON.parse(localStorage.getItem("greenfarm.v2")||"null")||{records:{}};const r=d.records||{};const n=k=>Array.isArray(r[k])?r[k].length:0;const ks=["crops","livestock","weather","soil","irrigation","ipm","harvest","finance","inventory"];document.getElementById("dashCrops").textContent=n("crops");document.getElementById("dashLivestock").textContent=n("livestock");document.getElementById("dashIrrigation").textContent=n("irrigation");document.getElementById("dashTotal").textContent=ks.reduce((s,k)=>s+n(k),0)}catch(e){}})();</script><script>
 (function(){
  const btn=document.getElementById("dashboardNavToggle");
  const nav=document.getElementById("dashboardNav");

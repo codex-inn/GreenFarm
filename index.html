@@ -424,6 +424,68 @@ button{font:inherit}
  .mobile-submitted{font-size:7px!important}
  .mobile-submitted span{font-size:6.5px!important}
 }
+</style><style id="mobile-header-reference-replacement">
+@media(max-width:700px){
+  .inst-header{height:46px!important;min-height:46px!important;border-top:1px solid #dfe7e2!important;border-bottom:1px solid #d7e1db!important;background:#fff!important}
+  .inst-inner{
+    width:100%!important;height:45px!important;min-height:45px!important;
+    padding:4px 10px!important;margin:0!important;
+    display:grid!important;grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr)!important;
+    align-items:center!important;gap:0!important;
+  }
+  .inst-left{
+    min-width:0!important;height:37px!important;display:flex!important;
+    align-items:center!important;gap:7px!important;
+  }
+  .inst-logo{width:34px!important;height:34px!important;flex:0 0 34px!important;object-fit:contain!important}
+  .inst-copy{min-width:0!important;margin:0!important;padding:0!important}
+  .inst-title{
+    font-size:11px!important;line-height:1!important;white-space:nowrap!important;
+    overflow:hidden!important;text-overflow:clip!important;color:#06452d!important;
+  }
+  .inst-tamil{
+    margin-top:2px!important;font-size:6.5px!important;line-height:1!important;
+    white-space:nowrap!important;overflow:hidden!important;color:#247247!important;
+  }
+  .inst-address{
+    margin-top:2px!important;font-size:5px!important;line-height:1!important;
+    white-space:nowrap!important;color:#526159!important;
+  }
+  .inst-right{
+    grid-column:3!important;grid-row:1!important;
+    min-height:37px!important;height:37px!important;width:auto!important;
+    margin:0!important;padding:0 0 0 10px!important;
+    border-left:1px solid #d7e1db!important;border-top:0!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    text-align:left!important;overflow:visible!important;
+  }
+  .inst-right>.inst-college,.inst-right>.inst-place,.inst-right>.inst-sub,.inst-right>.inst-badge,
+  .mobile-credit-row{display:none!important}
+  .inst-right:after{
+    content:"🌱 GreenFarm";display:block;
+    font:800 16px/1 Georgia,"Times New Roman",serif;
+    color:#06462b;white-space:nowrap;
+  }
+  .inst-right:before{
+    content:"SMART DIGITAL AGRICULTURE";
+    position:absolute;display:block;
+    margin:27px 0 0 10px;
+    font:900 5.5px/1 Inter,"Segoe UI",Arial,sans-serif;
+    letter-spacing:.04em;color:#08783f;white-space:nowrap;
+  }
+  .nav{margin-top:0!important}
+}
+@media(max-width:380px){
+  .inst-inner{padding:4px 7px!important}
+  .inst-left{gap:5px!important}
+  .inst-logo{width:31px!important;height:31px!important;flex-basis:31px!important}
+  .inst-title{font-size:10px!important}
+  .inst-tamil{font-size:6px!important}
+  .inst-address{font-size:4.5px!important}
+  .inst-right{padding-left:8px!important}
+  .inst-right:after{font-size:14px}
+  .inst-right:before{margin-left:8px;font-size:5px}
+}
 </style></head>
 <body>
 

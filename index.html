@@ -195,6 +195,32 @@ button{font:inherit}
 @media(max-width:1250px){.nav{height:72px}.nav-inner{padding:0 9px;gap:4px}.brand{margin-right:4px}.brand-name{font-size:20px}.brand-icon{font-size:22px}.menu{height:72px}.menu a{height:72px;padding:0 6px;font-size:10px}.nav-actions{margin-left:2px}.lang button{padding:5px 7px;font-size:9px}.scan{padding:9px 9px;font-size:9px}}
 @media(max-width:800px){.nav{height:58px}.nav-inner{padding:0 8px;overflow:hidden}.brand{height:58px;margin-right:8px}.brand-name{font-size:18px}.brand-icon{font-size:20px}.menu{height:58px;flex:1 1 auto;overflow-x:auto}.menu a{height:58px;padding:0 7px;font-size:9.5px}.nav-actions{height:58px}.lang{display:none}.scan{padding:8px 9px;font-size:9px}}
 @media(max-width:560px){.nav{height:54px}.nav-inner{padding:0 7px}.brand{height:54px;margin-right:5px}.brand-name{font-size:17px}.brand-icon{font-size:18px}.menu{height:54px}.menu a{height:54px;padding:0 6px;font-size:9px}.scan{display:none}}
+</style><style id="mobile-index-card-vision">
+@media(max-width:700px){
+  /* Mobile-only card vision: keep the requested groups horizontal, never vertical */
+  #modules .modules{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  #modules .card{padding:14px 12px!important;border-radius:12px!important;min-height:178px}
+  #modules .card .icon{width:38px;height:38px;font-size:19px}
+  #modules .card h3{font-size:13px;line-height:1.2;margin:9px 0 5px}
+  #modules .card p{font-size:10px;line-height:1.35;margin-bottom:9px}
+  #modules .card-link{font-size:9px}
+  .workflow-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .workflow .step{padding:14px 12px!important;min-height:142px}
+  .workflow .step-no{width:25px;height:25px;font-size:10px}
+  .workflow .step h3{font-size:13px;margin:9px 0 4px}
+  .workflow .step p{font-size:10px;line-height:1.35}
+  .feature-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .feature{padding:14px 12px!important;min-height:112px;border-radius:12px}
+  .feature strong{font-size:11px;line-height:1.25}
+  .feature p{font-size:9px;line-height:1.35;margin-top:5px}
+}
+@media(max-width:380px){
+  #modules .card{min-height:170px;padding:12px 10px!important}
+  #modules .card h3{font-size:12px}
+  #modules .card p{font-size:9px}
+  .workflow .step{min-height:135px}
+  .feature{min-height:105px}
+}
 </style></head>
 <body>
 
@@ -277,31 +303,32 @@ button{font:inherit}
 <section class="section" id="modules">
  <div class="section-head"><div class="kicker">GREENFARM PLATFORM</div><h2>Everything your farm needs</h2><p>A connected workspace built to make everyday farm management simpler, faster and more organized.</p></div>
  <div class="modules">
-  <article class="card"><div class="icon">🌱</div><h3>Crop Management</h3><p>Manage fields, crop stages, irrigation, inputs and harvest planning from one place.</p><a class="card-link" href="crops.html">Manage crops →</a></article>
-  <article class="card"><div class="icon">🐄</div><h3>Livestock Management</h3><p>Keep animal groups, feeding, health checks and livestock records organized.</p><a class="card-link" href="livestock.html">Open livestock →</a></article>
-  <article class="card"><div class="icon">📅</div><h3>Farm Activities</h3><p>Plan and record irrigation, fertilizer, spraying, harvesting and daily operations.</p><a class="card-link" href="activities.html">View activities →</a></article>
-  <article class="card"><div class="icon">📈</div><h3>Analytics</h3><p>Turn farm records into useful insights for yield, revenue, expenses and performance.</p><a class="card-link" href="analytics.html">View analytics →</a></article>
-  <article class="card"><div class="icon">📄</div><h3>Reports</h3><p>Create clear summaries for farm records, reviews, printing and sharing.</p><a class="card-link" href="reports.html">Generate reports →</a></article>
+  <article class="card"><div class="icon">🌱</div><h3>Crop Management</h3><p>Fields, stages, inputs and harvest planning.</p><a class="card-link" href="crops.html">Manage crops →</a></article>
+  <article class="card"><div class="icon">🐄</div><h3>Livestock Management</h3><p>Animal groups, feeding and health records.</p><a class="card-link" href="livestock.html">Open livestock →</a></article>
+  <article class="card"><div class="icon">📅</div><h3>Farm Activities</h3><p>Irrigation, fertilizer, spraying and daily work.</p><a class="card-link" href="activities.html">View activities →</a></article>
+  <article class="card"><div class="icon">📈</div><h3>Analytics</h3><p>Useful insights from your farm records.</p><a class="card-link" href="analytics.html">View analytics →</a></article>
+  <article class="card"><div class="icon">📄</div><h3>Reports</h3><p>Clear summaries for review and sharing.</p><a class="card-link" href="reports.html">Generate reports →</a></article>
+  <article class="card"><div class="icon">⚙️</div><h3>Workspace</h3><p>All farm tools in one place.</p><a class="card-link" href="farm.html">Open workspace →</a></article>
    </div>
 </section>
 
 <section class="section workflow">
- <div class="section-head"><div class="kicker">SIMPLE WORKFLOW</div><h2>Record. Monitor. Decide.</h2><p>Keep farm information organized from field records to reports.</p></div>
+ <div class="section-head"><div class="kicker">SIMPLE WORKFLOW</div><h2>Record. Monitor. Decide.</h2><p>From field records to useful reports.</p></div>
  <div class="workflow-grid">
   <article class="step"><div class="step-no">01</div><h3>Record</h3><p>Add crop, livestock and field records.</p></article>
   <article class="step"><div class="step-no">02</div><h3>Monitor</h3><p>Track activities and farm conditions.</p></article>
   <article class="step"><div class="step-no">03</div><h3>Review</h3><p>Check analytics and reports.</p></article>
-  <article class="step"><div class="step-no">04</div><h3>Decide</h3><p>Use your records for better planning.</p></article>
+  <article class="step"><div class="step-no">04</div><h3>Decide</h3><p>Use records for better planning.</p></article>
  </div>
 </section>
 
 <section class="section" style="padding-top:10px">
- <div class="section-head"><div class="kicker">SMART AGRICULTURE</div><h2>Simple tools. Real farm data.</h2><p>Designed for students, farmers and agricultural field teams.</p></div>
+ <div class="section-head"><div class="kicker">SMART AGRICULTURE</div><h2>Simple tools. Real farm data.</h2><p>Built for practical farm work.</p></div>
  <div class="feature-grid">
   <div class="feature"><strong>📱 Responsive</strong><p>Works on mobile, tablet and desktop.</p></div>
   <div class="feature"><strong>🌾 Agriculture focused</strong><p>Built around real farm workflows.</p></div>
   <div class="feature"><strong>📊 Clear reports</strong><p>Turn records into useful summaries.</p></div>
-  <div class="feature"><strong>💾 Local records</strong><p>Keep your workspace data in your browser.</p></div>
+  <div class="feature"><strong>💾 Local records</strong><p>Keep workspace data in your browser.</p></div>
  </div>
 </section>
 

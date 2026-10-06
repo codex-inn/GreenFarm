@@ -252,6 +252,26 @@ button{font:inherit}
  .inst-college{font-size:9px!important}.inst-place{font-size:16px!important}
  .brand-name{font-size:18px!important}.menu a{font-size:8.5px!important}
 }
+</style><style id="premium-index-nav">
+.premium-index-nav{background:linear-gradient(180deg,#06462b,#04351f)!important;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.16);box-shadow:0 5px 18px rgba(0,35,20,.16)!important}
+.premium-index-nav .container{width:min(1220px,94%);min-height:66px;display:flex;justify-content:center}
+.premium-index-nav .nav-links{width:100%;display:flex;align-items:center;justify-content:center;gap:7px;overflow:visible}
+.premium-index-nav .nav-links a{position:relative;display:flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:0 14px;border:1px solid transparent!important;border-radius:9px;color:#eaf5ef!important;background:transparent!important;font-size:12px;font-weight:800;letter-spacing:.01em;white-space:nowrap;transition:.18s}
+.premium-index-nav .nav-icon{font-size:14px;opacity:.9}
+.premium-index-nav .nav-links a:hover{background:rgba(255,255,255,.09)!important;border-color:rgba(255,255,255,.12)!important;transform:translateY(-1px)}
+.premium-index-nav .nav-links a.active{background:#fff!important;color:#06462b!important;border-color:#fff!important;box-shadow:0 3px 10px rgba(0,0,0,.14)}
+.premium-index-nav .nav-links a.active .nav-icon{color:#08783f}
+@media(max-width:700px){
+ .premium-index-nav .container{width:100%;min-height:0;padding:7px 7px}
+ .premium-index-nav .nav-links{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+ .premium-index-nav .nav-links a{min-height:40px;padding:0 4px;font-size:10px;gap:5px;border-radius:8px!important}
+ .premium-index-nav .nav-icon{font-size:13px}
+}
+@media(max-width:380px){
+ .premium-index-nav .nav-links{gap:4px}
+ .premium-index-nav .nav-links a{min-height:38px;font-size:9px}
+ .premium-index-nav .nav-icon{font-size:12px}
+}
 </style></head>
 <body>
 
@@ -274,8 +294,16 @@ button{font:inherit}
  </div>
 </header>
 
-<nav class="gf-nav professional-nav" aria-label="Main navigation"><div class="container"><div class="nav-links">
-<a href="index.html">🏠 Home</a><a href="dashboard.html">📊 Dashboard</a><a href="crops.html">🌾 Crops</a><a href="livestock.html">🐄 Livestock</a><a href="activities.html">📅 Activities</a><a href="analytics.html">📈 Analytics</a><a href="reports.html">📄 Reports</a><a href="farm.html">🧰 Workspace</a><a href="admin.html">⚙️ Admin</a>
+<nav class="gf-nav premium-index-nav" aria-label="Main navigation"><div class="container"><div class="nav-links">
+<a class="active" href="index.html"><span class="nav-icon">⌂</span><span>Home</span></a>
+<a href="dashboard.html"><span class="nav-icon">▦</span><span>Dashboard</span></a>
+<a href="crops.html"><span class="nav-icon">⌁</span><span>Crops</span></a>
+<a href="livestock.html"><span class="nav-icon">♙</span><span>Livestock</span></a>
+<a href="activities.html"><span class="nav-icon">◫</span><span>Activities</span></a>
+<a href="analytics.html"><span class="nav-icon">◒</span><span>Analytics</span></a>
+<a href="reports.html"><span class="nav-icon">▤</span><span>Reports</span></a>
+<a href="farm.html"><span class="nav-icon">◆</span><span>Workspace</span></a>
+<a href="admin.html"><span class="nav-icon">⚙</span><span>Admin</span></a>
 </div></div></nav>
 
 <main>

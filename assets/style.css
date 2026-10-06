@@ -162,3 +162,20 @@ html{font-size:16px}body{font-size:var(--fs-body);line-height:1.55;overflow-x:hi
 .dashboard-page .info strong{font-size:12px}
 .dashboard-page .info span{font-size:11px}
 @media(max-width:700px){.dashboard-page .page{padding:24px 16px 42px}.dashboard-page .page-hero{padding:23px 20px!important}.dashboard-page .info-grid{grid-template-columns:1fr}.dashboard-page .workspace-card{padding:18px!important}}
+
+
+/* Dashboard header spacing correction */
+.dashboard-header{min-height:148px!important;height:148px!important}
+.dashboard-header .gf-brand{min-height:148px!important;height:148px!important;grid-template-columns:minmax(0,1fr) 240px!important;padding:0 24px!important}
+.dashboard-header .gf-logo{width:78px!important;height:78px!important}
+.dashboard-header .gf-brand>div:nth-child(2){margin-left:14px!important}
+.dashboard-header .gf-name{font-size:clamp(25px,2.7vw,38px)!important}
+.dashboard-header .gf-sub{font-size:14px!important;margin-top:5px!important}
+.dashboard-header .institution{font-size:10px!important;margin-top:4px!important}
+.dashboard-header .gf-badge{min-height:92px!important;padding:8px 12px!important}
+.dashboard-header .gf-badge small{font-size:10px!important}
+.dashboard-header .gf-badge strong{font-size:22px!important}
+.dashboard-header .gf-badge strong:after{font-size:8px!important;line-height:1.5!important}
+@media(max-width:1000px){.dashboard-header{min-height:130px!important;height:130px!important}.dashboard-header .gf-brand{min-height:130px!important;height:130px!important;grid-template-columns:minmax(0,1fr) 190px!important;padding:0 18px!important}.dashboard-header .gf-logo{width:68px!important;height:68px!important}.dashboard-header .gf-name{font-size:27px!important}.dashboard-header .gf-sub{font-size:13px!important}}
+@media(max-width:700px){.dashboard-header{min-height:116px!important;height:116px!important}.dashboard-header .gf-brand{min-height:116px!important;height:116px!important;padding:7px 12px!important;grid-template-columns:48px minmax(0,1fr)!important}.dashboard-header .gf-logo{width:45px!important;height:45px!important}.dashboard-header .gf-name{font-size:18px!important}.dashboard-header .gf-sub{font-size:9px!important}.dashboard-header .institution{font-size:7px!important}.dashboard-header .gf-badge{grid-column:1/-1;min-height:28px!important;margin-top:3px!important;padding:3px!important}.dashboard-header .gf-badge strong{font-size:14px!important}}
+@media(max-width:480px){.dashboard-header{min-height:104px!important;height:104px!important}.dashboard-header .gf-brand{min-height:104px!important;height:104px!important}.dashboard-header .gf-badge{display:none!important}}

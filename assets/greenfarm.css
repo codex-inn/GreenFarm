@@ -85,3 +85,6 @@
 @media(max-width:380px){
  .agri-header,.agri-header .inst-inner{height:154px;min-height:154px}.agri-header .inst-inner{padding:9px 7px 6px;grid-template-rows:auto 64px}.agri-header .inst-logo{width:47px;height:47px}.agri-header .inst-title{font-size:16px}.agri-header .inst-tamil{font-size:7px}.agri-header .inst-address{font-size:5.5px}.agri-header .inst-right{min-height:64px;height:64px}.agri-header .inst-college{font-size:7px}.agri-header .inst-place{font-size:17px}.agri-header .inst-right:after{font-size:15px}.agri-header .mobile-submitted{font-size:6px!important}.agri-header .mobile-submitted span{font-size:5.5px}
 }
+
+/* Center footer content */
+.footer{text-align:center!important}.footer .container{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;margin-left:auto!important;margin-right:auto!important}.footer-brand,.footer-short,.footer-links,.footer small{margin-left:auto!important;margin-right:auto!important;text-align:center!important}.footer-links{justify-content:center!important;align-items:center!important}

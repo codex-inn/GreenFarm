@@ -436,98 +436,101 @@ button{font:inherit}
  .mobile-slash{display:none!important}
 }
 </style><style id="index-mobile-header-total-new">
-/* INDEX ONLY — completely new mobile header */
+/* INDEX MOBILE — refined light agricultural header */
 @media(max-width:700px){
   .agri-header{
-    height:210px!important;min-height:210px!important;
-    border:0!important;
+    height:205px!important;min-height:205px!important;
+    border:0!important;border-bottom:1px solid #d9e2d8!important;
     background:
-      radial-gradient(circle at 78% 25%,rgba(196,165,63,.28),transparent 25%),
-      radial-gradient(circle at 15% 85%,rgba(63,150,88,.34),transparent 35%),
-      linear-gradient(145deg,#032f20 0%,#07512f 48%,#0b6b3d 100%)!important;
-    color:#fff!important;
-    box-shadow:0 8px 22px rgba(0,45,27,.22)!important;
+      radial-gradient(circle at 82% 18%,rgba(255,255,255,.9),transparent 30%),
+      radial-gradient(circle at 12% 88%,rgba(124,171,102,.24),transparent 34%),
+      linear-gradient(145deg,#f8faf3 0%,#edf4e8 48%,#d9e7cf 100%)!important;
+    color:#173b28!important;
+    box-shadow:0 6px 18px rgba(40,75,48,.10)!important;
   }
   .agri-header:before{
-    content:"";position:absolute;inset:0;opacity:.12;
-    background:repeating-linear-gradient(165deg,transparent 0 18px,rgba(255,255,255,.25) 19px 20px,transparent 21px 38px);
+    content:"";position:absolute;inset:0;opacity:.24;
+    background:
+      linear-gradient(165deg,transparent 0 68%,rgba(74,125,65,.13) 68% 70%,transparent 70%),
+      linear-gradient(172deg,transparent 0 80%,rgba(82,132,67,.10) 80% 82%,transparent 82%),
+      radial-gradient(circle at 70% 72%,rgba(255,239,175,.45),transparent 26%);
   }
   .agri-header:after{
     content:"🌾  SMART DIGITAL AGRICULTURE";position:absolute;
-    right:12px;bottom:8px;color:rgba(255,255,255,.6);
-    font:800 7px/1 Inter,"Segoe UI",sans-serif;letter-spacing:.12em;
+    right:10px;bottom:7px;color:#55715e;
+    font:800 6.5px/1 Inter,"Segoe UI",sans-serif;letter-spacing:.08em;
   }
   .agri-header .inst-inner{
-    position:relative;z-index:2;width:100%!important;height:210px!important;min-height:210px!important;
-    padding:13px 13px 12px!important;display:flex!important;flex-direction:column!important;
+    position:relative;z-index:2;width:100%!important;height:205px!important;min-height:205px!important;
+    padding:11px 11px 9px!important;display:flex!important;flex-direction:column!important;
     align-items:stretch!important;justify-content:flex-start!important;gap:0!important;
   }
   .agri-header .inst-left{
-    width:100%!important;height:67px!important;min-height:67px!important;
-    display:flex!important;align-items:center!important;gap:10px!important;
-    border:0!important;
+    width:100%!important;height:66px!important;min-height:66px!important;
+    display:flex!important;align-items:center!important;gap:9px!important;
   }
   .agri-header .inst-logo{
-    width:53px!important;height:53px!important;flex:0 0 53px!important;
-    object-fit:contain!important;filter:drop-shadow(0 3px 4px rgba(0,0,0,.2))!important;
+    width:52px!important;height:52px!important;flex:0 0 52px!important;
+    object-fit:contain!important;filter:none!important;
   }
   .agri-header .inst-copy{margin:0!important;padding:0!important;min-width:0!important}
   .agri-header .inst-title{
-    color:#fff!important;font-size:17px!important;line-height:1.02!important;
-    white-space:normal!important;overflow:visible!important;letter-spacing:.01em!important;
+    color:#0b4f2d!important;font:800 17px/1.03 Georgia,"Times New Roman",serif!important;
+    white-space:normal!important;overflow:visible!important;letter-spacing:.005em!important;
   }
   .agri-header .inst-tamil{
-    color:#f1d477!important;font-size:8px!important;line-height:1.1!important;
-    margin-top:4px!important;white-space:normal!important;
+    color:#2c6b46!important;font-size:7.5px!important;line-height:1.08!important;
+    margin-top:4px!important;white-space:normal!important;font-weight:700!important;
   }
   .agri-header .inst-address{
-    color:rgba(255,255,255,.72)!important;font-size:6px!important;margin-top:3px!important;
+    color:#5a6b60!important;font-size:6px!important;margin-top:3px!important;
   }
   .agri-header .inst-right{
-    width:100%!important;height:118px!important;min-height:118px!important;
-    margin:0!important;padding:10px 0 0!important;
-    border:0!important;border-top:1px solid rgba(255,255,255,.22)!important;
-    display:grid!important;grid-template-columns:1fr!important;grid-template-rows:auto auto auto!important;
+    width:100%!important;height:117px!important;min-height:117px!important;
+    margin:0!important;padding:9px 0 0!important;
+    border:0!important;border-top:1px solid #cfdacf!important;
+    display:grid!important;grid-template-columns:1fr!important;grid-template-rows:auto auto 1fr!important;
     text-align:center!important;align-items:center!important;justify-items:center!important;
     overflow:visible!important;
   }
   .agri-header .inst-college{
     display:block!important;grid-column:1!important;grid-row:1!important;
-    color:#e8f3eb!important;font-size:8px!important;font-weight:700!important;
+    color:#355244!important;font-size:8px!important;font-weight:750!important;
     white-space:normal!important;
   }
   .agri-header .inst-place{
     display:block!important;grid-column:1!important;grid-row:2!important;
-    color:#f1d477!important;font-size:25px!important;line-height:1!important;
-    margin:2px 0 0!important;white-space:nowrap!important;
+    color:#17723f!important;font:900 25px/1 Georgia,"Times New Roman",serif!important;
+    margin:4px 0 0!important;white-space:nowrap!important;letter-spacing:.01em!important;
   }
   .agri-header .inst-sub,.agri-header .inst-badge{display:none!important}
   .agri-header .mobile-credit-row{display:none!important}
   .agri-header .inst-right:before{
     content:"🌱";display:block!important;position:static!important;
-    grid-column:1!important;grid-row:3!important;
-    height:auto!important;margin:4px 0 0!important;
-    font-size:25px!important;background:none!important;
+    grid-column:1!important;grid-row:3!important;align-self:start!important;
+    height:auto!important;margin:6px 0 0!important;font-size:22px!important;background:none!important;
   }
   .agri-header .inst-right:after{
     content:"GREENFARM";display:block!important;position:absolute!important;
-    left:0!important;right:0!important;bottom:9px!important;
-    margin:0!important;grid-column:auto!important;grid-row:auto!important;
-    color:#fff!important;font:900 20px/1 Georgia,"Times New Roman",serif!important;
-    letter-spacing:.08em!important;text-shadow:0 2px 7px rgba(0,0,0,.22)!important;
-    writing-mode:horizontal-tb!important;transform:none!important;
+    left:0!important;right:0!important;bottom:18px!important;
+    color:#0a5a32!important;font:900 22px/1 Georgia,"Times New Roman",serif!important;
+    letter-spacing:.06em!important;text-shadow:none!important;
+    writing-mode:horizontal-tb!important;transform:none!important;text-align:center!important;
   }
 }
 @media(max-width:380px){
-  .agri-header,.agri-header .inst-inner{height:198px!important;min-height:198px!important}
-  .agri-header .inst-inner{padding:11px 10px 10px!important}
+  .agri-header,.agri-header .inst-inner{height:192px!important;min-height:192px!important}
+  .agri-header .inst-inner{padding:10px 9px 8px!important}
   .agri-header .inst-left{height:61px!important;min-height:61px!important}
-  .agri-header .inst-logo{width:48px!important;height:48px!important;flex-basis:48px!important}
-  .agri-header .inst-title{font-size:15px!important}.agri-header .inst-tamil{font-size:7px!important}
-  .agri-header .inst-address{font-size:5.5px!important}
-  .agri-header .inst-right{height:112px!important;min-height:112px!important}
+  .agri-header .inst-logo{width:47px!important;height:47px!important;flex-basis:47px!important}
+  .agri-header .inst-title{font-size:15px!important}
+  .agri-header .inst-tamil{font-size:6.7px!important}
+  .agri-header .inst-address{font-size:5.4px!important}
+  .agri-header .inst-right{height:111px!important;min-height:111px!important}
+  .agri-header .inst-college{font-size:7px!important}
   .agri-header .inst-place{font-size:22px!important}
-  .agri-header .inst-right:after{font-size:18px!important}
+  .agri-header .inst-right:after{font-size:19px!important;bottom:17px!important}
+  .agri-header .inst-right:before{font-size:20px!important}
 }
 </style></head>
 <body>

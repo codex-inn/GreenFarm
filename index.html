@@ -671,7 +671,38 @@ button{font:inherit}
   .inst-header .inst-inner:after{font-size:6.8px;bottom:3px}
   .inst-header .inst-inner:before{font-size:5px;bottom:3px}
 }
-</style></head>
+<style id="greenfarm-dark-logo-mobile">
+@media(max-width:700px){
+  .inst-header{font-family:Georgia,"Times New Roman",serif!important}
+  .inst-header:before{
+    content:""!important;
+    width:48px!important;height:48px!important;
+    top:14%!important;
+    border:0!important;
+    border-radius:0!important;
+    background:url("assets/greenfarm-logo.svg") center/contain no-repeat!important;
+    clip-path:none!important;
+  }
+  .inst-header:after{
+    color:#123f29!important;
+    font-weight:900!important;
+    text-shadow:0 1px 1px rgba(255,255,255,.85)!important;
+    top:52%!important;
+  }
+  .inst-header .inst-inner:after{
+    color:#fff9dc!important;
+    font-weight:900!important;
+  }
+  .inst-header .inst-inner:before{
+    color:#264a36!important;
+    font-weight:900!important;
+  }
+}
+@media(max-width:380px){
+  .inst-header:before{width:40px!important;height:40px!important;top:14%!important}
+  .inst-header:after{font-size:19px!important;top:53%!important}
+}
+</style></style></head>
 <body>
 
 <header class="inst-header agri-header">

@@ -4,37 +4,49 @@
 
 > Smarter Farming. Better Decisions. Sustainable Future.
 
+GreenFarm is a responsive, browser-based digital agriculture platform for organizing crop, livestock, field, irrigation, input, pest/disease, harvest, finance, inventory, task and farm-diary records in one place.
 
+## ✨ Main Features
 
-GreenFarm is a responsive digital agriculture platform designed to organize crop management, livestock records, farm activities, finances, analytics and reports in one place.
+- 🏠 Responsive GreenFarm home and dashboard
+- 🌾 Crop records and crop lifecycle calendar
+- 🩺 Crop health tracking: Healthy / Warning / Pest / Disease
+- 🗺️ Field management with area, soil and irrigation details
+- 💧 Irrigation planning and next-watering dates
+- 🧪 Fertilizer and manure records
+- 🐛 Pest and disease scouting log
+- 💰 Income, expenses and net-profit calculation
+- 🌾 Harvest and yield records
+- 🌦️ Manual weather observations: temperature, rainfall and humidity
+- ⏰ Farm task/reminder records
+- 🌱 Seed inventory
+- 🚜 Equipment register and service dates
+- 👨‍🌾 Farmer/farm profile
+- 📓 Digital farm diary
+- 📊 Advanced farm metrics and reports
+- 📥 CSV export
+- 💾 JSON backup and restore
+- ✨ Demo-data mode for project demonstrations
+- 🖨️ Print / Save as PDF
+- 📱 Responsive mobile + desktop UI
+- 📲 PWA install/offline shell support
+- 🔒 Browser LocalStorage architecture — no Supabase/backend required
 
-## ✨ Key Features
+## 🧩 Project Pages
 
-- 🏛️ TNAU institutional project identity
-- 🌱 Crop management and growth tracking
-- 🐄 Livestock management
-- 📅 Farm activities and task tracking
-- 💰 Income and expense records
-- 📊 Farm analytics dashboard
-- 🌦️ Weather observations and soil test records\n- 💧 Irrigation planning and IPM scouting\n- 🌾 Harvest tracking, farm finance and inventory\n- 👨‍🌾 Farmer and farm profile\n- 💾 JSON backup and restore; print / Save as PDF reports
-- 💾 Local browser data storage — no Supabase or backend required
-- 📤 Data export/backup-ready architecture
-- 📱 Responsive mobile and desktop interface
-- 🌐 GitHub Pages deployment
-- 🔌 Offline-first frontend architecture
-
-## 🧩 Project Modules
-
-| Module | Purpose |
+| Page | Purpose |
 |---|---|
 | Home | Project introduction and navigation |
-| Dashboard | Farm health and operational overview |
-| Crops | Crop, field, growth and harvest records |
-| Livestock | Animal groups and health records |
-| Activities | Daily farm operations and tasks |
-| Analytics | Yield, revenue and farm performance |
-| Farm tools | Weather, soil, irrigation, IPM, harvest, finance, inventory and profile records |\n| Reports | Farm summaries and print-ready reports |\n| Backup | Export and restore JSON backups on this device |
-| Admin | Project settings and management |
+| Dashboard | Farm overview and quick access |
+| Crops | Crop records |
+| Livestock | Animal/group records |
+| Activities | Daily farm activities |
+| Analytics | Farm analytics |
+| Reports | Print-ready reports |
+| Workspace | Core GreenFarm records, prediction and backup |
+| Farm Center | Advanced field, crop, irrigation, inputs, IPM, finance, harvest, inventory, tasks and diary tools |
+| Admin | Project/data administration |
+| Auth | Informational project entry page; no server authentication |
 
 ## 🛠️ Technology
 
@@ -42,9 +54,12 @@ GreenFarm is a responsive digital agriculture platform designed to organize crop
 - CSS3
 - Vanilla JavaScript
 - Browser LocalStorage
+- Progressive Web App manifest + service worker
 - GitHub Pages
 
-No Supabase, database server or paid backend is required for the current version.
+The project is intentionally backend-free. Records are stored in the browser on the current device. Use JSON/CSV export to preserve or transfer data.
+
+> Core farm data works without a backend. Some visual background images are external web assets and may require an internet connection.
 
 ## 📁 Structure
 
@@ -58,39 +73,36 @@ GreenFarm/
 ├── activities.html
 ├── analytics.html
 ├── reports.html
+├── farm.html
+├── advanced.html
 ├── admin.html
+├── manifest.webmanifest
+├── sw.js
 ├── assets/
 │   ├── greenfarm.css
-│   └── app.js
+│   ├── farm.css
+│   ├── farm.js
+│   ├── advanced.css
+│   ├── advanced.js
+│   ├── style.css
+│   ├── app.js
+│   └── greenfarm-logo.svg
 └── README.md
 ```
 
-## 💾 Data Model
+## 💾 Data & Privacy
 
-GreenFarm stores application records locally in the browser using LocalStorage. This keeps the GitHub Pages deployment simple and allows the project to work without a server.
+GreenFarm stores editable records locally in the browser using the `greenfarm.v2` and `greenfarm.advanced.v1` LocalStorage stores. No account or cloud database is required for the current academic version.
 
-The Weather module records manual local observations and makes no external API calls. All editable Farm tools data stays in this browser; export a JSON backup to move it to another device.
+Back up important data before clearing browser storage or changing devices.
 
-## 🚀GitHub Pages
+## 🚀 GitHub Pages
 
-Repository → **Settings → Pages → Deploy from a branch → main → /(root)**.
+The project is deployed from the `main` branch using GitHub Pages.
 
-## 🗺️ Roadmap
+## 🎓 Academic Use
 
-- [x] GreenFarm branding
-- [x] TNAU academic identity
-- [x] RAWE-inspired green/gold visual system
-- [x] Responsive index page
-- [x] Dashboard and farm modules
-- [x] Local data architecture
-- [x] Print-ready pages
-- [ ] Full LocalStorage CRUD forms across every module
-- [ ] JSON backup and restore UI
-- [ ] CSV export
-- [ ] Advanced offline/PWA support
-- [ ] Optional future backend
-
-
+Designed as a TNAU agriculture-oriented digital farm management project for demonstration, field-record organization and academic presentation.
 
 ## 📄 License
 

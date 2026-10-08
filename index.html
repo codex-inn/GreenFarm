@@ -744,7 +744,30 @@ button{font:inherit}
   }
 }
 </style>
-</head>
+<style id="greenfarm-index-brand-only">
+@media(min-width:701px){
+.inst-header{background:#fff!important}
+.inst-inner{min-height:108px;display:flex;align-items:center;justify-content:flex-start}
+.inst-left{display:none!important}
+.inst-right{border:0!important;padding:0!important;min-height:0!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;text-align:left!important;gap:14px!important;overflow:visible!important}
+.inst-right:before{content:"";display:block;width:58px;height:58px;flex:0 0 58px;background:#fff url("assets/greenfarm-logo.svg") center/contain no-repeat;border:3px solid #0d4b2e;border-radius:50%;padding:5px;box-sizing:border-box}
+.inst-college,.inst-place,.inst-sub,.inst-badge{display:none!important}
+.inst-right:after{content:"GreenFarm";display:block;color:#043a24;font:800 clamp(32px,4vw,50px)/1 Georgia,"Times New Roman",serif;letter-spacing:-.02em}
+}
+@media(max-width:700px){
+.inst-header{background:#fff!important}
+.inst-inner{min-height:76px!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;padding:8px 12px!important}
+.inst-left{display:none!important}
+.inst-right{border:0!important;padding:0!important;min-height:0!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;text-align:left!important;gap:9px!important}
+.inst-right:before{content:"";display:block;width:44px;height:44px;flex:0 0 44px;background:#fff url("assets/greenfarm-logo.svg") center/contain no-repeat;border:3px solid #0d4b2e;border-radius:50%;padding:4px;box-sizing:border-box}
+.inst-college,.inst-place,.inst-sub,.inst-badge{display:none!important}
+.inst-right:after{content:"GreenFarm";display:block;color:#043a24;font:800 27px/1 Georgia,"Times New Roman",serif}
+}
+@media(max-width:380px){
+.inst-right:before{width:38px;height:38px;flex-basis:38px}
+.inst-right:after{font-size:23px}
+}
+</style></head>
 <body>
 
 <header class="inst-header agri-header">

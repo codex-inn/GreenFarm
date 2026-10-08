@@ -1,12 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
-<title id="title">GreenFarm agricultural logo</title>
-<desc id="desc">A dark green sprouting leaf above stylized farm field lines.</desc>
-<g fill="none" stroke="#174c31" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M80 116V49" stroke-width="7"/>
-  <path d="M80 75C58 74 42 59 42 38c21 0 38 15 38 37" fill="#2f7a49" stroke-width="4"/>
-  <path d="M80 66c4-20 20-32 39-32 0 20-16 35-39 35" fill="#4b915a" stroke-width="4"/>
-  <path d="M53 112c17-7 37-7 54 0" stroke-width="5"/>
-  <path d="M39 126c27-9 55-9 82 0" stroke-width="5"/>
-  <path d="M27 141c35-10 71-10 106 0" stroke-width="5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-labelledby="title">
+<title>Green Farm leaf logo</title>
+<g fill="none" stroke="#0d4b2e" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M60 104V31"/>
+  <path d="M60 52C44 51 33 40 34 25c15 0 27 10 26 27Z" fill="#2a7650"/>
+  <path d="M61 45C63 28 74 18 89 18c1 15-9 27-28 31Z" fill="#3e8754"/>
+  <path d="M60 72C42 70 32 60 33 47c15 1 25 10 27 25Z" fill="#4b905c"/>
+  <path d="M61 76C66 58 78 50 94 51c-2 16-13 27-33 30Z" fill="#286f49"/>
+  <path d="M60 103C57 94 58 85 63 77"/>
 </g>
 </svg>

@@ -580,8 +580,7 @@ button{font:inherit}
 }
 </style>
 <style id="greenfarm-reference-mobile-header">
-/* Mobile index header recreated in HTML/CSS from the supplied reference.
-   The supplied screenshot is used only as a visual reference; no screenshot image is used. */
+/* Mobile header recreated from the supplied 477x132 reference: farm scene, centered GreenFarm mark, serif wordmark and bottom identity strip. */
 @media(max-width:700px){
   .inst-header{
     position:relative!important;
@@ -591,8 +590,9 @@ button{font:inherit}
     overflow:hidden!important;
     border:0!important;
     background:
-      linear-gradient(rgba(255,248,225,.58),rgba(224,237,207,.58)),
-      url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85") center center/cover!important;
+      linear-gradient(rgba(246,235,194,.16),rgba(74,121,55,.08)),
+      url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=90") center center/cover!important;
+    box-shadow:none!important;
   }
   .inst-header .inst-inner{
     display:block!important;
@@ -606,101 +606,79 @@ button{font:inherit}
   .inst-header .inst-right{
     display:none!important;
   }
-  .inst-header:before{
-    content:"";
-    position:absolute;
-    z-index:2;
-    left:50%;
-    top:22%;
-    width:36px;
-    height:36px;
-    transform:translateX(-50%);
-    border:2px solid #1e6840;
-    border-radius:55% 45% 55% 45%;
-    background:
-      radial-gradient(ellipse at 33% 30%,#2b7c4d 0 18%,transparent 19%),
-      radial-gradient(ellipse at 67% 30%,#2b7c4d 0 18%,transparent 19%),
-      linear-gradient(90deg,transparent 47%,#1e6840 48% 54%,transparent 55%);
-    clip-path:polygon(50% 0,72% 17%,84% 43%,72% 69%,52% 100%,48% 100%,28% 69%,16% 43%,28% 17%);
-    box-sizing:border-box;
-  }
-  .inst-header:after{
-    content:"GREEN FARM";
-    position:absolute;
-    z-index:4;
-    left:0;
-    right:0;
-    top:53%;
-    transform:translateY(-50%);
-    text-align:center;
-    color:#145b36;
-    font:900 23px/1 Georgia,"Times New Roman",serif;
-    letter-spacing:.02em;
-    text-shadow:0 1px 0 rgba(255,255,255,.7);
-  }
-  .inst-header{
-    box-shadow:inset 0 -22px 0 #075b37;
-  }
-  .inst-header .inst-inner:after{
-    content:"TNAU AC&RI VAZHAVACHANUR";
-    position:absolute;
-    z-index:5;
-    left:0;
-    right:0;
-    bottom:4px;
-    text-align:center;
-    color:#f5f2d9;
-    font:800 8px/1 Arial,sans-serif;
-    letter-spacing:.035em;
-  }
-  .inst-header .inst-inner:before{
-    content:"SMART DIGITAL AGRICULTURE";
-    position:absolute;
-    z-index:5;
-    right:5px;
-    bottom:4px;
-    color:#7a8f7d;
-    font:800 6px/1 Arial,sans-serif;
-    letter-spacing:.02em;
-  }
-}
-@media(max-width:380px){
-  .inst-header:before{width:30px;height:30px;top:21%}
-  .inst-header:after{font-size:19px;top:54%}
-  .inst-header{box-shadow:inset 0 -19px 0 #075b37}
-  .inst-header .inst-inner:after{font-size:6.8px;bottom:3px}
-  .inst-header .inst-inner:before{font-size:5px;bottom:3px}
-}
-<style id="greenfarm-dark-logo-mobile">
-@media(max-width:700px){
-  .inst-header{font-family:Georgia,"Times New Roman",serif!important}
+
+  /* Exact visual stack: logo above wordmark, both centered. */
   .inst-header:before{
     content:""!important;
-    width:48px!important;height:48px!important;
-    top:14%!important;
+    position:absolute!important;
+    z-index:3!important;
+    left:50%!important;
+    top:17%!important;
+    width:47px!important;
+    height:47px!important;
+    transform:translateX(-50%)!important;
     border:0!important;
     border-radius:0!important;
     background:url("assets/greenfarm-logo.svg") center/contain no-repeat!important;
     clip-path:none!important;
   }
   .inst-header:after{
-    color:#123f29!important;
+    content:"GREEN FARM"!important;
+    position:absolute!important;
+    z-index:4!important;
+    left:0!important;
+    right:0!important;
+    top:57%!important;
+    transform:translateY(-50%)!important;
+    text-align:center!important;
+    color:#123e2b!important;
+    font-family:Georgia,"Times New Roman",serif!important;
+    font-size:clamp(20px,5.15vw,27px)!important;
     font-weight:900!important;
-    text-shadow:0 1px 1px rgba(255,255,255,.85)!important;
-    top:52%!important;
+    line-height:1!important;
+    letter-spacing:-.01em!important;
+    text-shadow:0 1px 2px rgba(255,255,255,.75)!important;
+  }
+
+  /* Dark-green strip exactly at the bottom of the reference. */
+  .inst-header .inst-inner{
+    border-bottom:20px solid #075c38!important;
   }
   .inst-header .inst-inner:after{
-    color:#fff9dc!important;
-    font-weight:900!important;
+    content:"TNAU AC&RI VAZHAVACHANUR"!important;
+    position:absolute!important;
+    z-index:6!important;
+    left:0!important;
+    right:0!important;
+    bottom:2px!important;
+    text-align:center!important;
+    color:#f3f0d7!important;
+    font-family:Georgia,"Times New Roman",serif!important;
+    font-size:clamp(7px,1.85vw,10px)!important;
+    font-weight:800!important;
+    line-height:1!important;
+    letter-spacing:.025em!important;
   }
   .inst-header .inst-inner:before{
-    color:#264a36!important;
-    font-weight:900!important;
+    content:"SMART DIGITAL AGRICULTURE"!important;
+    position:absolute!important;
+    z-index:6!important;
+    right:5px!important;
+    bottom:3px!important;
+    color:#708b7b!important;
+    font-family:Arial,sans-serif!important;
+    font-size:clamp(5px,1.25vw,7px)!important;
+    font-weight:800!important;
+    line-height:1!important;
+    letter-spacing:.015em!important;
   }
 }
 @media(max-width:380px){
-  .inst-header:before{width:40px!important;height:40px!important;top:14%!important}
-  .inst-header:after{font-size:19px!important;top:53%!important}
+  .inst-header:before{width:40px!important;height:40px!important;top:16%!important}
+  .inst-header:after{font-size:20px!important;top:57%!important}
+  .inst-header .inst-inner{border-bottom-width:18px!important}
+  .inst-header .inst-inner:after{font-size:6.8px!important;bottom:2px!important}
+  .inst-header .inst-inner:before{font-size:5px!important;bottom:2px!important}
 }
 </style></style></head>
 <body>

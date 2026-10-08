@@ -578,6 +578,99 @@ button{font:inherit}
   }
   .inst-header .inst-inner{display:none!important}
 }
+</style>
+<style id="greenfarm-reference-mobile-header">
+/* Mobile index header recreated in HTML/CSS from the supplied reference.
+   The supplied screenshot is used only as a visual reference; no screenshot image is used. */
+@media(max-width:700px){
+  .inst-header{
+    position:relative!important;
+    height:auto!important;
+    min-height:0!important;
+    aspect-ratio:477/132!important;
+    overflow:hidden!important;
+    border:0!important;
+    background:
+      linear-gradient(rgba(255,248,225,.58),rgba(224,237,207,.58)),
+      url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85") center center/cover!important;
+  }
+  .inst-header .inst-inner{
+    display:block!important;
+    position:relative!important;
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    padding:0!important;
+  }
+  .inst-header .inst-left,
+  .inst-header .inst-right{
+    display:none!important;
+  }
+  .inst-header:before{
+    content:"";
+    position:absolute;
+    z-index:2;
+    left:50%;
+    top:22%;
+    width:36px;
+    height:36px;
+    transform:translateX(-50%);
+    border:2px solid #1e6840;
+    border-radius:55% 45% 55% 45%;
+    background:
+      radial-gradient(ellipse at 33% 30%,#2b7c4d 0 18%,transparent 19%),
+      radial-gradient(ellipse at 67% 30%,#2b7c4d 0 18%,transparent 19%),
+      linear-gradient(90deg,transparent 47%,#1e6840 48% 54%,transparent 55%);
+    clip-path:polygon(50% 0,72% 17%,84% 43%,72% 69%,52% 100%,48% 100%,28% 69%,16% 43%,28% 17%);
+    box-sizing:border-box;
+  }
+  .inst-header:after{
+    content:"GREEN FARM";
+    position:absolute;
+    z-index:4;
+    left:0;
+    right:0;
+    top:53%;
+    transform:translateY(-50%);
+    text-align:center;
+    color:#145b36;
+    font:900 23px/1 Georgia,"Times New Roman",serif;
+    letter-spacing:.02em;
+    text-shadow:0 1px 0 rgba(255,255,255,.7);
+  }
+  .inst-header{
+    box-shadow:inset 0 -22px 0 #075b37;
+  }
+  .inst-header .inst-inner:after{
+    content:"TNAU AC&RI VAZHAVACHANUR";
+    position:absolute;
+    z-index:5;
+    left:0;
+    right:0;
+    bottom:4px;
+    text-align:center;
+    color:#f5f2d9;
+    font:800 8px/1 Arial,sans-serif;
+    letter-spacing:.035em;
+  }
+  .inst-header .inst-inner:before{
+    content:"SMART DIGITAL AGRICULTURE";
+    position:absolute;
+    z-index:5;
+    right:5px;
+    bottom:4px;
+    color:#7a8f7d;
+    font:800 6px/1 Arial,sans-serif;
+    letter-spacing:.02em;
+  }
+}
+@media(max-width:380px){
+  .inst-header:before{width:30px;height:30px;top:21%}
+  .inst-header:after{font-size:19px;top:54%}
+  .inst-header{box-shadow:inset 0 -19px 0 #075b37}
+  .inst-header .inst-inner:after{font-size:6.8px;bottom:3px}
+  .inst-header .inst-inner:before{font-size:5px;bottom:3px}
+}
 </style></head>
 <body>
 

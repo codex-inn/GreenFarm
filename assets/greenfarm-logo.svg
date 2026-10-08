@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+<title id="title">GreenFarm agricultural logo</title>
+<desc id="desc">A dark green sprouting leaf above stylized farm field lines.</desc>
+<g fill="none" stroke="#174c31" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M80 116V49" stroke-width="7"/>
+  <path d="M80 75C58 74 42 59 42 38c21 0 38 15 38 37" fill="#2f7a49" stroke-width="4"/>
+  <path d="M80 66c4-20 20-32 39-32 0 20-16 35-39 35" fill="#4b915a" stroke-width="4"/>
+  <path d="M53 112c17-7 37-7 54 0" stroke-width="5"/>
+  <path d="M39 126c27-9 55-9 82 0" stroke-width="5"/>
+  <path d="M27 141c35-10 71-10 106 0" stroke-width="5"/>
+</g>
+</svg>

@@ -1,0 +1,16 @@
+{
+  "name": "GreenFarm – Smart Digital Agriculture",
+  "short_name": "GreenFarm",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f8f5",
+  "theme_color": "#043a24",
+  "description": "Smart Digital Farm Management System",
+  "icons": [
+    {
+      "src": "assets/greenfarm-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -802,5 +802,5 @@ button{font:inherit}
  document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>apply(b.dataset.lang)));
  apply(localStorage.getItem('greenfarm.lang')||'en');
 })();
-</script></body>
+</script><script>if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});</script></body>
 </html>

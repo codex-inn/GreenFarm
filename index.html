@@ -440,16 +440,17 @@ button{font:inherit}
 @media(max-width:700px){
   .agri-header{
     height:205px!important;min-height:205px!important;
+    position:relative!important;overflow:hidden!important;
     border:0!important;border-bottom:1px solid #d9e2d8!important;
     background:
-      radial-gradient(circle at 82% 18%,rgba(255,255,255,.9),transparent 30%),
-      radial-gradient(circle at 12% 88%,rgba(124,171,102,.24),transparent 34%),
-      linear-gradient(145deg,#f8faf3 0%,#edf4e8 48%,#d9e7cf 100%)!important;
+      linear-gradient(rgba(241,248,237,.48),rgba(222,238,216,.58)),
+      url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=88") center center/cover no-repeat!important;
+    background-blend-mode:soft-light!important;
     color:#173b28!important;
     box-shadow:0 6px 18px rgba(40,75,48,.10)!important;
   }
   .agri-header:before{
-    content:"";position:absolute;inset:0;opacity:.24;
+    content:"";position:absolute;inset:0;opacity:.08;
     background:
       linear-gradient(165deg,transparent 0 68%,rgba(74,125,65,.13) 68% 70%,transparent 70%),
       linear-gradient(172deg,transparent 0 80%,rgba(82,132,67,.10) 80% 82%,transparent 82%),

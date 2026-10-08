@@ -642,17 +642,22 @@ button{font:inherit}
 
   /* Dark-green strip exactly at the bottom of the reference. */
   .inst-header .inst-inner{
-    border-bottom:20px solid #075c38!important;
+    border-bottom:0!important;
   }
   .inst-header .inst-inner:after{
     content:"TNAU AC&RI VAZHAVACHANUR"!important;
     position:absolute!important;
     z-index:6!important;
-    left:0!important;
-    right:0!important;
-    bottom:2px!important;
+    left:7px!important;
+    right:auto!important;
+    bottom:0!important;
+    padding:5px 10px 5px!important;
+    min-width:154px!important;
     text-align:center!important;
-    color:#f3f0d7!important;
+    color:#f7f3dc!important;
+    background:#075c38!important;
+    border-radius:3px 3px 0 0!important;
+    box-shadow:0 -1px 4px rgba(0,0,0,.12)!important;
     font-family:Georgia,"Times New Roman",serif!important;
     font-size:clamp(7px,1.85vw,10px)!important;
     font-weight:800!important;
@@ -664,7 +669,7 @@ button{font:inherit}
     position:absolute!important;
     z-index:6!important;
     right:5px!important;
-    bottom:3px!important;
+    bottom:5px!important;
     color:#708b7b!important;
     font-family:Arial,sans-serif!important;
     font-size:clamp(5px,1.25vw,7px)!important;
@@ -676,9 +681,9 @@ button{font:inherit}
 @media(max-width:380px){
   .inst-header:before{width:40px!important;height:40px!important;top:16%!important}
   .inst-header:after{font-size:20px!important;top:57%!important}
-  .inst-header .inst-inner{border-bottom-width:18px!important}
-  .inst-header .inst-inner:after{font-size:6.8px!important;bottom:2px!important}
-  .inst-header .inst-inner:before{font-size:5px!important;bottom:2px!important}
+  .inst-header .inst-inner{border-bottom:0!important}
+  .inst-header .inst-inner:after{font-size:6.8px!important;bottom:0!important;padding:4px 8px 4px!important;min-width:132px!important;left:5px!important}
+  .inst-header .inst-inner:before{font-size:5px!important;bottom:4px!important}
 }
 </style></style></head>
 <body>

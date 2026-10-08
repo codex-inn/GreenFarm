@@ -593,6 +593,38 @@ button{font:inherit}
 .inst-header .inst-inner:before{width:40px;height:40px;flex-basis:40px;margin-right:8px}
 .inst-header .inst-inner:after{font-size:23px}
 }
+</style><style id="mobile-hq-header-logo-left-fix">
+@media(max-width:700px){
+  .inst-header .inst-inner{
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    padding:0 12px!important;
+    gap:9px!important;
+  }
+  .inst-header .inst-inner:before{
+    width:42px!important;height:42px!important;flex:0 0 42px!important;
+    margin:0!important;
+    border-radius:50%!important;
+    background:#fff url("assets/greenfarm-logo.svg") center/contain no-repeat!important;
+    border:2px solid #fff!important;
+    padding:4px!important;
+    box-shadow:0 2px 8px rgba(0,0,0,.22)!important;
+  }
+  .inst-header .inst-inner:after{
+    margin:0!important;
+    font-size:24px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+    text-align:left!important;
+  }
+}
+@media(max-width:380px){
+  .inst-header .inst-inner{padding:0 10px!important;gap:7px!important}
+  .inst-header .inst-inner:before{width:36px!important;height:36px!important;flex-basis:36px!important}
+  .inst-header .inst-inner:after{font-size:21px!important}
+}
 </style></head>
 <body>
 

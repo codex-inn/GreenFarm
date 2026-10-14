@@ -719,6 +719,7 @@ button{font:inherit}
   .inst-header { width: 100% !important; max-width: 100vw !important; aspect-ratio: auto !important; box-sizing: border-box !important; }
 }
 </style>
+<link rel="stylesheet" href="assets/app-ui.css">
 </head>
 <body>
 
@@ -754,7 +755,7 @@ button{font:inherit}
 <a href="activities.html"><span class="nav-icon">📅</span><span>Activities</span></a>
 <a href="analytics.html"><span class="nav-icon">📈</span><span>Analytics</span></a>
 <a href="reports.html"><span class="nav-icon">📄</span><span>Reports</span></a>
-<a href="farm.html"><span class="nav-icon">🧰</span><span>Workspace</span></a>
+<a href="farm.html"><span class="nav-icon">🧰</span><span>Workspace</span></a> <a href="advanced.html"><span class="nav-icon">🌱</span><span>Farm Center</span></a>
 <a href="admin.html"><span class="nav-icon">⚙️</span><span>Admin</span></a>
 </div></div></nav>
 
@@ -785,14 +786,7 @@ button{font:inherit}
  </div>
 </section>
 
-<section class="snapshot">
- <div class="snapshot-grid container">
-  <div class="snap"><strong>12</strong><span>Active Crops</span></div>
-  <div class="snap"><strong>18</strong><span>Livestock Records</span></div>
-  <div class="snap"><strong>24</strong><span>Planned Activities</span></div>
-  <div class="snap"><strong>98%</strong><span>Farm Data Health</span></div>
- </div>
-</section>
+<section aria-label="GreenFarm data and privacy"><div class="snapshot-grid container"><div class="snap"><strong>On this device</strong><span>Your farm records stay in this browser</span></div><div class="snap"><strong>Private by default</strong><span>No account or server sign-in is required</span></div><div class="snap"><strong>Backup ready</strong><span>Export a copy from Workspace</span></div><div class="snap"><strong>Field focused</strong><span>Tools for everyday farm records</span></div></div></section>
 
 <section class="section" id="modules">
  <div class="section-head"><div class="kicker">GREENFARM PLATFORM</div><h2>Everything your farm needs</h2><p>A connected workspace built to make everyday farm management simpler, faster and more organized.</p></div>
@@ -867,5 +861,6 @@ button{font:inherit}
  document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>apply(b.dataset.lang)));
  apply(localStorage.getItem('greenfarm.lang')||'en');
 })();
-</script><script>if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});</script></body>
+</script><script>if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});</script><script src="assets/app-ui.js" defer></script>
+</body>
 </html>

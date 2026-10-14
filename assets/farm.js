@@ -20,7 +20,7 @@
   if (!data.profile || typeof data.profile !== 'object') data.profile = {}; if (!data.prediction || typeof data.prediction !== 'object') data.prediction = {};
   Object.keys(fields).forEach(k => { if (!Array.isArray(data.records[k])) data.records[k] = []; });
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const today = new Date().toISOString().slice(0,10);
+  const today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0,10);
   const fieldControl = ([name,label,type,required,options], value='') => {
     const req = required ? ' required' : '';
     if (type === 'select') return `<label>${esc(label)}<select name="${name}"${req}><option value="">Choose…</option>${options.map(o=>`<option${value===o?' selected':''}>${esc(o)}</option>`).join('')}</select></label>`;

@@ -74,7 +74,8 @@
   .dashboard-tnau-title{font-size:31px}
   .dashboard-green-name{font-size:46px}
 }
-</style></head><body><header class="dashboard-green-header">
+</style><link rel="stylesheet" href="assets/app-ui.css">
+</head><body><header class="dashboard-green-header">
   <div class="dashboard-brand-wrap">
     <div class="dashboard-green">
       <img class="dashboard-green-logo" src="assets/greenfarm-logo.svg" alt="GreenFarm logo">
@@ -99,4 +100,5 @@
    nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("dashboard-nav-open");btn.setAttribute("aria-expanded","false");btn.innerHTML="☰ <span>Menu</span>"}));
  }
 })();
-</script></body></html>
+</script><script src="assets/app-ui.js" defer></script>
+</body></html>

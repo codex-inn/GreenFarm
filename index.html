@@ -655,11 +655,21 @@ button{font:inherit}
   .inst-header .inst-inner:after{font-size:21px!important}
 }
 </style><style id="desktop-midwidth-fit">
-@media (min-width: 1101px) and (max-width: 1350px) {
+@media (min-width: 801px) and (max-width: 1350px) {
   .inst-header .inst-inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 360px) !important;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 32%) !important;
     width: min(1540px, 96%) !important;
     box-sizing: border-box !important;
+  }
+  .inst-header .inst-copy { min-width: 0 !important; }
+  .inst-header .inst-title {
+    font-size: clamp(18px, 2.5vw, 29px) !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+  }
+  .inst-header .inst-tamil {
+    font-size: clamp(11px, 1.5vw, 17px) !important;
+    white-space: normal !important;
   }
   .inst-header .inst-right { min-width: 0 !important; padding-left: 12px !important; }
   .inst-header .inst-college,
@@ -680,6 +690,10 @@ button{font:inherit}
   .panel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .panel-top { flex-wrap: wrap !important; gap: 8px !important; }
   .live { max-width: 100% !important; white-space: normal !important; text-align: center !important; }
+}
+@media (min-width: 801px) and (max-width: 950px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr) !important; min-height: auto !important; padding: 58px 0 70px !important; }
+  .hero-panel { max-width: 600px !important; }
 }
 </style>
 </head>

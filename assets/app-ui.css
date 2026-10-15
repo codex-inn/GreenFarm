@@ -804,7 +804,7 @@ tr:nth-child(even) td { background: #fafbf9; }
   .gf-nav .container { overflow: visible !important; }
   .gf-nav .nav-links {
     display: grid !important;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
     align-items: stretch !important;
     gap: 2px !important;
     overflow: visible !important;

@@ -8,7 +8,7 @@
   <title>Farm Home | GreenFarm</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="assets/greenfarm.css">
-  <link rel="stylesheet" href="assets/app-ui.css?v=greenfarm-v14"><link rel="stylesheet" href="assets/module-views.css?v=greenfarm-v14">
+  <link rel="stylesheet" href="assets/app-ui.css?v=greenfarm-v15"><link rel="stylesheet" href="assets/module-views.css?v=greenfarm-v15">
 </head>
 <body>
   <nav class="gf-nav" aria-label="Main navigation">
@@ -40,8 +40,23 @@
       </div>
     </div>
     <div class="gf-home-art">
-      <img src="assets/greenfarm-sunrise-header.webp?v=greenfarm-v14" alt="Farmer walking beside green rice fields in Tamil Nadu" width="1536" height="1024" fetchpriority="high">
+      <img src="assets/greenfarm-sunrise-header.webp?v=greenfarm-v15" alt="Farmer walking beside green rice fields in Tamil Nadu" width="1536" height="1024" fetchpriority="high">
     </div>
+  </section>
+  <section class="gf-home-video" aria-labelledby="home-animation-title">
+    <div class="gf-home-video-copy">
+      <p class="gf-home-video-kicker">💧 WATER SMART FARMING · 3D ANIMATION</p>
+      <h2 id="home-animation-title">See drip irrigation in action</h2>
+      <p>A short farm animation showing how drip irrigation delivers water to crops.</p>
+      <a class="gf-home-video-source" href="https://sawbo-animations.org/230" target="_blank" rel="noopener noreferrer">About this free SAWBO animation ↗</a>
+    </div>
+    <div class="gf-home-video-player">
+      <video controls preload="none" playsinline poster="assets/greenfarm-sunrise-header.webp?v=greenfarm-v15" aria-label="3D animation about drip irrigation">
+        <source src="https://sawbo-animations.org/download_aws.php?id=230&amp;video=EN_English_USA_SGDripIrrigation3D_Final.mp4" type="video/mp4">
+        Your browser cannot play this video. <a href="https://sawbo-animations.org/230">Open the animation on SAWBO.</a>
+      </video>
+    </div>
+    <p class="gf-home-video-credit">Free for educational use · SAWBO, a Purdue University program</p>
   </section>
   <section class="gf-home-stat-grid" aria-label="Farm overview">
     <article class="gf-home-stat"><span>📊 Records</span><strong data-gf-stat="records">0</strong><small>saved on this device</small></article>
@@ -60,7 +75,7 @@
   <p class="gf-home-footer-note">💾 Your data stays in this browser. <a href="farm.html#backup">Open backup tools →</a></p>
 </div></main>
   <footer class="gf-footer gf-home-footer"><div class="container gf-home-footer-container"><div class="gf-home-brand"><strong>🌱 GreenFarm</strong><p>Smart farm records · TNAU AC&amp;RI Vazhavachanur</p></div><div class="gf-project-credit"><span class="gf-project-credit-label">Project submitted by</span><strong>KOWSHIK S.</strong><span class="gf-project-credit-meta">AC&amp;RI VAZHAVACHANUR <span aria-hidden="true">·</span> TNAU</span></div></div></footer>
-  <script src="assets/app-ui.js?v=greenfarm-v14" defer></script>
+  <script src="assets/app-ui.js?v=greenfarm-v15" defer></script>
   <script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});</script>
 </body>
 </html>

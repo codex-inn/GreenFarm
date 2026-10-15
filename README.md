@@ -1,113 +1,63 @@
-# 🌱 GreenFarm
+# GreenFarm
 
-**GreenFarm – Smart Digital Farm Management System**
+**Smart Digital Agriculture · TNAU AC&RI Vazhavachanur**
 
-> Smarter Farming. Better Decisions. Sustainable Future.
+GreenFarm is a static farm-management app for recording crop, livestock, field, irrigation, soil, scouting, harvest, finance, inventory, task and diary information.
 
-GreenFarm is a responsive, browser-based digital agriculture platform for organizing crop, livestock, field, irrigation, input, pest/disease, harvest, finance, inventory, task and farm-diary records in one place.
-
-## ✨ Main Features
-
-- 🏠 Responsive GreenFarm home and dashboard
-- 🌾 Crop records and crop lifecycle calendar
-- 🩺 Crop health tracking: Healthy / Warning / Pest / Disease
-- 🗺️ Field management with area, soil and irrigation details
-- 💧 Irrigation planning and next-watering dates
-- 🧪 Fertilizer and manure records
-- 🐛 Pest and disease scouting log
-- 💰 Income, expenses and net-profit calculation
-- 🌾 Harvest and yield records
-- 🌦️ Manual weather observations: temperature, rainfall and humidity
-- ⏰ Farm task/reminder records
-- 🌱 Seed inventory
-- 🚜 Equipment register and service dates
-- 👨‍🌾 Farmer/farm profile
-- 📓 Digital farm diary
-- 📊 Advanced farm metrics and reports
-- 📥 CSV export
-- 💾 JSON backup and restore
-- ✨ Demo-data mode for project demonstrations
-- 🖨️ Print / Save as PDF
-- 📱 Responsive mobile + desktop UI
-- 📲 PWA install/offline shell support
-- 🔒 Browser LocalStorage architecture — no Supabase/backend required
-
-## 🧩 Project Pages
+## App views
 
 | Page | Purpose |
 |---|---|
-| Home | Project introduction and navigation |
-| Dashboard | Farm overview and quick access |
-| Crops | Crop records |
-| Livestock | Animal/group records |
-| Activities | Daily farm activities |
-| Analytics | Farm analytics |
-| Reports | Print-ready reports |
-| Workspace | Core GreenFarm records, prediction and backup |
-| Farm Center | Advanced field, crop, irrigation, inputs, IPM, finance, harvest, inventory, tasks and diary tools |
-| Admin | Project/data administration |
-| Auth | Informational project entry page; no server authentication |
+| Home | Local record overview, quick actions and links to farm tools |
+| Dashboard | Core Workspace totals and shortcuts |
+| Crops / Livestock | Entry points to crop and animal records |
+| Activities | Entry point to farm operation records |
+| Analytics / Reports | Overview and print/report entry points |
+| Workspace | Core crop, livestock, weather, soil, irrigation, scouting, harvest, finance, inventory, prediction, profile and backup tools |
+| Farm Center | Field, crop plan, irrigation, input, pest, finance, harvest, seed, equipment, task, diary, profile and report tools |
+| Admin | Local workspace and backup information |
+| Farmer Access | Information page; no server sign-in |
 
-## 🛠️ Technology
+## Architecture and data
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- Browser LocalStorage
-- Progressive Web App manifest + service worker
-- GitHub Pages
+- Static HTML pages, shared CSS and vanilla JavaScript.
+- Hosted on GitHub Pages from the repository root.
+- No backend, Supabase, account system or cloud sync.
+- Records live in browser LocalStorage on the current device.
+- Core Workspace stores data in `greenfarm.v2`; Farm Center stores data separately in `greenfarm.advanced.v1`.
+- JSON backup/restore and CSV export are available from the existing tools.
+- PWA manifest and service worker provide an installable offline shell.
 
-The project is intentionally backend-free. Records are stored in the browser on the current device. Use JSON/CSV export to preserve or transfer data.
+Because records belong to one browser profile, export a backup before clearing browser data or moving to another device. Core Workspace and Farm Center records are not automatically combined.
 
-> Core farm data works without a backend. Some visual background images are external web assets and may require an internet connection.
+## Key files
 
-## 📁 Structure
+| File | Role |
+|---|---|
+| `index.html` | Farm Home app overview |
+| `dashboard.html` | Core record totals and quick access |
+| `farm.html` + `assets/farm.js` | Core Workspace forms, tables, reports and JSON backup |
+| `advanced.html` + `assets/advanced.js` | Farm Center forms, summaries and CSV export |
+| `assets/greenfarm.css` | Original site styles |
+| `assets/app-ui.css` + `assets/app-ui.js` | Shared application shell, responsive navigation and Home overview |
+| `sw.js` + `manifest.webmanifest` | Offline shell and install metadata |
+| `build.py` | Static page builder for the overview and Home pages |
+| `DESIGN-REVIEW.md` | Responsive audit, design notes, limitations and next steps |
 
-```text
-GreenFarm/
-├── index.html
-├── auth.html
-├── dashboard.html
-├── crops.html
-├── livestock.html
-├── activities.html
-├── analytics.html
-├── reports.html
-├── farm.html
-├── advanced.html
-├── admin.html
-├── manifest.webmanifest
-├── sw.js
-├── assets/
-│   ├── greenfarm.css
-│   ├── farm.css
-│   ├── farm.js
-│   ├── advanced.css
-│   ├── advanced.js
-│   ├── style.css
-│   ├── app.js
-│   └── greenfarm-logo.svg
-└── README.md
-```
+## Known limitations
 
-## 💾 Data & Privacy
+- Browser LocalStorage is limited to one device and browser profile.
+- Core Workspace and Farm Center use two separate data formats and do not sync.
+- Crops, Livestock, Activities, Analytics and Reports are overview/shortcut pages; their records are managed in Workspace and Farm Center.
+- Weather is entered manually.
+- Crop outlook is a rule-based decision aid, not a trained model or a guarantee of yield.
+- Farmer Access is informational; the app has no user authentication.
+- Demo data is available only through the explicit Farm Center demo control and should be removed before recording real farm information.
 
-GreenFarm stores editable records locally in the browser using the `greenfarm.v2` and `greenfarm.advanced.v1` LocalStorage stores. No account or cloud database is required for the current academic version.
+## Design review and recommendations
 
-Back up important data before clearing browser storage or changing devices.
+See [DESIGN-REVIEW.md](DESIGN-REVIEW.md) for the page-by-page responsive checks, current design findings, changes in this update, and prioritized product suggestions.
 
-## 🚀 GitHub Pages
+## Update and deployment workflow
 
-The project is deployed from the `main` branch using GitHub Pages.
-
-## 🎓 Academic Use
-
-Designed as a TNAU agriculture-oriented digital farm management project for demonstration, field-record organization and academic presentation.
-
-## 📄 License
-
-Academic/development project. Add an open-source license before public redistribution if required.
-
----
-**GreenFarm** 🌱  
-*Smart Digital Farm Management System*
+Edit the static HTML, shared CSS/JavaScript and service-worker cache version together. Commit to `main`; GitHub Pages publishes the repository root. Check the Pages deployment and inspect the live app at desktop, tablet and mobile widths after an update. Keep user records local and preserve the existing architecture unless product requirements explicitly change.

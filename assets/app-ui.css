@@ -519,7 +519,7 @@ tr:nth-child(even) td { background: #fafbf9; }
 
 /* App navigation refresh: all destinations stay reachable on small screens. */
 .gf-nav .container::before {
-  content: "GreenFarm\\A FARM WORKSPACE";
+  content: "GreenFarm\A FARM WORKSPACE";
   font-size: 16px;
   letter-spacing: -.025em;
 }

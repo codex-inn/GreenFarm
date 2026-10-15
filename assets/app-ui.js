@@ -2,7 +2,7 @@
   "use strict";
 
   const lastPathPart = location.pathname.split("/").filter(Boolean).pop() || "";
-  const current = /\\.html?$/i.test(lastPathPart) ? lastPathPart : "index.html";
+  const current = /\.html?$/i.test(lastPathPart) ? lastPathPart : "index.html";
   const primaryPages = new Set(["index.html", "dashboard.html", "farm.html", "advanced.html"]);
   const pageLabels = {
     "index.html": ["🏠", "Home"],

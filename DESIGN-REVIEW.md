@@ -1,21 +1,33 @@
-# GreenFarm: quick review
+# GreenFarm: design and quality review
 
-## Analysis
+## Current architecture
 
-GreenFarm is a static HTML, CSS and vanilla JavaScript farm app hosted on GitHub Pages. Records stay in browser LocalStorage. Workspace and Farm Center use separate stores; there are no accounts, cloud sync or live weather.
+GreenFarm is a GitHub Pages application built from static HTML, CSS and vanilla JavaScript. Workspace records and Farm Center records remain in separate browser LocalStorage keys. No backend, cloud sync or live weather feed is used. The crop outlook is rule-based decision support, not a yield forecast.
 
-The app has 11 views: Home, Dashboard, Crops, Livestock, Activities, Analytics, Reports, Workspace, Farm Center, Settings and Farmer Access. The overview pages link into the existing record tools. Crop outlooks are rule-based estimates.
+## Design and feature improvements
 
-## Design update
+- Shared app navigation and green-and-gold visual system across desktop, tablet and phones.
+- Five primary destinations on mobile, with secondary destinations inside the More menu.
+- Dashboard reads saved records from both local stores and shows upcoming/overdue work, recent entries, counts and recorded net finances.
+- Crop, livestock and activity summaries include search, filters, sorting and CSV export.
+- Analytics use dated transactions and label unavailable information instead of silently treating missing data as zero.
+- Reports have date filters, print/PDF layout and CSV export.
+- Workspace records are searchable and individually exportable; delete actions require confirmation.
+- Farm Center lists support search and edit/delete. Tasks can be marked complete or reopened.
+- Restore validates the selected backup before replacing data. CSV fields escape quotes and guard spreadsheet formula prefixes.
+- Service worker caches only successful same-origin responses, refreshes cached assets, removes older caches and does not return HTML for missing scripts or stylesheets.
+- GreenFarm Home project credit preserves the TNAU identity and student attribution.
 
-Home is now a concise farm overview with a field photo, local record counts and direct links. Mobile navigation groups secondary sections under More. Existing forms, backup, print and offline behavior remain in the static app.
+## Limitations
 
-## Suggestions
+- LocalStorage data belongs to the current browser profile and device; there is no account or synchronization.
+- Weather values are manually entered.
+- Crop outlook uses broad heuristics and should not be used as a crop-specific recommendation or yield estimate.
+- Crop photographs are not attached to records.
+- Analytics reflect only dated, numeric transactions entered by the user.
 
-1. Make Analytics and Reports filter existing records directly.
-2. Add a clear backup reminder and test restore on another browser.
-3. Relate the two local stores through a safe migration.
-4. Replace remaining emoji-only marks with accessible SVG icons.
-5. Check keyboard access, contrast and touch targets on real phones and tablets.
+## Recommended next steps
 
-Keep online integrations optional and preserve an offline path.
+1. Keep a manual acceptance checklist for add/edit/delete, search, CSV, print, backup/restore and offline behavior.
+2. Verify the app in a second browser before relying on backup restore.
+3. Add a concise methodology and system-architecture section for academic evaluation if required.

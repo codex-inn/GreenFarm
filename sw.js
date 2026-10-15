@@ -1,12 +1,66 @@
-const CACHE='greenfarm-v12';
-const CORE=['./','./index.html','./dashboard.html','./farm.html','./advanced.html','./crops.html','./livestock.html','./activities.html','./analytics.html','./reports.html','./admin.html','./auth.html','./assets/greenfarm.css','./assets/app-ui.css','./assets/app-ui.js','./assets/app-ui.css?v=greenfarm-v12','./assets/app-ui.js?v=greenfarm-v12','./assets/greenfarm-field-photo.png?v=greenfarm-v12','./assets/farm.css','./assets/farm.js','./assets/advanced.css','./assets/advanced.js','./assets/greenfarm-logo.svg','./manifest.webmanifest'];
-self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE.map(asset=>new Request(asset,{cache:'reload'})))).then(()=>self.skipWaiting())));
-self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('greenfarm-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch',event=>{
-  if(event.request.method!=='GET')return;
-  event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{
-    const copy=response.clone();
-    caches.open(CACHE).then(cache=>cache.put(event.request,copy));
-    return response;
-  }).catch(()=>caches.match('./index.html'))));
+const CACHE = "greenfarm-v13";
+const CORE = [
+  "./","./index.html","./dashboard.html","./crops.html","./livestock.html","./activities.html",
+  "./analytics.html","./reports.html","./farm.html","./advanced.html","./admin.html","./auth.html",
+  "./manifest.webmanifest","./assets/greenfarm.css","./assets/app-ui.css","./assets/app-ui.css?v=greenfarm-v13",
+  "./assets/app-ui.js","./assets/app-ui.js?v=greenfarm-v13","./assets/module-views.css?v=greenfarm-v13",
+  "./assets/module-views.js?v=greenfarm-v13","./assets/dashboard.js?v=greenfarm-v13",
+  "./assets/farm.js?v=greenfarm-v13","./assets/advanced.js?v=greenfarm-v13",
+  "./assets/farm.css","./assets/advanced.css","./assets/greenfarm-logo.svg",
+  "./assets/greenfarm-field-photo.png?v=greenfarm-v13"
+];
+async function cacheSuccessful(cache, request, response) {
+  if (response && response.ok && response.type !== "opaque") {
+    try { await cache.put(request, response.clone()); } catch (_) {}
+  }
+  return response;
+}
+self.addEventListener("install", event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE);
+    await Promise.all(CORE.map(async asset => {
+      try {
+        const request = new Request(asset, {cache:"reload"});
+        const response = await fetch(request);
+        if (response.ok && response.type !== "opaque") await cache.put(request, response);
+      } catch (_) {}
+    }));
+    await self.skipWaiting();
+  })());
+});
+self.addEventListener("activate", event => {
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.filter(key => key.startsWith("greenfarm-") && key !== CACHE).map(key => caches.delete(key)));
+    await self.clients.claim();
+  })());
+});
+self.addEventListener("fetch", event => {
+  const request = event.request;
+  if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) return;
+  const isNavigation = request.mode === "navigate";
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE);
+    const cached = await cache.match(request);
+    if (isNavigation) {
+      try {
+        const response = await fetch(request);
+        await cacheSuccessful(cache, request, response);
+        return response;
+      } catch (_) {
+        return cached || await cache.match("./index.html") || new Response("GreenFarm is offline and this page is not available yet.", {status:503,headers:{"Content-Type":"text/plain;charset=utf-8"}});
+      }
+    }
+    if (cached) {
+      event.waitUntil(fetch(request).then(response => cacheSuccessful(cache, request, response)).catch(() => {}));
+      return cached;
+    }
+    try {
+      const response = await fetch(request);
+      await cacheSuccessful(cache, request, response);
+      return response;
+    } catch (_) {
+      return new Response("This GreenFarm resource is unavailable offline.", {status:503,headers:{"Content-Type":"text/plain;charset=utf-8"}});
+    }
+  })());
 });

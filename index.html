@@ -1,866 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="GreenFarm — a professional smart digital agriculture platform by Tamil Nadu Agricultural University, Agricultural College & Research Institute, Vazhavachanur.">
-<meta name="theme-color" content="#07512f">
-<title>GreenFarm | Smart Digital Agriculture</title>
-<style>
-:root{
- --g:#08783f;--gd:#07512f;--deep:#043a24;--mint:#eaf6ef;--gold:#c79b24;
- --ink:#172f24;--muted:#64736b;--line:#dfe9e2;--bg:#f5f8f6;--card:#fff;
- --shadow:0 14px 38px rgba(4,59,36,.08);--radius:18px
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif}
-a{text-decoration:none;color:inherit}
-button{font:inherit}
-.container{width:min(1180px,92%);margin:auto}
-
-/* INSTITUTION HEADER */
-.inst-header{
- border-top:5px solid #40313e;border-bottom:1px solid #dbe5de;
- background:linear-gradient(90deg,rgba(255,255,255,.97),rgba(255,255,255,.88)),
- url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=80") center/cover;
-}
-.inst-inner{min-height:160px;width:min(1500px,94%);margin:auto;display:grid;grid-template-columns:minmax(0,70%) minmax(330px,30%);align-items:center}
-.inst-left{display:flex;align-items:center;min-width:0}
-.inst-logo{width:105px;height:88px;flex:0 0 105px;object-fit:contain}
-.inst-copy{min-width:0;margin-left:20px;padding-right:25px}
-.inst-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(27px,2.45vw,39px);font-weight:800;line-height:1.02;color:#06452d;white-space:nowrap;overflow:hidden}
-.inst-tamil{margin-top:6px;font-family:"Noto Sans Tamil","Latha","Segoe UI",sans-serif;font-size:clamp(17px,1.6vw,25px);font-weight:800;line-height:1.1;color:#247247;white-space:nowrap;overflow:hidden}
-.inst-address{margin-top:5px;font-size:12px;font-weight:700;color:#526159}
-.inst-right{min-height:116px;border-left:1px solid rgba(65,93,76,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-left:24px;overflow:hidden}
-.inst-college{font-size:17px;font-weight:850;color:#07542f;white-space:nowrap}
-.inst-place{margin-top:4px;font:900 27px/1 Georgia,"Times New Roman",serif;color:#188247;white-space:nowrap}
-.inst-sub{margin-top:7px;font-size:12px;color:#68756e}
-.inst-badge{margin-top:7px;padding:4px 13px;border-radius:20px;background:#e7f2e9;color:#176b40;font-size:10px;font-weight:900}
-
-/* NAV */
-.nav{height:76px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 3px 12px rgba(0,0,0,.04);position:sticky;top:0;z-index:100}
-.nav-inner{height:100%;display:flex;align-items:center;gap:0}
-.brand{display:flex;align-items:center;gap:8px;flex:0 0 auto;margin-right:38px}
-.brand-icon{font-size:29px}.brand-name{font-size:26px;font-weight:900;color:var(--gd);letter-spacing:-.4px}
-.menu{display:flex;align-items:stretch;height:100%;flex:1;min-width:0;overflow:auto;scrollbar-width:none}
-.menu::-webkit-scrollbar{display:none}
-.menu a{display:flex;align-items:center;justify-content:center;gap:5px;padding:0 10px;font-size:12px;font-weight:800;color:#294335;white-space:nowrap;border-bottom:3px solid transparent}
-.menu a:hover,.menu a.active{color:var(--g);background:#fbfdfb;border-bottom-color:var(--g)}
-.nav-actions{display:flex;align-items:center;gap:9px;flex:0 0 auto;margin-left:10px}
-.lang{display:flex;padding:3px;border:1px solid #d5e1d9;border-radius:22px;background:#f4f8f5}
-.lang button{border:0;background:transparent;color:#31503e;padding:6px 9px;border-radius:18px;font-size:11px;font-weight:850}
-.lang .active{background:#168b47;color:#fff}
-.scan{padding:11px 15px;border-radius:8px;background:#138843;color:#fff;font-size:12px;font-weight:900;white-space:nowrap}
-
-/* HERO */
-.hero{position:relative;overflow:hidden;background:linear-gradient(115deg,#063f28 0%,#087341 55%,#0a8c4c 100%);color:#fff}
-.hero:after{content:"";position:absolute;width:540px;height:540px;border-radius:50%;right:-170px;top:-240px;background:rgba(255,255,255,.07)}
-.hero-grid{min-height:520px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:50px}
-.eyebrow{display:inline-flex;align-items:center;gap:7px;color:#e6c95d;font-size:11px;font-weight:900;letter-spacing:1.7px}
-.hero h1{font:800 clamp(44px,5vw,70px)/.98 Georgia,"Times New Roman",serif;margin:15px 0 19px;letter-spacing:-1.5px}
-.hero h1 span{color:#e6c95d}
-.hero p{max-width:620px;color:#dcece3;font-size:16px;line-height:1.7;margin:0}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:9px;font-size:13px;font-weight:900}
-.btn-gold{background:var(--gold);color:#fff}.btn-light{border:1px solid rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.07)}
-.hero-panel{padding:24px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.09);backdrop-filter:blur(10px);border-radius:22px;box-shadow:0 20px 50px rgba(0,0,0,.14)}
-.panel-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.panel-title{font-weight:900}.live{font-size:10px;font-weight:900;color:#bfe9ce;background:rgba(70,190,112,.16);padding:6px 9px;border-radius:20px}
-.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.metric{padding:14px;background:rgba(0,0,0,.13);border-radius:13px}
-.metric small{display:block;color:#b8d7c5;font-size:10px}.metric strong{display:block;margin-top:4px;font-size:23px}.metric span{font-size:10px;color:#a9d0ba}
-.progress{height:7px;border-radius:10px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:15px}.progress i{display:block;width:76%;height:100%;background:#e2c252;border-radius:inherit}
-
-/* SNAPSHOT */
-.snapshot{margin-top:-34px;position:relative;z-index:5}
-.snapshot-grid{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
-.snap{padding:20px;text-align:center;border-right:1px solid var(--line)}.snap:last-child{border:0}
-.snap strong{display:block;color:var(--gd);font-size:23px}.snap span{display:block;margin-top:3px;color:var(--muted);font-size:11px;font-weight:750}
-
-/* SECTIONS */
-.section{padding:78px 0}.section-head{max-width:720px;margin:0 auto 36px;text-align:center}
-.kicker{font-size:10px;letter-spacing:1.7px;color:#a37a0b;font-weight:900}
-.section-head h2{margin:8px 0 10px;color:var(--gd);font:800 clamp(29px,3vw,40px)/1.1 Georgia,"Times New Roman",serif}
-.section-head p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
-
-/* MODULE CARDS */
-.modules{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:23px;box-shadow:0 7px 22px rgba(0,60,30,.045);transition:.18s}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:13px;background:var(--mint);font-size:23px}
-.card h3{margin:15px 0 7px;color:var(--gd);font-size:18px}.card p{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.55}.card-link{color:var(--g);font-size:11px;font-weight:900}
-
-/* WORKFLOW */
-.workflow{background:#edf6f0}
-.workflow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.step{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
-.step-no{color:#fff;background:var(--g);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900}
-.step h3{margin:14px 0 6px;font-size:17px;color:var(--gd)}.step p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
-
-/* ANALYTICS */
-.analytics{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:stretch}
-.analytics-copy{padding:15px 0}.analytics-copy h2{margin:8px 0 13px;color:var(--gd);font:800 38px/1.1 Georgia,"Times New Roman",serif}.analytics-copy p{color:var(--muted);font-size:14px;line-height:1.7}
-.checks{display:grid;gap:9px;margin-top:18px}.check{font-size:13px;font-weight:750;color:#355044}.check b{color:var(--g);margin-right:7px}
-.chart{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow)}
-.chart-head{display:flex;justify-content:space-between;align-items:center}.chart-head strong{font-size:15px}.chart-head span{font-size:10px;color:var(--muted)}
-.bars{height:205px;display:flex;align-items:end;gap:12px;margin-top:24px;padding:0 7px;border-bottom:1px solid var(--line)}
-.bar{flex:1;border-radius:7px 7px 0 0;background:linear-gradient(#24a65e,#08783f);min-height:35px;position:relative}.bar span{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--muted)}
-.chart-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:32px}.chart-stat{background:#f4f8f5;padding:12px;border-radius:11px}.chart-stat small{font-size:9px;color:var(--muted)}.chart-stat strong{display:block;color:var(--gd);font-size:16px;margin-top:3px}
-
-/* FEATURES */
-.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{padding:20px;border:1px solid var(--line);border-radius:16px;background:#fff}.feature strong{color:var(--gd);font-size:14px}.feature p{margin:7px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
-
-/* CTA */
-.cta{padding:58px 0}.cta-box{border-radius:24px;padding:42px;display:flex;justify-content:space-between;align-items:center;gap:30px;background:linear-gradient(115deg,#063b24,#08783f);color:#fff}.cta-box h2{margin:0 0 8px;font:800 34px/1.1 Georgia,"Times New Roman",serif}.cta-box p{margin:0;color:#cfe6d8;font-size:13px}.cta-box .btn{background:#e0bd45;color:#143b27;white-space:nowrap}
-
-/* FOOTER */
-.footer{background:#052f1d;color:#c9dfd2;padding:38px 0}.footer-grid{display:grid;grid-template-columns:1.4fr .7fr .7fr .8fr;gap:30px}.footer-brand{font-size:21px;font-weight:900;color:#fff}.footer p{font-size:11px;line-height:1.6;color:#8fb29f;max-width:330px}.footer h4{margin:0 0 12px;color:#fff;font-size:12px}.footer a{display:block;font-size:11px;margin:7px 0;color:#9fc0ae}.footer-bottom{margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;font-size:10px;color:#789b89}
-
-/* RESPONSIVE */
-@media(max-width:1100px){
- .inst-inner{grid-template-columns:minmax(0,67%) minmax(0,33%)}
- .inst-title{font-size:28px}.inst-tamil{font-size:17px}.inst-logo{width:88px;height:76px;flex-basis:88px}.inst-copy{margin-left:14px}.inst-college{font-size:13px}.inst-place{font-size:21px}
- .brand{margin-right:18px}.menu a{padding:0 7px;font-size:11px}.nav-actions{margin-left:5px}.scan{padding:10px 12px;font-size:11px}
- .hero-grid{gap:25px}.hero h1{font-size:53px}
-}
-@media(max-width:800px){
- .inst-inner{display:flex;flex-direction:column;align-items:stretch;padding:9px 4%}
- .inst-left{min-height:58px}.inst-logo{width:62px;height:55px;flex-basis:62px}.inst-copy{margin-left:10px;padding:0}.inst-title{font-size:20px;white-space:normal}.inst-tamil{font-size:13px;white-space:normal;margin-top:4px}.inst-address{font-size:9px}
- .inst-right{margin-top:8px;min-height:0;padding:7px 4px 2px;border-left:0;border-top:1px solid rgba(65,93,76,.28)}.inst-college{font-size:11px}.inst-place{font-size:19px}.inst-sub{font-size:9px}.inst-badge{font-size:8px;padding:3px 9px;margin-top:3px}
- .nav{height:58px}.nav-inner{padding:0 4%;overflow:hidden}.brand{margin-right:12px}.brand-name{font-size:22px}.menu{overflow-x:auto}.menu a{font-size:10px;padding:0 8px}.nav-actions{margin-left:7px}.scan{font-size:10px;padding:9px 10px}
- .hero-grid{grid-template-columns:1fr;min-height:auto;padding:58px 0 70px}.hero-panel{max-width:600px}
- .snapshot-grid{grid-template-columns:1fr 1fr}.snap{border-right:1px solid var(--line)}.snap:nth-child(2){border-right:0}.snap:nth-child(-n+2){border-bottom:1px solid var(--line)}
- .modules{grid-template-columns:repeat(2,1fr)}.workflow-grid{grid-template-columns:repeat(2,1fr)}
- .analytics{grid-template-columns:1fr}.feature-grid{grid-template-columns:repeat(2,1fr)}
- .footer-grid{grid-template-columns:1.4fr 1fr 1fr}
-}
-@media(max-width:560px){
- .container{width:91%}.inst-inner{padding:8px 11px}.inst-logo{width:50px;height:48px;flex-basis:50px}.inst-copy{margin-left:8px}.inst-title{font-size:15.5px}.inst-tamil{font-size:10.5px}.inst-address{font-size:7.5px}
- .inst-college{font-size:10px}.inst-place{font-size:17px}.inst-sub{font-size:8px}.inst-badge{font-size:7.5px}
- .nav{height:55px}.nav-inner{padding:0 10px}.brand{gap:5px;margin-right:8px}.brand-icon{font-size:22px}.brand-name{font-size:19px}.menu a{font-size:9.5px;padding:0 7px}.lang{margin:0 4px}.lang button{font-size:9px;padding:5px 7px}.scan{font-size:9px;padding:8px 9px}
- .hero-grid{padding:45px 0 60px}.eyebrow{font-size:9px}.hero h1{font-size:38px;letter-spacing:-.7px}.hero p{font-size:13px}.hero-actions{flex-direction:column}.btn{font-size:12px}
- .hero-panel{padding:18px}.metric strong{font-size:19px}
- .snapshot{margin-top:-20px}.snapshot-grid{border-radius:14px}.snap{padding:14px 7px}.snap strong{font-size:17px}.snap span{font-size:9px}
- .section{padding:52px 0}.modules,.workflow-grid,.feature-grid{grid-template-columns:1fr}.card{padding:19px}.analytics-copy h2{font-size:29px}.chart{padding:18px}.bars{height:170px;gap:7px}.cta{padding:40px 0}.cta-box{display:block;padding:30px 24px}.cta-box h2{font-size:27px}.cta-box .btn{margin-top:18px}
- .footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:5px}
-}
-@media(max-width:380px){.scan{display:none}.inst-title{font-size:14px}.inst-tamil{font-size:9.5px}.inst-address{font-size:7px}.inst-college{font-size:9px}.inst-place{font-size:15px}}
-</style>
-
-<style id="screenshot-theme-fix">
-/* Desktop match to the supplied TNAU / GreenFarm reference */
-.inst-inner{grid-template-columns:minmax(0,72%) minmax(360px,28%);width:min(1540px,96%)}
-.inst-copy{padding-right:12px}
-.inst-title{font-size:clamp(25px,2.35vw,38px)}
-.inst-tamil{font-size:clamp(16px,1.5vw,24px)}
-.inst-right{padding-left:18px}
-.inst-college{font-size:16px}
-.inst-place{font-size:26px}
-.nav{height:98px}
-.menu a{font-size:13px;padding:0 11px}
-.nav-actions{margin-left:8px}
-.scan{padding:15px 18px;font-size:13px}
-@media(max-width:1100px){.inst-inner{grid-template-columns:minmax(0,70%) minmax(300px,30%)}.inst-title{font-size:29px}.inst-tamil{font-size:17px}.inst-college{font-size:13px}.inst-place{font-size:21px}.nav{height:76px}.menu a{font-size:11px;padding:0 7px}.scan{padding:11px 12px;font-size:11px}}
-@media(max-width:800px){.inst-inner{display:flex;flex-direction:column;align-items:stretch;padding:9px 4%;width:100%}.inst-title{font-size:20px}.inst-tamil{font-size:13px}.inst-right{margin-top:8px;min-height:0;padding:7px 4px 2px;border-left:0;border-top:1px solid rgba(65,93,76,.28)}.inst-college{font-size:11px}.inst-place{font-size:19px}.nav{height:58px}.menu a{font-size:10px;padding:0 8px}}
-</style>
-<style id="hero-agri-carousel">
-.hero{isolation:isolate;background:#063f28}
-.hero-photos{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-photo{position:absolute;inset:0;background-position:center;background-size:100% 100%;background-repeat:no-repeat;opacity:0;visibility:hidden;transform:scale(1);transition:opacity .7s ease,visibility .7s ease}
-.hero-photo.active{opacity:1;visibility:visible}
-.hero-photo:nth-child(1){background-image:url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=85")}
-.hero-photo:nth-child(2){background-image:url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=2200&q=85")}
-.hero-photo:nth-child(3){background-image:url("https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=2200&q=85")}
-.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(2,48,27,.88) 0%,rgba(2,55,31,.68) 43%,rgba(2,55,31,.25) 100%)}
-.hero:after{z-index:2}
-.hero-grid{position:relative;z-index:3}
-.hero-dots{position:absolute;z-index:4;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:7px}
-.hero-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);display:block;transition:.25s}
-.hero-dots i.active{background:#fff;transform:scale(1.35)}
-@media(max-width:800px){.hero-photo{background-size:cover;background-position:center}.hero:before{background:linear-gradient(90deg,rgba(2,48,27,.82),rgba(2,55,31,.42))}.hero-dots{bottom:14px}}
-@media(prefers-reduced-motion:reduce){.hero-photo{transition:none}.hero-dots{display:none}}
-</style>
-
-<style id="single-row-navigation">
-/* One-row navigation: desktop fits all items; mobile/tablet scrolls horizontally without wrapping */
-.nav{height:82px;overflow:hidden}
-.nav-inner{width:100%;max-width:none;padding:0 14px;display:flex;align-items:center;gap:8px;overflow:hidden}
-.brand{margin-right:10px;flex:0 0 auto}.brand-icon{font-size:25px}.brand-name{font-size:23px}
-.menu{flex:1 1 auto;min-width:0;display:flex;align-items:stretch;height:82px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;scrollbar-width:none}
-.menu::-webkit-scrollbar{display:none}.menu a{height:82px;flex:0 0 auto;padding:0 8px;font-size:11px;white-space:nowrap}
-.nav-actions{flex:0 0 auto;margin-left:4px;display:flex;align-items:center;white-space:nowrap}
-.scan{padding:11px 12px;font-size:11px}
-.lang{flex:0 0 auto}
-@media(max-width:1250px){.nav{height:72px}.nav-inner{padding:0 9px;gap:4px}.brand{margin-right:4px}.brand-name{font-size:20px}.brand-icon{font-size:22px}.menu{height:72px}.menu a{height:72px;padding:0 6px;font-size:10px}.nav-actions{margin-left:2px}.lang button{padding:5px 7px;font-size:9px}.scan{padding:9px 9px;font-size:9px}}
-@media(max-width:800px){.nav{height:58px}.nav-inner{padding:0 8px;overflow:hidden}.brand{height:58px;margin-right:8px}.brand-name{font-size:18px}.brand-icon{font-size:20px}.menu{height:58px;flex:1 1 auto;overflow-x:auto}.menu a{height:58px;padding:0 7px;font-size:9.5px}.nav-actions{height:58px}.lang{display:none}.scan{padding:8px 9px;font-size:9px}}
-@media(max-width:560px){.nav{height:54px}.nav-inner{padding:0 7px}.brand{height:54px;margin-right:5px}.brand-name{font-size:17px}.brand-icon{font-size:18px}.menu{height:54px}.menu a{height:54px;padding:0 6px;font-size:9px}.scan{display:none}}
-</style><style id="mobile-index-card-vision">
-@media(max-width:700px){
-  /* Mobile-only card vision: keep the requested groups horizontal, never vertical */
-  #modules .modules{grid-template-columns:1fr 1fr!important;gap:10px!important}
-  #modules .card{padding:14px 12px!important;border-radius:12px!important;min-height:178px}
-  #modules .card .icon{width:38px;height:38px;font-size:19px}
-  #modules .card h3{font-size:13px;line-height:1.2;margin:9px 0 5px}
-  #modules .card p{font-size:10px;line-height:1.35;margin-bottom:9px}
-  #modules .card-link{font-size:9px}
-  .workflow-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
-  .workflow .step{padding:14px 12px!important;min-height:142px}
-  .workflow .step-no{width:25px;height:25px;font-size:10px}
-  .workflow .step h3{font-size:13px;margin:9px 0 4px}
-  .workflow .step p{font-size:10px;line-height:1.35}
-  .feature-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
-  .feature{padding:14px 12px!important;min-height:112px;border-radius:12px}
-  .feature strong{font-size:11px;line-height:1.25}
-  .feature p{font-size:9px;line-height:1.35;margin-top:5px}
-}
-@media(max-width:380px){
-  #modules .card{min-height:170px;padding:12px 10px!important}
-  #modules .card h3{font-size:12px}
-  #modules .card p{font-size:9px}
-  .workflow .step{min-height:135px}
-  .feature{min-height:105px}
-}
-</style><style id="final-index-header-nav-fix">
-/* Final mobile header + no-scroll navigation */
-.inst-header{border-top:3px solid #063b25}
-@media(max-width:800px){
- .inst-inner{padding:9px 12px 10px!important;gap:7px!important}
- .inst-left{display:flex!important;align-items:center!important;min-height:56px}
- .inst-logo{width:52px!important;height:50px!important;flex:0 0 52px!important;object-fit:contain!important}
- .inst-copy{margin-left:9px!important;padding:0!important;min-width:0!important}
- .inst-title{font-size:16px!important;line-height:1.05!important;white-space:normal!important;overflow:visible!important}
- .inst-tamil{font-size:10px!important;line-height:1.08!important;white-space:normal!important;margin-top:4px!important}
- .inst-address{font-size:7.5px!important;margin-top:3px!important;white-space:normal!important}
- .inst-right{margin-top:5px!important;padding:7px 0 2px!important;min-height:0!important;width:100%!important}
- .inst-college{font-size:10px!important;white-space:normal!important;line-height:1.2!important}
- .inst-place{font-size:18px!important;margin-top:3px!important}
- .inst-sub{font-size:8px!important}.inst-badge{font-size:7px!important;margin-top:3px!important}
- .nav{height:auto!important;min-height:0!important;overflow:visible!important}
- .nav-inner{height:auto!important;min-height:0!important;padding:7px 10px!important;display:flex!important;flex-wrap:wrap!important;align-items:center!important;overflow:visible!important;gap:5px!important}
- .brand{width:100%!important;height:35px!important;margin:0!important;justify-content:flex-start!important}
- .brand-icon{font-size:21px!important}.brand-name{font-size:20px!important}
- .menu{width:100%!important;height:auto!important;display:grid!important;grid-template-columns:repeat(3,1fr)!important;overflow:visible!important;flex:none!important;border-top:1px solid var(--line)}
- .menu a{height:34px!important;min-width:0!important;width:auto!important;padding:0 3px!important;font-size:9px!important;border-bottom:1px solid var(--line)!important;border-right:1px solid var(--line)!important}
- .menu a:nth-child(3n){border-right:0!important}
- .nav-actions{width:100%!important;height:30px!important;justify-content:flex-end!important;margin:0!important}
- .lang{display:none!important}.scan{font-size:9px!important;padding:7px 10px!important}
-}
-@media(max-width:380px){
- .inst-logo{width:46px!important;height:45px!important;flex-basis:46px!important}
- .inst-title{font-size:14px!important}.inst-tamil{font-size:9px!important}.inst-address{font-size:7px!important}
- .inst-college{font-size:9px!important}.inst-place{font-size:16px!important}
- .brand-name{font-size:18px!important}.menu a{font-size:8.5px!important}
-}
-</style><style id="premium-index-nav">
-.premium-index-nav{background:linear-gradient(180deg,#06462b,#04351f)!important;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.16);box-shadow:0 5px 18px rgba(0,35,20,.16)!important}
-.premium-index-nav .container{width:min(1220px,94%);min-height:66px;display:flex;justify-content:center}
-.premium-index-nav .nav-links{width:100%;display:flex;align-items:center;justify-content:center;gap:7px;overflow:visible}
-.premium-index-nav .nav-links a{position:relative;display:flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:0 14px;border:1px solid transparent!important;border-radius:9px;color:#eaf5ef!important;background:transparent!important;font-size:12px;font-weight:800;letter-spacing:.01em;white-space:nowrap;transition:.18s}
-.premium-index-nav .nav-icon{font-size:14px;opacity:.9}
-.premium-index-nav .nav-links a:hover{background:rgba(255,255,255,.09)!important;border-color:rgba(255,255,255,.12)!important;transform:translateY(-1px)}
-.premium-index-nav .nav-links a.active{background:#fff!important;color:#06462b!important;border-color:#fff!important;box-shadow:0 3px 10px rgba(0,0,0,.14)}
-.premium-index-nav .nav-links a.active .nav-icon{color:#08783f}
-@media(max-width:700px){
- .premium-index-nav .container{width:100%;min-height:0;padding:7px 7px}
- .premium-index-nav .nav-links{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
- .premium-index-nav .nav-links a{min-height:40px;padding:0 4px;font-size:10px;gap:5px;border-radius:8px!important}
- .premium-index-nav .nav-icon{font-size:13px}
-}
-@media(max-width:380px){
- .premium-index-nav .nav-links{gap:4px}
- .premium-index-nav .nav-links a{min-height:38px;font-size:9px}
- .premium-index-nav .nav-icon{font-size:12px}
-}
-</style><style id="premium-white-index-nav">
-/* Premium white navigation */
-.premium-index-nav{
-  background:#fff!important;
-  border-top:1px solid #e5ebe7!important;
-  border-bottom:1px solid #dbe5df!important;
-  box-shadow:0 5px 18px rgba(10,45,28,.08)!important;
-}
-.premium-index-nav .container{width:min(1220px,94%);min-height:68px;display:flex;justify-content:center}
-.premium-index-nav .nav-links{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;overflow:visible}
-.premium-index-nav .nav-links a{
-  min-height:42px;padding:0 15px;
-  display:flex;align-items:center;justify-content:center;gap:7px;
-  border:1px solid #e0e8e3!important;border-radius:9px;
-  background:#fff!important;color:#244238!important;
-  font-size:12px;font-weight:800;white-space:nowrap;
-  box-shadow:0 2px 7px rgba(8,55,33,.04);
-  transition:.18s;
-}
-.premium-index-nav .nav-icon{color:#08783f;font-size:14px;font-weight:900}
-.premium-index-nav .nav-links a:hover{
-  background:#f3f8f5!important;
-  border-color:#b9d2c3!important;
-  color:#06462b!important;
-  transform:translateY(-1px);
-  box-shadow:0 5px 13px rgba(8,55,33,.08);
-}
-.premium-index-nav .nav-links a.active{
-  background:#edf7f1!important;
-  color:#06462b!important;
-  border-color:#08783f!important;
-  box-shadow:0 3px 10px rgba(8,120,63,.12);
-}
-.premium-index-nav .nav-links a.active .nav-icon{color:#08783f}
-@media(max-width:700px){
-  .premium-index-nav .container{width:100%;min-height:0;padding:8px 7px}
-  .premium-index-nav .nav-links{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-  .premium-index-nav .nav-links a{min-height:41px;padding:0 4px;font-size:10px;gap:5px;border-radius:8px!important}
-  .premium-index-nav .nav-icon{font-size:13px}
-}
-@media(max-width:380px){
-  .premium-index-nav .nav-links{gap:4px}
-  .premium-index-nav .nav-links a{min-height:38px;font-size:9px}
-  .premium-index-nav .nav-icon{font-size:12px}
-}
-</style><style id="mobile-author-final">
-.mobile-submitted{display:none}
-@media(max-width:700px){
- .inst-right{padding-bottom:10px!important}
- .inst-place{font-size:18px!important;letter-spacing:.02em}
- .mobile-submitted{display:block;margin-top:7px;color:#315246;font-size:9px;line-height:1.45;text-align:center}
- .mobile-submitted strong{color:#06462b;font-weight:900}
- .mobile-submitted span{font-size:8px;color:#68746d}
-}
-@media(max-width:380px){
- .inst-place{font-size:16px!important}
- .mobile-submitted{font-size:8px}
- .mobile-submitted span{font-size:7px}
-}
-</style><style id="mobile-college-submitter-layout">
-.mobile-credit-row{display:none}
-@media(max-width:700px){
- .inst-right{padding:8px 0 11px!important}
- .inst-right>.inst-college,.inst-right>.inst-place,.inst-right>.inst-sub,.inst-right>.inst-badge{display:none!important}
- .mobile-credit-row{
-   display:grid!important;
-   grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);
-   align-items:center;
-   width:100%;
-   gap:5px;
-   margin-top:2px;
- }
- .mobile-college{
-   text-align:left;
-   color:#315246;
-   font-size:8px;
-   line-height:1.25;
-   font-weight:700;
- }
- .mobile-college strong{
-   display:block;
-   color:#08783f;
-   font-size:15px;
-   line-height:1.1;
-   margin-top:2px;
-   font-family:Georgia,"Times New Roman",serif;
- }
- .mobile-slash{
-   text-align:center;
-   color:#c79b24;
-   font:800 25px/1 Georgia,"Times New Roman",serif;
- }
- .mobile-submitted{
-   display:block!important;
-   margin:0!important;
-   text-align:right!important;
-   color:#315246;
-   font-size:8px!important;
-   line-height:1.35!important;
- }
- .mobile-submitted strong{color:#06462b;font-weight:900}
- .mobile-submitted span{font-size:7px;color:#68746d}
-}
-@media(max-width:380px){
- .mobile-credit-row{grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr)}
- .mobile-college{font-size:7px}
- .mobile-college strong{font-size:13px}
- .mobile-slash{font-size:22px}
- .mobile-submitted{font-size:7px!important}
- .mobile-submitted span{font-size:6.5px}
-}
-</style><style id="mobile-header-equal-final">
-@media(max-width:700px){
- .inst-right{width:100%!important;padding:7px 10px 9px!important}
- .mobile-credit-row{
-   width:100%!important;
-   grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr)!important;
-   gap:3px!important;
-   margin:0!important;
-   align-items:center!important;
- }
- .mobile-college{
-   font-size:8px!important;
-   line-height:1.15!important;
-   padding:0!important;
- }
- .mobile-college strong{
-   font-size:16px!important;
-   line-height:1!important;
-   margin-top:3px!important;
- }
- .mobile-slash{
-   font-size:23px!important;
-   line-height:1!important;
-   text-align:center!important;
- }
- .mobile-submitted{
-   font-size:8px!important;
-   line-height:1.25!important;
-   padding:0!important;
- }
- .mobile-submitted span{font-size:7px!important}
-}
-@media(max-width:380px){
- .inst-right{padding-left:7px!important;padding-right:7px!important}
- .mobile-credit-row{grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr)!important;gap:2px!important}
- .mobile-college{font-size:7px!important}
- .mobile-college strong{font-size:14px!important}
- .mobile-slash{font-size:21px!important}
- .mobile-submitted{font-size:7px!important}
- .mobile-submitted span{font-size:6.5px!important}
-}
-</style><style id="footer-center-final">
-.footer{width:100%!important;text-align:center!important;margin:0!important;padding:26px 15px!important;box-sizing:border-box!important}
-.footer .container{width:100%!important;max-width:1200px!important;margin:0 auto!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important}
-.footer-brand,.footer-short,.footer-links,.footer small{display:block!important;width:100%!important;text-align:center!important;margin-left:auto!important;margin-right:auto!important}
-.footer-brand{margin-bottom:6px!important}.footer-short{margin-top:0!important}.footer-links{display:flex!important;justify-content:center!important;align-items:center!important;gap:18px!important;flex-wrap:wrap!important;margin-top:10px!important}.footer small{margin-top:10px!important}
-</style><style id="mobile-hide-submitter">
-@media(max-width:700px){
- .mobile-submitted{display:none!important}
- .mobile-credit-row{grid-template-columns:1fr 18px 0!important}
- .mobile-slash{display:none!important}
-}
-</style><style id="index-mobile-header-total-new">
-/* INDEX MOBILE — refined light agricultural header */
-@media(max-width:700px){
-  .agri-header{
-    height:205px!important;min-height:205px!important;
-    position:relative!important;overflow:hidden!important;
-    border:0!important;border-bottom:1px solid #d9e2d8!important;
-    background:
-      linear-gradient(rgba(241,248,237,.48),rgba(222,238,216,.58)),
-      url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2200&q=88") center center/cover no-repeat!important;
-    background-blend-mode:soft-light!important;
-    color:#173b28!important;
-    box-shadow:0 6px 18px rgba(40,75,48,.10)!important;
-  }
-  .agri-header:before{
-    content:"";position:absolute;inset:0;opacity:.08;
-    background:
-      linear-gradient(165deg,transparent 0 68%,rgba(74,125,65,.13) 68% 70%,transparent 70%),
-      linear-gradient(172deg,transparent 0 80%,rgba(82,132,67,.10) 80% 82%,transparent 82%),
-      radial-gradient(circle at 70% 72%,rgba(255,239,175,.45),transparent 26%);
-  }
-  .agri-header:after{
-    content:"🌾  SMART DIGITAL AGRICULTURE";position:absolute;
-    right:10px;bottom:7px;color:#55715e;
-    font:800 6.5px/1 Inter,"Segoe UI",sans-serif;letter-spacing:.08em;
-  }
-  .agri-header .inst-inner{
-    position:relative;z-index:2;width:100%!important;height:205px!important;min-height:205px!important;
-    padding:11px 11px 9px!important;display:flex!important;flex-direction:column!important;
-    align-items:stretch!important;justify-content:flex-start!important;gap:0!important;
-  }
-  .agri-header .inst-left{
-    width:100%!important;height:66px!important;min-height:66px!important;
-    display:flex!important;align-items:center!important;gap:9px!important;
-  }
-  .agri-header .inst-logo{
-    width:52px!important;height:52px!important;flex:0 0 52px!important;
-    object-fit:contain!important;filter:none!important;
-  }
-  .agri-header .inst-copy{margin:0!important;padding:0!important;min-width:0!important}
-  .agri-header .inst-title{
-    color:#0b4f2d!important;font:800 17px/1.03 Georgia,"Times New Roman",serif!important;
-    white-space:normal!important;overflow:visible!important;letter-spacing:.005em!important;
-  }
-  .agri-header .inst-tamil{
-    color:#2c6b46!important;font-size:7.5px!important;line-height:1.08!important;
-    margin-top:4px!important;white-space:normal!important;font-weight:700!important;
-  }
-  .agri-header .inst-address{
-    color:#5a6b60!important;font-size:6px!important;margin-top:3px!important;
-  }
-  .agri-header .inst-right{
-    width:100%!important;height:117px!important;min-height:117px!important;
-    margin:0!important;padding:9px 0 0!important;
-    border:0!important;border-top:1px solid #cfdacf!important;
-    display:grid!important;grid-template-columns:1fr!important;grid-template-rows:auto auto 1fr!important;
-    text-align:center!important;align-items:center!important;justify-items:center!important;
-    overflow:visible!important;
-  }
-  .agri-header .inst-college{
-    display:block!important;grid-column:1!important;grid-row:1!important;
-    color:#355244!important;font-size:8px!important;font-weight:750!important;
-    white-space:normal!important;
-  }
-  .agri-header .inst-place{
-    display:block!important;grid-column:1!important;grid-row:2!important;
-    color:#17723f!important;font:900 25px/1 Georgia,"Times New Roman",serif!important;
-    margin:4px 0 0!important;white-space:nowrap!important;letter-spacing:.01em!important;
-  }
-  .agri-header .inst-sub,.agri-header .inst-badge{display:none!important}
-  .agri-header .mobile-credit-row{display:none!important}
-  .agri-header .inst-right:before{
-    content:"🌱";display:block!important;position:static!important;
-    grid-column:1!important;grid-row:3!important;align-self:start!important;
-    height:auto!important;margin:6px 0 0!important;font-size:22px!important;background:none!important;
-  }
-  .agri-header .inst-right:after{
-    content:"GREENFARM";display:block!important;position:absolute!important;
-    left:0!important;right:0!important;bottom:18px!important;
-    color:#0a5a32!important;font:900 22px/1 Georgia,"Times New Roman",serif!important;
-    letter-spacing:.06em!important;text-shadow:none!important;
-    writing-mode:horizontal-tb!important;transform:none!important;text-align:center!important;
-  }
-}
-@media(max-width:380px){
-  .agri-header,.agri-header .inst-inner{height:192px!important;min-height:192px!important}
-  .agri-header .inst-inner{padding:10px 9px 8px!important}
-  .agri-header .inst-left{height:61px!important;min-height:61px!important}
-  .agri-header .inst-logo{width:47px!important;height:47px!important;flex-basis:47px!important}
-  .agri-header .inst-title{font-size:15px!important}
-  .agri-header .inst-tamil{font-size:6.7px!important}
-  .agri-header .inst-address{font-size:5.4px!important}
-  .agri-header .inst-right{height:111px!important;min-height:111px!important}
-  .agri-header .inst-college{font-size:7px!important}
-  .agri-header .inst-place{font-size:22px!important}
-  .agri-header .inst-right:after{font-size:19px!important;bottom:17px!important}
-  .agri-header .inst-right:before{font-size:20px!important}
-}
-</style><style id="index-mobile-agri-bg-final">
-@media(max-width:700px){
-  .agri-header{
-    background:
-      linear-gradient(rgba(248,250,242,.82),rgba(226,238,216,.88)),
-      url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=70") center/cover!important;
-    background-blend-mode:soft-light!important;
-  }
-  .agri-header:before{
-    opacity:.18!important;
-    background:
-      linear-gradient(165deg,transparent 0 62%,rgba(62,120,57,.16) 62% 64%,transparent 64%),
-      linear-gradient(173deg,transparent 0 75%,rgba(54,112,48,.12) 75% 78%,transparent 78%),
-      radial-gradient(circle at 75% 38%,rgba(255,239,175,.45),transparent 28%)!important;
-  }
-}
-</style><style id="index-mobile-light-agri-bg">
-@media(max-width:700px){
-  .agri-header{
-    background:
-      linear-gradient(rgba(246,250,241,.96),rgba(232,241,225,.97)),
-      url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=60") center/cover!important;
-    background-blend-mode:normal!important;
-  }
-  .agri-header:before{
-    opacity:.08!important;
-    background:
-      radial-gradient(circle at 78% 35%,rgba(210,181,87,.22),transparent 30%),
-      linear-gradient(165deg,transparent 0 68%,rgba(76,126,65,.10) 68% 70%,transparent 70%)!important;
-  }
-  .agri-header:after{color:#66806b!important}
-}
-</style><style id="index-mobile-uploaded-hero">
-@media(max-width:700px){
-  .inst-header{
-    height:auto!important;
-    min-height:0!important;
-    aspect-ratio:1920/557!important;
-    border-top:0!important;
-    border-bottom:0!important;
-    background:#0b5a35 url("assets/greenfarm-mobile-header.jpg") center center/100% 100% no-repeat!important;
-    position:relative!important;
-    overflow:hidden!important;
-  }
-  .inst-header .inst-inner{display:none!important}
-}
-</style><style id="mobile-hq-header-image-only">
-@media(max-width:700px){
-.inst-header{min-height:132px!important;height:132px!important;padding:0!important;overflow:hidden!important;background-image:linear-gradient(rgba(245,250,245,.16),rgba(245,250,245,.16)),url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2400&q=92")!important;background-size:cover!important;background-position:center 48%!important;border:0!important}
-.inst-header .inst-inner{min-height:132px!important;height:132px!important;width:100%!important;padding:0 16px!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;background:transparent!important}
-.inst-header .inst-left,.inst-header .inst-right{display:none!important}
-.inst-header .inst-inner:before{content:"";display:block;width:48px;height:48px;flex:0 0 48px;background:#fff url("assets/greenfarm-logo.svg") center/contain no-repeat;border:2px solid rgba(255,255,255,.95);border-radius:50%;padding:4px;box-sizing:border-box;box-shadow:0 3px 12px rgba(0,0,0,.22);margin-right:10px}
-.inst-header .inst-inner:after{content:"GREEN FARM";display:block;color:#fff;font:900 27px/1 Georgia,"Times New Roman",serif;letter-spacing:.02em;text-shadow:0 2px 8px rgba(0,0,0,.65)}
-}
-@media(max-width:380px){
-.inst-header,.inst-header .inst-inner{min-height:116px!important;height:116px!important}
-.inst-header .inst-inner{padding:0 12px!important}
-.inst-header .inst-inner:before{width:40px;height:40px;flex-basis:40px;margin-right:8px}
-.inst-header .inst-inner:after{font-size:23px}
-}
-</style><style id="mobile-hq-header-logo-left-fix">
-@media(max-width:700px){
-  .inst-header .inst-inner{
-    display:flex!important;
-    flex-direction:row!important;
-    align-items:center!important;
-    justify-content:flex-start!important;
-    padding:0 12px!important;
-    gap:9px!important;
-  }
-  .inst-header .inst-inner:before{
-    width:42px!important;height:42px!important;flex:0 0 42px!important;
-    margin:0!important;
-    border-radius:50%!important;
-    background:#fff url("assets/greenfarm-logo.svg") center/contain no-repeat!important;
-    border:2px solid #fff!important;
-    padding:4px!important;
-    box-shadow:0 2px 8px rgba(0,0,0,.22)!important;
-  }
-  .inst-header .inst-inner:after{
-    margin:0!important;
-    font-size:24px!important;
-    line-height:1!important;
-    white-space:nowrap!important;
-    text-align:left!important;
-  }
-}
-@media(max-width:380px){
-  .inst-header .inst-inner{padding:0 10px!important;gap:7px!important}
-  .inst-header .inst-inner:before{width:36px!important;height:36px!important;flex-basis:36px!important}
-  .inst-header .inst-inner:after{font-size:21px!important}
-}
-</style><style id="mobile-hq-header-center-green-logo">
-@media(max-width:700px){
-  .inst-header .inst-inner{
-    justify-content:center!important;
-    align-items:center!important;
-    padding:0 10px!important;
-    gap:8px!important;
-  }
-  .inst-header .inst-inner:before{
-    width:42px!important;height:42px!important;flex:0 0 42px!important;
-    margin:0!important;
-    border-radius:50%!important;
-    background:#fff url("assets/greenfarm-logo.svg") center/contain no-repeat!important;
-    border:3px solid #0d6b3d!important;
-    padding:4px!important;
-    box-shadow:0 1px 5px rgba(0,0,0,.16)!important;
-  }
-  .inst-header .inst-inner:after{
-    margin:0!important;
-    font-size:24px!important;
-    line-height:1!important;
-    text-align:left!important;
-    white-space:nowrap!important;
-  }
-}
-@media(max-width:380px){
-  .inst-header .inst-inner:before{width:36px!important;height:36px!important;flex-basis:36px!important;border-width:2px!important}
-  .inst-header .inst-inner:after{font-size:21px!important}
-}
-</style><style id="desktop-midwidth-fit">
-@media (min-width: 801px) and (max-width: 1350px) {
-  .inst-header .inst-inner {
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 32%) !important;
-    width: min(1540px, 96%) !important;
-    box-sizing: border-box !important;
-  }
-  .inst-header .inst-copy { min-width: 0 !important; }
-  .inst-header .inst-title {
-    font-size: clamp(18px, 2.5vw, 29px) !important;
-    line-height: 1.1 !important;
-    white-space: normal !important;
-  }
-  .inst-header .inst-tamil {
-    font-size: clamp(11px, 1.5vw, 17px) !important;
-    white-space: normal !important;
-  }
-  .inst-header .inst-right { min-width: 0 !important; padding-left: 12px !important; }
-  .inst-header .inst-college,
-  .inst-header .inst-place {
-    max-width: 100% !important;
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-    line-height: 1.18 !important;
-  }
-  .inst-header .inst-college { font-size: clamp(12px, 1.3vw, 16px) !important; }
-  .inst-header .inst-place { font-size: clamp(20px, 2.2vw, 27px) !important; }
-  .hero-grid {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr) !important;
-    gap: 28px !important;
-  }
-  .hero-grid > *, .hero-panel, .panel-grid > * { min-width: 0 !important; }
-  .hero-panel { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
-  .panel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-  .panel-top { flex-wrap: wrap !important; gap: 8px !important; }
-  .live { max-width: 100% !important; white-space: normal !important; text-align: center !important; }
-}
-@media (min-width: 801px) and (max-width: 950px) {
-  .hero-grid { grid-template-columns: minmax(0, 1fr) !important; min-height: auto !important; padding: 58px 0 70px !important; }
-  .hero-panel { max-width: 600px !important; }
-}
-
-@media (min-width: 801px) and (max-width: 1100px) {
-  .premium-index-nav .container { width: 100% !important; min-height: 0 !important; padding: 6px 8px !important; }
-  .premium-index-nav .nav-links {
-    display: grid !important;
-    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-    gap: 4px !important;
-    overflow: visible !important;
-    justify-content: stretch !important;
-  }
-  .premium-index-nav .nav-links a {
-    min-width: 0 !important;
-    min-height: 38px !important;
-    padding: 0 3px !important;
-    white-space: normal !important;
-    font-size: 10px !important;
-    gap: 3px !important;
-    text-align: center !important;
-  }
-}
-@media (max-width: 700px) {
-  .inst-header { width: 100% !important; max-width: 100vw !important; aspect-ratio: auto !important; box-sizing: border-box !important; }
-}
-</style>
-<link rel="stylesheet" href="assets/app-ui.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GreenFarm is a private, browser-based farm workspace for crop, field, livestock and farm operation records.">
+  <meta name="theme-color" content="#173e2d">
+  <title>Farm Home | GreenFarm</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="assets/greenfarm.css">
+  <link rel="stylesheet" href="assets/app-ui.css">
 </head>
 <body>
+  <nav class="gf-nav" aria-label="Main navigation">
+    <div class="container">
+      <div class="gf-nav-caption">Farm management</div>
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">🏠 Home</a>
+        <a href="dashboard.html">📊 Dashboard</a>
+        <a href="crops.html">🌾 Crops</a>
+        <a href="livestock.html">🐄 Livestock</a>
+        <a href="activities.html">📅 Activities</a>
+        <a href="analytics.html">📈 Analytics</a>
+        <a href="reports.html">📄 Reports</a>
+        <a href="farm.html">🧰 Workspace</a>
+        <a href="advanced.html">🌱 Farm Center</a>
+        <a href="admin.html">⚙️ Admin</a>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="gf-home-page">
+      <section class="gf-home-banner" aria-labelledby="home-title">
+        <div>
+          <p class="gf-home-kicker">GreenFarm · Farm overview</p>
+          <p class="gf-home-date" data-gf-date></p>
+          <h1 id="home-title">Farm work, brought into focus.</h1>
+          <p>Organize field work, manage crops and livestock, and review your own farm records from one practical workspace.</p>
+          <div class="gf-home-actions">
+            <a class="primary" href="farm.html">Open farm workspace</a>
+            <a href="dashboard.html">View dashboard</a>
+          </div>
+        </div>
+        <div class="gf-home-art" aria-hidden="true">
+          <svg viewBox="0 0 440 260" focusable="false">
+            <circle cx="335" cy="65" r="34" fill="#dcebb8"/>
+            <path d="M0 164c72-63 130-43 200-5s139 48 240-20v121H0z" fill="#679363"/>
+            <path d="M0 196c89-49 158-29 231 7s132 28 209-17v74H0z" fill="#8eaf6e"/>
+            <path d="M0 227c87-42 151-27 226 0s137 23 214-9v42H0z" fill="#c1d993"/>
+            <path d="M22 242c64-28 127-25 197 0M90 255c49-17 97-17 152 0M235 240c49-23 96-19 161 5" fill="none" stroke="#e5efcb" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+            <g fill="#edf5da" opacity=".92">
+              <path d="M75 153c-3-25 3-43 19-56 3 18-2 39-19 56z"/>
+              <path d="M92 142c8-26 23-39 43-42-5 20-19 35-43 42z"/>
+              <path d="M96 174c-5-21-1-37 12-51 5 16 2 34-12 51z"/>
+              <path d="M355 170c-4-24 1-42 16-55 5 18 0 37-16 55z"/>
+              <path d="M370 161c9-23 24-35 43-36-6 18-20 31-43 36z"/>
+            </g>
+            <path d="M88 180v49M367 177v57" stroke="#edf5da" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </section>
 
-<header class="inst-header agri-header">
- <div class="inst-inner">
-  <div class="inst-left">
-   <img class="inst-logo" src="https://agritech.tnau.ac.in/ta/pdf/images/TNAU.jpg" alt="Tamil Nadu Agricultural University">
-   <div class="inst-copy">
-    <div class="inst-title">TAMIL NADU AGRICULTURAL UNIVERSITY</div>
-    <div class="inst-tamil">தமிழ்நாடு வேளாண்மைப் பல்கலைக்கழகம்</div>
-    <div class="inst-address">Coimbatore – 641 003, Tamil Nadu, India</div>
-   </div>
-  </div>
-  <div class="inst-right">
-   <div class="inst-college">🏫 Agricultural College &amp; Research Institute</div>
-   <div class="inst-place">VAZHAVACHANUR</div>
-   <div class="inst-sub">Tamil Nadu Agricultural University</div>
-   <div class="inst-badge">AC&amp;RI • VVNR</div>
-   <div class="mobile-credit-row">
-    <div class="mobile-college">🏫 Agricultural College &amp; Research Institute<br><strong>VAZHAVACHANUR</strong></div>
-    <div class="mobile-slash">/</div>
-    <div class="mobile-submitted">Submitted by <strong>Kowshik S</strong><br><span>Final Year B.Sc. (Agri.) · TNAU</span></div>
-   </div>
-  </div>
- </div>
-</header>
+      <section class="gf-home-stat-grid" aria-label="Farm records saved on this device">
+        <article class="gf-home-stat"><span>Core workspace</span><strong data-gf-stat="workspace">0</strong><small>saved records</small></article>
+        <article class="gf-home-stat"><span>Farm Center</span><strong data-gf-stat="center">0</strong><small>saved entries</small></article>
+        <article class="gf-home-stat"><span>Fields</span><strong data-gf-stat="fields">0</strong><small>Farm Center records</small></article>
+        <article class="gf-home-stat"><span>Tasks</span><strong data-gf-stat="tasks">0</strong><small>Farm Center reminders</small></article>
+      </section>
 
-<nav class="gf-nav premium-index-nav" aria-label="Main navigation"><div class="container"><div class="nav-links">
-<a class="active" href="index.html"><span class="nav-icon">🏠</span><span>Home</span></a>
-<a href="dashboard.html"><span class="nav-icon">📊</span><span>Dashboard</span></a>
-<a href="crops.html"><span class="nav-icon">🌾</span><span>Crops</span></a>
-<a href="livestock.html"><span class="nav-icon">🐄</span><span>Livestock</span></a>
-<a href="activities.html"><span class="nav-icon">📅</span><span>Activities</span></a>
-<a href="analytics.html"><span class="nav-icon">📈</span><span>Analytics</span></a>
-<a href="reports.html"><span class="nav-icon">📄</span><span>Reports</span></a>
-<a href="farm.html"><span class="nav-icon">🧰</span><span>Workspace</span></a> <a href="advanced.html"><span class="nav-icon">🌱</span><span>Farm Center</span></a>
-<a href="admin.html"><span class="nav-icon">⚙️</span><span>Admin</span></a>
-</div></div></nav>
+      <div class="gf-home-content">
+        <div class="gf-home-primary">
+          <section class="gf-home-section" aria-labelledby="home-actions-title">
+            <div class="gf-home-section-head"><div><p>Quick actions</p><h2 id="home-actions-title">Choose your next task</h2></div><a href="farm.html">All tools →</a></div>
+            <div class="gf-home-action-grid">
+              <a class="gf-home-action" href="farm.html#crops"><span class="gf-home-action-icon" aria-hidden="true">🌾</span><span><strong>Add a crop record</strong><small>Crop, field and growth stage</small></span></a>
+              <a class="gf-home-action" href="advanced.html#fieldForm"><span class="gf-home-action-icon" aria-hidden="true">🗺️</span><span><strong>Set up a field</strong><small>Area, soil and crop details</small></span></a>
+              <a class="gf-home-action" href="advanced.html#irrForm"><span class="gf-home-action-icon" aria-hidden="true">💧</span><span><strong>Plan irrigation</strong><small>Record the next water schedule</small></span></a>
+              <a class="gf-home-action" href="advanced.html#taskForm"><span class="gf-home-action-icon" aria-hidden="true">📅</span><span><strong>Add a farm task</strong><small>Keep upcoming work in view</small></span></a>
+            </div>
+          </section>
 
-<main>
-<section class="hero">
- <div class="hero-photos" aria-hidden="true"><div class="hero-photo"></div><div class="hero-photo"></div><div class="hero-photo"></div></div>
- <div class="hero-dots" aria-hidden="true"><i></i><i></i><i></i></div>
- <div class="hero-grid container">
-  <div>
-   <div class="eyebrow">🌾 GREENFARM • DIGITAL AGRICULTURE</div>
-   <h1>GreenFarm.<br><span>Smart Farm Management.</span></h1>
-   <p>One professional workspace to record farm operations, manage crops and livestock, monitor field activities, review farm data and create clear reports.</p>
-   <div class="hero-actions">
-    <a class="btn btn-gold" href="farm.html">🧰 Open Workspace</a>
-    <a class="btn btn-light" href="dashboard.html">📊 View Dashboard</a>
-   </div>
-  </div>
-  <div class="hero-panel">
-   <div class="panel-top"><strong>🌱 GreenFarm Workspace</strong><span class="live">DIGITAL AGRICULTURE</span></div>
-   <div class="panel-grid">
-    <div class="metric"><small>🌾 Crop Management</small><strong>Manage</strong></div>
-    <div class="metric"><small>🐄 Livestock</small><strong>Track</strong></div>
-    <div class="metric"><small>📅 Farm Activities</small><strong>Record</strong></div>
-    <div class="metric"><small>📊 Reports &amp; Analytics</small><strong>Review</strong></div>
-   </div>
-   <div class="progress"><i></i></div>
-  </div>
- </div>
-</section>
+          <section class="gf-home-section" aria-labelledby="home-tools-title">
+            <div class="gf-home-section-head"><div><p>Your workspace</p><h2 id="home-tools-title">Farm tools</h2></div></div>
+            <div class="gf-home-module-grid">
+              <a class="gf-home-module" href="crops.html"><span class="gf-home-module-icon" aria-hidden="true">🌱</span><span><strong>Crops</strong><small>Crop records and growth</small></span></a>
+              <a class="gf-home-module" href="livestock.html"><span class="gf-home-module-icon" aria-hidden="true">🐄</span><span><strong>Livestock</strong><small>Animal groups and care</small></span></a>
+              <a class="gf-home-module" href="activities.html"><span class="gf-home-module-icon" aria-hidden="true">🧑‍🌾</span><span><strong>Activities</strong><small>Daily farm operations</small></span></a>
+              <a class="gf-home-module" href="analytics.html"><span class="gf-home-module-icon" aria-hidden="true">📈</span><span><strong>Analytics</strong><small>Review your own records</small></span></a>
+              <a class="gf-home-module" href="reports.html"><span class="gf-home-module-icon" aria-hidden="true">📄</span><span><strong>Reports</strong><small>Print or save as PDF</small></span></a>
+              <a class="gf-home-module" href="advanced.html"><span class="gf-home-module-icon" aria-hidden="true">🌿</span><span><strong>Farm Center</strong><small>Fields, plans and reminders</small></span></a>
+            </div>
+          </section>
+        </div>
 
-<section aria-label="GreenFarm data and privacy"><div class="snapshot-grid container"><div class="snap"><strong>On this device</strong><span>Your farm records stay in this browser</span></div><div class="snap"><strong>Private by default</strong><span>No account or server sign-in is required</span></div><div class="snap"><strong>Backup ready</strong><span>Export a copy from Workspace</span></div><div class="snap"><strong>Field focused</strong><span>Tools for everyday farm records</span></div></div></section>
-
-<section class="section" id="modules">
- <div class="section-head"><div class="kicker">GREENFARM PLATFORM</div><h2>Everything your farm needs</h2><p>A connected workspace built to make everyday farm management simpler, faster and more organized.</p></div>
- <div class="modules">
-  <article class="card"><div class="icon">🌱</div><h3>Crop Management</h3><p>Fields, stages, inputs and harvest planning.</p><a class="card-link" href="crops.html">Manage crops →</a></article>
-  <article class="card"><div class="icon">🐄</div><h3>Livestock Management</h3><p>Animal groups, feeding and health records.</p><a class="card-link" href="livestock.html">Open livestock →</a></article>
-  <article class="card"><div class="icon">📅</div><h3>Farm Activities</h3><p>Irrigation, fertilizer, spraying and daily work.</p><a class="card-link" href="activities.html">View activities →</a></article>
-  <article class="card"><div class="icon">📈</div><h3>Analytics</h3><p>Useful insights from your farm records.</p><a class="card-link" href="analytics.html">View analytics →</a></article>
-  <article class="card"><div class="icon">📄</div><h3>Reports</h3><p>Clear summaries for review and sharing.</p><a class="card-link" href="reports.html">Generate reports →</a></article>
-  <article class="card"><div class="icon">⚙️</div><h3>Workspace</h3><p>All farm tools in one place.</p><a class="card-link" href="farm.html">Open workspace →</a></article>
-   </div>
-</section>
-
-<section class="section workflow">
- <div class="section-head"><div class="kicker">SIMPLE WORKFLOW</div><h2>Record. Monitor. Decide.</h2><p>From field records to useful reports.</p></div>
- <div class="workflow-grid">
-  <article class="step"><div class="step-no">01</div><h3>Record</h3><p>Add crop, livestock and field records.</p></article>
-  <article class="step"><div class="step-no">02</div><h3>Monitor</h3><p>Track activities and farm conditions.</p></article>
-  <article class="step"><div class="step-no">03</div><h3>Review</h3><p>Check analytics and reports.</p></article>
-  <article class="step"><div class="step-no">04</div><h3>Decide</h3><p>Use records for better planning.</p></article>
- </div>
-</section>
-
-<section class="section" style="padding-top:10px">
- <div class="section-head"><div class="kicker">SMART AGRICULTURE</div><h2>Simple tools. Real farm data.</h2><p>Built for practical farm work.</p></div>
- <div class="feature-grid">
-  <div class="feature"><strong>📱 Responsive</strong><p>Works on mobile, tablet and desktop.</p></div>
-  <div class="feature"><strong>🌾 Agriculture focused</strong><p>Built around real farm workflows.</p></div>
-  <div class="feature"><strong>📊 Clear reports</strong><p>Turn records into useful summaries.</p></div>
-  <div class="feature"><strong>💾 Local records</strong><p>Keep workspace data in your browser.</p></div>
- </div>
-</section>
-
-<section class="cta">
- <div class="container cta-box">
-  <div><h2>Ready to manage your farm smarter?</h2><p>Open GreenFarm and explore your complete digital farm workspace.</p></div>
-  <a class="btn" href="dashboard.html">Open GreenFarm Dashboard →</a>
- </div>
-</section>
-</main>
-
-<footer class="footer"><div class="container"><div class="footer-brand">🌱 GreenFarm</div><p class="footer-short">Smart Digital Agriculture · TNAU AC&amp;RI Vazhavachanur</p><div class="footer-links"><a href="dashboard.html">📊 Dashboard</a><a href="farm.html">🧰 Workspace</a><a href="reports.html">📄 Reports</a></div><small>© 2026 GreenFarm</small></div></footer>
-<script>
-(function(){
- const slides=document.querySelectorAll('.hero-photo');
- const dots=document.querySelectorAll('.hero-dots i');
- if(!slides.length)return;
- let current=0;
- function showSlide(n){
-   slides.forEach((s,i)=>s.classList.toggle('active',i===n));
-   dots.forEach((d,i)=>d.classList.toggle('active',i===n));
- }
- showSlide(0);
- setInterval(function(){current=(current+1)%slides.length;showSlide(current)},3000);
-})();
-</script>
-<script>
-(function(){
- const translations={
-  en:{},
-  ta:{
-   'Home':'முகப்பு','Dashboard':'டாஷ்போர்டு','Crops':'பயிர்கள்','Livestock':'கால்நடைகள்','Activities':'செயல்கள்','Analytics':'பகுப்பாய்வு','Reports':'அறிக்கைகள்','Admin':'நிர்வாகம்','Dashboard':'டாஷ்போர்டு',
-   'SMART DIGITAL AGRICULTURE':'ஸ்மார்ட் டிஜிட்டல் வேளாண்மை','Everything your farm needs':'உங்கள் பண்ணைக்கு தேவையான அனைத்தும்','A connected workspace built to make everyday farm management simpler, faster and more organized.':'தினசரி பண்ணை மேலாண்மையை எளிமையாகவும் வேகமாகவும் ஒழுங்காகவும் செய்யும் ஒருங்கிணைந்த தளம்.',
-   'Crop Management':'பயிர் மேலாண்மை','Livestock Management':'கால்நடை மேலாண்மை','Farm Activities':'பண்ணை செயல்பாடுகள்','Analytics':'பகுப்பாய்வு','Reports':'அறிக்கைகள்',
-   'Manage crops →':'பயிர்களை நிர்வகிக்க →','Open livestock →':'கால்நடைகளைத் திறக்க →','View activities →':'செயல்பாடுகளைப் பார்க்க →','View analytics →':'பகுப்பாய்வைப் பார்க்க →','Generate reports →':'அறிக்கைகளை உருவாக்க →',
-   'SIMPLE WORKFLOW':'எளிய செயல்முறை','Record. Monitor. Decide.':'பதிவு செய். கண்காணி. முடிவு செய்.','Keep farm information organized from field records to reports.':'வயல் பதிவுகள் முதல் அறிக்கைகள் வரை பண்ணை தகவல்களை ஒழுங்காக வைத்திருங்கள்.','Record':'பதிவு','Monitor':'கண்காணிப்பு','Review':'மதிப்பாய்வு','Decide':'முடிவு','Add crop, livestock and field records.':'பயிர், கால்நடை மற்றும் வயல் பதிவுகளைச் சேர்க்கவும்.','Track activities and farm conditions.':'செயல்பாடுகள் மற்றும் பண்ணை நிலைகளை கண்காணிக்கவும்.','Check analytics and reports.':'பகுப்பாய்வு மற்றும் அறிக்கைகளைப் பார்க்கவும்.','Use your records for better planning.':'சிறந்த திட்டமிடலுக்கு உங்கள் பதிவுகளைப் பயன்படுத்தவும்.',
-   'SMART AGRICULTURE':'ஸ்மார்ட் வேளாண்மை','Simple tools. Real farm data.':'எளிய கருவிகள். உண்மையான பண்ணை தரவு.','Designed for students, farmers and agricultural field teams.':'மாணவர்கள், விவசாயிகள் மற்றும் வேளாண் களக் குழுக்களுக்காக வடிவமைக்கப்பட்டது.','Responsive':'அனைத்து சாதனங்களிலும்','Agriculture focused':'வேளாண்மை மையம்','Clear reports':'தெளிவான அறிக்கைகள்','Local records':'உள்ளூர் பதிவுகள்','Works on mobile, tablet and desktop.':'மொபைல், டேப்லெட் மற்றும் கணினியில் இயங்கும்.','Built around real farm workflows.':'உண்மையான பண்ணை செயல்முறைகளை அடிப்படையாகக் கொண்டது.','Turn records into useful summaries.':'பதிவுகளை பயனுள்ள சுருக்கங்களாக மாற்றவும்.','Keep your workspace data in your browser.':'உங்கள் பணியிடத் தரவை உலாவியில் வைத்திருங்கள்.',
-   'Open GreenFarm Dashboard →':'GreenFarm டாஷ்போர்டைத் திறக்க →','Ready to manage your farm smarter?':'உங்கள் பண்ணையை சிறப்பாக நிர்வகிக்க தயாரா?'
-  }
- };
- function apply(lang){document.documentElement.lang=lang==='ta'?'ta':'en';document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));const map=translations[lang]||{};document.querySelectorAll('body *:not(script):not(style)').forEach(el=>{if(el.children.length===0){const t=el.textContent.trim();if(map[t])el.textContent=map[t];}});localStorage.setItem('greenfarm.lang',lang);}
- document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>apply(b.dataset.lang)));
- apply(localStorage.getItem('greenfarm.lang')||'en');
-})();
-</script><script>if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});</script><script src="assets/app-ui.js" defer></script>
+        <aside class="gf-home-aside" aria-label="Storage and data information">
+          <section class="gf-home-aside-card">
+            <small>On-device workspace</small>
+            <h2>Your farm data stays in this browser</h2>
+            <p>GreenFarm runs without an account or server. Records stay on this device until you export a backup.</p>
+            <ul class="gf-home-aside-list">
+              <li><span aria-hidden="true">✓</span><span>Private browser storage</span></li>
+              <li><span aria-hidden="true">✓</span><span>No cloud sync or online account</span></li>
+              <li><span aria-hidden="true">✓</span><span>JSON backup from Workspace</span></li>
+            </ul>
+            <p class="gf-home-status" data-gf-home-status aria-live="polite">Checking local records…</p>
+            <a class="gf-home-link" href="farm.html#backup">Open backup tools →</a>
+          </section>
+          <section class="gf-home-aside-card">
+            <small>Made for field work</small>
+            <h2>Record first. Review when ready.</h2>
+            <p>Start with accurate field notes, then use GreenFarm’s summaries and reports as your records grow.</p>
+            <a class="gf-home-link" href="dashboard.html">Review dashboard →</a>
+          </section>
+        </aside>
+      </div>
+      <p class="gf-home-footer-note">GreenFarm · Smart Digital Agriculture · TNAU AC&amp;RI Vazhavachanur</p>
+    </div>
+  </main>
+  <footer class="gf-footer"><div class="container"><strong>🌱 GreenFarm</strong><p>Smart Digital Agriculture · Local browser workspace</p></div></footer>
+  <script src="assets/app-ui.js" defer></script>
+  <script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});</script>
 </body>
 </html>

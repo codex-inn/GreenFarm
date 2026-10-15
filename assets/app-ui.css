@@ -909,3 +909,42 @@ tr:nth-child(even) td { background: #fafbf9; }
   .gf-home-action-grid { grid-template-columns: 1fr; }
   .gf-home-module-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* Simple farm overview */
+.gf-home-page { width: min(100%, 1240px); gap: 16px; }
+.gf-home-banner { min-height: 0; grid-template-columns: minmax(0, .88fr) minmax(300px, 1.12fr); gap: 24px; padding: clamp(20px, 3vw, 34px); }
+.gf-home-copy h1 { max-width: 520px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; }
+.gf-home-copy > p:not(.gf-home-kicker) { max-width: 420px; font-size: 15px; }
+.gf-home-art { min-height: 0; height: clamp(220px, 27vw, 330px); padding: 0; background: transparent; }
+.gf-home-art img { display: block; width: 100%; height: 100%; border-radius: 18px; object-fit: cover; }
+.gf-home-stat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gf-home-stat { padding: 14px 17px; }
+.gf-home-section { padding: 17px; }
+.gf-home-section-head { margin-bottom: 12px; }
+.gf-home-module-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gf-home-footer-note { margin: 0; padding: 5px 0; text-align: center; color: var(--gf-muted); font-size: 12px; }
+.gf-home-footer-note a { color: var(--gf-leaf); font-weight: 700; }
+.dashboard-section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.dashboard-section-head h2 { margin: 0; }
+.quick-card small { display: block; color: var(--gf-muted); font-size: 11px; }
+@media (max-width: 860px) {
+  .gf-home-banner { grid-template-columns: 1fr; }
+  .gf-home-art { height: clamp(210px, 48vw, 300px); }
+  .gf-home-module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .gf-home-page { gap: 12px; }
+  .gf-home-banner { gap: 16px; padding: 18px; border-radius: 20px; }
+  .gf-home-copy h1 { font-size: 34px; }
+  .gf-home-copy > p:not(.gf-home-kicker) { font-size: 14px; }
+  .gf-home-actions { flex-wrap: wrap; }
+  .gf-home-art { height: 205px; }
+  .gf-home-stat-grid { gap: 8px; }
+  .gf-home-stat { padding: 12px 10px; border-radius: 13px; }
+  .gf-home-stat strong { font-size: 23px; }
+  .gf-home-stat span, .gf-home-stat small { font-size: 10px; }
+  .gf-home-module-grid { gap: 8px; }
+  .gf-home-module { padding: 10px; gap: 8px; }
+  .gf-home-module-icon { width: 34px; height: 34px; flex-basis: 34px; font-size: 16px; }
+  .dashboard-section-head { align-items: flex-start; flex-direction: column; }
+}

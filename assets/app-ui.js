@@ -14,7 +14,7 @@
     "reports.html": ["📄", "Reports"],
     "farm.html": ["🧰", "Workspace"],
     "advanced.html": ["🌱", "Farm Center"],
-    "admin.html": ["⚙️", "Admin"]
+    "admin.html": ["⚙️", "Settings"]
   };
   const titles = {
     "index.html": "Farm Home",
@@ -26,7 +26,7 @@
     "reports.html": "Farm Reports",
     "farm.html": "Farm Workspace",
     "advanced.html": "Farm Center",
-    "admin.html": "Administration",
+    "admin.html": "Settings",
     "auth.html": "Farmer Access"
   };
 
@@ -128,6 +128,7 @@
   const stats = {
     workspace: countArrays(coreRecords),
     center: countArrays(advanced),
+    records: countArrays(coreRecords) + countArrays(advanced),
     fields: Array.isArray(advanced.fields) ? advanced.fields.length : 0,
     tasks: Array.isArray(advanced.tasks) ? advanced.tasks.length : 0
   };

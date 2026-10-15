@@ -9,12 +9,12 @@
   const list = (source, key) => Array.isArray(source?.[key]) ? source[key] : [];
   const workspaceRecords = Object.values(records).flatMap(value => Array.isArray(value) ? value : []);
   const centerRecords = Object.values(center).flatMap(value => Array.isArray(value) ? value : []);
-  const total = workspaceRecords.length + centerRecords.length;
   const money = (value) => value == null || String(value).trim() === "" || !Number.isFinite(Number(value)) ? null : Number(value);
-  const amount = (rows, type) => rows.filter(row => row.type === type).reduce((sum, row) => sum + (money(row.amount) ?? 0), 0);
+  const amountRows = (rows, type) => rows.filter(row => row.type === type && money(row.amount) !== null);
+  const amount = rows => rows.reduce((sum,row)=>sum+money(row.amount),0);
   const finances = [...list(records, "finance"), ...list(center, "money")];
-  const income = amount(finances, "Income");
-  const expenses = amount(finances, "Expense");
+  const incomeRows = amountRows(finances,"Income"), expenseRows = amountRows(finances,"Expense");
+  const income = amount(incomeRows), expenses = amount(expenseRows);
   const currency = (n) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n);
   const today = new Date();
   const todayKey = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
@@ -32,21 +32,15 @@
     ...list(center, "cropPlans").filter(row => row.next).map(row => ({ title: "Crop check · " + (row.crop || "Crop"), detail: row.field || row.stage || "Crop plan", due: row.next, status: row.health || "Scheduled", href: "advanced.html#cropsList", source: "Farm Center" })),
     ...list(records, "irrigation").filter(row => row.status !== "Completed" && row.status !== "Skipped").map(row => ({ title: "Irrigation · " + (row.field || "Field"), detail: row.method || "Workspace", due: row.date || "", status: row.status || "Planned", href: "farm.html#irrigation", source: "Workspace" })),
     ...list(records, "ipm").filter(row => row.followup).map(row => ({ title: "Scouting follow-up · " + (row.issue || row.field || "Crop"), detail: row.severity || "Follow-up", due: row.followup, status: "Scheduled", href: "farm.html#ipm", source: "Workspace" }))
-  ].filter(task => task.due && task.due >= todayKey).sort((a,b) => a.due.localeCompare(b.due));
-  const overdue = [
-    ...list(center, "tasks").filter(row => row.status !== "Completed" && row.due && row.due < todayKey),
-    ...list(center, "irrigation").filter(row => row.next && row.next < todayKey),
-    ...list(records, "irrigation").filter(row => row.status !== "Completed" && row.status !== "Skipped" && row.date && row.date < todayKey),
-    ...list(records, "ipm").filter(row => row.followup && row.followup < todayKey)
-  ].length;
+  ].filter(task => task.due).sort((a,b) => a.due.localeCompare(b.due));
 
   const set = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = value; };
   set("dashCrops", String(list(records,"crops").length + list(center,"cropPlans").length));
   set("dashLivestock", String(list(records,"livestock").reduce((sum,row)=>sum+(money(row.count)??0),0)));
+  set("dashFields", String(list(center,"fields").length));
   set("dashIrrigation", String(tasks.length));
-  set("dashTotal", String(total));
-  set("dashFinance", finances.length ? currency(income-expenses) : "Not entered");
-  set("dashOverdue", String(overdue));
+  set("dashIncome", incomeRows.length ? currency(income) : "Not entered");
+  set("dashExpenses", expenseRows.length ? currency(expenses) : "Not entered");
 
   const taskHost = document.getElementById("dashboardTasks");
   if (taskHost) taskHost.innerHTML = tasks.length ? tasks.slice(0,5).map(task => {

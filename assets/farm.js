@@ -3,14 +3,14 @@
   'use strict';
   const KEY = 'greenfarm.v2';
   const fields = {
-    crops: { label:'Crop records', icon:'🌾', fields:[['date','Start / record date','date',true],['crop','Crop name','text',true],['field','Field / location','text',true],['variety','Variety','text'],['stage','Growth stage','text'],['area','Area (acre)','number'],['notes','Notes','text']] },
+    crops: { label:'Crop records', icon:'🌾', fields:[['date','Start / record date','date',true],['crop','Crop name','text',true],['field','Field / location','text',true],['variety','Variety','text'],['stage','Growth stage','text'],['area','Area (acre)','number'],['photo','Crop photo (optional)','file'],['notes','Notes','text']] },
     livestock: { label:'Livestock records', icon:'🐄', fields:[['date','Record date','date',true],['group','Animal / group','text',true],['count','Count','number',true],['purpose','Purpose / type','text'],['health','Health observation','text'],['feed','Feed / care note','text'],['notes','Notes','text']] },
     weather: { label:'Weather observations', icon:'🌦️', fields:[['date','Date','date',true],['field','Field / location','text',true],['condition','Conditions','select',true,['Sunny','Cloudy','Rain','Windy','Storm']],['temperature','Temperature (°C)','number'],['rainfall','Rainfall (mm)','number'],['humidity','Humidity (%)','number'],['notes','Notes','text']] },
     soil: { label:'Soil records', icon:'🪴', fields:[['date','Sample date','date',true],['field','Field','text',true],['type','Soil type','text'],['ph','pH','number'],['nitrogen','Nitrogen (kg/ha)','number'],['phosphorus','Phosphorus (kg/ha)','number'],['potassium','Potassium (kg/ha)','number'],['notes','Notes / next action','text']] },
     irrigation: { label:'Irrigation records', icon:'💧', fields:[['date','Date','date',true],['field','Field','text',true],['method','Method','select',true,['Drip','Sprinkler','Furrow','Flood','Other']],['duration','Duration (minutes)','number'],['water','Water applied (mm)','number'],['status','Status','select',true,['Planned','Completed','Skipped']],['notes','Notes','text']] },
-    ipm: { label:'Scouting records', icon:'🐛', fields:[['date','Scouting date','date',true],['field','Field / crop','text',true],['issue','Pest or disease','text',true],['severity','Severity','select',true,['Low','Moderate','High']],['action','IPM action','text'],['followup','Follow-up date','date'],['notes','Notes','text']] },
+    ipm: { label:'Scouting records', icon:'🐛', fields:[['date','Scouting date','date',true],['field','Field / crop','text',true],['issue','Pest or disease','text',true],['severity','Severity','select',true,['Low','Moderate','High']],['action','IPM action','text'],['followup','Follow-up date','date'],['photo','Scouting photo (optional)','file'],['notes','Notes','text']] },
     harvest: { label:'Harvest records', icon:'🌾', fields:[['date','Harvest date','date',true],['crop','Crop','text',true],['field','Field','text'],['quantity','Quantity (kg)','number',true],['grade','Grade / quality','text'],['price','Sale price per kg (₹)','number'],['buyer','Buyer','text'],['notes','Notes','text']] },
-    finance: { label:'Finance entries', icon:'💰', fields:[['date','Date','date',true],['type','Type','select',true,['Income','Expense']],['category','Category','text',true],['amount','Amount (₹)','number',true],['description','Description','text'],['reference','Reference / related field','text']] },
+    finance: { label:'Finance entries', icon:'💰', fields:[['date','Date','date',true],['type','Type','select',true,['Income','Expense']],['category','Category','text',true],['crop','Crop (optional)','text'],['amount','Amount (₹)','number',true],['description','Description','text'],['reference','Reference / related field','text']] },
     inventory: { label:'Inventory items', icon:'📦', fields:[['item','Item name','text',true],['category','Category','select',true,['Seed','Fertilizer','Crop protection','Fuel','Equipment','Feed','Other']],['quantity','On hand','number',true],['unit','Unit','text',true],['reorder','Reorder at','number'],['updated','Last updated','date'],['notes','Notes / supplier','text']] }
   };
   const emptyData = () => ({records:{crops:[],livestock:[],weather:[],soil:[],irrigation:[],ipm:[],harvest:[],finance:[],inventory:[]},profile:{},prediction:{}});
@@ -25,15 +25,28 @@
   const moduleFilters = Object.create(null);
   const fieldControl = ([name,label,type,required,options], value='') => {
     const req = required ? ' required' : '';
+    if (type === 'file') return `<label>${esc(label)}<input name="${name}" type="file" accept="image/*"${req}><small>Compressed and stored only in this browser.</small></label>`;
     if (type === 'select') return `<label>${esc(label)}<select name="${name}"${req}><option value="">Choose…</option>${options.map(o=>`<option${value===o?' selected':''}>${esc(o)}</option>`).join('')}</select></label>`;
     return `<label>${esc(label)}<input name="${name}" type="${type}"${type==='number'?' step="any" min="0"':''}${req} value="${esc(value || (type==='date'?today:''))}"></label>`;
   };
+  async function compressPhoto(file){
+    if(!file.type.startsWith("image/"))throw new Error("Choose an image file.");
+    if(file.size>8*1024*1024)throw new Error("Choose an image under 8 MB.");
+    if(typeof createImageBitmap!=="function")throw new Error("Photo compression is unavailable in this browser.");
+    const bitmap=await createImageBitmap(file),scale=Math.min(1,1000/Math.max(bitmap.width,bitmap.height));
+    const canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(bitmap.width*scale));canvas.height=Math.max(1,Math.round(bitmap.height*scale));
+    canvas.getContext("2d").drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();
+    const blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/jpeg",0.68));
+    if(!blob)throw new Error("Could not compress this photo.");
+    if(blob.size>300*1024)throw new Error("This image is still too large. Choose a smaller photo.");
+    return await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error("Could not read this photo."));reader.readAsDataURL(blob);});
+  }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(data)); return true; } catch { try { data = JSON.parse(localStorage.getItem(KEY) || 'null') || emptyData(); Object.keys(fields).forEach(k => { if (!Array.isArray(data.records?.[k])) data.records[k] = []; }); } catch { data = emptyData(); } notify('Could not save. Previous saved records were kept.'); return false; } }
   function notify(message) { const el=document.getElementById('toast'); if (!el) return; el.textContent=message; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2600); }
   function csvCell(value) { const text = String(value ?? ''); return '"' + ((text[0] === '=' || text[0] === '+' || text[0] === '-' || text[0] === '@' || text.charCodeAt(0) === 9 || text.charCodeAt(0) === 13) ? "'" : '') + text.replace(/"/g, '""') + '"'; }
   function exportModule(key) {
     const cfg = fields[key], rows = data.records[key];
-    const csv = [cfg.fields.map(f => csvCell(f[1])).join(','), ...rows.map(row => cfg.fields.map(f => csvCell(row[f[0]])).join(','))].join('\r\n');
+    const csv = [cfg.fields.map(f => csvCell(f[2]==='file'?f[1]+' (attached) ':f[1])).join(','), ...rows.map(row => cfg.fields.map(f => csvCell(f[2]==='file'?(row[f[0]]?'Photo attached':''):row[f[0]])).join(','))].join('\r\n');
     const url = URL.createObjectURL(new Blob(['\uFEFF' + csv], {type:'text/csv;charset=utf-8'}));
     const link = document.createElement('a'); link.href = url; link.download = 'greenfarm-' + key + '-' + today + '.csv'; link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
@@ -46,15 +59,32 @@
       cfg.fields.map(f => fieldControl(f)).join('') +
       '</div><div class="form-actions"><button class="button" type="submit">Save record</button><button class="button button-soft" type="reset">Clear form</button><span class="edit-hint" aria-live="polite"></span></div></form>' +
       '<div class="record-tools"><label>Search ' + esc(cfg.label.toLowerCase()) + '<input type="search" data-module-search="' + key + '" placeholder="Search saved records..." autocomplete="off"></label><button type="button" class="button button-soft" data-export-module="' + key + '">Download CSV</button></div>' +
-      '<div class="table-wrap"><table><thead><tr>' + cfg.fields.slice(0,5).map(f => '<th>' + esc(f[1]) + '</th>').join('') + '<th>Actions</th></tr></thead><tbody data-module-rows="' + key + '"></tbody></table></div>';
+      (key==="irrigation"?'<p class="irrigation-estimate-note">Water estimate uses recorded depth × matched field area × 4,046.86 L per acre-mm. It is an estimate of applied volume, not a crop water recommendation.</p>':'') + '<div class="table-wrap"><table><thead><tr>' + cfg.fields.slice(0,5).map(f => '<th>' + esc(f[1]) + '</th>').join('') + ((key==="crops"||key==="ipm")?'<th>Photo</th>':'') + (key==="irrigation"?'<th>Est. applied water</th>':'') + '<th>Actions</th></tr></thead><tbody data-module-rows="' + key + '"></tbody></table></div>';
     const body = host.querySelector('[data-module-rows="' + key + '"]');
     const paintRows = () => {
       const q = String(moduleFilters[key] || '').trim().toLowerCase();
-      const shown = rows.filter(row => !q || cfg.fields.some(f => String(row[f[0]] ?? '').toLowerCase().includes(q)))
+      const shown = rows.filter(row => !q || cfg.fields.some(f => f[2]!=='file'&&String(row[f[0]] ?? '').toLowerCase().includes(q)) || (q.includes('photo')&&cfg.fields.some(f=>f[2]==='file'&&row[f[0]])))
         .slice().sort((a,b) => String(b.updatedAt || b.createdAt || b.date || b.updated || '').localeCompare(String(a.updatedAt || a.createdAt || a.date || a.updated || '')));
-      body.innerHTML = shown.length ? shown.map(row => '<tr>' + cfg.fields.slice(0,5).map(f => '<td>' + esc(row[f[0]] || '—') + '</td>').join('') +
-        '<td class="row-actions"><button type="button" class="text-button" data-edit="' + esc(row.id) + '" data-key="' + key + '">Edit</button><button type="button" class="text-button danger-text" data-delete="' + esc(row.id) + '" data-key="' + key + '">Delete</button></td></tr>').join('') :
-        '<tr><td class="empty-cell" colspan="' + (Math.min(cfg.fields.length,5)+1) + '">' + (rows.length ? 'No records match this search.' : 'No records yet. Add your first ' + esc(cfg.label.toLowerCase()) + ' above.') + '</td></tr>';
+      body.innerHTML = shown.length ? shown.map(row => {
+        const cells=cfg.fields.slice(0,5).map(f => {const value=row[f[0]];return '<td>'+esc(value==null||String(value).trim()===''?'—':value)+'</td>';}).join('');
+        let photo='';
+        if(key==="crops"||key==="ipm"){
+          const safePhoto=typeof row.photo==="string"&&/^data:image\/(?:jpeg|png|webp);base64,[A-Za-z0-9+/]+={0,2}$/i.test(row.photo)?row.photo:"";
+          photo=safePhoto?'<td><a href="'+safePhoto+'" target="_blank" rel="noopener" aria-label="Open attached photo"><img class="record-photo" src="'+safePhoto+'" alt="Attached farm observation"></a></td>':'<td>—</td>';
+        }
+        let water='';
+        if(key==="irrigation"){
+          let center={};try{center=JSON.parse(localStorage.getItem("greenfarm.advanced.v1")||"{}");}catch(_){}
+          const target=String(row.field||"").trim().toLowerCase();
+          const centerFields=Array.isArray(center.fields)?center.fields:[];
+          const match=centerFields.find(x=>[x.number,x.field,x.name].some(v=>String(v||"").trim().toLowerCase()===target));
+          const coreMatch=data.records.crops.find(x=>String(x.field||"").trim().toLowerCase()===target);
+          const rawArea=match?.area??coreMatch?.area,depth=row.water==null||String(row.water).trim()===""?null:Number(row.water),acres=rawArea==null||String(rawArea).trim()===""?null:Number(rawArea);
+          water=depth!==null&&Number.isFinite(depth)&&acres!==null&&Number.isFinite(acres)?'<td>'+Math.round(depth*acres*4046.86).toLocaleString()+' L</td>':'<td>Enter depth + area</td>';
+        }
+        return '<tr>'+cells+photo+water+'<td class="row-actions"><button type="button" class="text-button" data-edit="'+esc(row.id)+'" data-key="'+key+'">Edit</button><button type="button" class="text-button danger-text" data-delete="'+esc(row.id)+'" data-key="'+key+'">Delete</button></td></tr>';
+      }).join('') :
+        '<tr><td class="empty-cell" colspan="' + (Math.min(cfg.fields.length,5)+((key==="crops"||key==="ipm")?1:0)+(key==="irrigation"?2:1)) + '">' + (rows.length ? 'No records match this search.' : 'No records yet. Add your first ' + esc(cfg.label.toLowerCase()) + ' above.') + '</td></tr>';
     };
     const search = host.querySelector('[data-module-search="' + key + '"]');
     search.value = moduleFilters[key] || '';
@@ -62,12 +92,17 @@
     host.querySelector('[data-export-module="' + key + '"]').addEventListener('click', () => exportModule(key));
     paintRows();
     const form = host.querySelector('form');
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       if (!form.reportValidity()) return;
       const fd = new FormData(form), obj = {};
-      cfg.fields.forEach(f => { obj[f[0]] = fd.get(f[0]) || ''; });
-      const id = fd.get('id');
+      cfg.fields.forEach(f => { const value=fd.get(f[0]); obj[f[0]]=f[2]==="file"?"":(value||""); });
+      const id = fd.get('id'), existing=id?rows.find(r=>r.id===id):null;
+      try {
+        const photoFile=form.elements.photo?.files?.[0];
+        if(photoFile)obj.photo=await compressPhoto(photoFile);
+        else if(existing?.photo)obj.photo=existing.photo;
+      } catch(error) { notify(error.message||"Could not read this photo."); return; }
       if (id) {
         const i = rows.findIndex(r => r.id === id);
         if (i >= 0) rows[i] = {...rows[i], ...obj, updatedAt:new Date().toISOString()};
@@ -140,7 +175,7 @@
       '<div class="report-totals"><span>Income <b>'+(hasFinance?currency(total('Income')):'Not entered')+'</b></span><span>Expenses <b>'+(hasFinance?currency(total('Expense')):'Not entered')+'</b></span><span>Net <b>'+(hasFinance?currency(total('Income')-total('Expense')):'Not entered')+'</b></span></div>'+sections;
   }
   function render(){Object.keys(fields).forEach(renderModule);renderProfile();renderSummary();renderReport();renderPrediction();}
-  document.addEventListener('click',e=>{const edit=e.target.closest('[data-edit]');if(edit){const key=edit.dataset.key, row=data.records[key].find(x=>x.id===edit.dataset.edit), form=document.querySelector(`.record-form[data-key="${key}"]`);if(row&&form){form.reset();Object.entries(row).forEach(([k,v])=>{if(form.elements[k])form.elements[k].value=v;});form.elements.id.value=row.id;form.querySelector('.edit-hint').textContent='Editing this record';form.scrollIntoView({behavior:'smooth',block:'center'});}}const del=e.target.closest('[data-delete]');if(del&&confirm('Delete this saved record? This cannot be undone unless you restore a backup.')){data.records[del.dataset.key]=data.records[del.dataset.key].filter(x=>x.id!==del.dataset.delete);if(save()){render();notify('Record deleted');}}const action=e.target.closest('[data-action]')?.dataset.action;if(action==='print')window.print();if(action==='export')exportBackup();if(action==='export-csv')Object.keys(fields).forEach(exportModule);if(action==='clear'&&confirm('Clear all GreenFarm records and the farm profile saved in this browser? Export a backup first if you may need these records.')){data=emptyData();if(save()){render();notify('Farm records cleared');}}});
+  document.addEventListener('click',e=>{const edit=e.target.closest('[data-edit]');if(edit){const key=edit.dataset.key, row=data.records[key].find(x=>x.id===edit.dataset.edit), form=document.querySelector(`.record-form[data-key="${key}"]`);if(row&&form){form.reset();Object.entries(row).forEach(([k,v])=>{if(form.elements[k]&&form.elements[k].type!=='file')form.elements[k].value=v;});form.elements.id.value=row.id;form.querySelector('.edit-hint').textContent='Editing this record';form.scrollIntoView({behavior:'smooth',block:'center'});}}const del=e.target.closest('[data-delete]');if(del&&confirm('Delete this saved record? This cannot be undone unless you restore a backup.')){data.records[del.dataset.key]=data.records[del.dataset.key].filter(x=>x.id!==del.dataset.delete);if(save()){render();notify('Record deleted');}}const action=e.target.closest('[data-action]')?.dataset.action;if(action==='print')window.print();if(action==='export')exportBackup();if(action==='export-csv')Object.keys(fields).forEach(exportModule);if(action==='clear'&&confirm('Clear all GreenFarm records and the farm profile saved in this browser? Export a backup first if you may need these records.')){data=emptyData();if(save()){render();notify('Farm records cleared');}}});
   function exportBackup(){const blob=new Blob([JSON.stringify({app:'GreenFarm',version:2,exportedAt:new Date().toISOString(),...data},null,2)],{type:'application/json'}), url=URL.createObjectURL(blob), a=document.createElement('a');a.href=url;a.download=`greenfarm-backup-${today}.json`;a.click();URL.revokeObjectURL(url);}
   document.getElementById('restoreFile')?.addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{const b=JSON.parse(await file.text()), candidate=b.records?b:(b.data||null);if(file.size>5*1024*1024||!candidate||!candidate.records||!Object.keys(fields).every(k=>Array.isArray(candidate.records[k])&&candidate.records[k].length<=10000&&candidate.records[k].every(row=>row&&typeof row==='object'&&!Array.isArray(row)))||!candidate.profile||typeof candidate.profile!=='object'||Array.isArray(candidate.profile))throw new Error('This file is not a valid GreenFarm backup or contains unsupported records.');if(!confirm('Replace the farm records in this browser with the records in this backup? Export a backup first if you may need the current data.'))return;const previous=data;data={records:Object.fromEntries(Object.keys(fields).map(k=>[k,candidate.records[k]])),profile:candidate.profile,prediction:candidate.prediction&&typeof candidate.prediction==='object'?candidate.prediction:{}};if(save()){render();notify('Backup restored');}else data=previous;}catch(err){document.getElementById('backupMessage').textContent=err.message||'Could not read that backup file.';}finally{e.target.value='';}});
   render();

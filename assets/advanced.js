@@ -73,7 +73,7 @@
     irrigation:x=>"<b>"+esc(x.field)+"</b> · next "+esc(x.next||"Date not entered")+" · "+esc(x.water||"—")+" mm",
     fertilizer:x=>"<b>"+esc(x.product)+"</b> · "+esc(x.quantity||"Quantity not entered")+" · "+currency(money(x.cost)),
     pests:x=>"<b>"+esc(x.crop)+"</b> · "+esc(x.problem)+" · "+esc(x.severity),
-    money:x=>"<b>"+esc(x.type)+"</b> · "+esc(x.category||"General")+" · "+currency(money(x.amount)),
+    money:x=>"<b>"+esc(x.type)+"</b> · "+esc(x.category||"General")+" · "+currency(money(x.amount))+(x.crop?" · "+esc(x.crop):""),
     seeds:x=>"<b>"+esc(x.variety)+"</b> · "+esc(x.quantity||"Quantity not entered")+" · expiry "+esc(x.expiry||"—"),
     equipment:x=>"<b>"+esc(x.name)+"</b> · "+esc(x.condition||"Condition not entered")+" · service "+esc(x.next||"—"),
     tasks:x=>"<b>"+esc(x.task)+"</b> · "+esc(x.field||"Farm task")+" · due "+esc(x.due||"Date not entered")+" · "+esc(x.priority||"Normal"),

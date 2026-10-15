@@ -154,3 +154,9 @@ main .dashboard-page { max-width:none; }
 .advanced-field-label { display:grid; gap:5px; font-size:11px; font-weight:700; color:#53635a; }
 .advanced-field-label input,.advanced-field-label select,.advanced-field-label textarea { margin-top:0!important; }
 @media(max-width:650px) { .record-tools { align-items:stretch; flex-direction:column; } .record-tools>* { width:100%; } .mini-row { align-items:flex-start; flex-direction:column; } .mini-actions { width:100%; } .mini-action { flex:1; } }
+
+.economics-card{padding:16px;border:1px solid var(--gf-line);border-radius:15px;background:#fff;box-shadow:0 8px 24px rgba(28,58,39,.035)}.economics-card>p{margin:0 0 12px;color:var(--gf-muted);font-size:11px;line-height:1.6}.economics-card th{white-space:nowrap}.irrigation-estimate-note{margin:9px 0;color:#617267;font-size:11px;line-height:1.5}
+
+.record-photo{display:block;width:60px;height:48px;object-fit:cover;border:1px solid var(--gf-line);border-radius:8px}.record-form input[type=file]{max-width:100%;padding:8px;border:1px dashed #c8d7cb;border-radius:9px;background:#fbfdf9}.record-form label small{display:block;margin-top:4px;color:var(--gf-muted);font-size:10px}
+
+.record-pagination{display:flex;align-items:center;justify-content:center;gap:12px;margin:2px auto 8px;color:var(--gf-muted);font-size:11px}.record-pagination button{min-height:40px;padding:8px 13px;border:1px solid var(--gf-line);border-radius:9px;background:#fff;color:var(--gf-leaf);font:inherit;font-weight:750;cursor:pointer}.record-pagination button:disabled{opacity:.45;cursor:not-allowed}

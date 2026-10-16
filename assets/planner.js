@@ -20,6 +20,58 @@ $("diaryForm").elements.date.value=today();$("diaryForm").addEventListener("subm
 function globalSearch(q){const result=[];const add=(rows,kind,source,href)=>rows.forEach(r=>{const text=Object.entries(r).filter(([k,v])=>!["photo","image","id"].includes(k)&&v!=null).map(([k,v])=>k+": "+v).join(" ");if(text.toLowerCase().includes(q))result.push({title:r.crop||r.task||r.title||r.field||r.group||r.item||r.product||r.problem||r.issue||kind,date:r.date||r.sowing||r.due||r.next||"",kind,source,href,detail:text})});Object.entries(core.records||{}).forEach(([k,v])=>{if(Array.isArray(v))add(v,k,"Workspace","farm.html")});["fields","cropPlans","irrigation","fertilizer","pests","money","harvest","seeds","equipment","tasks","diary"].forEach(k=>add(arr(center,k),k,"Farm Center","advanced.html"));return result.slice(0,80)}
 let searchTimer;$("globalSearch").addEventListener("input",()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{const q=$("globalSearch").value.trim().toLowerCase();if(q.length<2){$("globalSearchSummary").textContent="Enter at least 2 characters.";$("globalSearchResults").innerHTML="";return}const rows=globalSearch(q);$("globalSearchSummary").textContent=rows.length+" matching records (up to 80 shown).";$("globalSearchResults").innerHTML=rows.length?rows.map(r=>'<a class="global-result" href="'+r.href+'"><div class="global-result-top"><strong>'+esc(r.title)+'</strong><span>'+esc(r.source+" · "+r.kind)+'</span></div><small>'+esc(r.date?dateLabel(String(r.date).slice(0,10)):"Date not set")+' · '+esc(r.detail.slice(0,220))+'</small></a>').join(""):'<div class="planner-empty">No matching records found.</div>'},120)});
 function lowStock(){const rows=arr(core.records,"inventory").filter(r=>r.reorder!==""&&r.reorder!==undefined&&Number.isFinite(Number(r.quantity))&&Number.isFinite(Number(r.reorder))&&Number(r.quantity)<=Number(r.reorder));$("lowStockCount").textContent=rows.length;$("lowStockList").innerHTML=rows.length?rows.map(r=>'<div class="planner-list-row"><div><strong>'+esc(r.item||"Inventory item")+'</strong><small>On hand: '+esc(r.quantity+" "+(r.unit||"")+" · reorder at "+r.reorder)+'</small></div><span class="planner-badge is-late">Low stock</span></div>').join(""):'<div class="planner-empty">No inventory item is currently at or below a reorder threshold.</div>'}
+
+function loadDemoData(){
+  const hasDemo=Object.values(core.records||{}).some(rows=>Array.isArray(rows)&&rows.some(r=>r.demo===true))||
+    Object.keys(empty()).some(k=>Array.isArray(center[k])&&center[k].some(r=>r.demo===true));
+  if(hasDemo){toast("Showcase demo records are already loaded.");return}
+  if(!confirm("Add clearly labelled sample farm records to this browser? Existing records will be kept."))return;
+  const day=n=>{const d=new Date();d.setDate(d.getDate()+n);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+  const tag=r=>({...r,id:uid(),demo:true});
+  const oldCore=localStorage.getItem(CORE),oldCenter=localStorage.getItem(CENTER);
+  const demoCore={
+    crops:[tag({date:day(-18),crop:"Tomato",field:"Demo Field A",variety:"PKM 1",stage:"Flowering",area:1.5,notes:"DEMO record · healthy crop; monitor fruit set."}),tag({date:day(-35),crop:"Paddy",field:"Demo Field B",variety:"ADT 45",stage:"Grain filling",area:2,notes:"DEMO record · sample showcase entry."})],
+    livestock:[tag({date:day(-1),group:"Dairy cows",count:4,purpose:"Milk",health:"Routine check due",feed:"Green fodder and clean water",notes:"DEMO record"})],
+    weather:[tag({date:day(0),field:"Demo Field A",condition:"Sunny",temperature:31,rainfall:0,humidity:62,notes:"Illustrative sample only; not live weather."})],
+    soil:[tag({date:day(-5),field:"Demo Field A",type:"Sandy loam",ph:6.7,nitrogen:220,phosphorus:18,potassium:210,notes:"Sample values only; use a real soil test for decisions."})],
+    irrigation:[tag({date:day(1),field:"Demo Field A",method:"Drip",duration:45,water:5,status:"Planned",notes:"DEMO schedule; verify actual crop water needs."})],
+    ipm:[tag({date:day(-2),field:"Tomato · Demo Field A",issue:"Whitefly scouting",severity:"Low",action:"Inspect leaf undersides; use integrated pest management.",followup:day(2),notes:"DEMO observation; no treatment recommendation implied."})],
+    harvest:[tag({date:day(-7),crop:"Tomato",field:"Demo Field A",quantity:180,grade:"A",price:24,buyer:"Demo Market",notes:"DEMO harvest and price; not actual sales."})],
+    finance:[tag({date:day(-3),type:"Expense",category:"Fertilizer",crop:"Tomato",amount:1850,description:"Illustrative input expense",reference:"Demo Field A"}),tag({date:day(-1),type:"Income",category:"Produce sale",crop:"Tomato",amount:4320,description:"Illustrative sale",reference:"Demo Market"})],
+    inventory:[tag({item:"Tomato seeds",category:"Seed",quantity:2,unit:"packets",reorder:5,updated:day(0),notes:"DEMO inventory item"}),tag({item:"Drip connectors",category:"Equipment",quantity:8,unit:"pieces",reorder:10,updated:day(0),notes:"DEMO inventory item"})]
+  };
+  const demoCenter={
+    fields:[tag({number:"A",area:1.5,crop:"Tomato",soil:"Sandy loam",notes:"DEMO field"}) ,tag({number:"B",area:2,crop:"Paddy",soil:"Clay loam",notes:"DEMO field"})],
+    cropPlans:[tag({crop:"Tomato",field:"Demo Field A",stage:"Flowering",health:"Healthy",sowing:day(-35),harvest:day(35),next:day(2),notes:"DEMO crop plan"}),tag({crop:"Paddy",field:"Demo Field B",stage:"Grain/Fruit filling",health:"Healthy",sowing:day(-75),harvest:day(15),next:day(3),notes:"DEMO crop plan"})],
+    irrigation:[tag({field:"Demo Field A",crop:"Tomato",next:day(1),method:"Drip",water:5,notes:"DEMO irrigation"})],
+    fertilizer:[tag({product:"Compost",quantity:"250 kg",cost:1200,date:day(-10),field:"Demo Field A",notes:"DEMO input record"})],
+    pests:[tag({crop:"Tomato",field:"Demo Field A",problem:"Whitefly scouting",severity:"Low",date:day(-2),followup:day(2),action:"Monitor and inspect",notes:"DEMO scouting record"})],
+    money:[tag({type:"Expense",category:"Seeds and inputs",amount:1850,crop:"Tomato",date:day(-3),description:"Illustrative demo expense"}),tag({type:"Income",category:"Harvest sale",amount:4320,crop:"Tomato",date:day(-1),description:"Illustrative demo income"})],
+    harvest:[tag({crop:"Tomato",field:"Demo Field A",date:day(-1),quantity:180,price:24,notes:"DEMO harvest record"})],
+    seeds:[tag({variety:"PKM 1 Tomato",quantity:"2 packets",expiry:day(180),notes:"DEMO seed stock"})],
+    equipment:[tag({name:"Knapsack sprayer",condition:"Good",next:day(7),notes:"DEMO equipment record"})],
+    tasks:[tag({task:"Inspect tomato leaves",field:"Demo Field A",due:day(1),priority:"High",status:"Pending",notes:"DEMO task"}),tag({task:"Check paddy field moisture",field:"Demo Field B",due:day(-1),priority:"Normal",status:"Pending",notes:"DEMO task"})],
+    diary:[tag({date:day(0),field:"Demo Field A · Tomato",title:"Showcase crop observation",notes:"Sample diary entry only. Replace with actual observations for real farm decisions."})]
+  };
+  const nextCore={...core,records:{...(core.records||{})}};
+  Object.entries(demoCore).forEach(([k,rows])=>{nextCore.records[k]=[...arr(nextCore.records,k),...rows]});
+  const nextCenter={...center};
+  Object.entries(demoCenter).forEach(([k,rows])=>{nextCenter[k]=[...arr(nextCenter,k),...rows]});
+  try{
+    localStorage.setItem(CORE,JSON.stringify(nextCore));
+    localStorage.setItem(CENTER,JSON.stringify(nextCenter));
+    core=nextCore;center=nextCenter;crops();calendar();lowStock();backupInfo();
+    $("globalSearch").value="demo";$("globalSearch").dispatchEvent(new Event("input"));
+    toast("Showcase demo records added. Existing records were preserved.");
+  }catch(err){
+    try{oldCore===null?localStorage.removeItem(CORE):localStorage.setItem(CORE,oldCore)}catch(_){}
+    try{oldCenter===null?localStorage.removeItem(CENTER):localStorage.setItem(CENTER,oldCenter)}catch(_){}
+    core=read(CORE,{records:{}});center=read(CENTER,empty());
+    toast("Could not load demo data; previous records were restored.");
+  }
+}
+$("loadDemoData").addEventListener("click",loadDemoData);
+
 const count=o=>Object.values(o||{}).reduce((n,v)=>n+(Array.isArray(v)?v.length:0),0);
 function backupInfo(){ $("workspaceRecordCount").textContent=count(core.records);$("centerRecordCount").textContent=count(center);const size=new Blob([JSON.stringify({[CORE]:core,[CENTER]:center})]).size;$("storageEstimate").textContent=size<1024?size+" B":size<1048576?(size/1024).toFixed(1)+" KB":(size/1048576).toFixed(2)+" MB"}
 $("exportBackup").addEventListener("click",()=>{const data={format:"GreenFarm Local Backup",version:1,exportedAt:new Date().toISOString(),stores:{[CORE]:core,[CENTER]:center}};const u=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:"application/json"})),a=document.createElement("a");a.href=u;a.download="greenfarm-full-backup-"+today()+".json";a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);$("backupStatus").textContent="Full backup exported. Store it safely; it is not encrypted."});

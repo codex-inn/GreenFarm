@@ -36,6 +36,13 @@
   const nav = document.querySelector(".gf-nav");
   if (nav) {
     const links = [...nav.querySelectorAll(".nav-links a[href]")];
+    if (!links.some((link) => new URL(link.href, location.href).pathname.endsWith("/planner.html"))) {
+      const plannerLink = document.createElement("a");
+      plannerLink.href = "planner.html";
+      plannerLink.textContent = "Planner";
+      nav.querySelector(".nav-links")?.append(plannerLink);
+      links.push(plannerLink);
+    }
     const currentIsSecondary = !primaryPages.has(current);
 
     links.forEach((link) => {

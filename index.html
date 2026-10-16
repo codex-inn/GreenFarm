@@ -43,6 +43,69 @@
       <img src="assets/greenfarm-sunrise-header.webp?v=greenfarm-v17" alt="Farmer walking beside green rice fields in Tamil Nadu" width="1536" height="1024" fetchpriority="high">
     </div>
   </section>
+  <section class="gf-home-smart-hero" aria-labelledby="smart-hero-title">
+    <div class="gf-home-smart-hero-heading">
+      <p>🌱 SMART FARMING · SUSTAINABLE GROWTH</p>
+      <h2 id="smart-hero-title">A greener future starts in the field.</h2>
+      <p>Explore connected crop care, precision irrigation and smarter farm operations with GreenFarm.</p>
+    </div>
+    <img
+      src="assets/greenfarm-3d-farm.svg?v=greenfarm-v18"
+      alt="GreenFarm smart farm landscape with green crop rows, tractor, irrigation sprinklers, drone, greenhouse and solar panel at sunrise"
+      width="1280"
+      height="620"
+      loading="lazy"
+      decoding="async"
+    >
+  </section>
+  <style>
+    .gf-home-smart-hero {
+      margin: clamp(24px, 4vw, 48px) 0;
+      overflow: hidden;
+      border: 1px solid rgba(74, 143, 94, .28);
+      border-radius: 24px;
+      background: linear-gradient(135deg, #f4f9e9, #e0f0df);
+      box-shadow: 0 16px 40px rgba(20, 67, 43, .10);
+    }
+    .gf-home-smart-hero-heading {
+      max-width: 900px;
+      padding: clamp(22px, 4vw, 38px) clamp(18px, 4vw, 42px) 20px;
+    }
+    .gf-home-smart-hero-heading > p:first-child {
+      margin: 0 0 10px;
+      color: #287447;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    .gf-home-smart-hero-heading h2 {
+      margin: 0 0 10px;
+      color: #173e2d;
+      font-size: clamp(1.55rem, 3.4vw, 2.5rem);
+      line-height: 1.15;
+    }
+    .gf-home-smart-hero-heading > p:last-child {
+      margin: 0;
+      max-width: 680px;
+      color: #3f6250;
+      line-height: 1.7;
+    }
+    .gf-home-smart-hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1280 / 620;
+      object-fit: cover;
+      background: #dcebd6;
+    }
+    @media (max-width: 600px) {
+      .gf-home-smart-hero { border-radius: 16px; }
+      .gf-home-smart-hero img { aspect-ratio: 4 / 3; object-fit: cover; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gf-home-smart-hero { scroll-behavior: auto; }
+    }
+  </style>
   <section class="gf-home-video" aria-labelledby="home-animation-title">
     <div class="gf-home-video-copy">
       <p class="gf-home-video-kicker">💧 WATER SMART FARMING · 3D ANIMATION</p>
@@ -52,7 +115,7 @@
     </div>
     <div class="gf-home-video-player" data-gf-video data-video-src="https://sawbo-animations.org/download_aws.php?id=230&amp;video=EN_English_USA_SGDripIrrigation3D_Final.mp4">
       <button class="gf-home-video-cover" type="button" aria-label="Play the 3D drip irrigation animation">
-        <img src="assets/greenfarm-3d-farm.png?v=greenfarm-v17" alt="Smart farm with a tractor, drone, greenhouse, solar panels and irrigated crop rows" width="1280" height="720" loading="lazy">
+        <img src="assets/greenfarm-3d-farm.svg?v=greenfarm-v18" alt="Smart farm with a tractor, drone, greenhouse, solar panels and irrigated crop rows" width="1280" height="720" loading="lazy">
         <span class="gf-home-video-play"><span aria-hidden="true">▶</span> Watch 3D animation</span>
         <span class="gf-home-video-badge" aria-hidden="true">3D FARM ANIMATION</span>
       </button>

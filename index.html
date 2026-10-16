@@ -29,23 +29,83 @@
     </div>
   </nav>
   <style>
-    .gf-home-art img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      min-height: 230px;
-      border-radius: 20px;
-      object-fit: cover;
-      object-position: center 55%;
+    /* Match the supplied GreenFarm overview design: copy first, full-width farm image below. */
+    .gf-home-banner {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) !important;
+      align-items: start !important;
+      gap: 24px !important;
+      padding: clamp(22px, 3.5vw, 42px) !important;
+      border-radius: 28px !important;
+      background:
+        radial-gradient(ellipse at 88% 12%, rgba(177, 222, 148, .22), transparent 34%),
+        linear-gradient(128deg, #003d29 0%, #075b3b 58%, #267346 100%) !important;
+      color: #fff !important;
+    }
+    .gf-home-copy { width: 100%; min-width: 0; }
+    .gf-home-kicker {
+      margin-bottom: 16px !important;
+      color: #d6eba9 !important;
+      font-size: 11px !important;
+      font-weight: 850 !important;
+      letter-spacing: .17em !important;
+      text-transform: uppercase;
+    }
+    .gf-home-banner h1 {
+      max-width: 900px !important;
+      margin: 0 0 15px !important;
+      color: #fff !important;
+      font-size: clamp(35px, 5vw, 62px) !important;
+      line-height: 1.08 !important;
+      letter-spacing: -.045em !important;
+    }
+    .gf-home-banner p:not(.gf-home-kicker) {
+      max-width: 800px;
+      color: rgba(247, 252, 244, .86) !important;
+      font-size: clamp(14px, 1.6vw, 18px) !important;
+    }
+    .gf-home-actions { gap: 12px !important; margin: 24px 0 4px !important; }
+    .gf-home-actions a {
+      min-height: 56px !important;
+      padding: 14px 24px !important;
+      border-radius: 16px !important;
+      font-size: 14px !important;
+    }
+    .gf-home-actions a.primary {
+      background: #d7edaa !important;
+      border-color: #d7edaa !important;
+      color: #12452e !important;
     }
     .gf-home-art {
-      min-width: 0;
-      width: 100%;
-      align-self: stretch;
-      background: #315f3e url("assets/greenfarm-sunrise-header.webp?v=greenfarm-v18") center 55% / cover no-repeat;
+      display: block !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      height: auto !important;
+      min-height: 0 !important;
+      overflow: hidden !important;
+      border: 2px solid rgba(177, 236, 157, .62) !important;
+      border-radius: 27px !important;
+      background: #154c32 !important;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 14px 34px rgba(0, 25, 14, .2);
+    }
+    .gf-home-art img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: 640px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover !important;
+      object-position: center 52% !important;
+      border-radius: 24px !important;
+      background: linear-gradient(135deg, #164c31, #8bbf72);
     }
     @media (max-width: 700px) {
-      .gf-home-art img { min-height: 205px; }
+      .gf-home-banner { gap: 19px !important; padding: 19px !important; border-radius: 21px !important; }
+      .gf-home-banner h1 { font-size: clamp(32px, 8vw, 43px) !important; }
+      .gf-home-actions a { min-height: 48px !important; padding: 12px 15px !important; }
+      .gf-home-art { border-radius: 18px !important; }
+      .gf-home-art img { aspect-ratio: 4 / 3; border-radius: 16px !important; }
     }
   </style>
   <main><div class="gf-home-page">
@@ -60,7 +120,7 @@
       </div>
     </div>
     <div class="gf-home-art">
-      <img src="assets/greenfarm-sunrise-header.webp?v=greenfarm-v18" alt="Farmer walking beside green rice fields in Tamil Nadu" width="1536" height="1024" fetchpriority="high">
+      <img src="assets/greenfarm-3d-farm.png?v=greenfarm-v18" alt="Realistic smart GreenFarm landscape with a farmer monitoring crops, lush crop rows, greenhouse, tractor, drone and connected agriculture technology at sunrise" width="1280" height="720" fetchpriority="high" decoding="async">
     </div>
   </section>
   <section class="gf-home-video" aria-labelledby="home-animation-title">

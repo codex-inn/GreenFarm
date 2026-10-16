@@ -14,6 +14,7 @@
     "reports.html": ["📄", "Reports"],
     "farm.html": ["🧰", "Workspace"],
     "advanced.html": ["🌱", "Farm Center"],
+    "planner.html": ["🗓️", "Planner"],
     "admin.html": ["⚙️", "Settings"]
   };
   const titles = {
@@ -26,6 +27,7 @@
     "reports.html": "Farm Reports",
     "farm.html": "Farm Workspace",
     "advanced.html": "Farm Center",
+    "planner.html": "Farm Planner",
     "admin.html": "Settings",
     "auth.html": "Farmer Access"
   };

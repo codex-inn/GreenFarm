@@ -107,12 +107,44 @@
       .gf-home-art { border-radius: 18px !important; }
       .gf-home-art img { aspect-ratio: 4 / 3; border-radius: 16px !important; }
     }
+    .gf-leaf-heading {
+      position: relative;
+      display: inline-block;
+      padding-bottom: .12em;
+      color: #fff !important;
+      white-space: normal;
+    }
+    .gf-leaf-heading::after {
+      position: absolute;
+      right: 0;
+      bottom: -.03em;
+      left: 0;
+      height: .15em;
+      content: "";
+      border-bottom: 3px solid #8ee51e;
+      border-radius: 0 0 55% 45%;
+      transform: rotate(-1.2deg);
+      opacity: .95;
+      pointer-events: none;
+    }
+    .gf-heading-leaf {
+      display: inline-block;
+      width: clamp(35px, 5.8vw, 76px);
+      height: auto;
+      margin-left: .12em;
+      vertical-align: -.04em;
+      filter: drop-shadow(0 2px 4px rgba(0, 35, 12, .18));
+    }
+    @media (max-width: 700px) {
+      .gf-heading-leaf { width: 36px; }
+      .gf-leaf-heading::after { border-bottom-width: 2px; }
+    }
   </style>
   <main><div class="gf-home-page">
   <section class="gf-home-banner" aria-labelledby="home-title">
     <div class="gf-home-copy">
       <p class="gf-home-kicker">🌱 GreenFarm overview</p>
-      <h1 id="home-title">Your farm, at a glance.</h1>
+      <h1 id="home-title">Your farm, <span class="gf-leaf-heading">at a glance.<svg class="gf-heading-leaf" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path d="M13 66C15 30 39 8 86 7C84 42 59 66 13 66Z" fill="#8ee51e"/><path d="M15 68C33 49 51 33 77 16" fill="none" stroke="#164a2e" stroke-width="4" stroke-linecap="round"/><path d="M42 46L38 29M56 35L73 36" fill="none" stroke="#164a2e" stroke-width="3" stroke-linecap="round"/></svg></span></h1>
       <p>Keep crops, livestock and daily work in one place.</p>
       <div class="gf-home-actions">
         <a class="primary" href="farm.html">Open workspace <span aria-hidden="true">→</span></a>

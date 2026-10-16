@@ -4,7 +4,7 @@ const CORE = [
   "./analytics.html","./reports.html","./farm.html","./advanced.html","./planner.html","./admin.html","./auth.html",
   "./manifest.webmanifest","./assets/demo-seed.js?v=greenfarm-v28","./assets/greenfarm.css?v=greenfarm-v26","./assets/app-ui.css","./assets/app-ui.css?v=greenfarm-v26",
   "./assets/app-ui.js","./assets/app-ui.js?v=greenfarm-v26","./assets/app-ui.js?v=greenfarm-v28","./assets/module-views.css?v=greenfarm-v26",
-  "./assets/module-views.js?v=greenfarm-v26","./assets/dashboard.js?v=greenfarm-v26",
+  "./assets/module-views.js?v=greenfarm-v26","./assets/module-views.js?v=greenfarm-v28","./assets/dashboard.js?v=greenfarm-v26",
   "./assets/farm.js?v=greenfarm-v26","./assets/advanced.js?v=greenfarm-v26",
   "./assets/farm.css","./assets/advanced.css","./assets/planner.css?v=greenfarm-v26","./assets/planner.js?v=greenfarm-v28","./assets/greenfarm-logo.svg",
   "./assets/greenfarm-sunrise-header.webp?v=greenfarm-v26","./assets/greenfarm-3d-farm.png?v=greenfarm-v26"

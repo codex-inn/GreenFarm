@@ -1,8 +1,8 @@
-const CACHE = "greenfarm-v22";
+const CACHE = "greenfarm-v23";
 const CORE = [
   "./","./index.html","./dashboard.html","./crops.html","./livestock.html","./activities.html",
   "./analytics.html","./reports.html","./farm.html","./advanced.html","./admin.html","./auth.html",
-  "./manifest.webmanifest","./assets/greenfarm.css","./assets/app-ui.css","./assets/app-ui.css?v=greenfarm-v21",
+  "./manifest.webmanifest","./assets/greenfarm.css?v=greenfarm-v23","./assets/app-ui.css","./assets/app-ui.css?v=greenfarm-v21",
   "./assets/app-ui.js","./assets/app-ui.js?v=greenfarm-v21","./assets/module-views.css?v=greenfarm-v21",
   "./assets/module-views.js?v=greenfarm-v21","./assets/dashboard.js?v=greenfarm-v21",
   "./assets/farm.js?v=greenfarm-v21","./assets/advanced.js?v=greenfarm-v21",

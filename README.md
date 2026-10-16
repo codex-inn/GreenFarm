@@ -14,7 +14,7 @@ See [PROJECT-REPORT.md](PROJECT-REPORT.md) for the project objectives, methodolo
 - **Analytics:** monthly income and expense comparisons, crop-wise harvest value, tagged costs and yield per acre from entered records.
 - **Reports:** date-filtered printable record summary and CSV export.
 - **Workspace:** crop, livestock, weather, soil, irrigation, scouting, harvest, finance, inventory, profile, prediction and backup tools. Crop and scouting records can include compressed local photos.
-- **Farm Center:** fields, crop plans, irrigation schedules, inputs, pest logs, finance, harvest, inventory, equipment, tasks, diary and farmer profile.
+- **Farm Center:** fields, crop plans, irrigation schedules, inputs, pest logs, finance, harvest, inventory, equipment, tasks, diary and farmer profile.\n- **Farm Planner:** calendar across both stores, crop lifecycle updates, quick diary capture, global search, inventory reorder alerts, and combined JSON backup/restore.
 
 ## Architecture and data
 

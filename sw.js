@@ -1,13 +1,13 @@
-const CACHE = "greenfarm-v24";
+const CACHE = "greenfarm-v25";
 const CORE = [
   "./","./index.html","./dashboard.html","./crops.html","./livestock.html","./activities.html",
   "./analytics.html","./reports.html","./farm.html","./advanced.html","./admin.html","./auth.html",
-  "./manifest.webmanifest","./assets/greenfarm.css?v=greenfarm-v24","./assets/app-ui.css","./assets/app-ui.css?v=greenfarm-v24",
-  "./assets/app-ui.js","./assets/app-ui.js?v=greenfarm-v24","./assets/module-views.css?v=greenfarm-v24",
-  "./assets/module-views.js?v=greenfarm-v24","./assets/dashboard.js?v=greenfarm-v24",
-  "./assets/farm.js?v=greenfarm-v24","./assets/advanced.js?v=greenfarm-v24",
+  "./manifest.webmanifest","./assets/greenfarm.css?v=greenfarm-v25","./assets/app-ui.css","./assets/app-ui.css?v=greenfarm-v25",
+  "./assets/app-ui.js","./assets/app-ui.js?v=greenfarm-v25","./assets/module-views.css?v=greenfarm-v25",
+  "./assets/module-views.js?v=greenfarm-v25","./assets/dashboard.js?v=greenfarm-v25",
+  "./assets/farm.js?v=greenfarm-v25","./assets/advanced.js?v=greenfarm-v25",
   "./assets/farm.css","./assets/advanced.css","./assets/greenfarm-logo.svg",
-  "./assets/greenfarm-sunrise-header.webp?v=greenfarm-v24","./assets/greenfarm-3d-farm.png?v=greenfarm-v24"
+  "./assets/greenfarm-sunrise-header.webp?v=greenfarm-v25","./assets/greenfarm-3d-farm.png?v=greenfarm-v25"
 ];
 async function cacheSuccessful(cache, request, response) {
   if (response && response.ok && response.type !== "opaque") {

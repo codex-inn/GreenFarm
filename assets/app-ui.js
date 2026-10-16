@@ -122,6 +122,48 @@
     }
   }
 
+  // Showcase controls: remove only tagged DEMO entries; never touch real records.
+  const demoDisabled = localStorage.getItem("greenfarm.demo-disabled") === "1";
+  const demoBanner = document.createElement("aside");
+  demoBanner.setAttribute("aria-label", "GreenFarm demo data notice");
+  demoBanner.style.cssText = "margin:12px auto;padding:10px 14px;max-width:1200px;border:1px solid #d7b86a;border-radius:12px;background:#fff9e8;color:#4b3b14;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:14px";
+  const demoText = document.createElement("span");
+  demoText.textContent = demoDisabled ? "Showcase DEMO records are currently hidden on this browser." : "Showcase mode: sample farm entries are labelled DEMO. They are illustrative, not real farm data.";
+  const demoButton = document.createElement("button");
+  demoButton.type = "button";
+  demoButton.textContent = demoDisabled ? "Restore demo records" : "Remove demo records";
+  demoButton.style.cssText = "border:1px solid #7c6425;border-radius:8px;background:#fff;padding:7px 10px;color:#4b3b14;cursor:pointer;font:inherit";
+  demoButton.addEventListener("click", () => {
+    if (demoDisabled) {
+      localStorage.removeItem("greenfarm.demo-disabled");
+      location.reload();
+      return;
+    }
+    if (!confirm("Remove only sample DEMO records from this browser? Real records will be kept.")) return;
+    const removeDemo = value => {
+      if (Array.isArray(value)) return value.filter(row => !(row && row.demo === true));
+      if (value && typeof value === "object") {
+        Object.keys(value).forEach(key => { if (Array.isArray(value[key])) value[key] = removeDemo(value[key]); });
+      }
+      return value;
+    };
+    try {
+      const workspace = JSON.parse(localStorage.getItem("greenfarm.v2") || "{}");
+      const center = JSON.parse(localStorage.getItem("greenfarm.advanced.v1") || "{}");
+      if (workspace && workspace.records) removeDemo(workspace.records);
+      removeDemo(center);
+      localStorage.setItem("greenfarm.v2", JSON.stringify(workspace));
+      localStorage.setItem("greenfarm.advanced.v1", JSON.stringify(center));
+      localStorage.setItem("greenfarm.demo-disabled", "1");
+      location.reload();
+    } catch (_) {
+      alert("Could not update demo records. Your saved records were not intentionally cleared.");
+    }
+  });
+  demoBanner.append(demoText, demoButton);
+  const pageMain = document.querySelector("main");
+  if (pageMain) pageMain.parentNode.insertBefore(demoBanner, pageMain);
+
   const readStore = (key) => {
     try {
       const value = JSON.parse(localStorage.getItem(key) || "null");

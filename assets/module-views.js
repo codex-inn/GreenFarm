@@ -31,7 +31,7 @@
     return taskRows;
   }
   function rowMarkup(row,page){
-    return '<article class="record-card"><div class="record-card-top"><span class="record-source">'+esc(row.viewType)+'</span><span class="record-status '+(row.viewOverdue?"is-late":"")+'">'+esc(row.viewOverdue?"Overdue":row.viewStatus||"Recorded")+'</span></div><h2>'+esc(row.viewTitle)+'</h2><p>'+esc(row.viewDetail||"No additional details")+'</p><div class="record-card-bottom"><span>'+esc(row.viewDate||"Date not entered")+'</span><a href="'+row.viewHref+'">Open record →</a></div></article>';
+    return '<article class="record-card"><div class="record-card-top"><span class="record-source">'+esc(row.viewType)+'</span>'+(row.demo?'<span class="record-source is-demo">DEMO SAMPLE</span>':'')+'<span class="record-status '+(row.viewOverdue?"is-late":"")+'">'+esc(row.viewOverdue?"Overdue":row.viewStatus||"Recorded")+'</span></div><h2>'+esc(row.viewTitle)+'</h2><p>'+esc(row.viewDetail||"No additional details")+'</p><div class="record-card-bottom"><span>'+esc(row.viewDate||"Date not entered")+'</span><a href="'+row.viewHref+'">Open record →</a></div></article>';
   }
   const page=document.body.dataset.view || document.querySelector("[data-view]")?.dataset.view;
   if(["crops","livestock","activities"].includes(page)){

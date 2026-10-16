@@ -1,5 +1,6 @@
 (()=>{"use strict";
 const CORE="greenfarm.v2",CENTER="greenfarm.advanced.v1";
+if(localStorage.getItem("greenfarm.demo-disabled")==="1")return;
 const read=(key,fallback)=>{try{const x=JSON.parse(localStorage.getItem(key)||"null");return x&&typeof x==="object"&&!Array.isArray(x)?x:fallback}catch(_){return fallback}};
 const day=n=>{const d=new Date();d.setDate(d.getDate()+n);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
 const tag=x=>({...x,id:"demo-"+Math.random().toString(36).slice(2)+Date.now().toString(36),demo:true,recordLabel:"DEMO"});

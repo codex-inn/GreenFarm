@@ -36,3 +36,8 @@ See [PROJECT-REPORT.md](PROJECT-REPORT.md) for the project objectives, methodolo
 ## Limitations and next steps
 
 Data is local to one browser and does not synchronize across devices. It is not a live weather or agronomy service. If expanding the app, keep the academic project report and manual acceptance checklist current while keeping existing records and static deployment intact.
+## Showcase demo records
+
+GreenFarm automatically adds clearly labelled sample `DEMO` entries in each visitor's browser the first time the site loads. Examples cover crops, livestock, weather, soil, irrigation, scouting, harvest, finance, inventory, crop plans, fields, fertilizer, seeds, equipment, tasks and diary entries. Sample weather, soil values, harvest quantities and prices are illustrative only, not live data or agronomic advice.
+
+The website is static and uses LocalStorage, so demo data is seeded independently on each visitor's device; it is not a shared server-side dataset and does not change the repository for each visitor. Existing records are preserved. Use the site-wide **Remove demo records** control to remove only entries tagged as demo; the control can restore demo records later.

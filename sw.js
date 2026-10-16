@@ -1,4 +1,4 @@
-const CACHE = "greenfarm-v21";
+const CACHE = "greenfarm-v22";
 const CORE = [
   "./","./index.html","./dashboard.html","./crops.html","./livestock.html","./activities.html",
   "./analytics.html","./reports.html","./farm.html","./advanced.html","./admin.html","./auth.html",

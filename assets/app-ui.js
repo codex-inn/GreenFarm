@@ -3,6 +3,7 @@
 
   const lastPathPart = location.pathname.split("/").filter(Boolean).pop() || "";
   const current = /\.html?$/i.test(lastPathPart) ? lastPathPart : "index.html";
+  const primaryPages = new Set(["index.html", "dashboard.html", "farm.html", "advanced.html"]);
   const pageLabels = {
     "index.html": ["🏠", "Home"],
     "dashboard.html": ["📊", "Dashboard"],
@@ -13,7 +14,7 @@
     "reports.html": ["📄", "Reports"],
     "farm.html": ["🧰", "Workspace"],
     "advanced.html": ["🌱", "Farm Center"],
-    "admin.html": ["⚙️", "Admin"]
+    "admin.html": ["⚙️", "Settings"]
   };
   const titles = {
     "index.html": "Farm Home",
@@ -32,28 +33,81 @@
   document.title = (titles[current] || "GreenFarm") + " | GreenFarm";
   const nav = document.querySelector(".gf-nav");
   if (nav) {
+    const links = [...nav.querySelectorAll(".nav-links a[href]")];
+    const currentIsSecondary = !primaryPages.has(current);
+
+    links.forEach((link) => {
+      const target = new URL(link.href, location.href).pathname.split("/").filter(Boolean).pop() || "index.html";
+      const [icon, label] = pageLabels[target] || ["•", link.textContent.trim()];
+      link.replaceChildren();
+      const iconEl = document.createElement("span");
+      iconEl.className = "nav-icon";
+      iconEl.setAttribute("aria-hidden", "true");
+      iconEl.textContent = icon;
+      const labelEl = document.createElement("span");
+      labelEl.className = "nav-label";
+      labelEl.textContent = label;
+      link.append(iconEl, labelEl);
+      if (target === current) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.classList.remove("active");
+        link.removeAttribute("aria-current");
+      }
+      if (!primaryPages.has(target)) link.classList.add("gf-secondary-nav");
+    });
+
     const list = nav.querySelector(".nav-links");
-    if (list) {
-      list.querySelectorAll(".gf-more-toggle").forEach((el) => el.remove());
-      nav.querySelectorAll(".gf-mobile-more").forEach((el) => el.remove());
-      [...list.querySelectorAll("a[href]")].forEach((link) => {
-        const target = new URL(link.href, location.href).pathname.split("/").filter(Boolean).pop() || "index.html";
-        const [icon, label] = pageLabels[target] || ["•", link.textContent.trim()];
-        const iconEl = document.createElement("span");
-        iconEl.className = "nav-icon";
-        iconEl.setAttribute("aria-hidden", "true");
-        iconEl.textContent = icon;
-        const labelEl = document.createElement("span");
-        labelEl.className = "nav-label";
-        labelEl.textContent = label;
-        link.replaceChildren(iconEl, labelEl);
-        link.classList.remove("gf-secondary-nav");
-        if (target === current) {
-          link.classList.add("active");
-          link.setAttribute("aria-current", "page");
-        } else {
-          link.classList.remove("active");
-          link.removeAttribute("aria-current");
+    const secondaryLinks = links.filter((link) => link.classList.contains("gf-secondary-nav"));
+    if (list && secondaryLinks.length) {
+      const panel = document.createElement("div");
+      panel.className = "gf-mobile-more";
+      panel.id = "gf-mobile-more-panel";
+      panel.setAttribute("aria-label", "More GreenFarm pages");
+      secondaryLinks.forEach((link) => {
+        const clone = link.cloneNode(true);
+        if (link.getAttribute("aria-current") === "page") {
+          clone.classList.add("active");
+          clone.setAttribute("aria-current", "page");
+        }
+        panel.append(clone);
+      });
+      const toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "gf-more-toggle";
+      toggle.setAttribute("aria-controls", panel.id);
+      toggle.setAttribute("aria-haspopup", "true");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.innerHTML = '<span class="nav-icon" aria-hidden="true">☰</span><span class="nav-label">More</span>';
+      if (currentIsSecondary) toggle.classList.add("is-current");
+      toggle.addEventListener("click", () => {
+        const open = nav.classList.toggle("gf-more-open");
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.querySelector(".nav-label").textContent = open ? "Close" : "More";
+      });
+      panel.addEventListener("click", (event) => {
+        if (event.target.closest("a")) {
+          nav.classList.remove("gf-more-open");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+      const container = nav.querySelector(".container") || nav;
+      container.insertBefore(panel, list);
+      list.append(toggle);
+      document.addEventListener("click", (event) => {
+        if (!nav.contains(event.target) && nav.classList.contains("gf-more-open")) {
+          nav.classList.remove("gf-more-open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.querySelector(".nav-label").textContent = "More";
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && nav.classList.contains("gf-more-open")) {
+          nav.classList.remove("gf-more-open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.querySelector(".nav-label").textContent = "More";
+          toggle.focus();
         }
       });
     }

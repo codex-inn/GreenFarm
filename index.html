@@ -8,7 +8,7 @@
   <title>Farm Home | GreenFarm</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="assets/greenfarm.css">
-  <link rel="stylesheet" href="assets/app-ui.css?v=greenfarm-v17"><link rel="stylesheet" href="assets/module-views.css?v=greenfarm-v17">
+  <link rel="stylesheet" href="assets/app-ui.css?v=greenfarm-v18"><link rel="stylesheet" href="assets/module-views.css?v=greenfarm-v18">
 </head>
 <body>
   <nav class="gf-nav" aria-label="Main navigation">
@@ -28,6 +28,26 @@
       </div>
     </div>
   </nav>
+  <style>
+    .gf-home-art img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 230px;
+      border-radius: 20px;
+      object-fit: cover;
+      object-position: center 55%;
+    }
+    .gf-home-art {
+      min-width: 0;
+      width: 100%;
+      align-self: stretch;
+      background: #315f3e url("assets/greenfarm-sunrise-header.webp?v=greenfarm-v18") center 55% / cover no-repeat;
+    }
+    @media (max-width: 700px) {
+      .gf-home-art img { min-height: 205px; }
+    }
+  </style>
   <main><div class="gf-home-page">
   <section class="gf-home-banner" aria-labelledby="home-title">
     <div class="gf-home-copy">
@@ -40,7 +60,7 @@
       </div>
     </div>
     <div class="gf-home-art">
-      <img src="assets/greenfarm-sunrise-header.webp?v=greenfarm-v17" alt="Farmer walking beside green rice fields in Tamil Nadu" width="1536" height="1024" fetchpriority="high">
+      <img src="assets/greenfarm-sunrise-header.webp?v=greenfarm-v18" alt="Farmer walking beside green rice fields in Tamil Nadu" width="1536" height="1024" fetchpriority="high">
     </div>
   </section>
   <section class="gf-home-video" aria-labelledby="home-animation-title">

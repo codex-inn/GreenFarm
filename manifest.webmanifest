@@ -5,7 +5,7 @@
   "display": "standalone",
   "background_color": "#f4f7f2",
   "theme_color": "#173e2d",
-  "description": "Smart Digital Farm Management System",
+  "description": "Smart Digital Farm Management System with crop plans, farm calendar and local reports.",
   "icons": [
     {
       "src": "assets/greenfarm-logo.svg",
